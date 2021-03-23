@@ -1,11 +1,11 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package model;
 
+import java.util.ArrayList;
 import java.util.List;
+import java.sql.SQLException;
+import java.sql.ResultSet;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 
 /**
  *
@@ -15,28 +15,47 @@ public class MVideo extends Video implements CRUD {
 
     private static ConexionMySQL con = ConexionMySQL.getInstance();
 
-    public MVideo(String id, String duracion) {
-        super(id, duracion);
+    public MVideo(String id, String duracion, String dir) {
+        super(id, duracion, dir);
     }
 
     @Override
     public boolean crear() {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        String sql = "CALL crear_video ("
+                + "'" + getDuracion() + "', "
+                + "'" + getDir() + "' "
+                + ")";
+        return (con.noQuery(sql) == null);
     }
 
     @Override
     public boolean editar() {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        String sql = "CALL editar_video ("
+                + "'" + getId() + "', "
+                + "'" + getDuracion() + "', "
+                + "'" + getDir() + "' "
+                + ")";
+        return (con.noQuery(sql) == null);
     }
 
     @Override
     public boolean eliminar() {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        String sql = "DELETE FROM videos WHERE id='" + getId() + "'";
+        return (con.noQuery(sql) == null);
     }
 
     @Override
-    public List listar() {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    public List<Video> listar() {
+        String sql = "SELECT * FROM vista_videos";
+        List<Video> list = new ArrayList<>();
+        try (ResultSet rs = con.query(sql)) {
+            while (rs.next()) {
+                list.add(new Video(rs.getString("id"), rs.getString("duracion"), rs.getString("dir")));
+            }
+        } catch (SQLException ex) {
+            Logger.getLogger(MVideo.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        return list;
     }
 
     @Override

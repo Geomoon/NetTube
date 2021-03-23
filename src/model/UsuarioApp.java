@@ -14,6 +14,9 @@ import java.util.Date;
  */
 public class UsuarioApp extends Usuario {
 
+    public UsuarioApp() {
+    }
+
     public UsuarioApp(String id, String nombre, String apellido, String email, String password, Date fechaNac, Image foto) {
         super(id, nombre, apellido, email, password, fechaNac, foto);
     }

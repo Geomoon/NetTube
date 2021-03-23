@@ -1,12 +1,12 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package model;
 
 import java.awt.Image;
 import java.util.List;
+import java.sql.ResultSet;
+import java.sql.SQLException;
+import java.util.ArrayList;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 
 /**
  *
@@ -22,22 +22,55 @@ public class MSerie extends Serie implements CRUD {
 
     @Override
     public boolean crear() {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        String sql = "CALL crear_serie ("
+                + "'" + getTitulo() + "', "
+                + "'" + getImagen() + "', "
+                + "'" + getDescripcion() + "', "
+                + "'" + getCategoria().getId() + "'"
+                + ")";
+        return (con.noQuery(sql) == null);
     }
 
     @Override
     public boolean editar() {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        String sql = "CALL editar_serie ("
+                + "'" + getId() + "', "
+                + "'" + getTitulo() + "', "
+                + "'" + getImagen() + "', "
+                + "'" + getDescripcion() + "', "
+                + "'" + getCategoria().getId() + "'"
+                + ")";
+        return (con.noQuery(sql) == null);
     }
 
     @Override
     public boolean eliminar() {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        String sql = "DELETE FROM series WHERE id='" + getId() + "'";
+        return (con.noQuery(sql) == null);
     }
 
     @Override
-    public List listar() {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    public List<Serie> listar() {
+        String sql = "SELECT * FROM vista_series";
+        List<Serie> list = new ArrayList<>();
+        try (ResultSet rs = con.query(sql)) {
+            while (rs.next()) {
+                list.add(new Serie(
+                        rs.getString("id"),
+                        rs.getString("titulo"),
+                        rs.getString("descripcion"),
+                        Utils.toImage(rs.getBytes("portada")),
+                        new Categoria(
+                                rs.getString("categoria_id"),
+                                rs.getString("nombre"),
+                                ""),
+                        null
+                ));
+            }
+        } catch (SQLException ex) {
+            Logger.getLogger(MSerie.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        return list;
     }
 
     @Override

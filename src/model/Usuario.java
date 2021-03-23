@@ -17,6 +17,9 @@ public abstract class Usuario {
     protected Date fechaNac;
     protected Image foto;
 
+    public Usuario() {
+    }
+
     public Usuario(String id, String nombre, String apellido, String email, String password, Date fechaNac, Image foto) {
         this.id = id;
         this.nombre = nombre;
@@ -82,5 +85,5 @@ public abstract class Usuario {
     public void setFoto(Image foto) {
         this.foto = foto;
     }
-    
+
 }

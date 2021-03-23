@@ -1,11 +1,11 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package model;
 
 import java.util.List;
+import java.sql.SQLException;
+import java.sql.ResultSet;
+import java.util.ArrayList;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 
 /**
  *
@@ -15,28 +15,53 @@ public class MCategoria extends Categoria implements CRUD {
 
     private static ConexionMySQL con = ConexionMySQL.getInstance();
 
+    public MCategoria() {
+    }
+
     public MCategoria(String id, String nombre, String descripcion) {
         super(id, nombre, descripcion);
     }
 
     @Override
     public boolean crear() {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        String sql = "CALL crear_categoria ("
+                + "'" + getNombre() + "', "
+                + "'" + getDescripcion() + "' "
+                + "')";
+        return (con.noQuery(sql) == null);
     }
 
     @Override
     public boolean editar() {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        String sql = "CALL editar_categoria ("
+                + "'" + getId() + "', "
+                + "'" + getNombre() + "', "
+                + "'" + getDescripcion() + "' "
+                + "')";
+        return (con.noQuery(sql) == null);
     }
 
     @Override
     public boolean eliminar() {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        String sql = "DELETE FROM categorias WHERE id='" + getId() + "'";
+        return (con.noQuery(sql) == null);
     }
 
     @Override
-    public List listar() {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    public List<Categoria> listar() {
+        String sql = "SELECT * FROM vista_categorias";
+        List<Categoria> list = new ArrayList<>();
+        try (ResultSet rs = con.query(sql)) {
+            while (rs.next()) {
+                list.add(new Categoria(
+                        rs.getString("id"),
+                        rs.getString("nombre"),
+                        rs.getString("descripcion")));
+            }
+        } catch (SQLException ex) {
+            Logger.getLogger(MCategoria.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        return list;
     }
 
     @Override

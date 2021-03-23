@@ -15,8 +15,8 @@ import java.util.logging.Logger;
 public class ConexionMySQL {
 
     //private String url = "jdbc:mysql://192.168.0.121:3306/nettubedb";
-    //private String url = "jdbc:mysql://190.57.140.95:3306/nettubedb";
-    private String url = "jdbc:mysql://localhost:3306/nettubedb";
+    //private String url = "jdbc:mysql://190.57.140.95:3306/nettubedb";     //conexión server
+    private String url = "jdbc:mysql://localhost:3306/nettubedb?serverTimezone=UTC";
 
     private String user = "root";
     private String password = "357190solrac";
@@ -42,7 +42,8 @@ public class ConexionMySQL {
     }
 
     public ResultSet query(String sql) {
-        try (Statement st = con.createStatement()) {
+        try {
+            Statement st = con.createStatement();
             return st.executeQuery(sql);
         } catch (SQLException ex) {
             Logger.getLogger(ConexionMySQL.class.getName()).log(Level.SEVERE, null, ex);

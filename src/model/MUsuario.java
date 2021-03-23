@@ -1,13 +1,13 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package model;
 
 import java.awt.Image;
 import java.util.Date;
 import java.util.List;
+import java.sql.ResultSet;
+import java.sql.SQLException;
+import java.util.ArrayList;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 
 /**
  *
@@ -17,32 +17,70 @@ public class MUsuario extends UsuarioApp implements CRUD {
 
     private static ConexionMySQL con = ConexionMySQL.getInstance();
 
+    public MUsuario() {
+    }
+
     public MUsuario(String id, String nombre, String apellido, String email, String password, Date fechaNac, Image foto) {
         super(id, nombre, apellido, email, password, fechaNac, foto);
     }
 
     @Override
     public boolean crear() {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        String sql = "CALL crear_usuario ("
+                + "'" + getNombre() + "', "
+                + "'" + getApellido() + "', "
+                + "'" + getEmail() + "', "
+                + "'" + getPassword() + "', "
+                + "'" + new java.sql.Date(getFechaNac().getTime()) + "', "
+                + "'" + getFoto() + "', "
+                + "'')";
+        return (con.noQuery(sql) == null);
     }
 
     @Override
     public boolean editar() {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        String sql = "CALL editar_usuario ("
+                + "'" + getId() + "', "
+                + "'" + getNombre() + "', "
+                + "'" + getApellido() + "', "
+                + "'" + getEmail() + "', "
+                + "'" + getPassword() + "', "
+                + "'" + new java.sql.Date(getFechaNac().getTime()) + "', "
+                + "'" + getFoto() + "', "
+                + "'')";
+        return (con.noQuery(sql) == null);
     }
 
     @Override
     public boolean eliminar() {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        String sql = "DELETE FROM usuarios WHERE id='" + getId() + "'";
+        return (con.noQuery(sql) == null);
     }
 
     @Override
-    public List listar() {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    public List<Usuario> listar() {
+        List<Usuario> list = new ArrayList<>();
+        String sql = "SELECT * FROM vista_usuarios";
+        try (ResultSet rs = con.query(sql)) {
+            while (rs.next()) {
+                list.add(new UsuarioApp(
+                        rs.getString("id"),
+                        rs.getString("nombre"),
+                        rs.getString("apellido"),
+                        rs.getString("email"),
+                        rs.getString("password"),
+                        rs.getDate("fecha_nacimiento"),
+                        Utils.toImage(rs.getBytes("foto"))
+                ));
+            }
+        } catch (SQLException ex) {
+            Logger.getLogger(MUsuario.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        return list;
     }
 
     @Override
-    public Object buscar(String id) {
+    public Object buscar(String campo) {
         throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
 

@@ -13,10 +13,12 @@ public class Video {
 
     private String id;
     private String duracion;
+    private String dir;
 
-    public Video(String id, String duracion) {
+    public Video(String id, String duracion, String dir) {
         this.id = id;
         this.duracion = duracion;
+        this.dir = dir;
     }
 
     public String getId() {
@@ -33,6 +35,14 @@ public class Video {
 
     public void setDuracion(String duracion) {
         this.duracion = duracion;
+    }
+
+    public String getDir() {
+        return dir;
+    }
+
+    public void setDir(String dir) {
+        this.dir = dir;
     }
 
 }
