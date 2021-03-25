@@ -15,7 +15,7 @@ import java.util.logging.Logger;
 public class ConexionMySQL {
 
     //private String url = "jdbc:mysql://192.168.0.121:3306/nettubedb";
-    //private String url = "jdbc:mysql://localhost:3306/nettubedb?serverTimezone=UTC";
+    private String url = "jdbc:mysql://localhost:3306/nettubedb?serverTimezone=UTC";
 
     private String user = "clientenettube";
     private String password = "cliente357190";
