@@ -8,6 +8,7 @@ package vista;
 import com.toedter.calendar.JDateChooser;
 import javax.swing.JButton;
 import javax.swing.JLabel;
+import javax.swing.JPasswordField;
 import javax.swing.JRadioButton;
 import javax.swing.JTextField;
 
@@ -33,6 +34,7 @@ public class vistaRegistro extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
+        btnGroupUsuario = new javax.swing.ButtonGroup();
         jPanel1 = new javax.swing.JPanel();
         jLabel3 = new javax.swing.JLabel();
         jLabel1 = new javax.swing.JLabel();
@@ -43,7 +45,6 @@ public class vistaRegistro extends javax.swing.JFrame {
         btnRegistrarse = new javax.swing.JButton();
         btnCancelar = new javax.swing.JButton();
         jLabel5 = new javax.swing.JLabel();
-        textContraseña = new javax.swing.JTextField();
         jDateNacimiento = new com.toedter.calendar.JDateChooser();
         jLabel6 = new javax.swing.JLabel();
         btnExaminar = new javax.swing.JButton();
@@ -52,6 +53,7 @@ public class vistaRegistro extends javax.swing.JFrame {
         jLabel7 = new javax.swing.JLabel();
         radbtnCliente = new javax.swing.JRadioButton();
         radbtnAdmin = new javax.swing.JRadioButton();
+        textContrasena = new javax.swing.JPasswordField();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -70,8 +72,10 @@ public class vistaRegistro extends javax.swing.JFrame {
         jLabel2.setText("CORREO");
 
         textNombre.setBackground(new java.awt.Color(63, 25, 56));
+        textNombre.setForeground(new java.awt.Color(255, 255, 255));
 
         textCorreo.setBackground(new java.awt.Color(63, 25, 56));
+        textCorreo.setForeground(new java.awt.Color(255, 255, 255));
 
         jLabel4.setBackground(new java.awt.Color(0, 0, 0));
         jLabel4.setOpaque(true);
@@ -89,8 +93,6 @@ public class vistaRegistro extends javax.swing.JFrame {
         jLabel5.setFont(new java.awt.Font("Segoe UI", 1, 11)); // NOI18N
         jLabel5.setForeground(new java.awt.Color(255, 255, 255));
         jLabel5.setText("CONTRASEÑA");
-
-        textContraseña.setBackground(new java.awt.Color(63, 25, 56));
 
         jLabel6.setFont(new java.awt.Font("Segoe UI", 1, 11)); // NOI18N
         jLabel6.setForeground(new java.awt.Color(255, 255, 255));
@@ -110,13 +112,20 @@ public class vistaRegistro extends javax.swing.JFrame {
         jLabel7.setText("TIPO DE USUARIO");
 
         radbtnCliente.setBackground(new java.awt.Color(38, 11, 32));
+        btnGroupUsuario.add(radbtnCliente);
         radbtnCliente.setFont(new java.awt.Font("Segoe UI", 0, 11)); // NOI18N
         radbtnCliente.setForeground(new java.awt.Color(255, 255, 255));
         radbtnCliente.setText("CLIENTE");
 
         radbtnAdmin.setBackground(new java.awt.Color(38, 11, 32));
+        btnGroupUsuario.add(radbtnAdmin);
         radbtnAdmin.setForeground(new java.awt.Color(255, 255, 255));
         radbtnAdmin.setText("ADMIN");
+
+        textContrasena.setBackground(new java.awt.Color(63, 25, 56));
+        textContrasena.setForeground(new java.awt.Color(255, 255, 255));
+        textContrasena.setMinimumSize(new java.awt.Dimension(15, 24));
+        textContrasena.setPreferredSize(new java.awt.Dimension(15, 24));
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
@@ -132,20 +141,19 @@ public class vistaRegistro extends javax.swing.JFrame {
                                 .addGroup(jPanel1Layout.createSequentialGroup()
                                     .addComponent(jLabel6)
                                     .addGap(18, 18, 18)
-                                    .addComponent(jDateNacimiento, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                                    .addGroup(javax.swing.GroupLayout.Alignment.LEADING, jPanel1Layout.createSequentialGroup()
-                                        .addComponent(jLabel5)
-                                        .addGap(18, 18, 18)
-                                        .addComponent(textContraseña, javax.swing.GroupLayout.PREFERRED_SIZE, 189, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                    .addGroup(jPanel1Layout.createSequentialGroup()
-                                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                            .addComponent(jLabel2)
-                                            .addComponent(jLabel1))
-                                        .addGap(44, 44, 44)
-                                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                                            .addComponent(textCorreo, javax.swing.GroupLayout.DEFAULT_SIZE, 189, Short.MAX_VALUE)
-                                            .addComponent(textNombre)))))
+                                    .addComponent(jDateNacimiento, javax.swing.GroupLayout.DEFAULT_SIZE, 137, Short.MAX_VALUE))
+                                .addGroup(jPanel1Layout.createSequentialGroup()
+                                    .addComponent(jLabel5)
+                                    .addGap(18, 18, 18)
+                                    .addComponent(textContrasena, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                                .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
+                                    .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                        .addComponent(jLabel2)
+                                        .addComponent(jLabel1))
+                                    .addGap(44, 44, 44)
+                                    .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                                        .addComponent(textCorreo, javax.swing.GroupLayout.DEFAULT_SIZE, 189, Short.MAX_VALUE)
+                                        .addComponent(textNombre))))
                             .addGroup(jPanel1Layout.createSequentialGroup()
                                 .addComponent(jLabel7)
                                 .addGap(38, 38, 38)
@@ -197,7 +205,7 @@ public class vistaRegistro extends javax.swing.JFrame {
                                 .addGap(18, 18, 18)
                                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                                     .addComponent(jLabel5)
-                                    .addComponent(textContraseña, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                    .addComponent(textContrasena, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                                 .addGap(18, 18, 18)
                                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                                     .addComponent(jLabel6)
@@ -287,12 +295,12 @@ public class vistaRegistro extends javax.swing.JFrame {
         this.lblFoto = lbFoto;
     }
 
-    public JTextField getTextContraseña() {
-        return textContraseña;
+    public JPasswordField getTextContrasena() {
+        return textContrasena;
     }
 
-    public void setTextContraseña(JTextField textContraseña) {
-        this.textContraseña = textContraseña;
+    public void setTextContrasena(JPasswordField textContrasena) {
+        this.textContrasena = textContrasena;
     }
 
     public JTextField getTextCorreo() {
@@ -310,11 +318,12 @@ public class vistaRegistro extends javax.swing.JFrame {
     public void setTextNombre(JTextField textNombre) {
         this.textNombre = textNombre;
     }
-  
+
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnCancelar;
     private javax.swing.JButton btnExaminar;
+    private javax.swing.ButtonGroup btnGroupUsuario;
     private javax.swing.JButton btnRegistrarse;
     private com.toedter.calendar.JDateChooser jDateNacimiento;
     private javax.swing.JLabel jLabel1;
@@ -329,7 +338,7 @@ public class vistaRegistro extends javax.swing.JFrame {
     private javax.swing.JLabel lblFoto;
     private javax.swing.JRadioButton radbtnAdmin;
     private javax.swing.JRadioButton radbtnCliente;
-    private javax.swing.JTextField textContraseña;
+    private javax.swing.JPasswordField textContrasena;
     private javax.swing.JTextField textCorreo;
     private javax.swing.JTextField textNombre;
     // End of variables declaration//GEN-END:variables

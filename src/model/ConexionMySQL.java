@@ -17,8 +17,11 @@ public class ConexionMySQL {
     //private String url = "jdbc:mysql://192.168.0.121:3306/nettubedb";
     private String url = "jdbc:mysql://localhost:3306/nettubedb?serverTimezone=UTC";
 
-    private String user = "clientenettube";
-    private String password = "cliente357190";
+    //private String user = "clientenettube";
+    //private String password = "cliente357190";
+    private String user = "root";
+    private String password = "357190solrac";
+    
 
     private Connection con;
 
@@ -60,7 +63,4 @@ public class ConexionMySQL {
         }
     }
 
-    public static void main(String[] args) {
-        ConexionMySQL.getInstance();
-    }
 }
