@@ -32,7 +32,7 @@ public class MUsuario extends UsuarioApp implements CRUD {
                 + "'" + getEmail() + "', "
                 + "'" + getPassword() + "', "
                 + "'" + new java.sql.Date(getFechaNac().getTime()) + "', "
-                + "'" + getFoto() + "', "
+                + "'" + Utils.toStream(getFoto()) + "', "
                 + "'')";
         return (con.noQuery(sql) == null);
     }
@@ -46,7 +46,7 @@ public class MUsuario extends UsuarioApp implements CRUD {
                 + "'" + getEmail() + "', "
                 + "'" + getPassword() + "', "
                 + "'" + new java.sql.Date(getFechaNac().getTime()) + "', "
-                + "'" + getFoto() + "', "
+                + "'" + Utils.toStream(getFoto()) + "', "
                 + "'')";
         return (con.noQuery(sql) == null);
     }

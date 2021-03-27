@@ -32,7 +32,7 @@ public class MAdmin extends Admin implements CRUD {
                 + "'" + getEmail() + "', "
                 + "'" + getPassword() + "', "
                 + "'" + new java.sql.Date(getFechaNac().getTime()) + "', "
-                + "'" + getFoto() + "', "
+                + "'" + Utils.toStream(getFoto()) + "', "
                 + "1)";
         return (con.noQuery(sql) == null);
     }
@@ -46,7 +46,7 @@ public class MAdmin extends Admin implements CRUD {
                 + "'" + getEmail() + "', "
                 + "'" + getPassword() + "', "
                 + "'" + new java.sql.Date(getFechaNac().getTime()) + "', "
-                + "'" + getFoto() + "', "
+                + "'" + Utils.toStream(getFoto()) + "', "
                 + "'1')";
         return (con.noQuery(sql) == null);
     }

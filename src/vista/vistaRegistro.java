@@ -115,6 +115,7 @@ public class vistaRegistro extends javax.swing.JFrame {
         btnGroupUsuario.add(radbtnCliente);
         radbtnCliente.setFont(new java.awt.Font("Segoe UI", 0, 11)); // NOI18N
         radbtnCliente.setForeground(new java.awt.Color(255, 255, 255));
+        radbtnCliente.setSelected(true);
         radbtnCliente.setText("CLIENTE");
 
         radbtnAdmin.setBackground(new java.awt.Color(38, 11, 32));

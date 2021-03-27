@@ -7,11 +7,17 @@ package controlador;
 
 import java.awt.Image;
 import java.awt.image.BufferedImage;
+import java.io.File;
+import java.io.FileInputStream;
+import java.io.FileNotFoundException;
 import java.sql.Date;
 import java.time.Instant;
 import java.time.ZoneId;
 import java.time.ZonedDateTime;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import javax.swing.JLabel;
+import model.Utils;
 
 /**
  *
@@ -39,5 +45,21 @@ public class CUtils {
         ZoneId zi = ZoneId.of("America/Guayaquil");
         ZonedDateTime time = ZonedDateTime.ofInstant(instant, zi);
         return Date.valueOf(time.toLocalDate());
+    }
+
+    /**
+     * Convierte un archivo en flujo de streams para enviar a la base de datos
+     * (blob)
+     *
+     * @param file
+     * @return
+     */
+    protected static FileInputStream toStream(File file) {
+        try {
+            return new FileInputStream(file);
+        } catch (FileNotFoundException ex) {
+            Logger.getLogger(Utils.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        return null;
     }
 }

@@ -8,6 +8,7 @@ import java.util.logging.Logger;
 import javax.imageio.ImageIO;
 import javax.swing.ImageIcon;
 import javax.swing.JFileChooser;
+import javax.swing.JOptionPane;
 import javax.swing.filechooser.FileNameExtensionFilter;
 import model.MAdmin;
 import model.MUsuario;
@@ -50,7 +51,9 @@ public class CRegistro {
         if (usuario instanceof MAdmin) {
             ((MAdmin) usuario).crear();
         }
-        ((MUsuario) usuario).crear();
+        if (usuario instanceof MUsuario) {
+            ((MUsuario) usuario).crear();
+        }
     }
 
     private Usuario obtenerDatos() {
@@ -64,17 +67,30 @@ public class CRegistro {
         ImageIcon icon = (ImageIcon) vista.getLblFoto().getIcon();
         image = (icon != null) ? icon.getImage() : null;
 
-        if (vista.getRadbtnAdmin().isSelected()) {
-            usuario = new MAdmin();
+        if (Validaciones.validarNombre(nombre)) {
+            if (Validaciones.validarCorreo(correo)) {
+                if (fecha != null) {
+                    if (vista.getRadbtnAdmin().isSelected()) {
+                        usuario = new MAdmin();
+                    } else {
+                        usuario = new MUsuario();
+                    }
+                    usuario.setNombre(nombre);
+                    usuario.setPassword(password);
+                    usuario.setEmail(correo);
+                    usuario.setFechaNac(fecha);
+                    usuario.setFoto(image);
+                    return usuario;
+                } else {
+                    JOptionPane.showMessageDialog(vista, "Ingrese su fecha de nacimiento");
+                }
+            } else {
+                JOptionPane.showMessageDialog(vista, "Ingrese un correo válido");
+            }
         } else {
-            usuario = new MUsuario();
+            JOptionPane.showMessageDialog(vista, "Ingrese un nombre correcto");
         }
-        usuario.setNombre(nombre);
-        usuario.setPassword(password);
-        usuario.setEmail(correo);
-        usuario.setFechaNac(fecha);
-        usuario.setFoto(image);
-        return usuario;
+        return null;
     }
 
     private void cargarFoto() {
@@ -84,7 +100,10 @@ public class CRegistro {
 
         if (opcion == JFileChooser.APPROVE_OPTION) {
             try {
-                vista.getLblFoto().setIcon(new ImageIcon(CUtils.redimensionarImagen(ImageIO.read(jfc.getSelectedFile()), vista.getLblFoto())));
+                vista.getLblFoto().setIcon(
+                        new ImageIcon(
+                                CUtils.redimensionarImagen(ImageIO.read(jfc.getSelectedFile()), vista.getLblFoto())
+                        ));
             } catch (IOException ex) {
                 Logger.getLogger(CRegistro.class.getName()).log(Level.SEVERE, null, ex);
             }
@@ -101,10 +120,6 @@ public class CRegistro {
 
     public void setVista(vistaRegistro vista) {
         this.vista = vista;
-    }
-
-    public static void main(String[] args) {
-        new CRegistro(new MAdmin(), new MUsuario(), new vistaRegistro()).initControl();
     }
 
 }
