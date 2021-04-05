@@ -36,7 +36,10 @@ public class vistaPrincipal extends javax.swing.JFrame {
         btnBuscar = new javax.swing.JButton();
         jToolBar2 = new javax.swing.JToolBar();
         jLabel3 = new javax.swing.JLabel();
-        panelCartelera = new javax.swing.JPanel();
+        panelPeliculas = new javax.swing.JPanel();
+        jLabel1 = new javax.swing.JLabel();
+        jLabel2 = new javax.swing.JLabel();
+        panelSeries = new javax.swing.JPanel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setBackground(new java.awt.Color(38, 11, 32));
@@ -71,17 +74,40 @@ public class vistaPrincipal extends javax.swing.JFrame {
         jLabel3.setForeground(new java.awt.Color(255, 255, 255));
         jLabel3.setText("NetTube");
 
-        panelCartelera.setBackground(new java.awt.Color(38, 11, 32));
+        panelPeliculas.setBackground(new java.awt.Color(38, 11, 32));
+        panelPeliculas.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
 
-        javax.swing.GroupLayout panelCarteleraLayout = new javax.swing.GroupLayout(panelCartelera);
-        panelCartelera.setLayout(panelCarteleraLayout);
-        panelCarteleraLayout.setHorizontalGroup(
-            panelCarteleraLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+        javax.swing.GroupLayout panelPeliculasLayout = new javax.swing.GroupLayout(panelPeliculas);
+        panelPeliculas.setLayout(panelPeliculasLayout);
+        panelPeliculasLayout.setHorizontalGroup(
+            panelPeliculasLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 927, Short.MAX_VALUE)
+        );
+        panelPeliculasLayout.setVerticalGroup(
+            panelPeliculasLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 197, Short.MAX_VALUE)
+        );
+
+        jLabel1.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
+        jLabel1.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel1.setText("PELICULAS");
+
+        jLabel2.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
+        jLabel2.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel2.setText("SERIES");
+
+        panelSeries.setBackground(new java.awt.Color(38, 11, 32));
+        panelSeries.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
+
+        javax.swing.GroupLayout panelSeriesLayout = new javax.swing.GroupLayout(panelSeries);
+        panelSeries.setLayout(panelSeriesLayout);
+        panelSeriesLayout.setHorizontalGroup(
+            panelSeriesLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGap(0, 0, Short.MAX_VALUE)
         );
-        panelCarteleraLayout.setVerticalGroup(
-            panelCarteleraLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 404, Short.MAX_VALUE)
+        panelSeriesLayout.setVerticalGroup(
+            panelSeriesLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 199, Short.MAX_VALUE)
         );
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
@@ -104,7 +130,15 @@ public class vistaPrincipal extends javax.swing.JFrame {
                         .addComponent(btnBuscar)
                         .addGap(4, 4, 4))
                     .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addComponent(panelCartelera, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(panelPeliculas, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addContainerGap())
+                    .addGroup(jPanel1Layout.createSequentialGroup()
+                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 96, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(jLabel2))
+                        .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                    .addGroup(jPanel1Layout.createSequentialGroup()
+                        .addComponent(panelSeries, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                         .addContainerGap())))
         );
         jPanel1Layout.setVerticalGroup(
@@ -120,8 +154,14 @@ public class vistaPrincipal extends javax.swing.JFrame {
                         .addComponent(textBuscar, javax.swing.GroupLayout.PREFERRED_SIZE, 26, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addComponent(btnPerfil))
                     .addComponent(btnBuscar))
+                .addGap(18, 18, 18)
+                .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(panelPeliculas, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(18, 18, 18)
+                .addComponent(jLabel2)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(panelCartelera, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(panelSeries, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addContainerGap())
         );
 
@@ -138,6 +178,22 @@ public class vistaPrincipal extends javax.swing.JFrame {
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
+
+    public JPanel getPanelPeliculas() {
+        return panelPeliculas;
+    }
+
+    public void setPanelPeliculas(JPanel panelPeliculas) {
+        this.panelPeliculas = panelPeliculas;
+    }
+
+    public JPanel getPanelSeries() {
+        return panelSeries;
+    }
+
+    public void setPanelSeries(JPanel panelSeries) {
+        this.panelSeries = panelSeries;
+    }
 
     public JButton getBtnPerfil() {
         return btnPerfil;
@@ -156,11 +212,11 @@ public class vistaPrincipal extends javax.swing.JFrame {
     }
 
     public JPanel getPanelCartelera() {
-        return panelCartelera;
+        return panelPeliculas;
     }
 
     public void setPanelCartelera(JPanel panelCartelera) {
-        this.panelCartelera = panelCartelera;
+        this.panelPeliculas = panelCartelera;
     }
 
     public JTextField getTextBuscar() {
@@ -175,10 +231,13 @@ public class vistaPrincipal extends javax.swing.JFrame {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnBuscar;
     private javax.swing.JButton btnPerfil;
+    private javax.swing.JLabel jLabel1;
+    private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JToolBar jToolBar2;
-    private javax.swing.JPanel panelCartelera;
+    private javax.swing.JPanel panelPeliculas;
+    private javax.swing.JPanel panelSeries;
     private javax.swing.JTextField textBuscar;
     // End of variables declaration//GEN-END:variables
 }

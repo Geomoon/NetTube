@@ -6,8 +6,11 @@
 package vista;
 
 import javax.swing.JButton;
+import javax.swing.JComboBox;
+import javax.swing.JDialog;
 import javax.swing.JFrame;
 import javax.swing.JInternalFrame;
+import javax.swing.JLabel;
 import javax.swing.JPanel;
 import javax.swing.JTextField;
 
@@ -30,6 +33,49 @@ public class vistaPerfil extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
+        jDialogAgregar = new javax.swing.JDialog();
+        jPanel3 = new javax.swing.JPanel();
+        btnAgregarSeries = new javax.swing.JButton();
+        jLabel2 = new javax.swing.JLabel();
+        jSeparator2 = new javax.swing.JSeparator();
+        btnAgregarPeliculas = new javax.swing.JButton();
+        jDialogAgregarSeries = new javax.swing.JDialog();
+        jPanel4 = new javax.swing.JPanel();
+        btnCancelarSerie = new javax.swing.JButton();
+        jLabel4 = new javax.swing.JLabel();
+        jSeparator3 = new javax.swing.JSeparator();
+        btnAgregarFotoSerie = new javax.swing.JButton();
+        jLabel5 = new javax.swing.JLabel();
+        jLabel6 = new javax.swing.JLabel();
+        jLabel7 = new javax.swing.JLabel();
+        comboCategoriaSerie = new javax.swing.JComboBox<>();
+        lblFotoSerie = new javax.swing.JLabel();
+        textTituloSerie = new javax.swing.JTextField();
+        jSeparator4 = new javax.swing.JSeparator();
+        textDescripcionSerie = new javax.swing.JTextField();
+        panelCapitulosAgregados = new javax.swing.JPanel();
+        jLabel8 = new javax.swing.JLabel();
+        jLabel9 = new javax.swing.JLabel();
+        jLabel10 = new javax.swing.JLabel();
+        textTituloCapitulo = new javax.swing.JTextField();
+        textDescripcionCapitulo = new javax.swing.JTextField();
+        btnAgregarCapitulo = new javax.swing.JButton();
+        btnAgregarSerie = new javax.swing.JButton();
+        jDialogAgregarPeliculas = new javax.swing.JDialog();
+        jPanel5 = new javax.swing.JPanel();
+        btnCancelarPelicula = new javax.swing.JButton();
+        jLabel11 = new javax.swing.JLabel();
+        jSeparator5 = new javax.swing.JSeparator();
+        btnAgregarFotoPelicula = new javax.swing.JButton();
+        jLabel12 = new javax.swing.JLabel();
+        jLabel13 = new javax.swing.JLabel();
+        jLabel14 = new javax.swing.JLabel();
+        comboCategoriaPelicula = new javax.swing.JComboBox<>();
+        lblFotoPelicula = new javax.swing.JLabel();
+        textTituloPelicula = new javax.swing.JTextField();
+        jSeparator6 = new javax.swing.JSeparator();
+        textDescripcionPelicula = new javax.swing.JTextField();
+        btnAgregarPelicula = new javax.swing.JButton();
         jPanel1 = new javax.swing.JPanel();
         jToolBar2 = new javax.swing.JToolBar();
         jLabel3 = new javax.swing.JLabel();
@@ -42,8 +88,412 @@ public class vistaPerfil extends javax.swing.JFrame {
         jSeparator1 = new javax.swing.JSeparator();
         btnReportes = new javax.swing.JButton();
         btnAdmincontenido = new javax.swing.JButton();
-        jLabel1 = new javax.swing.JLabel();
-        jPanel2 = new javax.swing.JPanel();
+        lblFavoritos = new javax.swing.JLabel();
+        panelPerfil = new javax.swing.JPanel();
+        btnAgregar = new javax.swing.JButton();
+
+        jPanel3.setBackground(new java.awt.Color(38, 11, 32));
+
+        btnAgregarSeries.setBackground(new java.awt.Color(0, 0, 0));
+        btnAgregarSeries.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
+        btnAgregarSeries.setForeground(new java.awt.Color(255, 255, 255));
+        btnAgregarSeries.setText("SERIES");
+
+        jLabel2.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
+        jLabel2.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel2.setText("AGREGAR");
+
+        btnAgregarPeliculas.setBackground(new java.awt.Color(0, 0, 0));
+        btnAgregarPeliculas.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
+        btnAgregarPeliculas.setForeground(new java.awt.Color(255, 255, 255));
+        btnAgregarPeliculas.setText("PELICULAS");
+
+        javax.swing.GroupLayout jPanel3Layout = new javax.swing.GroupLayout(jPanel3);
+        jPanel3.setLayout(jPanel3Layout);
+        jPanel3Layout.setHorizontalGroup(
+            jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel3Layout.createSequentialGroup()
+                .addGap(23, 23, 23)
+                .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                    .addComponent(jSeparator2)
+                    .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                        .addGroup(jPanel3Layout.createSequentialGroup()
+                            .addGap(71, 71, 71)
+                            .addComponent(jLabel2))
+                        .addGroup(jPanel3Layout.createSequentialGroup()
+                            .addComponent(btnAgregarSeries, javax.swing.GroupLayout.PREFERRED_SIZE, 88, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addGap(58, 58, 58)
+                            .addComponent(btnAgregarPeliculas))))
+                .addContainerGap(20, Short.MAX_VALUE))
+        );
+        jPanel3Layout.setVerticalGroup(
+            jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel3Layout.createSequentialGroup()
+                .addGap(28, 28, 28)
+                .addComponent(jLabel2)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(jSeparator2, javax.swing.GroupLayout.PREFERRED_SIZE, 10, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(18, 18, 18)
+                .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(btnAgregarSeries)
+                    .addComponent(btnAgregarPeliculas))
+                .addContainerGap(43, Short.MAX_VALUE))
+        );
+
+        javax.swing.GroupLayout jDialogAgregarLayout = new javax.swing.GroupLayout(jDialogAgregar.getContentPane());
+        jDialogAgregar.getContentPane().setLayout(jDialogAgregarLayout);
+        jDialogAgregarLayout.setHorizontalGroup(
+            jDialogAgregarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addComponent(jPanel3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+        );
+        jDialogAgregarLayout.setVerticalGroup(
+            jDialogAgregarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addComponent(jPanel3, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+        );
+
+        jPanel4.setBackground(new java.awt.Color(38, 11, 32));
+
+        btnCancelarSerie.setBackground(new java.awt.Color(0, 0, 0));
+        btnCancelarSerie.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
+        btnCancelarSerie.setForeground(new java.awt.Color(255, 255, 255));
+        btnCancelarSerie.setText("CANCELAR");
+
+        jLabel4.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
+        jLabel4.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel4.setText("AGREGAR SERIES");
+
+        btnAgregarFotoSerie.setBackground(new java.awt.Color(0, 0, 0));
+        btnAgregarFotoSerie.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
+        btnAgregarFotoSerie.setForeground(new java.awt.Color(255, 255, 255));
+        btnAgregarFotoSerie.setText("PORTADA");
+
+        jLabel5.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
+        jLabel5.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel5.setText("TITULO:");
+
+        jLabel6.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
+        jLabel6.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel6.setText("DESCRIPCIÓN:");
+
+        jLabel7.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
+        jLabel7.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel7.setText("CATEGORÍA:");
+
+        comboCategoriaSerie.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
+
+        lblFotoSerie.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(255, 255, 255)));
+
+        textTituloSerie.setBackground(new java.awt.Color(63, 25, 56));
+        textTituloSerie.setFont(new java.awt.Font("Segoe UI", 0, 13)); // NOI18N
+        textTituloSerie.setForeground(new java.awt.Color(255, 255, 255));
+
+        jSeparator4.setBackground(new java.awt.Color(51, 51, 51));
+        jSeparator4.setForeground(new java.awt.Color(51, 51, 51));
+        jSeparator4.setOrientation(javax.swing.SwingConstants.VERTICAL);
+
+        textDescripcionSerie.setBackground(new java.awt.Color(63, 25, 56));
+        textDescripcionSerie.setFont(new java.awt.Font("Segoe UI", 0, 13)); // NOI18N
+
+        panelCapitulosAgregados.setBackground(new java.awt.Color(38, 11, 32));
+        panelCapitulosAgregados.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
+
+        javax.swing.GroupLayout panelCapitulosAgregadosLayout = new javax.swing.GroupLayout(panelCapitulosAgregados);
+        panelCapitulosAgregados.setLayout(panelCapitulosAgregadosLayout);
+        panelCapitulosAgregadosLayout.setHorizontalGroup(
+            panelCapitulosAgregadosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 0, Short.MAX_VALUE)
+        );
+        panelCapitulosAgregadosLayout.setVerticalGroup(
+            panelCapitulosAgregadosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 148, Short.MAX_VALUE)
+        );
+
+        jLabel8.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
+        jLabel8.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel8.setText("CAPÍTULOS");
+
+        jLabel9.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
+        jLabel9.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel9.setText("TITULO:");
+
+        jLabel10.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
+        jLabel10.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel10.setText("DESCRIPCIÓN DEL CAPÍTULO:");
+
+        textTituloCapitulo.setBackground(new java.awt.Color(63, 25, 56));
+        textTituloCapitulo.setFont(new java.awt.Font("Segoe UI", 0, 13)); // NOI18N
+        textTituloCapitulo.setForeground(new java.awt.Color(255, 255, 255));
+
+        textDescripcionCapitulo.setBackground(new java.awt.Color(63, 25, 56));
+        textDescripcionCapitulo.setFont(new java.awt.Font("Segoe UI", 0, 13)); // NOI18N
+
+        btnAgregarCapitulo.setBackground(new java.awt.Color(0, 0, 0));
+        btnAgregarCapitulo.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
+        btnAgregarCapitulo.setForeground(new java.awt.Color(255, 255, 255));
+        btnAgregarCapitulo.setText("AGREGAR CAPÍTULO");
+
+        btnAgregarSerie.setBackground(new java.awt.Color(0, 0, 0));
+        btnAgregarSerie.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
+        btnAgregarSerie.setForeground(new java.awt.Color(255, 255, 255));
+        btnAgregarSerie.setText("AGREGAR SERIE");
+
+        javax.swing.GroupLayout jPanel4Layout = new javax.swing.GroupLayout(jPanel4);
+        jPanel4.setLayout(jPanel4Layout);
+        jPanel4Layout.setHorizontalGroup(
+            jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel4Layout.createSequentialGroup()
+                .addGap(243, 243, 243)
+                .addComponent(jLabel4)
+                .addGap(0, 0, Short.MAX_VALUE))
+            .addGroup(jPanel4Layout.createSequentialGroup()
+                .addGap(23, 23, 23)
+                .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(jPanel4Layout.createSequentialGroup()
+                        .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(jPanel4Layout.createSequentialGroup()
+                                .addComponent(jLabel6)
+                                .addGap(0, 0, Short.MAX_VALUE))
+                            .addComponent(textDescripcionSerie)
+                            .addGroup(jPanel4Layout.createSequentialGroup()
+                                .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(jLabel7)
+                                    .addComponent(jLabel5))
+                                .addGap(18, 18, 18)
+                                .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(comboCategoriaSerie, javax.swing.GroupLayout.PREFERRED_SIZE, 104, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(textTituloSerie))))
+                        .addGap(18, 18, 18)
+                        .addComponent(jSeparator4, javax.swing.GroupLayout.PREFERRED_SIZE, 13, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(jPanel4Layout.createSequentialGroup()
+                                .addGap(31, 31, 31)
+                                .addComponent(lblFotoSerie, javax.swing.GroupLayout.PREFERRED_SIZE, 147, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addGroup(jPanel4Layout.createSequentialGroup()
+                                .addGap(60, 60, 60)
+                                .addComponent(btnAgregarFotoSerie))
+                            .addGroup(jPanel4Layout.createSequentialGroup()
+                                .addGap(31, 31, 31)
+                                .addComponent(btnAgregarCapitulo)))
+                        .addGap(54, 54, 54))
+                    .addGroup(jPanel4Layout.createSequentialGroup()
+                        .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(jLabel10)
+                            .addGroup(jPanel4Layout.createSequentialGroup()
+                                .addComponent(jLabel9)
+                                .addGap(18, 18, 18)
+                                .addComponent(textTituloCapitulo, javax.swing.GroupLayout.DEFAULT_SIZE, 247, Short.MAX_VALUE))
+                            .addComponent(jLabel8))
+                        .addGap(295, 295, 295))
+                    .addGroup(jPanel4Layout.createSequentialGroup()
+                        .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                            .addComponent(jSeparator3, javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(textDescripcionCapitulo, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, 591, Short.MAX_VALUE)
+                            .addComponent(panelCapitulosAgregados, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                        .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                    .addGroup(jPanel4Layout.createSequentialGroup()
+                        .addGap(52, 52, 52)
+                        .addComponent(btnCancelarSerie, javax.swing.GroupLayout.PREFERRED_SIZE, 134, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(btnAgregarSerie, javax.swing.GroupLayout.PREFERRED_SIZE, 134, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(68, 68, 68))))
+        );
+        jPanel4Layout.setVerticalGroup(
+            jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel4Layout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(jLabel4)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(jSeparator3, javax.swing.GroupLayout.PREFERRED_SIZE, 10, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(18, 18, 18)
+                .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel4Layout.createSequentialGroup()
+                        .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(jLabel5)
+                            .addComponent(textTituloSerie, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGap(18, 18, 18)
+                        .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(jLabel7)
+                            .addComponent(comboCategoriaSerie, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGap(18, 18, 18)
+                        .addComponent(jLabel6)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addComponent(textDescripcionSerie, javax.swing.GroupLayout.PREFERRED_SIZE, 85, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                        .addComponent(jSeparator4)
+                        .addGroup(jPanel4Layout.createSequentialGroup()
+                            .addComponent(lblFotoSerie, javax.swing.GroupLayout.PREFERRED_SIZE, 155, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addGap(18, 18, 18)
+                            .addComponent(btnAgregarFotoSerie))))
+                .addGap(18, 18, 18)
+                .addComponent(jLabel8)
+                .addGap(18, 18, 18)
+                .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel9)
+                    .addComponent(textTituloCapitulo, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(btnAgregarCapitulo))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(jLabel10)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(textDescripcionCapitulo, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(18, 18, 18)
+                .addComponent(panelCapitulosAgregados, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addGap(18, 18, 18)
+                .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(btnCancelarSerie)
+                    .addComponent(btnAgregarSerie))
+                .addContainerGap())
+        );
+
+        javax.swing.GroupLayout jDialogAgregarSeriesLayout = new javax.swing.GroupLayout(jDialogAgregarSeries.getContentPane());
+        jDialogAgregarSeries.getContentPane().setLayout(jDialogAgregarSeriesLayout);
+        jDialogAgregarSeriesLayout.setHorizontalGroup(
+            jDialogAgregarSeriesLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addComponent(jPanel4, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+        );
+        jDialogAgregarSeriesLayout.setVerticalGroup(
+            jDialogAgregarSeriesLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jDialogAgregarSeriesLayout.createSequentialGroup()
+                .addComponent(jPanel4, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(0, 0, Short.MAX_VALUE))
+        );
+
+        jPanel5.setBackground(new java.awt.Color(38, 11, 32));
+
+        btnCancelarPelicula.setBackground(new java.awt.Color(0, 0, 0));
+        btnCancelarPelicula.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
+        btnCancelarPelicula.setForeground(new java.awt.Color(255, 255, 255));
+        btnCancelarPelicula.setText("CANCELAR");
+
+        jLabel11.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
+        jLabel11.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel11.setText("AGREGAR PELICULAS");
+
+        btnAgregarFotoPelicula.setBackground(new java.awt.Color(0, 0, 0));
+        btnAgregarFotoPelicula.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
+        btnAgregarFotoPelicula.setForeground(new java.awt.Color(255, 255, 255));
+        btnAgregarFotoPelicula.setText("PORTADA");
+
+        jLabel12.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
+        jLabel12.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel12.setText("TITULO:");
+
+        jLabel13.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
+        jLabel13.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel13.setText("DESCRIPCIÓN:");
+
+        jLabel14.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
+        jLabel14.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel14.setText("CATEGORÍA:");
+
+        comboCategoriaPelicula.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
+
+        lblFotoPelicula.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(255, 255, 255)));
+
+        textTituloPelicula.setBackground(new java.awt.Color(63, 25, 56));
+        textTituloPelicula.setFont(new java.awt.Font("Segoe UI", 0, 13)); // NOI18N
+        textTituloPelicula.setForeground(new java.awt.Color(255, 255, 255));
+
+        jSeparator6.setBackground(new java.awt.Color(51, 51, 51));
+        jSeparator6.setForeground(new java.awt.Color(51, 51, 51));
+        jSeparator6.setOrientation(javax.swing.SwingConstants.VERTICAL);
+
+        textDescripcionPelicula.setBackground(new java.awt.Color(63, 25, 56));
+        textDescripcionPelicula.setFont(new java.awt.Font("Segoe UI", 0, 13)); // NOI18N
+
+        btnAgregarPelicula.setBackground(new java.awt.Color(0, 0, 0));
+        btnAgregarPelicula.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
+        btnAgregarPelicula.setForeground(new java.awt.Color(255, 255, 255));
+        btnAgregarPelicula.setText("AGREGAR PELICULA");
+
+        javax.swing.GroupLayout jPanel5Layout = new javax.swing.GroupLayout(jPanel5);
+        jPanel5.setLayout(jPanel5Layout);
+        jPanel5Layout.setHorizontalGroup(
+            jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel5Layout.createSequentialGroup()
+                .addGap(23, 23, 23)
+                .addGroup(jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(jPanel5Layout.createSequentialGroup()
+                        .addComponent(jSeparator5, javax.swing.GroupLayout.PREFERRED_SIZE, 586, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel5Layout.createSequentialGroup()
+                        .addGroup(jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(jPanel5Layout.createSequentialGroup()
+                                .addComponent(jLabel13)
+                                .addGap(0, 0, Short.MAX_VALUE))
+                            .addComponent(textDescripcionPelicula)
+                            .addGroup(jPanel5Layout.createSequentialGroup()
+                                .addGroup(jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(jLabel14)
+                                    .addComponent(jLabel12))
+                                .addGap(18, 18, 18)
+                                .addGroup(jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(comboCategoriaPelicula, javax.swing.GroupLayout.PREFERRED_SIZE, 104, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(textTituloPelicula, javax.swing.GroupLayout.DEFAULT_SIZE, 247, Short.MAX_VALUE))))
+                        .addGap(18, 18, 18)
+                        .addComponent(jSeparator6, javax.swing.GroupLayout.PREFERRED_SIZE, 13, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGroup(jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(jPanel5Layout.createSequentialGroup()
+                                .addGap(31, 31, 31)
+                                .addComponent(lblFotoPelicula, javax.swing.GroupLayout.PREFERRED_SIZE, 147, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addGroup(jPanel5Layout.createSequentialGroup()
+                                .addGap(60, 60, 60)
+                                .addComponent(btnAgregarFotoPelicula)))
+                        .addGap(56, 56, 56))
+                    .addGroup(jPanel5Layout.createSequentialGroup()
+                        .addGap(71, 71, 71)
+                        .addComponent(btnCancelarPelicula, javax.swing.GroupLayout.PREFERRED_SIZE, 134, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(btnAgregarPelicula, javax.swing.GroupLayout.PREFERRED_SIZE, 146, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(74, 74, 74))))
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel5Layout.createSequentialGroup()
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(jLabel11)
+                .addGap(221, 221, 221))
+        );
+        jPanel5Layout.setVerticalGroup(
+            jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel5Layout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(jLabel11)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(jSeparator5, javax.swing.GroupLayout.PREFERRED_SIZE, 10, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(18, 18, 18)
+                .addGroup(jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel5Layout.createSequentialGroup()
+                        .addGroup(jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(jLabel12)
+                            .addComponent(textTituloPelicula, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGap(18, 18, 18)
+                        .addGroup(jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(jLabel14)
+                            .addComponent(comboCategoriaPelicula, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGap(18, 18, 18)
+                        .addComponent(jLabel13)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addComponent(textDescripcionPelicula, javax.swing.GroupLayout.PREFERRED_SIZE, 85, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                        .addComponent(jSeparator6)
+                        .addGroup(jPanel5Layout.createSequentialGroup()
+                            .addComponent(lblFotoPelicula, javax.swing.GroupLayout.PREFERRED_SIZE, 155, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addGap(18, 18, 18)
+                            .addComponent(btnAgregarFotoPelicula))))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 50, Short.MAX_VALUE)
+                .addGroup(jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(btnCancelarPelicula)
+                    .addComponent(btnAgregarPelicula))
+                .addContainerGap())
+        );
+
+        javax.swing.GroupLayout jDialogAgregarPeliculasLayout = new javax.swing.GroupLayout(jDialogAgregarPeliculas.getContentPane());
+        jDialogAgregarPeliculas.getContentPane().setLayout(jDialogAgregarPeliculasLayout);
+        jDialogAgregarPeliculasLayout.setHorizontalGroup(
+            jDialogAgregarPeliculasLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addComponent(jPanel5, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+        );
+        jDialogAgregarPeliculasLayout.setVerticalGroup(
+            jDialogAgregarPeliculasLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addComponent(jPanel5, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+        );
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setBackground(new java.awt.Color(38, 11, 32));
@@ -98,23 +548,28 @@ public class vistaPerfil extends javax.swing.JFrame {
         btnAdmincontenido.setForeground(new java.awt.Color(255, 255, 255));
         btnAdmincontenido.setText("GESTIÓN DE CONTENIDO");
 
-        jLabel1.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
-        jLabel1.setForeground(new java.awt.Color(255, 255, 255));
-        jLabel1.setText("FAVORITOS");
+        lblFavoritos.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
+        lblFavoritos.setForeground(new java.awt.Color(255, 255, 255));
+        lblFavoritos.setText("FAVORITOS");
 
-        jPanel2.setBackground(new java.awt.Color(38, 11, 32));
-        jPanel2.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
+        panelPerfil.setBackground(new java.awt.Color(38, 11, 32));
+        panelPerfil.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
 
-        javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
-        jPanel2.setLayout(jPanel2Layout);
-        jPanel2Layout.setHorizontalGroup(
-            jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 625, Short.MAX_VALUE)
-        );
-        jPanel2Layout.setVerticalGroup(
-            jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+        javax.swing.GroupLayout panelPerfilLayout = new javax.swing.GroupLayout(panelPerfil);
+        panelPerfil.setLayout(panelPerfilLayout);
+        panelPerfilLayout.setHorizontalGroup(
+            panelPerfilLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGap(0, 0, Short.MAX_VALUE)
         );
+        panelPerfilLayout.setVerticalGroup(
+            panelPerfilLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 0, Short.MAX_VALUE)
+        );
+
+        btnAgregar.setBackground(new java.awt.Color(0, 0, 0));
+        btnAgregar.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
+        btnAgregar.setForeground(new java.awt.Color(255, 255, 255));
+        btnAgregar.setText("AGREGAR");
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
@@ -145,14 +600,16 @@ public class vistaPerfil extends javax.swing.JFrame {
                         .addGap(63, 63, 63)
                         .addComponent(jSeparator1, javax.swing.GroupLayout.PREFERRED_SIZE, 21, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                             .addGroup(jPanel1Layout.createSequentialGroup()
-                                .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 96, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addComponent(lblFavoritos, javax.swing.GroupLayout.PREFERRED_SIZE, 96, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addGap(97, 97, 97)
                                 .addComponent(btnReportes)
                                 .addGap(18, 18, 18)
-                                .addComponent(btnAdmincontenido))
-                            .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                                .addComponent(btnAdmincontenido)
+                                .addGap(65, 65, 65)
+                                .addComponent(btnAgregar))
+                            .addComponent(panelPerfil, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         jPanel1Layout.setVerticalGroup(
@@ -182,12 +639,13 @@ public class vistaPerfil extends javax.swing.JFrame {
                             .addComponent(jSeparator1, javax.swing.GroupLayout.PREFERRED_SIZE, 376, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addGroup(jPanel1Layout.createSequentialGroup()
                                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(lblFavoritos, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE)
                                     .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                                         .addComponent(btnReportes)
-                                        .addComponent(btnAdmincontenido)))
+                                        .addComponent(btnAdmincontenido)
+                                        .addComponent(btnAgregar)))
                                 .addGap(18, 18, 18)
-                                .addComponent(jPanel2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))))
+                                .addComponent(panelPerfil, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))))
                 .addContainerGap(28, Short.MAX_VALUE))
         );
 
@@ -205,23 +663,338 @@ public class vistaPerfil extends javax.swing.JFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
+    public JLabel getLblFavoritos() {
+        return lblFavoritos;
+    }
+
+    public void setLblFavoritos(JLabel lblFavoritos) {
+        this.lblFavoritos = lblFavoritos;
+    }
+
+    public JButton getBtnAdmincontenido() {
+        return btnAdmincontenido;
+    }
+
+    public void setBtnAdmincontenido(JButton btnAdmincontenido) {
+        this.btnAdmincontenido = btnAdmincontenido;
+    }
+
+    public JButton getBtnAgregar() {
+        return btnAgregar;
+    }
+
+    public void setBtnAgregar(JButton btnAgregar) {
+        this.btnAgregar = btnAgregar;
+    }
+
+    public JButton getBtnAgregarCapitulo() {
+        return btnAgregarCapitulo;
+    }
+
+    public void setBtnAgregarCapitulo(JButton btnAgregarCapitulo) {
+        this.btnAgregarCapitulo = btnAgregarCapitulo;
+    }
+
+    public JButton getBtnAgregarFotoPelicula() {
+        return btnAgregarFotoPelicula;
+    }
+
+    public void setBtnAgregarFotoPelicula(JButton btnAgregarFotoPelicula) {
+        this.btnAgregarFotoPelicula = btnAgregarFotoPelicula;
+    }
+
+    public JButton getBtnAgregarFotoSerie() {
+        return btnAgregarFotoSerie;
+    }
+
+    public void setBtnAgregarFotoSerie(JButton btnAgregarFotoSerie) {
+        this.btnAgregarFotoSerie = btnAgregarFotoSerie;
+    }
+
+    public JButton getBtnAgregarPelicula() {
+        return btnAgregarPelicula;
+    }
+
+    public void setBtnAgregarPelicula(JButton btnAgregarPelicula) {
+        this.btnAgregarPelicula = btnAgregarPelicula;
+    }
+
+    public JButton getBtnAgregarPeliculas() {
+        return btnAgregarPeliculas;
+    }
+
+    public void setBtnAgregarPeliculas(JButton btnAgregarPeliculas) {
+        this.btnAgregarPeliculas = btnAgregarPeliculas;
+    }
+
+    public JButton getBtnAgregarSerie() {
+        return btnAgregarSerie;
+    }
+
+    public void setBtnAgregarSerie(JButton btnAgregarSerie) {
+        this.btnAgregarSerie = btnAgregarSerie;
+    }
+
+    public JButton getBtnAgregarSeries() {
+        return btnAgregarSeries;
+    }
+
+    public void setBtnAgregarSeries(JButton btnAgregarSeries) {
+        this.btnAgregarSeries = btnAgregarSeries;
+    }
+
+    public JButton getBtnCancelarPelicula() {
+        return btnCancelarPelicula;
+    }
+
+    public void setBtnCancelarPelicula(JButton btnCancelarPelicula) {
+        this.btnCancelarPelicula = btnCancelarPelicula;
+    }
+
+    public JButton getBtnCancelarSerie() {
+        return btnCancelarSerie;
+    }
+
+    public void setBtnCancelarSerie(JButton btnCancelarSerie) {
+        this.btnCancelarSerie = btnCancelarSerie;
+    }
+
+    public JButton getBtnEditar() {
+        return btnEditar;
+    }
+
+    public void setBtnEditar(JButton btnEditar) {
+        this.btnEditar = btnEditar;
+    }
+
+    public JButton getBtnPrincipal() {
+        return btnPrincipal;
+    }
+
+    public void setBtnPrincipal(JButton btnPrincipal) {
+        this.btnPrincipal = btnPrincipal;
+    }
+
+    public JButton getBtnReportes() {
+        return btnReportes;
+    }
+
+    public void setBtnReportes(JButton btnReportes) {
+        this.btnReportes = btnReportes;
+    }
+
+    public JComboBox<String> getComboCategoriaPelicula() {
+        return comboCategoriaPelicula;
+    }
+
+    public void setComboCategoriaPelicula(JComboBox<String> comboCategoriaPelicula) {
+        this.comboCategoriaPelicula = comboCategoriaPelicula;
+    }
+
+    public JComboBox<String> getComboCategoriaSerie() {
+        return comboCategoriaSerie;
+    }
+
+    public void setComboCategoriaSerie(JComboBox<String> comboCategoriaSerie) {
+        this.comboCategoriaSerie = comboCategoriaSerie;
+    }
+
+    public JDialog getjDialogAgregar() {
+        return jDialogAgregar;
+    }
+
+    public void setjDialogAgregar(JDialog jDialogAgregar) {
+        this.jDialogAgregar = jDialogAgregar;
+    }
+
+    public JDialog getjDialogAgregarPeliculas() {
+        return jDialogAgregarPeliculas;
+    }
+
+    public void setjDialogAgregarPeliculas(JDialog jDialogAgregarPeliculas) {
+        this.jDialogAgregarPeliculas = jDialogAgregarPeliculas;
+    }
+
+    public JDialog getjDialogAgregarSeries() {
+        return jDialogAgregarSeries;
+    }
+
+    public void setjDialogAgregarSeries(JDialog jDialogAgregarSeries) {
+        this.jDialogAgregarSeries = jDialogAgregarSeries;
+    }
+
+    public JLabel getLblCorreo() {
+        return lblCorreo;
+    }
+
+    public void setLblCorreo(JLabel lblCorreo) {
+        this.lblCorreo = lblCorreo;
+    }
+
+    public JLabel getLblFoto() {
+        return lblFoto;
+    }
+
+    public void setLblFoto(JLabel lblFoto) {
+        this.lblFoto = lblFoto;
+    }
+
+    public JLabel getLblNacimiento() {
+        return lblNacimiento;
+    }
+
+    public void setLblNacimiento(JLabel lblNacimiento) {
+        this.lblNacimiento = lblNacimiento;
+    }
+
+    public JLabel getLblNombre() {
+        return lblNombre;
+    }
+
+    public void setLblNombre(JLabel lblNombre) {
+        this.lblNombre = lblNombre;
+    }
+
+    public JPanel getPanelCapitulosAgregados() {
+        return panelCapitulosAgregados;
+    }
+
+    public void setPanelCapitulosAgregados(JPanel panelCapitulosAgregados) {
+        this.panelCapitulosAgregados = panelCapitulosAgregados;
+    }
+
+    public JPanel getPanelPerfil() {
+        return panelPerfil;
+    }
+
+    public void setPanelPerfil(JPanel panelPerfil) {
+        this.panelPerfil = panelPerfil;
+    }
+
+    public JTextField getTextDescripcionCapitulo() {
+        return textDescripcionCapitulo;
+    }
+
+    public void setTextDescripcionCapitulo(JTextField textDescripcionCapitulo) {
+        this.textDescripcionCapitulo = textDescripcionCapitulo;
+    }
+
+    public JTextField getTextDescripcionPelicula() {
+        return textDescripcionPelicula;
+    }
+
+    public void setTextDescripcionPelicula(JTextField textDescripcionPelicula) {
+        this.textDescripcionPelicula = textDescripcionPelicula;
+    }
+
+    public JTextField getTextDescripcionSerie() {
+        return textDescripcionSerie;
+    }
+
+    public void setTextDescripcionSerie(JTextField textDescripcionSerie) {
+        this.textDescripcionSerie = textDescripcionSerie;
+    }
+
+    public JLabel getLblFotoPelicula() {
+        return lblFotoPelicula;
+    }
+
+    public void setLblFotoPelicula(JLabel textFotoPelicula) {
+        this.lblFotoPelicula = textFotoPelicula;
+    }
+
+    public JLabel getLblFotoSerie() {
+        return lblFotoSerie;
+    }
+
+    public void setLblFotoSerie(JLabel textFotoSerie) {
+        this.lblFotoSerie = textFotoSerie;
+    }
+
+    public JTextField getTextTituloCapitulo() {
+        return textTituloCapitulo;
+    }
+
+    public void setTextTituloCapitulo(JTextField textTituloCapitulo) {
+        this.textTituloCapitulo = textTituloCapitulo;
+    }
+
+    public JTextField getTextTituloPelicula() {
+        return textTituloPelicula;
+    }
+
+    public void setTextTituloPelicula(JTextField textTituloPelicula) {
+        this.textTituloPelicula = textTituloPelicula;
+    }
+
+    public JTextField getTextTituloSerie() {
+        return textTituloSerie;
+    }
+
+    public void setTextTituloSerie(JTextField textTituloSerie) {
+        this.textTituloSerie = textTituloSerie;
+    }
 
   
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnAdmincontenido;
+    private javax.swing.JButton btnAgregar;
+    private javax.swing.JButton btnAgregarCapitulo;
+    private javax.swing.JButton btnAgregarFotoPelicula;
+    private javax.swing.JButton btnAgregarFotoSerie;
+    private javax.swing.JButton btnAgregarPelicula;
+    private javax.swing.JButton btnAgregarPeliculas;
+    private javax.swing.JButton btnAgregarSerie;
+    private javax.swing.JButton btnAgregarSeries;
+    private javax.swing.JButton btnCancelarPelicula;
+    private javax.swing.JButton btnCancelarSerie;
     private javax.swing.JButton btnEditar;
     private javax.swing.JButton btnPrincipal;
     private javax.swing.JButton btnReportes;
-    private javax.swing.JLabel jLabel1;
+    private javax.swing.JComboBox<String> comboCategoriaPelicula;
+    private javax.swing.JComboBox<String> comboCategoriaSerie;
+    private javax.swing.JDialog jDialogAgregar;
+    private javax.swing.JDialog jDialogAgregarPeliculas;
+    private javax.swing.JDialog jDialogAgregarSeries;
+    private javax.swing.JLabel jLabel10;
+    private javax.swing.JLabel jLabel11;
+    private javax.swing.JLabel jLabel12;
+    private javax.swing.JLabel jLabel13;
+    private javax.swing.JLabel jLabel14;
+    private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
+    private javax.swing.JLabel jLabel4;
+    private javax.swing.JLabel jLabel5;
+    private javax.swing.JLabel jLabel6;
+    private javax.swing.JLabel jLabel7;
+    private javax.swing.JLabel jLabel8;
+    private javax.swing.JLabel jLabel9;
     private javax.swing.JPanel jPanel1;
-    private javax.swing.JPanel jPanel2;
+    private javax.swing.JPanel jPanel3;
+    private javax.swing.JPanel jPanel4;
+    private javax.swing.JPanel jPanel5;
     private javax.swing.JSeparator jSeparator1;
+    private javax.swing.JSeparator jSeparator2;
+    private javax.swing.JSeparator jSeparator3;
+    private javax.swing.JSeparator jSeparator4;
+    private javax.swing.JSeparator jSeparator5;
+    private javax.swing.JSeparator jSeparator6;
     private javax.swing.JToolBar jToolBar2;
     private javax.swing.JLabel lblCorreo;
+    private javax.swing.JLabel lblFavoritos;
     private javax.swing.JLabel lblFoto;
+    private javax.swing.JLabel lblFotoPelicula;
+    private javax.swing.JLabel lblFotoSerie;
     private javax.swing.JLabel lblNacimiento;
     private javax.swing.JLabel lblNombre;
+    private javax.swing.JPanel panelCapitulosAgregados;
+    private javax.swing.JPanel panelPerfil;
+    private javax.swing.JTextField textDescripcionCapitulo;
+    private javax.swing.JTextField textDescripcionPelicula;
+    private javax.swing.JTextField textDescripcionSerie;
+    private javax.swing.JTextField textTituloCapitulo;
+    private javax.swing.JTextField textTituloPelicula;
+    private javax.swing.JTextField textTituloSerie;
     // End of variables declaration//GEN-END:variables
 }

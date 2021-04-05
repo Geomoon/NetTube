@@ -61,8 +61,8 @@ public class vistaPanelPelicula extends javax.swing.JPanel {
                 .addGap(18, 18, 18)
                 .addComponent(lbFoto, javax.swing.GroupLayout.PREFERRED_SIZE, 129, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(18, 18, 18)
-                .addComponent(lbTitulo)
-                .addContainerGap(25, Short.MAX_VALUE))
+                .addComponent(lbTitulo, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addContainerGap())
         );
     }// </editor-fold>//GEN-END:initComponents
 
