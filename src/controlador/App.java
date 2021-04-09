@@ -5,6 +5,10 @@
  */
 package controlador;
 
+import model.MAdmin;
+import model.MUsuario;
+import vista.vistaIniciosesion;
+
 /**
  *
  * @author LUNA
@@ -12,6 +16,12 @@ package controlador;
 public class App {
 
     public static void main(String[] args) {
+        CInicioSesion inicio = new CInicioSesion(
+                new MAdmin(),
+                new MUsuario(),
+                new vistaIniciosesion()
+        );
         
+        inicio.initControl();
     }
 }

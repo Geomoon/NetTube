@@ -13,7 +13,7 @@ import java.util.logging.Logger;
  *
  * @author LUNA
  */
-public class MUsuario extends UsuarioApp implements CRUD {
+public class MUsuario extends UsuarioApp implements Listable<UsuarioApp>, Editable {
 
     private static ConexionMySQL con = ConexionMySQL.getInstance();
 
@@ -58,8 +58,8 @@ public class MUsuario extends UsuarioApp implements CRUD {
     }
 
     @Override
-    public List<Usuario> listar() {
-        List<Usuario> list = new ArrayList<>();
+    public List<UsuarioApp> listar() {
+        List<UsuarioApp> list = new ArrayList<>();
         String sql = "SELECT * FROM vista_usuarios";
         try (ResultSet rs = con.query(sql)) {
             while (rs.next()) {
@@ -80,8 +80,28 @@ public class MUsuario extends UsuarioApp implements CRUD {
     }
 
     @Override
-    public Object buscar(String campo) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    public UsuarioApp buscar(String id) {
+        return null;
+    }
+
+    public static Usuario obtenerPorEmail(String email) {
+        String sql = "SELECT id, nombre, apellido, email, AES_DECRYPT(password, '357190')"
+                + " FROM vista_usuarios"
+                + " WHERE email='" + email + "'";
+        Usuario usuario = null;
+        try (ResultSet rs = con.query(sql)) {
+            if (rs.next()) {
+                usuario = new UsuarioApp();
+                usuario.setId(rs.getString("id"));
+                usuario.setNombre(rs.getString("nombre"));
+                usuario.setApellido(rs.getString("apellido"));
+                usuario.setEmail(rs.getString("email"));
+                usuario.setPassword(rs.getString(5));
+            }
+        } catch (SQLException ex) {
+            Logger.getLogger(MUsuario.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        return usuario;
     }
 
 }
