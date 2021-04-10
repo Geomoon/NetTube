@@ -6,6 +6,7 @@
 package vista;
 
 import javax.swing.JButton;
+import javax.swing.JPasswordField;
 import javax.swing.JTextField;
 
 /**
@@ -35,10 +36,10 @@ public class vistaIniciosesion extends javax.swing.JFrame {
         jLabel1 = new javax.swing.JLabel();
         jLabel2 = new javax.swing.JLabel();
         textUsuario = new javax.swing.JTextField();
-        textContraseña = new javax.swing.JTextField();
         jLabel4 = new javax.swing.JLabel();
         btnRegistrarse = new javax.swing.JButton();
         btnIniciosesion = new javax.swing.JButton();
+        textContrasena = new javax.swing.JPasswordField();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -57,8 +58,7 @@ public class vistaIniciosesion extends javax.swing.JFrame {
         jLabel2.setText("CONTRASEÑA");
 
         textUsuario.setBackground(new java.awt.Color(63, 25, 56));
-
-        textContraseña.setBackground(new java.awt.Color(63, 25, 56));
+        textUsuario.setForeground(new java.awt.Color(204, 204, 204));
 
         jLabel4.setBackground(new java.awt.Color(0, 0, 0));
         jLabel4.setOpaque(true);
@@ -72,6 +72,9 @@ public class vistaIniciosesion extends javax.swing.JFrame {
         btnIniciosesion.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
         btnIniciosesion.setForeground(new java.awt.Color(255, 255, 255));
         btnIniciosesion.setText("INICIAR SESIÓN");
+
+        textContrasena.setBackground(new java.awt.Color(63, 25, 56));
+        textContrasena.setForeground(new java.awt.Color(204, 204, 204));
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
@@ -91,12 +94,12 @@ public class vistaIniciosesion extends javax.swing.JFrame {
                                     .addComponent(jLabel2)
                                     .addComponent(jLabel1))
                                 .addGap(18, 18, 18)
-                                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(textUsuario, javax.swing.GroupLayout.PREFERRED_SIZE, 201, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addComponent(textContraseña, javax.swing.GroupLayout.PREFERRED_SIZE, 201, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                                    .addComponent(textUsuario, javax.swing.GroupLayout.DEFAULT_SIZE, 201, Short.MAX_VALUE)
+                                    .addComponent(textContrasena)))
                             .addGroup(jPanel1Layout.createSequentialGroup()
                                 .addComponent(btnRegistrarse)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 66, Short.MAX_VALUE)
                                 .addComponent(btnIniciosesion)))))
                 .addContainerGap(41, Short.MAX_VALUE))
         );
@@ -114,7 +117,7 @@ public class vistaIniciosesion extends javax.swing.JFrame {
                 .addGap(24, 24, 24)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel2)
-                    .addComponent(textContraseña, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(textContrasena, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(37, 37, 37)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(btnRegistrarse)
@@ -152,12 +155,12 @@ public class vistaIniciosesion extends javax.swing.JFrame {
         this.btnRegistrarse = btnRegistrarse;
     }
 
-    public JTextField getTextContraseña() {
-        return textContraseña;
+    public JPasswordField getTextContrasena() {
+        return textContrasena;
     }
 
-    public void setTextContraseña(JTextField textContraseña) {
-        this.textContraseña = textContraseña;
+    public void setTextContrasena(JPasswordField textContrasena) {
+        this.textContrasena = textContrasena;
     }
 
     public JTextField getTextUsuario() {
@@ -167,7 +170,7 @@ public class vistaIniciosesion extends javax.swing.JFrame {
     public void setTextUsuario(JTextField textUsuario) {
         this.textUsuario = textUsuario;
     }
-  
+
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnIniciosesion;
@@ -177,7 +180,7 @@ public class vistaIniciosesion extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
     private javax.swing.JPanel jPanel1;
-    private javax.swing.JTextField textContraseña;
+    private javax.swing.JPasswordField textContrasena;
     private javax.swing.JTextField textUsuario;
     // End of variables declaration//GEN-END:variables
 }

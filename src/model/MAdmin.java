@@ -13,7 +13,7 @@ import java.util.logging.Logger;
  *
  * @author LUNA
  */
-public class MAdmin extends Admin implements CRUD {
+public class MAdmin extends Admin implements Listable<Admin>, Editable {
 
     private static ConexionMySQL con = ConexionMySQL.getInstance();
 
@@ -80,8 +80,28 @@ public class MAdmin extends Admin implements CRUD {
     }
 
     @Override
-    public Object buscar(String id) {
+    public Admin buscar(String id) {
         throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
+    
+    public static Admin obtenerPorEmail(String email) {
+        String sql = "SELECT id, nombre, apellido, email, aes_decrypt(password, '357190')"
+                + " from vista_admins"
+                + " where email='" + email + "'";
+        Admin usuario = null;
+        try (ResultSet rs = con.query(sql)) {
+            if (rs.next()) {
+                usuario = new Admin();
+                usuario.setId(rs.getString("id"));
+                usuario.setNombre(rs.getString("nombre"));
+                usuario.setApellido(rs.getString("apellido"));
+                usuario.setEmail(rs.getString("email"));
+                usuario.setPassword(rs.getString(5));
+            }
+        } catch (SQLException ex) {
+            Logger.getLogger(MUsuario.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        return usuario;
     }
 
 }

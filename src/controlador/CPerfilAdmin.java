@@ -140,7 +140,7 @@ public class CPerfilAdmin {
                
                Icon ic=new ImageIcon(icono);
                lb.setIcon(ic);
-               lb.updateUI();;
+               lb.updateUI();
            } catch (IOException e) {
            }
        }
