@@ -84,14 +84,14 @@ public class MUsuario extends UsuarioApp implements Listable<UsuarioApp>, Editab
         return null;
     }
 
-    public static Usuario obtenerPorEmail(String email) {
+    public static MUsuario obtenerPorEmail(String email) {
         String sql = "SELECT id, nombre, apellido, email, AES_DECRYPT(password, '357190')"
                 + " FROM vista_usuarios"
                 + " WHERE email='" + email + "'";
-        Usuario usuario = null;
+        MUsuario usuario = null;
         try (ResultSet rs = con.query(sql)) {
             if (rs.next()) {
-                usuario = new UsuarioApp();
+                usuario = new MUsuario();
                 usuario.setId(rs.getString("id"));
                 usuario.setNombre(rs.getString("nombre"));
                 usuario.setApellido(rs.getString("apellido"));

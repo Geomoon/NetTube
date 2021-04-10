@@ -4,7 +4,20 @@
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
         <group>
             <file>file:/D:/Files/NetbeansProjects/NetTube/src/vista/vistaIniciosesion.java</file>
+            <file>file:/D:/Files/NetbeansProjects/NetTube/src/vista/panelCapitulos.java</file>
+            <file>file:/D:/Files/NetbeansProjects/NetTube/src/vista/vistaPanelPelicula.java</file>
+            <file>file:/D:/Files/NetbeansProjects/NetTube/src/controlador/App.java</file>
+            <file>file:/D:/Files/NetbeansProjects/NetTube/src/vista/vistaPrincipal.java</file>
+            <file>file:/D:/Files/NetbeansProjects/NetTube/src/vista/panelAdminPeli.java</file>
+            <file>file:/D:/Files/NetbeansProjects/NetTube/src/vista/vistaRegistro.java</file>
+            <file>file:/D:/Files/NetbeansProjects/NetTube/src/model/MUsuario.java</file>
+            <file>file:/D:/Files/NetbeansProjects/NetTube/src/controlador/CPerfilAdmin.java</file>
+            <file>file:/D:/Files/NetbeansProjects/NetTube/src/vista/vistaInformacion.java</file>
+            <file>file:/D:/Files/NetbeansProjects/NetTube/src/vista/panelAdminSerie.java</file>
+            <file>file:/D:/Files/NetbeansProjects/NetTube/src/vista/vistaReproductorVideo.java</file>
+            <file>file:/D:/Files/NetbeansProjects/NetTube/src/vista/vistaPerfil.java</file>
             <file>file:/D:/Files/NetbeansProjects/NetTube/src/controlador/CInicioSesion.java</file>
+            <file>file:/D:/Files/NetbeansProjects/NetTube/src/model/MAdmin.java</file>
         </group>
     </open-files>
 </project-private>

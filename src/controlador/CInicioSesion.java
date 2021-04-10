@@ -47,9 +47,11 @@ public class CInicioSesion {
         Usuario usuario = verificarDatos();
         if (usuario instanceof MAdmin) {
             //inicio de la ventana con la sesión de usuario normal
+            System.out.println("admin");
         }
         if (usuario instanceof MUsuario) {
             //inicio de la ventana con la sesión de administrador
+            System.out.println("usuario");
         }
         if (usuario == null) {
             JOptionPane.showMessageDialog(vista, "Al parecer aún no tienes una cuenta :(", "?", JOptionPane.QUESTION_MESSAGE, null);
@@ -60,16 +62,18 @@ public class CInicioSesion {
         String email = vista.getTextUsuario().getText();
         String password = String.valueOf(vista.getTextContrasena().getPassword());
 
-        Usuario usuarioBD = MUsuario.obtenerPorEmail(email);
+        MUsuario usuarioBD = (MUsuario) MUsuario.obtenerPorEmail(email);
         if (usuarioBD != null) {
             if (usuarioBD.getPassword().equals(password)) {
+                System.out.println("fdsaf");
                 return usuarioBD;
             }
         }
 
-        Usuario adminBD = MAdmin.obtenerPorEmail(email);
+        MAdmin adminBD = (MAdmin) MAdmin.obtenerPorEmail(email);
         if (adminBD != null) {
             if (adminBD.getPassword().equals(password)) {
+                System.out.println("admin");
                 return adminBD;
             }
         }
