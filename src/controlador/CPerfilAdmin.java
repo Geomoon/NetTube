@@ -79,6 +79,13 @@ public class CPerfilAdmin {
         Image newimg = CUtils.redimensionarImagen(img, vp.getLblFoto());
         ImageIcon icon = new ImageIcon(newimg);
         
+        vp.getBtnReportes().setEnabled(true);
+        vp.getBtnReportes().setVisible(true);
+        vp.getBtnAgregar().setEnabled(true);
+        vp.getBtnAgregar().setVisible(true);
+        vp.getBtnAdmincontenido().setEnabled(true);
+        vp.getBtnAdmincontenido().setVisible(true);
+        
         vp.getLblFavoritos().setVisible(false);
         vp.getLblFoto().setIcon(icon);
         vp.getLblCorreo().setText(mAdmin.getEmail());
