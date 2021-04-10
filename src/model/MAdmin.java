@@ -86,8 +86,8 @@ public class MAdmin extends Admin implements Listable<Admin>, Editable {
     
     public static Admin obtenerPorEmail(String email) {
         String sql = "SELECT id, nombre, apellido, email, aes_decrypt(password, '357190')"
-                + "from vista_admins"
-                + "where email='" + email + "'";
+                + " from vista_admins"
+                + " where email='" + email + "'";
         Admin usuario = null;
         try (ResultSet rs = con.query(sql)) {
             if (rs.next()) {

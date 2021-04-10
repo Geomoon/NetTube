@@ -6,6 +6,7 @@
 package controlador;
 
 import javax.swing.JOptionPane;
+import model.Admin;
 import model.MAdmin;
 import model.MUsuario;
 import model.Usuario;
@@ -62,7 +63,7 @@ public class CInicioSesion {
         String email = vista.getTextUsuario().getText();
         String password = String.valueOf(vista.getTextContrasena().getPassword());
 
-        MUsuario usuarioBD = (MUsuario) MUsuario.obtenerPorEmail(email);
+        UsuarioApp usuarioBD = (UsuarioApp) MUsuario.obtenerPorEmail(email);
         if (usuarioBD != null) {
             if (usuarioBD.getPassword().equals(password)) {
                 System.out.println("fdsaf");
@@ -70,7 +71,7 @@ public class CInicioSesion {
             }
         }
 
-        MAdmin adminBD = (MAdmin) MAdmin.obtenerPorEmail(email);
+        Admin adminBD = (Admin) MAdmin.obtenerPorEmail(email);
         if (adminBD != null) {
             if (adminBD.getPassword().equals(password)) {
                 System.out.println("admin");
