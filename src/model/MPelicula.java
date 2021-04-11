@@ -20,6 +20,9 @@ public class MPelicula extends Pelicula implements CRUD {
         super(id, titulo, descripcion, imagen, categoria, video);
     }
 
+    public MPelicula() {
+    }
+
     @Override
     public boolean crear() {
         String sql = "CALL crear_pelicula ("

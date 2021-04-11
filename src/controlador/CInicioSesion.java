@@ -8,10 +8,14 @@ package controlador;
 import javax.swing.JOptionPane;
 import model.Admin;
 import model.MAdmin;
+import model.MPelicula;
+import model.MSerie;
 import model.MUsuario;
 import model.Usuario;
 import model.UsuarioApp;
 import vista.vistaIniciosesion;
+import vista.vistaPerfil;
+import vista.vistaPrincipal;
 import vista.vistaRegistro;
 
 /**
@@ -23,7 +27,7 @@ public class CInicioSesion {
     private MAdmin mAdmin;
     private MUsuario mUsuario;
     private vistaIniciosesion vista;
-    
+
     public CInicioSesion() {
     }
 
@@ -47,12 +51,20 @@ public class CInicioSesion {
     private void iniciarSesion() {
         Usuario usuario = verificarDatos();
         if (usuario instanceof MAdmin) {
-            //inicio de la ventana con la sesión de usuario normal
             System.out.println("admin");
+            CPerfilAdmin cPerfilAdmin = new CPerfilAdmin(new MAdmin(), new vistaPrincipal());   //inicia la ventana principal
+            cPerfilAdmin.initControl();
         }
         if (usuario instanceof MUsuario) {
-            //inicio de la ventana con la sesión de administrador
             System.out.println("usuario");
+            CPerfilUser cPerfilUser = new CPerfilUser(
+                    new MUsuario(),
+                    new vistaPrincipal(),
+                    new vistaPerfil(),
+                    new MSerie(),
+                    new MPelicula()
+            );
+            cPerfilUser.initControl();  
         }
         if (usuario == null) {
             JOptionPane.showMessageDialog(vista, "Al parecer aún no tienes una cuenta :(", "?", JOptionPane.QUESTION_MESSAGE, null);
@@ -79,10 +91,6 @@ public class CInicioSesion {
             }
         }
         return null;
-    }
-
-    private void abrirSesion() {
-
     }
 
     private void abrirRegistro() {

@@ -14,6 +14,9 @@ import java.awt.Image;
 public class Pelicula extends Contenido {
 
     private Video video;
+    
+    public Pelicula() {
+    }
 
     public Pelicula(String id, String titulo, String descripcion, Image imagen, Categoria categoria, Video video) {
         super(id, titulo, descripcion, imagen, categoria);

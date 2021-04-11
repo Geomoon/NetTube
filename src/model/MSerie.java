@@ -20,6 +20,9 @@ public class MSerie extends Serie implements CRUD {
         super(id, titulo, descripcion, imagen, categoria, capitulos);
     }
 
+    public MSerie() {
+    }
+
     @Override
     public boolean crear() {
         String sql = "CALL crear_serie ("

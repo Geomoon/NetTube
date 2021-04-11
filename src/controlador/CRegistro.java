@@ -50,9 +50,11 @@ public class CRegistro {
         Usuario usuario = obtenerDatos();
         if (usuario instanceof MAdmin) {
             ((MAdmin) usuario).crear();
+            cancelar(); //cierra la ventana
         }
         if (usuario instanceof MUsuario) {
             ((MUsuario) usuario).crear();
+            cancelar();
         }
     }
 
