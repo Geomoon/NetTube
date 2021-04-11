@@ -32,11 +32,12 @@ public class Validaciones {
         Matcher matcher = P_CORREO.matcher(correo);
         return matcher.matches();
     }
-     public void ValidarLetras(JTextField campo) {
+
+    public void ValidarLetras(JTextField campo) {
         campo.addKeyListener(new KeyAdapter() {
             public void keyTyped(KeyEvent e) {
-                char c = e.getKeyChar();
-                if (Character.isDigit(c)) {
+                char caracterT = e.getKeyChar();
+                if (((caracterT < 'a' | caracterT > 'z') & (caracterT < 'A' | caracterT > 'Z') & (caracterT != 32))) {
                     e.consume();
                 }
             }

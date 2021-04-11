@@ -36,6 +36,7 @@ public class panelCapitulos extends javax.swing.JPanel {
 
         textTitulo.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
         textTitulo.setForeground(new java.awt.Color(255, 255, 255));
+        textTitulo.setIcon(new javax.swing.ImageIcon(getClass().getResource("/vista/iconos/titulo.png"))); // NOI18N
         textTitulo.setText("TITULO");
 
         jSeparator1.setOrientation(javax.swing.SwingConstants.VERTICAL);
@@ -43,10 +44,12 @@ public class panelCapitulos extends javax.swing.JPanel {
         btnVerEliminar.setBackground(new java.awt.Color(0, 0, 0));
         btnVerEliminar.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
         btnVerEliminar.setForeground(new java.awt.Color(255, 255, 255));
+        btnVerEliminar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/vista/iconos/eliminar.png"))); // NOI18N
         btnVerEliminar.setText("ELIMINAR");
 
         textDescripcion.setFont(new java.awt.Font("Segoe UI", 0, 12)); // NOI18N
         textDescripcion.setForeground(new java.awt.Color(255, 255, 255));
+        textDescripcion.setIcon(new javax.swing.ImageIcon(getClass().getResource("/vista/iconos/descripcion.png"))); // NOI18N
         textDescripcion.setText("DESCRIPCION");
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
@@ -59,7 +62,7 @@ public class panelCapitulos extends javax.swing.JPanel {
                 .addGap(18, 18, 18)
                 .addComponent(jSeparator1, javax.swing.GroupLayout.PREFERRED_SIZE, 10, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(textDescripcion, javax.swing.GroupLayout.DEFAULT_SIZE, 183, Short.MAX_VALUE)
+                .addComponent(textDescripcion, javax.swing.GroupLayout.DEFAULT_SIZE, 163, Short.MAX_VALUE)
                 .addGap(18, 18, 18)
                 .addComponent(btnVerEliminar)
                 .addContainerGap())

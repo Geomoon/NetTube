@@ -39,6 +39,7 @@ public class vistaPanelPelicula extends javax.swing.JPanel {
         lbTitulo.setFont(new java.awt.Font("Segoe UI", 0, 11)); // NOI18N
         lbTitulo.setForeground(new java.awt.Color(255, 255, 255));
         lbTitulo.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        lbTitulo.setIcon(new javax.swing.ImageIcon(getClass().getResource("/vista/iconos/titulo.png"))); // NOI18N
         lbTitulo.setText("titulo");
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);

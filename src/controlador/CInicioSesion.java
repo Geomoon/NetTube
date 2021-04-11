@@ -23,7 +23,7 @@ public class CInicioSesion {
     private MAdmin mAdmin;
     private MUsuario mUsuario;
     private vistaIniciosesion vista;
-
+    
     public CInicioSesion() {
     }
 

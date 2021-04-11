@@ -70,7 +70,7 @@
                   <EmptySpace max="-2" attributes="0"/>
                   <Component id="btnStop" min="-2" max="-2" attributes="0"/>
                   <EmptySpace min="-2" pref="335" max="-2" attributes="0"/>
-                  <Component id="lblTitulo" pref="370" max="32767" attributes="0"/>
+                  <Component id="lblTitulo" pref="310" max="32767" attributes="0"/>
                   <EmptySpace max="-2" attributes="0"/>
               </Group>
           </Group>
@@ -98,16 +98,25 @@
       <SubComponents>
         <Component class="javax.swing.JButton" name="btnPlay">
           <Properties>
+            <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
+              <Image iconType="3" name="/vista/iconos/boton-de-play.png"/>
+            </Property>
             <Property name="text" type="java.lang.String" value="PLAY"/>
           </Properties>
         </Component>
         <Component class="javax.swing.JButton" name="btnPausa">
           <Properties>
+            <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
+              <Image iconType="3" name="/vista/iconos/pausa.png"/>
+            </Property>
             <Property name="text" type="java.lang.String" value="PAUSA"/>
           </Properties>
         </Component>
         <Component class="javax.swing.JButton" name="btnStop">
           <Properties>
+            <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
+              <Image iconType="3" name="/vista/iconos/detener.png"/>
+            </Property>
             <Property name="text" type="java.lang.String" value="STOP"/>
           </Properties>
         </Component>
@@ -118,6 +127,9 @@
             </Property>
             <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
               <Color blue="ff" green="ff" red="ff" type="rgb"/>
+            </Property>
+            <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
+              <Image iconType="3" name="/vista/iconos/titulo.png"/>
             </Property>
             <Property name="text" type="java.lang.String" value="TITULO"/>
           </Properties>

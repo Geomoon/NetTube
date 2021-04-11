@@ -41,12 +41,13 @@ public class vistaIniciosesion extends javax.swing.JFrame {
         btnIniciosesion = new javax.swing.JButton();
         textContrasena = new javax.swing.JPasswordField();
 
-        setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setResizable(false);
 
         jPanel1.setBackground(new java.awt.Color(38, 11, 32));
 
         jLabel3.setFont(new java.awt.Font("Segoe UI", 1, 28)); // NOI18N
         jLabel3.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel3.setIcon(new javax.swing.ImageIcon(getClass().getResource("/vista/iconos/nt-microsoft-windows.png"))); // NOI18N
         jLabel3.setText("NetTube");
 
         jLabel1.setFont(new java.awt.Font("Segoe UI", 1, 11)); // NOI18N
@@ -66,11 +67,13 @@ public class vistaIniciosesion extends javax.swing.JFrame {
         btnRegistrarse.setBackground(new java.awt.Color(0, 0, 0));
         btnRegistrarse.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
         btnRegistrarse.setForeground(new java.awt.Color(255, 255, 255));
+        btnRegistrarse.setIcon(new javax.swing.ImageIcon(getClass().getResource("/vista/iconos/agregar-usuario (1).png"))); // NOI18N
         btnRegistrarse.setText("REGISTRARSE");
 
         btnIniciosesion.setBackground(new java.awt.Color(0, 0, 0));
         btnIniciosesion.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
         btnIniciosesion.setForeground(new java.awt.Color(255, 255, 255));
+        btnIniciosesion.setIcon(new javax.swing.ImageIcon(getClass().getResource("/vista/iconos/iniciar-sesion.png"))); // NOI18N
         btnIniciosesion.setText("INICIAR SESIÓN");
 
         textContrasena.setBackground(new java.awt.Color(63, 25, 56));
@@ -82,32 +85,31 @@ public class vistaIniciosesion extends javax.swing.JFrame {
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addComponent(jLabel4, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
             .addGroup(jPanel1Layout.createSequentialGroup()
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addGap(42, 42, 42)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                     .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addGap(129, 129, 129)
-                        .addComponent(jLabel3))
-                    .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addGap(42, 42, 42)
+                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(jLabel2)
+                            .addComponent(jLabel1))
+                        .addGap(18, 18, 18)
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                            .addGroup(jPanel1Layout.createSequentialGroup()
-                                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(jLabel2)
-                                    .addComponent(jLabel1))
-                                .addGap(18, 18, 18)
-                                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                                    .addComponent(textUsuario, javax.swing.GroupLayout.DEFAULT_SIZE, 201, Short.MAX_VALUE)
-                                    .addComponent(textContrasena)))
-                            .addGroup(jPanel1Layout.createSequentialGroup()
-                                .addComponent(btnRegistrarse)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 66, Short.MAX_VALUE)
-                                .addComponent(btnIniciosesion)))))
-                .addContainerGap(41, Short.MAX_VALUE))
+                            .addComponent(textUsuario, javax.swing.GroupLayout.DEFAULT_SIZE, 201, Short.MAX_VALUE)
+                            .addComponent(textContrasena)))
+                    .addGroup(jPanel1Layout.createSequentialGroup()
+                        .addComponent(btnRegistrarse)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 66, Short.MAX_VALUE)
+                        .addComponent(btnIniciosesion)))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(jLabel3)
+                .addGap(98, 98, 98))
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel1Layout.createSequentialGroup()
                 .addGap(23, 23, 23)
-                .addComponent(jLabel3, javax.swing.GroupLayout.PREFERRED_SIZE, 41, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(jLabel3)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jLabel4, javax.swing.GroupLayout.PREFERRED_SIZE, 21, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(18, 18, 18)

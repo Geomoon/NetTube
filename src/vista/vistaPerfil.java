@@ -97,15 +97,18 @@ public class vistaPerfil extends javax.swing.JFrame {
         btnAgregarSeries.setBackground(new java.awt.Color(0, 0, 0));
         btnAgregarSeries.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
         btnAgregarSeries.setForeground(new java.awt.Color(255, 255, 255));
+        btnAgregarSeries.setIcon(new javax.swing.ImageIcon(getClass().getResource("/vista/iconos/youtube.png"))); // NOI18N
         btnAgregarSeries.setText("SERIES");
 
         jLabel2.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
         jLabel2.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/vista/iconos/mas (1).png"))); // NOI18N
         jLabel2.setText("AGREGAR");
 
         btnAgregarPeliculas.setBackground(new java.awt.Color(0, 0, 0));
         btnAgregarPeliculas.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
         btnAgregarPeliculas.setForeground(new java.awt.Color(255, 255, 255));
+        btnAgregarPeliculas.setIcon(new javax.swing.ImageIcon(getClass().getResource("/vista/iconos/video.png"))); // NOI18N
         btnAgregarPeliculas.setText("PELICULAS");
 
         javax.swing.GroupLayout jPanel3Layout = new javax.swing.GroupLayout(jPanel3);
@@ -113,18 +116,18 @@ public class vistaPerfil extends javax.swing.JFrame {
         jPanel3Layout.setHorizontalGroup(
             jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel3Layout.createSequentialGroup()
-                .addGap(23, 23, 23)
-                .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
-                    .addComponent(jSeparator2)
-                    .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                        .addGroup(jPanel3Layout.createSequentialGroup()
-                            .addGap(71, 71, 71)
-                            .addComponent(jLabel2))
-                        .addGroup(jPanel3Layout.createSequentialGroup()
-                            .addComponent(btnAgregarSeries, javax.swing.GroupLayout.PREFERRED_SIZE, 88, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addGap(58, 58, 58)
-                            .addComponent(btnAgregarPeliculas))))
-                .addContainerGap(20, Short.MAX_VALUE))
+                .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(jPanel3Layout.createSequentialGroup()
+                        .addGap(94, 94, 94)
+                        .addComponent(jLabel2))
+                    .addGroup(jPanel3Layout.createSequentialGroup()
+                        .addComponent(btnAgregarSeries)
+                        .addGap(57, 57, 57)
+                        .addComponent(btnAgregarPeliculas))
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel3Layout.createSequentialGroup()
+                        .addGap(23, 23, 23)
+                        .addComponent(jSeparator2)))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         jPanel3Layout.setVerticalGroup(
             jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -156,27 +159,33 @@ public class vistaPerfil extends javax.swing.JFrame {
         btnCancelarSerie.setBackground(new java.awt.Color(0, 0, 0));
         btnCancelarSerie.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
         btnCancelarSerie.setForeground(new java.awt.Color(255, 255, 255));
+        btnCancelarSerie.setIcon(new javax.swing.ImageIcon(getClass().getResource("/vista/iconos/error.png"))); // NOI18N
         btnCancelarSerie.setText("CANCELAR");
 
         jLabel4.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
         jLabel4.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel4.setIcon(new javax.swing.ImageIcon(getClass().getResource("/vista/iconos/youtube.png"))); // NOI18N
         jLabel4.setText("AGREGAR SERIES");
 
         btnAgregarFotoSerie.setBackground(new java.awt.Color(0, 0, 0));
         btnAgregarFotoSerie.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
         btnAgregarFotoSerie.setForeground(new java.awt.Color(255, 255, 255));
+        btnAgregarFotoSerie.setIcon(new javax.swing.ImageIcon(getClass().getResource("/vista/iconos/portada.png"))); // NOI18N
         btnAgregarFotoSerie.setText("PORTADA");
 
         jLabel5.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
         jLabel5.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel5.setIcon(new javax.swing.ImageIcon(getClass().getResource("/vista/iconos/titulo.png"))); // NOI18N
         jLabel5.setText("TITULO:");
 
         jLabel6.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
         jLabel6.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel6.setIcon(new javax.swing.ImageIcon(getClass().getResource("/vista/iconos/descripcion.png"))); // NOI18N
         jLabel6.setText("DESCRIPCIÓN:");
 
         jLabel7.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
         jLabel7.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel7.setIcon(new javax.swing.ImageIcon(getClass().getResource("/vista/iconos/categoria.png"))); // NOI18N
         jLabel7.setText("CATEGORÍA:");
 
         comboCategoriaSerie.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
@@ -210,14 +219,17 @@ public class vistaPerfil extends javax.swing.JFrame {
 
         jLabel8.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
         jLabel8.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel8.setIcon(new javax.swing.ImageIcon(getClass().getResource("/vista/iconos/capitulo.png"))); // NOI18N
         jLabel8.setText("CAPÍTULOS");
 
         jLabel9.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
         jLabel9.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel9.setIcon(new javax.swing.ImageIcon(getClass().getResource("/vista/iconos/titulo.png"))); // NOI18N
         jLabel9.setText("TITULO:");
 
         jLabel10.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
         jLabel10.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel10.setIcon(new javax.swing.ImageIcon(getClass().getResource("/vista/iconos/descripcion.png"))); // NOI18N
         jLabel10.setText("DESCRIPCIÓN DEL CAPÍTULO:");
 
         textTituloCapitulo.setBackground(new java.awt.Color(63, 25, 56));
@@ -230,11 +242,13 @@ public class vistaPerfil extends javax.swing.JFrame {
         btnAgregarCapitulo.setBackground(new java.awt.Color(0, 0, 0));
         btnAgregarCapitulo.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
         btnAgregarCapitulo.setForeground(new java.awt.Color(255, 255, 255));
+        btnAgregarCapitulo.setIcon(new javax.swing.ImageIcon(getClass().getResource("/vista/iconos/mas (1).png"))); // NOI18N
         btnAgregarCapitulo.setText("AGREGAR CAPÍTULO");
 
         btnAgregarSerie.setBackground(new java.awt.Color(0, 0, 0));
         btnAgregarSerie.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
         btnAgregarSerie.setForeground(new java.awt.Color(255, 255, 255));
+        btnAgregarSerie.setIcon(new javax.swing.ImageIcon(getClass().getResource("/vista/iconos/mas (1).png"))); // NOI18N
         btnAgregarSerie.setText("AGREGAR SERIE");
 
         javax.swing.GroupLayout jPanel4Layout = new javax.swing.GroupLayout(jPanel4);
@@ -281,7 +295,7 @@ public class vistaPerfil extends javax.swing.JFrame {
                             .addGroup(jPanel4Layout.createSequentialGroup()
                                 .addComponent(jLabel9)
                                 .addGap(18, 18, 18)
-                                .addComponent(textTituloCapitulo, javax.swing.GroupLayout.DEFAULT_SIZE, 247, Short.MAX_VALUE))
+                                .addComponent(textTituloCapitulo, javax.swing.GroupLayout.DEFAULT_SIZE, 227, Short.MAX_VALUE))
                             .addComponent(jLabel8))
                         .addGap(295, 295, 295))
                     .addGroup(jPanel4Layout.createSequentialGroup()
@@ -294,8 +308,8 @@ public class vistaPerfil extends javax.swing.JFrame {
                         .addGap(52, 52, 52)
                         .addComponent(btnCancelarSerie, javax.swing.GroupLayout.PREFERRED_SIZE, 134, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(btnAgregarSerie, javax.swing.GroupLayout.PREFERRED_SIZE, 134, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(68, 68, 68))))
+                        .addComponent(btnAgregarSerie)
+                        .addGap(59, 59, 59))))
         );
         jPanel4Layout.setVerticalGroup(
             jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -362,27 +376,33 @@ public class vistaPerfil extends javax.swing.JFrame {
         btnCancelarPelicula.setBackground(new java.awt.Color(0, 0, 0));
         btnCancelarPelicula.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
         btnCancelarPelicula.setForeground(new java.awt.Color(255, 255, 255));
+        btnCancelarPelicula.setIcon(new javax.swing.ImageIcon(getClass().getResource("/vista/iconos/error.png"))); // NOI18N
         btnCancelarPelicula.setText("CANCELAR");
 
         jLabel11.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
         jLabel11.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel11.setIcon(new javax.swing.ImageIcon(getClass().getResource("/vista/iconos/video.png"))); // NOI18N
         jLabel11.setText("AGREGAR PELICULAS");
 
         btnAgregarFotoPelicula.setBackground(new java.awt.Color(0, 0, 0));
         btnAgregarFotoPelicula.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
         btnAgregarFotoPelicula.setForeground(new java.awt.Color(255, 255, 255));
+        btnAgregarFotoPelicula.setIcon(new javax.swing.ImageIcon(getClass().getResource("/vista/iconos/portada.png"))); // NOI18N
         btnAgregarFotoPelicula.setText("PORTADA");
 
         jLabel12.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
         jLabel12.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel12.setIcon(new javax.swing.ImageIcon(getClass().getResource("/vista/iconos/titulo.png"))); // NOI18N
         jLabel12.setText("TITULO:");
 
         jLabel13.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
         jLabel13.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel13.setIcon(new javax.swing.ImageIcon(getClass().getResource("/vista/iconos/descripcion.png"))); // NOI18N
         jLabel13.setText("DESCRIPCIÓN:");
 
         jLabel14.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
         jLabel14.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel14.setIcon(new javax.swing.ImageIcon(getClass().getResource("/vista/iconos/categoria.png"))); // NOI18N
         jLabel14.setText("CATEGORÍA:");
 
         comboCategoriaPelicula.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
@@ -403,6 +423,7 @@ public class vistaPerfil extends javax.swing.JFrame {
         btnAgregarPelicula.setBackground(new java.awt.Color(0, 0, 0));
         btnAgregarPelicula.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
         btnAgregarPelicula.setForeground(new java.awt.Color(255, 255, 255));
+        btnAgregarPelicula.setIcon(new javax.swing.ImageIcon(getClass().getResource("/vista/iconos/mas (1).png"))); // NOI18N
         btnAgregarPelicula.setText("AGREGAR PELICULA");
 
         javax.swing.GroupLayout jPanel5Layout = new javax.swing.GroupLayout(jPanel5);
@@ -416,35 +437,36 @@ public class vistaPerfil extends javax.swing.JFrame {
                         .addComponent(jSeparator5, javax.swing.GroupLayout.PREFERRED_SIZE, 586, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel5Layout.createSequentialGroup()
-                        .addGroup(jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(jPanel5Layout.createSequentialGroup()
-                                .addComponent(jLabel13)
-                                .addGap(0, 0, Short.MAX_VALUE))
-                            .addComponent(textDescripcionPelicula)
+                        .addGroup(jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                            .addGroup(javax.swing.GroupLayout.Alignment.LEADING, jPanel5Layout.createSequentialGroup()
+                                .addGap(71, 71, 71)
+                                .addComponent(btnCancelarPelicula, javax.swing.GroupLayout.PREFERRED_SIZE, 134, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                .addComponent(btnAgregarPelicula))
                             .addGroup(jPanel5Layout.createSequentialGroup()
                                 .addGroup(jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(jLabel14)
-                                    .addComponent(jLabel12))
+                                    .addGroup(jPanel5Layout.createSequentialGroup()
+                                        .addComponent(jLabel13)
+                                        .addGap(0, 0, Short.MAX_VALUE))
+                                    .addComponent(textDescripcionPelicula)
+                                    .addGroup(jPanel5Layout.createSequentialGroup()
+                                        .addGroup(jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                            .addComponent(jLabel14)
+                                            .addComponent(jLabel12))
+                                        .addGap(18, 18, 18)
+                                        .addGroup(jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                            .addComponent(comboCategoriaPelicula, javax.swing.GroupLayout.PREFERRED_SIZE, 104, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                            .addComponent(textTituloPelicula, javax.swing.GroupLayout.DEFAULT_SIZE, 227, Short.MAX_VALUE))))
                                 .addGap(18, 18, 18)
+                                .addComponent(jSeparator6, javax.swing.GroupLayout.PREFERRED_SIZE, 13, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addGroup(jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(comboCategoriaPelicula, javax.swing.GroupLayout.PREFERRED_SIZE, 104, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addComponent(textTituloPelicula, javax.swing.GroupLayout.DEFAULT_SIZE, 247, Short.MAX_VALUE))))
-                        .addGap(18, 18, 18)
-                        .addComponent(jSeparator6, javax.swing.GroupLayout.PREFERRED_SIZE, 13, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGroup(jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(jPanel5Layout.createSequentialGroup()
-                                .addGap(31, 31, 31)
-                                .addComponent(lblFotoPelicula, javax.swing.GroupLayout.PREFERRED_SIZE, 147, javax.swing.GroupLayout.PREFERRED_SIZE))
-                            .addGroup(jPanel5Layout.createSequentialGroup()
-                                .addGap(60, 60, 60)
-                                .addComponent(btnAgregarFotoPelicula)))
-                        .addGap(56, 56, 56))
-                    .addGroup(jPanel5Layout.createSequentialGroup()
-                        .addGap(71, 71, 71)
-                        .addComponent(btnCancelarPelicula, javax.swing.GroupLayout.PREFERRED_SIZE, 134, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(btnAgregarPelicula, javax.swing.GroupLayout.PREFERRED_SIZE, 146, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(74, 74, 74))))
+                                    .addGroup(jPanel5Layout.createSequentialGroup()
+                                        .addGap(31, 31, 31)
+                                        .addComponent(lblFotoPelicula, javax.swing.GroupLayout.PREFERRED_SIZE, 147, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                    .addGroup(jPanel5Layout.createSequentialGroup()
+                                        .addGap(60, 60, 60)
+                                        .addComponent(btnAgregarFotoPelicula)))))
+                        .addGap(56, 56, 56))))
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel5Layout.createSequentialGroup()
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addComponent(jLabel11)
@@ -507,11 +529,13 @@ public class vistaPerfil extends javax.swing.JFrame {
 
         jLabel3.setFont(new java.awt.Font("Segoe UI", 1, 28)); // NOI18N
         jLabel3.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel3.setIcon(new javax.swing.ImageIcon(getClass().getResource("/vista/iconos/nt-microsoft-windows.png"))); // NOI18N
         jLabel3.setText("NetTube");
 
         btnPrincipal.setBackground(new java.awt.Color(0, 0, 0));
         btnPrincipal.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
         btnPrincipal.setForeground(new java.awt.Color(255, 255, 255));
+        btnPrincipal.setIcon(new javax.swing.ImageIcon(getClass().getResource("/vista/iconos/hogar (1).png"))); // NOI18N
         btnPrincipal.setText("PRINCIPAL");
 
         lblFoto.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(255, 255, 255)));
@@ -534,6 +558,7 @@ public class vistaPerfil extends javax.swing.JFrame {
         btnEditar.setBackground(new java.awt.Color(0, 0, 0));
         btnEditar.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
         btnEditar.setForeground(new java.awt.Color(255, 255, 255));
+        btnEditar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/vista/iconos/editar (1).png"))); // NOI18N
         btnEditar.setText("EDITAR");
 
         jSeparator1.setOrientation(javax.swing.SwingConstants.VERTICAL);
@@ -541,15 +566,18 @@ public class vistaPerfil extends javax.swing.JFrame {
         btnReportes.setBackground(new java.awt.Color(0, 0, 0));
         btnReportes.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
         btnReportes.setForeground(new java.awt.Color(255, 255, 255));
+        btnReportes.setIcon(new javax.swing.ImageIcon(getClass().getResource("/vista/iconos/escritura.png"))); // NOI18N
         btnReportes.setText("REPORTES");
 
         btnAdmincontenido.setBackground(new java.awt.Color(0, 0, 0));
         btnAdmincontenido.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
         btnAdmincontenido.setForeground(new java.awt.Color(255, 255, 255));
+        btnAdmincontenido.setIcon(new javax.swing.ImageIcon(getClass().getResource("/vista/iconos/video.png"))); // NOI18N
         btnAdmincontenido.setText("GESTIÓN DE CONTENIDO");
 
         lblFavoritos.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
         lblFavoritos.setForeground(new java.awt.Color(255, 255, 255));
+        lblFavoritos.setIcon(new javax.swing.ImageIcon(getClass().getResource("/vista/iconos/clasificacion.png"))); // NOI18N
         lblFavoritos.setText("FAVORITOS");
 
         panelPerfil.setBackground(new java.awt.Color(38, 11, 32));
@@ -569,6 +597,7 @@ public class vistaPerfil extends javax.swing.JFrame {
         btnAgregar.setBackground(new java.awt.Color(0, 0, 0));
         btnAgregar.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
         btnAgregar.setForeground(new java.awt.Color(255, 255, 255));
+        btnAgregar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/vista/iconos/mas (1).png"))); // NOI18N
         btnAgregar.setText("AGREGAR");
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
@@ -577,7 +606,7 @@ public class vistaPerfil extends javax.swing.JFrame {
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addComponent(jToolBar2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
-                .addContainerGap(434, Short.MAX_VALUE)
+                .addContainerGap(414, Short.MAX_VALUE)
                 .addComponent(jLabel3)
                 .addGap(402, 402, 402))
             .addGroup(jPanel1Layout.createSequentialGroup()
@@ -602,8 +631,8 @@ public class vistaPerfil extends javax.swing.JFrame {
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                             .addGroup(jPanel1Layout.createSequentialGroup()
-                                .addComponent(lblFavoritos, javax.swing.GroupLayout.PREFERRED_SIZE, 96, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addGap(97, 97, 97)
+                                .addComponent(lblFavoritos)
+                                .addGap(95, 95, 95)
                                 .addComponent(btnReportes)
                                 .addGap(18, 18, 18)
                                 .addComponent(btnAdmincontenido)
@@ -616,8 +645,8 @@ public class vistaPerfil extends javax.swing.JFrame {
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel1Layout.createSequentialGroup()
                 .addGap(19, 19, 19)
-                .addComponent(jLabel3, javax.swing.GroupLayout.PREFERRED_SIZE, 41, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(jLabel3)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jToolBar2, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(btnPrincipal)
@@ -646,7 +675,7 @@ public class vistaPerfil extends javax.swing.JFrame {
                                         .addComponent(btnAgregar)))
                                 .addGap(18, 18, 18)
                                 .addComponent(panelPerfil, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))))
-                .addContainerGap(28, Short.MAX_VALUE))
+                .addContainerGap(11, Short.MAX_VALUE))
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());

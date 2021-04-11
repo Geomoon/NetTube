@@ -53,14 +53,18 @@ public class vistaReproductorVideo extends javax.swing.JPanel {
 
         jPanel1.setBackground(new java.awt.Color(0, 0, 0));
 
+        btnPlay.setIcon(new javax.swing.ImageIcon(getClass().getResource("/vista/iconos/boton-de-play.png"))); // NOI18N
         btnPlay.setText("PLAY");
 
+        btnPausa.setIcon(new javax.swing.ImageIcon(getClass().getResource("/vista/iconos/pausa.png"))); // NOI18N
         btnPausa.setText("PAUSA");
 
+        btnStop.setIcon(new javax.swing.ImageIcon(getClass().getResource("/vista/iconos/detener.png"))); // NOI18N
         btnStop.setText("STOP");
 
         lblTitulo.setFont(new java.awt.Font("Segoe UI", 1, 13)); // NOI18N
         lblTitulo.setForeground(new java.awt.Color(255, 255, 255));
+        lblTitulo.setIcon(new javax.swing.ImageIcon(getClass().getResource("/vista/iconos/titulo.png"))); // NOI18N
         lblTitulo.setText("TITULO");
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
@@ -75,7 +79,7 @@ public class vistaReproductorVideo extends javax.swing.JPanel {
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(btnStop)
                 .addGap(335, 335, 335)
-                .addComponent(lblTitulo, javax.swing.GroupLayout.DEFAULT_SIZE, 370, Short.MAX_VALUE)
+                .addComponent(lblTitulo, javax.swing.GroupLayout.DEFAULT_SIZE, 310, Short.MAX_VALUE)
                 .addContainerGap())
         );
         jPanel1Layout.setVerticalGroup(

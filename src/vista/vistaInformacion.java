@@ -54,11 +54,13 @@ public class vistaInformacion extends javax.swing.JFrame {
         btnCancelar.setBackground(new java.awt.Color(0, 0, 0));
         btnCancelar.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
         btnCancelar.setForeground(new java.awt.Color(255, 255, 255));
+        btnCancelar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/vista/iconos/error.png"))); // NOI18N
         btnCancelar.setText("CANCELAR");
 
         btnReproducir.setBackground(new java.awt.Color(0, 0, 0));
         btnReproducir.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
         btnReproducir.setForeground(new java.awt.Color(255, 255, 255));
+        btnReproducir.setIcon(new javax.swing.ImageIcon(getClass().getResource("/vista/iconos/reproductor-de-video.png"))); // NOI18N
         btnReproducir.setText("REPRODUCIR");
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);

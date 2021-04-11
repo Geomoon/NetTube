@@ -49,6 +49,7 @@ public class vistaPrincipal extends javax.swing.JFrame {
         btnPerfil.setBackground(new java.awt.Color(0, 0, 0));
         btnPerfil.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
         btnPerfil.setForeground(new java.awt.Color(255, 255, 255));
+        btnPerfil.setIcon(new javax.swing.ImageIcon(getClass().getResource("/vista/iconos/usuario (1).png"))); // NOI18N
         btnPerfil.setText("MI PERFIL");
 
         textBuscar.setBackground(new java.awt.Color(63, 25, 56));
@@ -60,6 +61,7 @@ public class vistaPrincipal extends javax.swing.JFrame {
         btnBuscar.setBackground(new java.awt.Color(15, 0, 12));
         btnBuscar.setFont(new java.awt.Font("Segoe UI", 1, 11)); // NOI18N
         btnBuscar.setForeground(new java.awt.Color(255, 255, 255));
+        btnBuscar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/vista/iconos/buscar.png"))); // NOI18N
         btnBuscar.setText("BUSCAR");
         btnBuscar.setFocusable(false);
         btnBuscar.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
@@ -72,6 +74,7 @@ public class vistaPrincipal extends javax.swing.JFrame {
 
         jLabel3.setFont(new java.awt.Font("Segoe UI", 1, 28)); // NOI18N
         jLabel3.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel3.setIcon(new javax.swing.ImageIcon(getClass().getResource("/vista/iconos/nt-microsoft-windows.png"))); // NOI18N
         jLabel3.setText("NetTube");
 
         panelPeliculas.setBackground(new java.awt.Color(38, 11, 32));
@@ -90,10 +93,12 @@ public class vistaPrincipal extends javax.swing.JFrame {
 
         jLabel1.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
         jLabel1.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/vista/iconos/video.png"))); // NOI18N
         jLabel1.setText("PELICULAS");
 
         jLabel2.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
         jLabel2.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/vista/iconos/youtube.png"))); // NOI18N
         jLabel2.setText("SERIES");
 
         panelSeries.setBackground(new java.awt.Color(38, 11, 32));
@@ -107,7 +112,7 @@ public class vistaPrincipal extends javax.swing.JFrame {
         );
         panelSeriesLayout.setVerticalGroup(
             panelSeriesLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 199, Short.MAX_VALUE)
+            .addGap(0, 180, Short.MAX_VALUE)
         );
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
@@ -124,7 +129,7 @@ public class vistaPrincipal extends javax.swing.JFrame {
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jPanel1Layout.createSequentialGroup()
                         .addComponent(btnPerfil)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 429, Short.MAX_VALUE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 409, Short.MAX_VALUE)
                         .addComponent(textBuscar, javax.swing.GroupLayout.PREFERRED_SIZE, 326, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(18, 18, 18)
                         .addComponent(btnBuscar)
@@ -144,8 +149,8 @@ public class vistaPrincipal extends javax.swing.JFrame {
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel1Layout.createSequentialGroup()
-                .addGap(19, 19, 19)
-                .addComponent(jLabel3, javax.swing.GroupLayout.PREFERRED_SIZE, 41, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap()
+                .addComponent(jLabel3, javax.swing.GroupLayout.PREFERRED_SIZE, 54, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(jToolBar2, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
