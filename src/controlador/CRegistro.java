@@ -1,5 +1,6 @@
 package controlador;
 
+import java.awt.CardLayout;
 import java.awt.Image;
 import java.io.IOException;
 import java.util.Date;
@@ -9,11 +10,12 @@ import javax.imageio.ImageIO;
 import javax.swing.ImageIcon;
 import javax.swing.JFileChooser;
 import javax.swing.JOptionPane;
+import javax.swing.JPanel;
 import javax.swing.filechooser.FileNameExtensionFilter;
 import model.MAdmin;
 import model.MUsuario;
 import model.Usuario;
-import vista.vistaRegistro;
+import vista.vistaPanelRegistro;
 
 /**
  *
@@ -23,20 +25,21 @@ public class CRegistro {
 
     private MAdmin mAdmin;
     private MUsuario mUsuario;
-    private vistaRegistro vista;
+    private vistaPanelRegistro vista;
+
+    private JPanel panelLayout;
 
     public CRegistro() {
     }
 
-    public CRegistro(MAdmin mAdmin, MUsuario mUsuario, vistaRegistro vista) {
+    public CRegistro(MAdmin mAdmin, MUsuario mUsuario, vistaPanelRegistro vista, JPanel panelLayout) {
         this.mAdmin = mAdmin;
         this.mUsuario = mUsuario;
         this.vista = vista;
+        this.panelLayout = panelLayout;
     }
 
     public void initControl() {
-        vista.setLocationRelativeTo(null);
-        vista.setVisible(true);
         addEvents();
     }
 
@@ -113,15 +116,7 @@ public class CRegistro {
     }
 
     private void cancelar() {
-        vista.dispose();
-    }
-
-    public vistaRegistro getVista() {
-        return vista;
-    }
-
-    public void setVista(vistaRegistro vista) {
-        this.vista = vista;
+        ((CardLayout) panelLayout.getLayout()).show(panelLayout, "cardSesion");
     }
 
 }

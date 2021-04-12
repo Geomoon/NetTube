@@ -5,7 +5,9 @@
  */
 package controlador;
 
+import java.awt.CardLayout;
 import javax.swing.JOptionPane;
+import javax.swing.JPanel;
 import model.Admin;
 import model.MAdmin;
 import model.MPelicula;
@@ -13,10 +15,9 @@ import model.MSerie;
 import model.MUsuario;
 import model.Usuario;
 import model.UsuarioApp;
-import vista.vistaIniciosesion;
+import vista.vistaPanelInicioSesion;
 import vista.vistaPerfil;
 import vista.vistaPrincipal;
-import vista.vistaRegistro;
 
 /**
  *
@@ -24,22 +25,20 @@ import vista.vistaRegistro;
  */
 public class CInicioSesion {
 
+    private vistaPanelInicioSesion vista;
     private MAdmin mAdmin;
     private MUsuario mUsuario;
-    private vistaIniciosesion vista;
+    
+    private JPanel panelLayout;
 
-    public CInicioSesion() {
-    }
-
-    public CInicioSesion(MAdmin admin, MUsuario usuario, vistaIniciosesion vista) {
+    public CInicioSesion(MAdmin admin, MUsuario usuario, vistaPanelInicioSesion vista, JPanel panelLayout) {
         this.mAdmin = admin;
         this.mUsuario = usuario;
         this.vista = vista;
+        this.panelLayout = panelLayout;
     }
 
     public void initControl() {
-        vista.setLocationRelativeTo(null);
-        vista.setVisible(true);
         addEvents();
     }
 
@@ -64,7 +63,7 @@ public class CInicioSesion {
                     new MSerie(),
                     new MPelicula()
             );
-            cPerfilUser.initControl();  
+            cPerfilUser.initControl();
         }
         if (usuario == null) {
             JOptionPane.showMessageDialog(vista, "Al parecer aún no tienes una cuenta :(", "?", JOptionPane.QUESTION_MESSAGE, null);
@@ -94,11 +93,6 @@ public class CInicioSesion {
     }
 
     private void abrirRegistro() {
-        CRegistro cRegistro = new CRegistro(
-                new MAdmin(),
-                new MUsuario(),
-                new vistaRegistro()
-        );
-        cRegistro.initControl();
+        ((CardLayout) panelLayout.getLayout()).show(panelLayout, "cardRegistro");
     }
 }

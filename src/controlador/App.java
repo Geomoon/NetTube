@@ -5,9 +5,16 @@
  */
 package controlador;
 
+import com.formdev.flatlaf.FlatDarkLaf;
+import java.util.logging.Level;
+import java.util.logging.Logger;
+import javax.swing.UIManager;
+import javax.swing.UnsupportedLookAndFeelException;
 import model.MAdmin;
 import model.MUsuario;
-import vista.vistaIniciosesion;
+import vista.vistaInicio;
+import vista.vistaPanelInicioSesion;
+import vista.vistaPanelRegistro;
 
 /**
  *
@@ -15,11 +22,22 @@ import vista.vistaIniciosesion;
  */
 public class App {
 
+    static {
+        try {
+            UIManager.setLookAndFeel(new FlatDarkLaf());
+        } catch (UnsupportedLookAndFeelException ex) {
+            Logger.getLogger(App.class.getName()).log(Level.SEVERE, null, ex);
+        }
+    }
+
     public static void main(String[] args) {
-        CInicioSesion inicio = new CInicioSesion(
-                new MAdmin(),
-                new MUsuario(),
-                new vistaIniciosesion()
+
+        CInicio inicio = new CInicio(
+                new vistaInicio(), 
+                new MAdmin(), 
+                new MUsuario(), 
+                new vistaPanelRegistro(), 
+                new vistaPanelInicioSesion()
         );
         
         inicio.initControl();
