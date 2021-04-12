@@ -22,6 +22,7 @@ import vista.vistaPrincipal;
  * @author User
  */
 public class CPerfilUser {
+
     private MUsuario mUser;
     private vistaPrincipal vista;
     private vistaPerfil vp;
@@ -38,66 +39,68 @@ public class CPerfilUser {
         this.mSerie = mSerie;
         this.mPeli = mPeli;
     }
-    
-    public void initControl(){
-        
+
+    public void initControl() {
+        vista.setLocationRelativeTo(null);
+        vista.setVisible(true);
+        addEvents();
     }
-    
-    private void addEvents(){
+
+    private void addEvents() {
         listar();
-        vista.getBtnPerfil().addActionListener(l->perfil());
+        vista.getBtnPerfil().addActionListener(l -> perfil());
     }
-    
-    private void perfil(){
+
+    private void perfil() {
         vp.setLocationRelativeTo(null);
         vp.setVisible(true);
-        
-        Image img=mUser.getFoto();
+
+        Image img = mUser.getFoto();
         Image newimg = CUtils.redimensionarImagen(img, vp.getLblFoto());
         ImageIcon icon = new ImageIcon(newimg);
-        
+
         vp.getBtnReportes().setEnabled(false);
         vp.getBtnReportes().setVisible(false);
         vp.getBtnAgregar().setEnabled(false);
         vp.getBtnAgregar().setVisible(false);
         vp.getBtnAdmincontenido().setEnabled(false);
         vp.getBtnAdmincontenido().setVisible(false);
-        
+
         vp.getLblFavoritos().setVisible(false);
         vp.getLblFoto().setIcon(icon);
         vp.getLblCorreo().setText(mUser.getEmail());
         vp.getLblNombre().setText(mUser.getNombre());
         vp.getLblNacimiento().setText(mUser.getFechaNac().toString());
         vista.dispose();
-          
+
     }
-    
-    private void listar(){
-        vistaPanelPelicula vistap=new vistaPanelPelicula();
-        
-        List<Pelicula> listaP=mPeli.listar();        
-        listaP.stream().forEach(p->{
-        Image img=p.getImagen();
-        Image newimg = CUtils.redimensionarImagen(img, vistap.getLbFoto());
-        ImageIcon icon = new ImageIcon(newimg);
-        vista.getPanelPeliculas().add(panelPelicula(icon,p.getTitulo()));
+
+    private void listar() {
+        vistaPanelPelicula vistap = new vistaPanelPelicula();
+
+        List<Pelicula> listaP = mPeli.listar();
+        listaP.stream().forEach(p -> {
+            Image img = p.getImagen();
+            Image newimg = CUtils.redimensionarImagen(img, vistap.getLbFoto());
+            ImageIcon icon = new ImageIcon(newimg);
+            vista.getPanelPeliculas().add(panelPelicula(icon, p.getTitulo()));
         });
-        
-        List<Serie> listaS=mSerie.listar();        
-        listaS.stream().forEach(s->{
-        Image img=s.getImagen();
-        Image newimg = CUtils.redimensionarImagen(img, vistap.getLbFoto());
-        ImageIcon icon = new ImageIcon(newimg);
-        vista.getPanelSeries().add(panelPelicula(icon,s.getTitulo()));
+
+        List<Serie> listaS = mSerie.listar();
+        listaS.stream().forEach(s -> {
+            Image img = s.getImagen();
+            Image newimg = CUtils.redimensionarImagen(img, vistap.getLbFoto());
+            ImageIcon icon = new ImageIcon(newimg);
+            vista.getPanelSeries().add(panelPelicula(icon, s.getTitulo()));
         });
     }
-    
-    private vistaPanelPelicula panelPelicula(ImageIcon foto,String titulo){
-       
-        vistaPanelPelicula vistap=new vistaPanelPelicula();
+
+    private vistaPanelPelicula panelPelicula(ImageIcon foto, String titulo) {
+
+        vistaPanelPelicula vistap = new vistaPanelPelicula();
         vistap.getLbFoto().setIcon(foto);
         vistap.getLbTitulo().setText(titulo);
-        
+
         return vistap;
     }
 }

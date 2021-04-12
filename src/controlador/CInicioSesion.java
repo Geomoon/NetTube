@@ -28,7 +28,7 @@ public class CInicioSesion {
     private vistaPanelInicioSesion vista;
     private MAdmin mAdmin;
     private MUsuario mUsuario;
-    
+
     private JPanel panelLayout;
 
     public CInicioSesion(MAdmin admin, MUsuario usuario, vistaPanelInicioSesion vista, JPanel panelLayout) {
@@ -49,15 +49,15 @@ public class CInicioSesion {
 
     private void iniciarSesion() {
         Usuario usuario = verificarDatos();
-        if (usuario instanceof MAdmin) {
+        if (usuario instanceof Admin) {
             System.out.println("admin");
-            CPerfilAdmin cPerfilAdmin = new CPerfilAdmin(new MAdmin(), new vistaPrincipal());   //inicia la ventana principal
+            CPerfilAdmin cPerfilAdmin = new CPerfilAdmin(mAdmin, new vistaPrincipal());   //inicia la ventana principal
             cPerfilAdmin.initControl();
         }
         if (usuario instanceof MUsuario) {
             System.out.println("usuario");
             CPerfilUser cPerfilUser = new CPerfilUser(
-                    new MUsuario(),
+                    mUsuario,
                     new vistaPrincipal(),
                     new vistaPerfil(),
                     new MSerie(),
@@ -77,7 +77,7 @@ public class CInicioSesion {
         UsuarioApp usuarioBD = (UsuarioApp) MUsuario.obtenerPorEmail(email);
         if (usuarioBD != null) {
             if (usuarioBD.getPassword().equals(password)) {
-                System.out.println("fdsaf");
+                System.out.println("usuario_passwd");
                 return usuarioBD;
             }
         }
@@ -85,7 +85,7 @@ public class CInicioSesion {
         Admin adminBD = (Admin) MAdmin.obtenerPorEmail(email);
         if (adminBD != null) {
             if (adminBD.getPassword().equals(password)) {
-                System.out.println("admin");
+                System.out.println("admin_passwd");
                 return adminBD;
             }
         }
