@@ -51,6 +51,7 @@ public class vistaPanelRegistro extends javax.swing.JPanel {
         btnRegistrarse = new javax.swing.JButton();
         btnExaminar = new javax.swing.JButton();
         lblFoto = new javax.swing.JLabel();
+        lblpassseguro = new javax.swing.JLabel();
         jLabel8 = new javax.swing.JLabel();
 
         setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
@@ -87,7 +88,7 @@ public class vistaPanelRegistro extends javax.swing.JPanel {
         jLabel5.setFont(new java.awt.Font("Segoe UI", 1, 11)); // NOI18N
         jLabel5.setForeground(new java.awt.Color(255, 255, 255));
         jLabel5.setText("CONTRASEÑA");
-        add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 205, -1, 20));
+        add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 200, -1, 20));
 
         jLabel6.setFont(new java.awt.Font("Segoe UI", 1, 11)); // NOI18N
         jLabel6.setForeground(new java.awt.Color(255, 255, 255));
@@ -150,9 +151,21 @@ public class vistaPanelRegistro extends javax.swing.JPanel {
         lblFoto.setPreferredSize(new java.awt.Dimension(100, 100));
         add(lblFoto, new org.netbeans.lib.awtextra.AbsoluteConstraints(410, 130, 125, 124));
 
+        lblpassseguro.setForeground(new java.awt.Color(102, 0, 0));
+        add(lblpassseguro, new org.netbeans.lib.awtextra.AbsoluteConstraints(140, 180, 190, 20));
+
         jLabel8.setIcon(new javax.swing.ImageIcon(getClass().getResource("/vista/img/fondo-login1.png"))); // NOI18N
+        jLabel8.setOpaque(true);
         add(jLabel8, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 612, 428));
     }// </editor-fold>//GEN-END:initComponents
+
+    public JLabel getLblpassseguro() {
+        return lblpassseguro;
+    }
+
+    public void setLblpassseguro(JLabel lblpassseguro) {
+        this.lblpassseguro = lblpassseguro;
+    }
 
     public JButton getBtnCancelar() {
         return btnCancelar;
@@ -249,6 +262,7 @@ public class vistaPanelRegistro extends javax.swing.JPanel {
     private javax.swing.JLabel jLabel7;
     private javax.swing.JLabel jLabel8;
     private javax.swing.JLabel lblFoto;
+    private javax.swing.JLabel lblpassseguro;
     private javax.swing.JRadioButton radbtnAdmin;
     private javax.swing.JRadioButton radbtnCliente;
     private javax.swing.JPasswordField textContrasena;

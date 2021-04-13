@@ -71,5 +71,5 @@ public class CInicio {
         CRegistro cRegistro = new CRegistro(mAdmin, mUsuario, vRegistro, panelLayout);
         cRegistro.initControl();
     }
-
+    
 }

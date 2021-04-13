@@ -47,6 +47,7 @@ public class CPerfilUser {
     }
 
     private void addEvents() {
+        validarcampostxt();
         listar();
         vista.getBtnPerfil().addActionListener(l -> perfil());
     }
@@ -102,5 +103,15 @@ public class CPerfilUser {
         vistap.getLbTitulo().setText(titulo);
 
         return vistap;
+    }
+    public void validarcampostxt(){
+       Validaciones val=new Validaciones();
+       val.LimitarCaracteres(vista.getTextBuscar(), 30);
+       val.LimitarCaracteres(vp.getTextTituloPelicula(), 30);
+       val.LimitarCaracteres(vp.getTextTituloSerie(), 30);
+       val.LimitarCaracteres(vp.getTextTituloCapitulo(), 30);
+       val.LimitarCaracteres(vp.getTextDescripcionCapitulo(), 100);
+       val.LimitarCaracteres(vp.getTextDescripcionPelicula(), 100);
+       val.LimitarCaracteres(vp.getTextDescripcionSerie(), 100);
     }
 }

@@ -19,9 +19,11 @@ public class Validaciones {
 
     private static final String RGX_NOMBRES = "^[\\p{L} .'-]+$";
     private static final String RGX_CORREO = "^[_a-z0-9-]+(\\.[_a-z0-9-]+)*@[a-z0-9-]+(\\.[a-z0-9-]+)*(\\.[a-z]{2,4})$";
-
+    private static final String RGX_CONTRASENA = "(?=.*[0-9])(?=.*[a-z])(?=.*[A-Z])(?=.*[@#$%^&+=])(?=\\\\S+$).{8,}";
+    
     private static final Pattern P_NOMBRES = Pattern.compile(RGX_NOMBRES);
     private static final Pattern P_CORREO = Pattern.compile(RGX_CORREO);
+    private static final Pattern P_CONTRASENA = Pattern.compile(RGX_CONTRASENA);
 
     protected static boolean validarNombre(String nombre) {
         Matcher matcher = P_NOMBRES.matcher(nombre);
@@ -30,6 +32,11 @@ public class Validaciones {
 
     protected static boolean validarCorreo(String correo) {
         Matcher matcher = P_CORREO.matcher(correo);
+        return matcher.matches();
+    }
+    
+    protected static boolean validarContraseña(String password) {
+        Matcher matcher = P_CONTRASENA.matcher(password);
         return matcher.matches();
     }
 

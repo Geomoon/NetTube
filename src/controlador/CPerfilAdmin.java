@@ -50,6 +50,7 @@ public class CPerfilAdmin {
     }
     
     private void addEvents(){
+        validarcampo();
         listar();
         vista.getBtnPerfil().addActionListener(l->perfil());
         vp.getBtnAgregar().addActionListener(l->vp.getjDialogAgregar().setVisible(true));
@@ -145,7 +146,10 @@ public class CPerfilAdmin {
            }
        }
    }
-    
+   private void validarcampo(){
+       Validaciones val=new Validaciones();
+       val.LimitarCaracteres(vista.getTextBuscar(), 30);
+   }
    private void reportes(){
        
    }
