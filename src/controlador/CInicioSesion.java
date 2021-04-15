@@ -30,7 +30,7 @@ public class CInicioSesion {
     private MUsuario mUsuario;
 
     private JPanel panelLayout;
-
+    
     public CInicioSesion(MAdmin admin, MUsuario usuario, vistaPanelInicioSesion vista, JPanel panelLayout) {
         this.mAdmin = admin;
         this.mUsuario = usuario;
@@ -41,8 +41,9 @@ public class CInicioSesion {
     public void initControl() {
         addEvents();
     }
-
+    
     private void addEvents() {
+        validarcampos();
         vista.getBtnIniciosesion().addActionListener(l -> iniciarSesion());
         vista.getBtnRegistrarse().addActionListener(l -> abrirRegistro());
     }
@@ -95,4 +96,13 @@ public class CInicioSesion {
     private void abrirRegistro() {
         ((CardLayout) panelLayout.getLayout()).show(panelLayout, "cardRegistro");
     }
+    
+        public void validarcampos(){
+        Validaciones val=new Validaciones();
+        
+        val.LimitarCaracteres(vista.getTextUsuario(), 50);
+        val.LimitarCaracteres(vista.getTextContrasena(), 32);
+        
+    }
+
 }

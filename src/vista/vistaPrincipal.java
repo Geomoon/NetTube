@@ -10,6 +10,7 @@ import javax.swing.JFrame;
 import javax.swing.JInternalFrame;
 import javax.swing.JPanel;
 import javax.swing.JTextField;
+import javax.swing.JToolBar;
 
 /**
  *
@@ -34,7 +35,7 @@ public class vistaPrincipal extends javax.swing.JFrame {
         btnPerfil = new javax.swing.JButton();
         textBuscar = new javax.swing.JTextField();
         btnBuscar = new javax.swing.JButton();
-        jToolBar2 = new javax.swing.JToolBar();
+        barCategorias = new javax.swing.JToolBar();
         jLabel3 = new javax.swing.JLabel();
         panelPeliculas = new javax.swing.JPanel();
         jLabel1 = new javax.swing.JLabel();
@@ -67,10 +68,10 @@ public class vistaPrincipal extends javax.swing.JFrame {
         btnBuscar.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
         btnBuscar.setVerticalTextPosition(javax.swing.SwingConstants.BOTTOM);
 
-        jToolBar2.setBackground(new java.awt.Color(15, 0, 12));
-        jToolBar2.setFloatable(false);
-        jToolBar2.setRollover(true);
-        jToolBar2.setBorderPainted(false);
+        barCategorias.setBackground(new java.awt.Color(15, 0, 12));
+        barCategorias.setFloatable(false);
+        barCategorias.setRollover(true);
+        barCategorias.setBorderPainted(false);
 
         jLabel3.setFont(new java.awt.Font("Segoe UI", 1, 28)); // NOI18N
         jLabel3.setForeground(new java.awt.Color(255, 255, 255));
@@ -119,7 +120,7 @@ public class vistaPrincipal extends javax.swing.JFrame {
         jPanel1.setLayout(jPanel1Layout);
         jPanel1Layout.setHorizontalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jToolBar2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addComponent(barCategorias, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addComponent(jLabel3)
@@ -152,7 +153,7 @@ public class vistaPrincipal extends javax.swing.JFrame {
                 .addContainerGap()
                 .addComponent(jLabel3, javax.swing.GroupLayout.PREFERRED_SIZE, 54, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(jToolBar2, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(barCategorias, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
@@ -183,6 +184,14 @@ public class vistaPrincipal extends javax.swing.JFrame {
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
+
+    public JToolBar getBarCategorias() {
+        return barCategorias;
+    }
+
+    public void setBarCategorias(JToolBar barCategorias) {
+        this.barCategorias = barCategorias;
+    }
 
     public JPanel getPanelPeliculas() {
         return panelPeliculas;
@@ -234,13 +243,13 @@ public class vistaPrincipal extends javax.swing.JFrame {
   
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JToolBar barCategorias;
     private javax.swing.JButton btnBuscar;
     private javax.swing.JButton btnPerfil;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JPanel jPanel1;
-    private javax.swing.JToolBar jToolBar2;
     private javax.swing.JPanel panelPeliculas;
     private javax.swing.JPanel panelSeries;
     private javax.swing.JTextField textBuscar;
