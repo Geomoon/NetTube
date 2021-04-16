@@ -76,6 +76,36 @@ public class MSerie extends Serie implements CRUD {
         return list;
     }
 
+    public List<Serie> listar(String text, int limit) {
+        
+        String sql = "SELECT * FROM vista_series ";
+        sql += " WHERE LCASE(titulo) like LCASE('%" + text + "%') OR ";
+        sql += "LCASE(categoria_id) like LCASE('%" + text + "%') ";
+        if (limit != 0) {
+            sql += " LIMIT " + limit;
+        }
+
+        List<Serie> list = new ArrayList<>();
+        try (ResultSet rs = con.query(sql)) {
+            while (rs.next()) {
+                list.add(new Serie(
+                        rs.getString("id"),
+                        rs.getString("titulo"),
+                        rs.getString("descripcion"),
+                        Utils.toImage(rs.getBytes("portada")),
+                        new Categoria(
+                                rs.getString("categoria_id"),
+                                rs.getString("nombre"),
+                                ""),
+                        null
+                ));
+            }
+        } catch (SQLException ex) {
+            Logger.getLogger(MSerie.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        return list;
+    }
+    
     @Override
     public Object buscar(String id) {
         throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.

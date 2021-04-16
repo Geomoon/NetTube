@@ -48,6 +48,11 @@ public class CPerfilAdmin {
     public CPerfilAdmin(MAdmin mAdmin, vistaPrincipal vista) {
         this.mAdmin = mAdmin;
         this.vista = vista;
+        
+        mSerie = new MSerie();
+        mPeli = new MPelicula();
+        mCat = new MCategoria();
+        vp = new vistaPerfil();
     }
     
     public void initControl() {
@@ -132,7 +137,7 @@ public class CPerfilAdmin {
         vista.getPanelPeliculas().removeAll();
         vista.getPanelSeries().removeAll();
 
-        List<Pelicula> listaP = mPeli.listar();
+        List<Pelicula> listaP = mPeli.listar(text, 0);
         listaP.stream().forEach(p -> {
             Image img = p.getImagen();
             Image newimg = CUtils.redimensionarImagen(img, vistap.getLbFoto());

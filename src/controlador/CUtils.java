@@ -27,6 +27,9 @@ public class CUtils {
 
     protected static Image redimensionarImagen(Image image, JLabel label) {
         BufferedImage bf = (BufferedImage) image;
+        if (image == null) {
+            return null;
+        }
         if (bf.getHeight() > label.getHeight() || bf.getWidth() > label.getWidth()) {
             return image.getScaledInstance(label.getWidth(), label.getHeight(), Image.SCALE_SMOOTH);
         } else {

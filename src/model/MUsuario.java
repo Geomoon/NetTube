@@ -85,7 +85,7 @@ public class MUsuario extends UsuarioApp implements Listable<UsuarioApp>, Editab
     }
 
     public static UsuarioApp obtenerPorEmail(String email) {
-        String sql = "SELECT id, nombre, apellido, email, AES_DECRYPT(password, '357190')"
+        String sql = "SELECT id, nombre, apellido, email, AES_DECRYPT(password, '357190'), fecha_nacimiento"
                 + " FROM vista_usuarios"
                 + " WHERE email='" + email + "'";
         UsuarioApp usuario = null;
@@ -97,6 +97,7 @@ public class MUsuario extends UsuarioApp implements Listable<UsuarioApp>, Editab
                 usuario.setApellido(rs.getString("apellido"));
                 usuario.setEmail(rs.getString("email"));
                 usuario.setPassword(rs.getString(5));
+                usuario.setFechaNac(rs.getDate("fecha_nacimiento"));
             }
         } catch (SQLException ex) {
             Logger.getLogger(MUsuario.class.getName()).log(Level.SEVERE, null, ex);

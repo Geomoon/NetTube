@@ -54,11 +54,14 @@ public class MPelicula extends Pelicula implements CRUD {
         return (con.noQuery(sql) == null);
     }
 
-    public List<Pelicula> listar(String aguja) {
-        String sql = "SELECT * FROM vista_peliculas WHERE";
-        sql+="LOWER(titulo) like LOWER('%"+aguja+"%') OR ";
-        sql+="LOWER(categoria_id) like LOWER('%"+aguja+"%') OR ";
-        
+    public List<Pelicula> listar(String aguja, int limit) {
+        String sql = "SELECT * FROM vista_peliculas WHERE ";
+        sql += "LCASE(titulo) like LCASE('%" + aguja + "%') OR ";
+        sql += "LCASE(categoria_id) like LCASE('%" + aguja + "%') ";
+        if (limit != 0) {
+            sql += "LIMIT " + limit;
+        }
+
         List<Pelicula> list = new ArrayList<>();
         try (ResultSet rs = con.query(sql)) {
             while (rs.next()) {

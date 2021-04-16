@@ -6,6 +6,8 @@
 package controlador;
 
 import java.awt.CardLayout;
+import java.time.LocalDate;
+import java.util.Date;
 import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 import model.Admin;
@@ -50,15 +52,16 @@ public class CInicioSesion {
 
     private void iniciarSesion() {
         Usuario usuario = verificarDatos();
+        MAdmin m = new MAdmin("1", "Admin", "admin", "a@gmail.com", "1234", new Date(2000, 2, 2), null);
         if (usuario instanceof Admin) {
             System.out.println("admin");
-            CPerfilAdmin cPerfilAdmin = new CPerfilAdmin(mAdmin, new vistaPrincipal());   //inicia la ventana principal
+            CPerfilAdmin cPerfilAdmin = new CPerfilAdmin(m, new vistaPrincipal());   //inicia la ventana principal
             cPerfilAdmin.initControl();
         }
         if (usuario instanceof MUsuario) {
             System.out.println("usuario");
             CPerfilUser cPerfilUser = new CPerfilUser(
-                    mUsuario,
+                    (MUsuario) usuario,
                     new vistaPrincipal(),
                     new vistaPerfil(),
                     new MSerie(),

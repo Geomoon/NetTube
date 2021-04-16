@@ -36,6 +36,8 @@ public class CPerfilUser {
     private MPelicula mPeli;
     private MCategoria mCat;
 
+    private MenuBusqueda menu;
+
     public CPerfilUser() {
     }
 
@@ -45,6 +47,9 @@ public class CPerfilUser {
         this.vp = vp;
         this.mSerie = mSerie;
         this.mPeli = mPeli;
+        mCat = new MCategoria();
+
+        menu = new MenuBusqueda(vista.getTextBuscar(), mPeli, mSerie, vista); //para sugerencias de búsqueda
     }
 
     public void initControl() {
@@ -55,10 +60,10 @@ public class CPerfilUser {
 
     private void addEvents() {
         validarcampostxt();
-        listar("");
+//        listar("");
         categorias();
         vista.getBtnPerfil().addActionListener(l -> perfil());
-        vista.getBtnBuscar().addActionListener(l->listar(vista.getTextBuscar().getText()));
+//        vista.getBtnBuscar().addActionListener(l -> listar(vista.getTextBuscar().getText()));
     }
 
     private void perfil() {
@@ -67,7 +72,7 @@ public class CPerfilUser {
 
         Image img = mUser.getFoto();
         Image newimg = CUtils.redimensionarImagen(img, vp.getLblFoto());
-        ImageIcon icon = new ImageIcon(newimg);
+        ImageIcon icon = (newimg != null) ? new ImageIcon(newimg) : null;
 
         vp.getBtnReportes().setEnabled(false);
         vp.getBtnReportes().setVisible(false);
@@ -88,12 +93,12 @@ public class CPerfilUser {
     private void listar(String aguja) {
         vistaPanelPelicula vistap = new vistaPanelPelicula();
 
-        List<Pelicula> listaP = mPeli.listar();
+        List<Pelicula> listaP = mPeli.listar(aguja, 0);
         listaP.stream().forEach(p -> {
             Image img = p.getImagen();
             Image newimg = CUtils.redimensionarImagen(img, vistap.getLbFoto());
             ImageIcon icon = new ImageIcon(newimg);
-            vista.getPanelPeliculas().add(panelPelicula(icon, p.getTitulo(),p.getId(),p.getDescripcion()));
+            vista.getPanelPeliculas().add(panelPelicula(icon, p.getTitulo(), p.getId(), p.getDescripcion()));
         });
 
         List<Serie> listaS = mSerie.listar();
@@ -101,71 +106,72 @@ public class CPerfilUser {
             Image img = s.getImagen();
             Image newimg = CUtils.redimensionarImagen(img, vistap.getLbFoto());
             ImageIcon icon = new ImageIcon(newimg);
-            vista.getPanelSeries().add(panelPelicula(icon, s.getTitulo(),s.getId(),s.getDescripcion()));
+            vista.getPanelSeries().add(panelPelicula(icon, s.getTitulo(), s.getId(), s.getDescripcion()));
         });
     }
 
-    private vistaPanelPelicula panelPelicula(ImageIcon foto, String titulo,String id,String desc) {
+    private vistaPanelPelicula panelPelicula(ImageIcon foto, String titulo, String id, String desc) {
 
         vistaPanelPelicula vistap = new vistaPanelPelicula();
         vistap.getLbFoto().setIcon(foto);
         vistap.getLbTitulo().setText(titulo);
-        MouseListener ml=new MouseListener() {
+        MouseListener ml = new MouseListener() {
             @Override
             public void mouseClicked(MouseEvent e) {
-                informacion(foto,titulo,desc,id);
+                informacion(foto, titulo, desc, id);
             }
 
             @Override
             public void mousePressed(MouseEvent e) {
-                throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
             }
 
             @Override
             public void mouseReleased(MouseEvent e) {
-                throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
             }
 
             @Override
             public void mouseEntered(MouseEvent e) {
-                throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
             }
 
             @Override
             public void mouseExited(MouseEvent e) {
-                throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
             }
         };
         vistap.getLbFoto().addMouseListener(ml);
 
         return vistap;
     }
-    public void validarcampostxt(){
-       Validaciones val=new Validaciones();
-       val.LimitarCaracteres(vista.getTextBuscar(), 30);
-       val.LimitarCaracteres(vp.getTextTituloPelicula(), 30);
-       val.LimitarCaracteres(vp.getTextTituloSerie(), 30);
-       val.LimitarCaracteres(vp.getTextTituloCapitulo(), 30);
-       val.LimitarCaracteres(vp.getTextDescripcionCapitulo(), 100);
-       val.LimitarCaracteres(vp.getTextDescripcionPelicula(), 100);
-       val.LimitarCaracteres(vp.getTextDescripcionSerie(), 100);
+
+    public void validarcampostxt() {
+        Validaciones val = new Validaciones();
+        val.LimitarCaracteres(vista.getTextBuscar(), 30);
+        val.LimitarCaracteres(vp.getTextTituloPelicula(), 30);
+        val.LimitarCaracteres(vp.getTextTituloSerie(), 30);
+        val.LimitarCaracteres(vp.getTextTituloCapitulo(), 30);
+        val.LimitarCaracteres(vp.getTextDescripcionCapitulo(), 100);
+        val.LimitarCaracteres(vp.getTextDescripcionPelicula(), 100);
+        val.LimitarCaracteres(vp.getTextDescripcionSerie(), 100);
     }
-    
-    private void informacion(ImageIcon foto, String titulo,String id,String desc){
-        vistaInformacion vi=new vistaInformacion();
+
+    private void informacion(ImageIcon foto, String titulo, String id, String desc) {
+        vistaInformacion vi = new vistaInformacion();
         vi.setVisible(true);
         vi.getLbFoto().setIcon(foto);
         vi.getTextInformacion().setText(desc);
         vi.getLblTitulo().setText(titulo);
-        
+
     }
-    
-    private void categorias(){
-       List<Categoria> listaC=mCat.listar();
-       listaC.stream().forEach(c ->{
-           JButton btn=new JButton(c.getNombre());
-           vista.getBarCategorias().add(btn);
-           btn.addActionListener(l->listar(c.getId()));
-       });
-   }
+
+    private void categorias() {
+        List<Categoria> listaC = mCat.listar();
+        listaC.stream().forEach(c -> {
+            JButton btn = new JButton(c.getNombre());
+            vista.getBarCategorias().add(btn);
+            btn.addActionListener(l -> listar(c.getId()));
+        });
+    }
+
+    private void buscar(String text) {
+
+    }
 }
