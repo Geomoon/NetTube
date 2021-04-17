@@ -84,11 +84,11 @@ public class MUsuario extends UsuarioApp implements Listable<UsuarioApp>, Editab
         return null;
     }
 
-    public static UsuarioApp obtenerPorEmail(String email) {
-        String sql = "SELECT id, nombre, apellido, email, AES_DECRYPT(password, '357190'), fecha_nacimiento"
+    public static MUsuario obtenerPorEmail(String email) {
+        String sql = "SELECT id, nombre, apellido, email, AES_DECRYPT(password, '357190'), fecha_nacimiento, foto"
                 + " FROM vista_usuarios"
                 + " WHERE email='" + email + "'";
-        UsuarioApp usuario = null;
+        MUsuario usuario = null;
         try (ResultSet rs = con.query(sql)) {
             if (rs.next()) {
                 usuario = new MUsuario();
@@ -98,6 +98,7 @@ public class MUsuario extends UsuarioApp implements Listable<UsuarioApp>, Editab
                 usuario.setEmail(rs.getString("email"));
                 usuario.setPassword(rs.getString(5));
                 usuario.setFechaNac(rs.getDate("fecha_nacimiento"));
+                usuario.setFoto(Utils.toImage(rs.getBytes("foto")));
             }
         } catch (SQLException ex) {
             Logger.getLogger(MUsuario.class.getName()).log(Level.SEVERE, null, ex);

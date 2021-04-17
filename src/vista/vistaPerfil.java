@@ -5,6 +5,8 @@
  */
 package vista;
 
+import com.toedter.calendar.JDateChooser;
+import java.awt.FlowLayout;
 import javax.swing.JButton;
 import javax.swing.JComboBox;
 import javax.swing.JDialog;
@@ -12,6 +14,8 @@ import javax.swing.JFrame;
 import javax.swing.JInternalFrame;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
+import javax.swing.JPasswordField;
+import javax.swing.JRadioButton;
 import javax.swing.JTextField;
 
 /**
@@ -25,10 +29,9 @@ public class vistaPerfil extends javax.swing.JFrame {
      */
     public vistaPerfil() {
         initComponents();
-        
+
     }
 
-    
     @SuppressWarnings("unchecked")
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
@@ -87,6 +90,26 @@ public class vistaPerfil extends javax.swing.JFrame {
         textTituloCategoria = new javax.swing.JTextField();
         textDescripcionCategoria = new javax.swing.JTextField();
         btnAgregarCategoría = new javax.swing.JButton();
+        jDialogEditarPerfil = new javax.swing.JDialog();
+        jPanel2 = new javax.swing.JPanel();
+        jLabel18 = new javax.swing.JLabel();
+        textNombre = new javax.swing.JTextField();
+        jLabel1 = new javax.swing.JLabel();
+        jLabel19 = new javax.swing.JLabel();
+        jLabel20 = new javax.swing.JLabel();
+        textContrasena = new javax.swing.JPasswordField();
+        textCorreo = new javax.swing.JTextField();
+        jDateNacimiento = new com.toedter.calendar.JDateChooser();
+        jLabel21 = new javax.swing.JLabel();
+        jLabel22 = new javax.swing.JLabel();
+        radbtnCliente = new javax.swing.JRadioButton();
+        radbtnAdmin = new javax.swing.JRadioButton();
+        btnCancelar = new javax.swing.JButton();
+        btnRegistrarse = new javax.swing.JButton();
+        btnExaminar = new javax.swing.JButton();
+        lblFoto1 = new javax.swing.JLabel();
+        jLabel23 = new javax.swing.JLabel();
+        lblpassseguro = new javax.swing.JLabel();
         jPanel1 = new javax.swing.JPanel();
         jToolBar2 = new javax.swing.JToolBar();
         jLabel3 = new javax.swing.JLabel();
@@ -635,6 +658,130 @@ public class vistaPerfil extends javax.swing.JFrame {
             .addComponent(jPanel6, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
 
+        jDialogEditarPerfil.setTitle("Editar información");
+        jDialogEditarPerfil.setMaximumSize(new java.awt.Dimension(612, 445));
+        jDialogEditarPerfil.setMinimumSize(new java.awt.Dimension(612, 445));
+        jDialogEditarPerfil.setPreferredSize(new java.awt.Dimension(612, 445));
+        jDialogEditarPerfil.setResizable(false);
+
+        jPanel2.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+
+        jLabel18.setFont(new java.awt.Font("Segoe UI", 1, 36)); // NOI18N
+        jLabel18.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel18.setText(" NetTube");
+        jPanel2.add(jLabel18, new org.netbeans.lib.awtextra.AbsoluteConstraints(230, 20, -1, 58));
+
+        textNombre.setBackground(new java.awt.Color(63, 25, 56));
+        textNombre.setForeground(new java.awt.Color(255, 255, 255));
+        jPanel2.add(textNombre, new org.netbeans.lib.awtextra.AbsoluteConstraints(140, 120, 189, -1));
+
+        jLabel1.setFont(new java.awt.Font("Segoe UI", 1, 11)); // NOI18N
+        jLabel1.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel1.setText("NOMBRE");
+        jPanel2.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 120, -1, 30));
+
+        jLabel19.setFont(new java.awt.Font("Segoe UI", 1, 11)); // NOI18N
+        jLabel19.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel19.setText("CORREO");
+        jPanel2.add(jLabel19, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 160, -1, 30));
+
+        jLabel20.setFont(new java.awt.Font("Segoe UI", 1, 11)); // NOI18N
+        jLabel20.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel20.setText("CONTRASEÑA");
+        jPanel2.add(jLabel20, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 200, -1, 20));
+
+        textContrasena.setBackground(new java.awt.Color(63, 25, 56));
+        textContrasena.setForeground(new java.awt.Color(255, 255, 255));
+        textContrasena.setMinimumSize(new java.awt.Dimension(15, 24));
+        textContrasena.setPreferredSize(new java.awt.Dimension(15, 24));
+        jPanel2.add(textContrasena, new org.netbeans.lib.awtextra.AbsoluteConstraints(140, 200, 188, -1));
+
+        textCorreo.setEditable(false);
+        textCorreo.setBackground(new java.awt.Color(63, 25, 56));
+        textCorreo.setForeground(new java.awt.Color(255, 255, 255));
+        jPanel2.add(textCorreo, new org.netbeans.lib.awtextra.AbsoluteConstraints(140, 160, 189, -1));
+
+        jDateNacimiento.setBackground(new java.awt.Color(63, 25, 56));
+        jDateNacimiento.setFont(new java.awt.Font("Segoe UI", 0, 12)); // NOI18N
+        jDateNacimiento.setMaxSelectableDate(new java.util.Date(1609480877000L));
+        jDateNacimiento.setMinSelectableDate(new java.util.Date(-1262281483000L));
+        jPanel2.add(jDateNacimiento, new org.netbeans.lib.awtextra.AbsoluteConstraints(180, 250, 150, -1));
+
+        jLabel21.setFont(new java.awt.Font("Segoe UI", 1, 11)); // NOI18N
+        jLabel21.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel21.setText("FECHA DE NACIMIENTO");
+        jPanel2.add(jLabel21, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 250, -1, 30));
+
+        jLabel22.setFont(new java.awt.Font("Segoe UI", 1, 11)); // NOI18N
+        jLabel22.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel22.setText("TIPO DE USUARIO");
+        jPanel2.add(jLabel22, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 300, -1, 30));
+
+        radbtnCliente.setBackground(new java.awt.Color(38, 11, 32));
+        radbtnCliente.setFont(new java.awt.Font("Segoe UI", 0, 11)); // NOI18N
+        radbtnCliente.setForeground(new java.awt.Color(255, 255, 255));
+        radbtnCliente.setSelected(true);
+        radbtnCliente.setText("CLIENTE");
+        radbtnCliente.setEnabled(false);
+        jPanel2.add(radbtnCliente, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 300, -1, -1));
+
+        radbtnAdmin.setBackground(new java.awt.Color(38, 11, 32));
+        radbtnAdmin.setForeground(new java.awt.Color(255, 255, 255));
+        radbtnAdmin.setText("ADMIN");
+        radbtnAdmin.setEnabled(false);
+        jPanel2.add(radbtnAdmin, new org.netbeans.lib.awtextra.AbsoluteConstraints(260, 300, -1, -1));
+
+        btnCancelar.setBackground(new java.awt.Color(0, 0, 0));
+        btnCancelar.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
+        btnCancelar.setForeground(new java.awt.Color(255, 255, 255));
+        btnCancelar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/vista/iconos/error.png"))); // NOI18N
+        btnCancelar.setText("CANCELAR");
+        btnCancelar.setContentAreaFilled(false);
+        btnCancelar.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        jPanel2.add(btnCancelar, new org.netbeans.lib.awtextra.AbsoluteConstraints(330, 360, -1, 44));
+
+        btnRegistrarse.setBackground(new java.awt.Color(34, 12, 51));
+        btnRegistrarse.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
+        btnRegistrarse.setForeground(new java.awt.Color(255, 255, 255));
+        btnRegistrarse.setIcon(new javax.swing.ImageIcon(getClass().getResource("/vista/iconos/usuario (1).png"))); // NOI18N
+        btnRegistrarse.setText("GUARDAR");
+        btnRegistrarse.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        jPanel2.add(btnRegistrarse, new org.netbeans.lib.awtextra.AbsoluteConstraints(450, 360, -1, 44));
+
+        btnExaminar.setBackground(new java.awt.Color(34, 12, 51));
+        btnExaminar.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
+        btnExaminar.setForeground(new java.awt.Color(255, 255, 255));
+        btnExaminar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/vista/iconos/mas (1).png"))); // NOI18N
+        btnExaminar.setText("Examinar...");
+        btnExaminar.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        jPanel2.add(btnExaminar, new org.netbeans.lib.awtextra.AbsoluteConstraints(410, 270, 125, -1));
+
+        lblFoto1.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(255, 255, 255)));
+        lblFoto1.setMaximumSize(new java.awt.Dimension(100, 100));
+        lblFoto1.setMinimumSize(new java.awt.Dimension(100, 100));
+        lblFoto1.setPreferredSize(new java.awt.Dimension(100, 100));
+        jPanel2.add(lblFoto1, new org.netbeans.lib.awtextra.AbsoluteConstraints(410, 130, 125, 124));
+
+        jLabel23.setIcon(new javax.swing.ImageIcon(getClass().getResource("/vista/img/fondo-login1.png"))); // NOI18N
+        jLabel23.setOpaque(true);
+        jPanel2.add(jLabel23, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 612, 428));
+
+        lblpassseguro.setForeground(new java.awt.Color(102, 0, 0));
+        jPanel2.add(lblpassseguro, new org.netbeans.lib.awtextra.AbsoluteConstraints(140, 180, 190, 20));
+
+        javax.swing.GroupLayout jDialogEditarPerfilLayout = new javax.swing.GroupLayout(jDialogEditarPerfil.getContentPane());
+        jDialogEditarPerfil.getContentPane().setLayout(jDialogEditarPerfilLayout);
+        jDialogEditarPerfilLayout.setHorizontalGroup(
+            jDialogEditarPerfilLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addComponent(jPanel2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+        );
+        jDialogEditarPerfilLayout.setVerticalGroup(
+            jDialogEditarPerfilLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addComponent(jPanel2, javax.swing.GroupLayout.DEFAULT_SIZE, 445, Short.MAX_VALUE)
+        );
+
+        jDialogEditarPerfil.getAccessibleContext().setAccessibleDescription("");
+
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setBackground(new java.awt.Color(38, 11, 32));
 
@@ -1130,8 +1277,104 @@ public class vistaPerfil extends javax.swing.JFrame {
         this.textTituloSerie = textTituloSerie;
     }
 
-  
+    public JDialog getjDialogEditarPerfil() {
+        return jDialogEditarPerfil;
+    }
 
+    public void setjDialogEditarPerfil(JDialog jDialogEditarPerfil) {
+        this.jDialogEditarPerfil = jDialogEditarPerfil;
+    }
+
+    public JButton getBtnCancelar() {
+        return btnCancelar;
+    }
+
+    public void setBtnCancelar(JButton btnCancelar) {
+        this.btnCancelar = btnCancelar;
+    }
+
+    public JButton getBtnExaminar() {
+        return btnExaminar;
+    }
+
+    public void setBtnExaminar(JButton btnExaminar) {
+        this.btnExaminar = btnExaminar;
+    }
+
+    public JButton getBtnRegistrarse() {
+        return btnRegistrarse;
+    }
+
+    public void setBtnRegistrarse(JButton btnRegistrarse) {
+        this.btnRegistrarse = btnRegistrarse;
+    }
+
+    public JDateChooser getjDateNacimiento() {
+        return jDateNacimiento;
+    }
+
+    public void setjDateNacimiento(JDateChooser jDateNacimiento) {
+        this.jDateNacimiento = jDateNacimiento;
+    }
+
+    public JLabel getLblFoto1() {
+        return lblFoto1;
+    }
+
+    public void setLblFoto1(JLabel lblFoto1) {
+        this.lblFoto1 = lblFoto1;
+    }
+
+    public JRadioButton getRadbtnAdmin() {
+        return radbtnAdmin;
+    }
+
+    public void setRadbtnAdmin(JRadioButton radbtnAdmin) {
+        this.radbtnAdmin = radbtnAdmin;
+    }
+
+    public JRadioButton getRadbtnCliente() {
+        return radbtnCliente;
+    }
+
+    public void setRadbtnCliente(JRadioButton radbtnCliente) {
+        this.radbtnCliente = radbtnCliente;
+    }
+
+    public JTextField getTextCorreo() {
+        return textCorreo;
+    }
+
+    public void setTextCorreo(JTextField textCorreo) {
+        this.textCorreo = textCorreo;
+    }
+
+    public JTextField getTextNombre() {
+        return textNombre;
+    }
+
+    public void setTextNombre(JTextField textNombre) {
+        this.textNombre = textNombre;
+    }
+
+    public JLabel getLblpassseguro() {
+        return lblpassseguro;
+    }
+
+    public void setLblpassseguro(JLabel lblpassseguro) {
+        this.lblpassseguro = lblpassseguro;
+    }
+
+    public JPasswordField getTextContrasena() {
+        return textContrasena;
+    }
+
+    public void setTextContrasena(JPasswordField textContrasena) {
+        this.textContrasena = textContrasena;
+    }
+    
+    
+    
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnAdmincontenido;
     private javax.swing.JButton btnAgregar;
@@ -1144,18 +1387,24 @@ public class vistaPerfil extends javax.swing.JFrame {
     private javax.swing.JButton btnAgregarPeliculas;
     private javax.swing.JButton btnAgregarSerie;
     private javax.swing.JButton btnAgregarSeries;
+    private javax.swing.JButton btnCancelar;
     private javax.swing.JButton btnCancelarCategoria;
     private javax.swing.JButton btnCancelarPelicula;
     private javax.swing.JButton btnCancelarSerie;
     private javax.swing.JButton btnEditar;
+    private javax.swing.JButton btnExaminar;
     private javax.swing.JButton btnPrincipal;
+    private javax.swing.JButton btnRegistrarse;
     private javax.swing.JButton btnReportes;
     private javax.swing.JComboBox<String> comboCategoriaPelicula;
     private javax.swing.JComboBox<String> comboCategoriaSerie;
+    private com.toedter.calendar.JDateChooser jDateNacimiento;
     private javax.swing.JDialog jDialogAgregar;
     private javax.swing.JDialog jDialogAgregarCategorias;
     private javax.swing.JDialog jDialogAgregarPeliculas;
     private javax.swing.JDialog jDialogAgregarSeries;
+    private javax.swing.JDialog jDialogEditarPerfil;
+    private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel10;
     private javax.swing.JLabel jLabel11;
     private javax.swing.JLabel jLabel12;
@@ -1164,7 +1413,13 @@ public class vistaPerfil extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel15;
     private javax.swing.JLabel jLabel16;
     private javax.swing.JLabel jLabel17;
+    private javax.swing.JLabel jLabel18;
+    private javax.swing.JLabel jLabel19;
     private javax.swing.JLabel jLabel2;
+    private javax.swing.JLabel jLabel20;
+    private javax.swing.JLabel jLabel21;
+    private javax.swing.JLabel jLabel22;
+    private javax.swing.JLabel jLabel23;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel5;
@@ -1173,6 +1428,7 @@ public class vistaPerfil extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel8;
     private javax.swing.JLabel jLabel9;
     private javax.swing.JPanel jPanel1;
+    private javax.swing.JPanel jPanel2;
     private javax.swing.JPanel jPanel3;
     private javax.swing.JPanel jPanel4;
     private javax.swing.JPanel jPanel5;
@@ -1188,16 +1444,23 @@ public class vistaPerfil extends javax.swing.JFrame {
     private javax.swing.JLabel lblCorreo;
     private javax.swing.JLabel lblFavoritos;
     private javax.swing.JLabel lblFoto;
+    private javax.swing.JLabel lblFoto1;
     private javax.swing.JLabel lblFotoPelicula;
     private javax.swing.JLabel lblFotoSerie;
     private javax.swing.JLabel lblNacimiento;
     private javax.swing.JLabel lblNombre;
+    private javax.swing.JLabel lblpassseguro;
     private javax.swing.JPanel panelCapitulosAgregados;
     private javax.swing.JPanel panelPerfil;
+    private javax.swing.JRadioButton radbtnAdmin;
+    private javax.swing.JRadioButton radbtnCliente;
+    private javax.swing.JPasswordField textContrasena;
+    private javax.swing.JTextField textCorreo;
     private javax.swing.JTextField textDescripcionCapitulo;
     private javax.swing.JTextField textDescripcionCategoria;
     private javax.swing.JTextField textDescripcionPelicula;
     private javax.swing.JTextField textDescripcionSerie;
+    private javax.swing.JTextField textNombre;
     private javax.swing.JTextField textTituloCapitulo;
     private javax.swing.JTextField textTituloCategoria;
     private javax.swing.JTextField textTituloPelicula;

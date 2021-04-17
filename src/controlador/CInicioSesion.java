@@ -6,17 +6,14 @@
 package controlador;
 
 import java.awt.CardLayout;
-import java.time.LocalDate;
-import java.util.Date;
 import javax.swing.JOptionPane;
 import javax.swing.JPanel;
-import model.Admin;
 import model.MAdmin;
 import model.MPelicula;
 import model.MSerie;
 import model.MUsuario;
 import model.Usuario;
-import model.UsuarioApp;
+import vista.vistaInicio;
 import vista.vistaPanelInicioSesion;
 import vista.vistaPerfil;
 import vista.vistaPrincipal;
@@ -32,18 +29,20 @@ public class CInicioSesion {
     private MUsuario mUsuario;
 
     private JPanel panelLayout;
-    
-    public CInicioSesion(MAdmin admin, MUsuario usuario, vistaPanelInicioSesion vista, JPanel panelLayout) {
+    private vistaInicio vInicio;
+
+    public CInicioSesion(MAdmin admin, MUsuario usuario, vistaPanelInicioSesion vista, vistaInicio vInicio) {
         this.mAdmin = admin;
         this.mUsuario = usuario;
         this.vista = vista;
-        this.panelLayout = panelLayout;
+        this.vInicio = vInicio;
+        panelLayout = vInicio.getPanelContenido();
     }
 
     public void initControl() {
         addEvents();
     }
-    
+
     private void addEvents() {
         validarcampos();
         vista.getBtnIniciosesion().addActionListener(l -> iniciarSesion());
@@ -52,46 +51,47 @@ public class CInicioSesion {
 
     private void iniciarSesion() {
         Usuario usuario = verificarDatos();
-        MAdmin m = new MAdmin("1", "Admin", "admin", "a@gmail.com", "1234", new Date(2000, 2, 2), null);
-        if (usuario instanceof Admin) {
-            System.out.println("admin");
-            CPerfilAdmin cPerfilAdmin = new CPerfilAdmin(m, new vistaPrincipal());   //inicia la ventana principal
-            cPerfilAdmin.initControl();
-        }
-        if (usuario instanceof MUsuario) {
-            System.out.println("usuario");
-            CPerfilUser cPerfilUser = new CPerfilUser(
-                    (MUsuario) usuario,
-                    new vistaPrincipal(),
-                    new vistaPerfil(),
-                    new MSerie(),
-                    new MPelicula()
-            );
-            cPerfilUser.initControl();
-        }
+        String password = String.valueOf(vista.getTextContrasena().getPassword());
+
         if (usuario == null) {
-            JOptionPane.showMessageDialog(vista, "Al parecer aún no tienes una cuenta :(", "?", JOptionPane.QUESTION_MESSAGE, null);
+            JOptionPane.showMessageDialog(vista, "Al parecer aún no tienes una cuenta :(", "Usuario no encontrado", JOptionPane.QUESTION_MESSAGE, null);
+        } else if (usuario.getPassword().equals(password)) {
+            if (usuario instanceof MAdmin) {
+                System.out.println("admin");
+                CPerfilAdmin cPerfilAdmin = new CPerfilAdmin((MAdmin) usuario, new vistaPrincipal());   //inicia la ventana principal
+                cPerfilAdmin.initControl();
+            }
+            if (usuario instanceof MUsuario) {
+                System.out.println("usuario");
+                CPerfilUser cPerfilUser = new CPerfilUser(
+                        (MUsuario) usuario,
+                        new vistaPrincipal(),
+                        new vistaPerfil(),
+                        new MSerie(),
+                        new MPelicula()
+                );
+                cPerfilUser.initControl();
+            }
+            vInicio.dispose();
+        } else {
+            JOptionPane.showMessageDialog(vista, "Contraseña incorrecta", "Mensaje", JOptionPane.QUESTION_MESSAGE, null);
         }
+
     }
 
     private Usuario verificarDatos() {
         String email = vista.getTextUsuario().getText();
-        String password = String.valueOf(vista.getTextContrasena().getPassword());
 
-        UsuarioApp usuarioBD = (UsuarioApp) MUsuario.obtenerPorEmail(email);
+        MUsuario usuarioBD = MUsuario.obtenerPorEmail(email);
         if (usuarioBD != null) {
-            if (usuarioBD.getPassword().equals(password)) {
-                System.out.println("usuario_passwd");
-                return usuarioBD;
-            }
+            System.out.println("usuario_passwd");
+            return usuarioBD;
         }
 
-        Admin adminBD = (Admin) MAdmin.obtenerPorEmail(email);
+        MAdmin adminBD = MAdmin.obtenerPorEmail(email);
         if (adminBD != null) {
-            if (adminBD.getPassword().equals(password)) {
-                System.out.println("admin_passwd");
-                return adminBD;
-            }
+            System.out.println("admin_passwd");
+            return adminBD;
         }
         return null;
     }
@@ -99,13 +99,12 @@ public class CInicioSesion {
     private void abrirRegistro() {
         ((CardLayout) panelLayout.getLayout()).show(panelLayout, "cardRegistro");
     }
-    
-        public void validarcampos(){
-        Validaciones val=new Validaciones();
-        
+
+    public void validarcampos() {
+        Validaciones val = new Validaciones();
+
         val.LimitarCaracteres(vista.getTextUsuario(), 50);
         val.LimitarCaracteres(vista.getTextContrasena(), 32);
-        
     }
 
 }

@@ -63,12 +63,12 @@ public class CInicio {
     }
     
     private void initCInicioSesion() {
-        CInicioSesion cInicioSesion = new CInicioSesion(mAdmin, mUsuario, vInicioSesion, panelLayout);
+        CInicioSesion cInicioSesion = new CInicioSesion(mAdmin, mUsuario, vInicioSesion, vInicio);
         cInicioSesion.initControl();
     }
     
     private void initCRegistro() {
-        CRegistro cRegistro = new CRegistro(mAdmin, mUsuario, vRegistro, panelLayout);
+        CRegistro cRegistro = new CRegistro(mAdmin, mUsuario, vRegistro, vInicio);
         cRegistro.initControl();
     }
     

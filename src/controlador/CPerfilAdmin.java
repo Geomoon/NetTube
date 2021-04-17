@@ -27,6 +27,7 @@ import model.Pelicula;
 import model.Serie;
 import vista.vistaInformacion;
 import vista.vistaPanelPelicula;
+import vista.vistaPanelRegistro;
 import vista.vistaPerfil;
 import vista.vistaPrincipal;
 
@@ -63,7 +64,7 @@ public class CPerfilAdmin {
     
     private void addEvents(){
         validarcampo();
-        listar("");
+//        listar("");
         categorias();
         vista.getBtnPerfil().addActionListener(l->perfil());
         vp.getBtnAgregar().addActionListener(l->vp.getjDialogAgregar().setVisible(true));
@@ -71,8 +72,13 @@ public class CPerfilAdmin {
         vp.getBtnAgregarSeries().addActionListener(l->agregarSeries());
         vp.getBtnAgregarFotoPelicula().addActionListener(l->cargarImagen(vp.getLblFotoPelicula()));
         vp.getBtnAgregarFotoSerie().addActionListener(l->cargarImagen(vp.getLblFotoSerie()));
-        vista.getBtnBuscar().addActionListener(l->listar(vista.getTextBuscar().getText()));
-        
+//        vista.getBtnBuscar().addActionListener(l->listar(vista.getTextBuscar().getText()));
+        vp.getBtnEditar().addActionListener(l -> editarPerfil());
+    }
+    
+    private void editarPerfil() {
+        CEditarPerfil cEditar = new CEditarPerfil(vp, mAdmin);
+        cEditar.initControl();
     }
     
     private void agregarPeliculas(){
@@ -114,7 +120,8 @@ public class CPerfilAdmin {
         
         Image img=mAdmin.getFoto();
         Image newimg = CUtils.redimensionarImagen(img, vp.getLblFoto());
-        ImageIcon icon = new ImageIcon(newimg);
+        ImageIcon icon = (newimg != null) ? new ImageIcon(newimg) : null;
+
         
         vp.getBtnReportes().setEnabled(true);
         vp.getBtnReportes().setVisible(true);

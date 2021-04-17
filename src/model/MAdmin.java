@@ -84,19 +84,21 @@ public class MAdmin extends Admin implements Listable<Admin>, Editable {
         throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
     
-    public static Admin obtenerPorEmail(String email) {
-        String sql = "SELECT id, nombre, apellido, email, aes_decrypt(password, '357190')"
+    public static MAdmin obtenerPorEmail(String email) {
+        String sql = "SELECT id, nombre, apellido, email, aes_decrypt(password, '357190'), fecha_nacimiento, foto"
                 + " from vista_admins"
                 + " where email='" + email + "'";
-        Admin usuario = null;
+        MAdmin usuario = null;
         try (ResultSet rs = con.query(sql)) {
             if (rs.next()) {
-                usuario = new Admin();
+                usuario = new MAdmin();
                 usuario.setId(rs.getString("id"));
                 usuario.setNombre(rs.getString("nombre"));
                 usuario.setApellido(rs.getString("apellido"));
                 usuario.setEmail(rs.getString("email"));
                 usuario.setPassword(rs.getString(5));
+                usuario.setFechaNac(rs.getDate("fecha_nacimiento"));
+                usuario.setFoto(Utils.toImage(rs.getBytes("foto")));
             }
         } catch (SQLException ex) {
             Logger.getLogger(MUsuario.class.getName()).log(Level.SEVERE, null, ex);

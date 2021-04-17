@@ -1,19 +1,15 @@
 package controlador;
 
-import java.awt.Dimension;
 import java.awt.Point;
 import java.awt.event.ActionEvent;
 import java.awt.event.KeyEvent;
 import java.awt.event.KeyListener;
 import java.awt.event.MouseEvent;
 import java.awt.event.MouseListener;
-import java.util.ArrayList;
-import java.util.List;
 import javax.swing.AbstractAction;
 import javax.swing.JPopupMenu;
 import javax.swing.JTextField;
 import javax.swing.Action;
-import javax.swing.DefaultSingleSelectionModel;
 import model.MPelicula;
 import model.MSerie;
 import vista.vistaPrincipal;
@@ -34,8 +30,6 @@ public class MenuBusqueda {
      */
     private JPopupMenu menu;
 
-    private List<String> items;
-
     private MPelicula mPeli;
     private MSerie mSerie;
     private vistaPrincipal vista;
@@ -47,7 +41,6 @@ public class MenuBusqueda {
         this.vista = vista;
 
         menu = new JPopupMenu();
-        items = new ArrayList<>();
 
         addEvent();
     }
@@ -93,7 +86,7 @@ public class MenuBusqueda {
 
             @Override
             public void keyReleased(KeyEvent e) {
-                if (e.getKeyCode() == 0) {
+                if (e.getKeyCode() == 0) {  //se supone que oculta las opciones al dar backspace v:
                     limpiar();
                 } else {
                     buscar(tf.getText());
@@ -117,7 +110,6 @@ public class MenuBusqueda {
         menu.setVisible(false);
 
         int num = menu.getSubElements().length;
-        System.out.println(num);
         menu.setPopupSize(tf.getSize().width, (30 * num));
 
         Point point = new Point(
@@ -126,7 +118,6 @@ public class MenuBusqueda {
         );
 
         menu.setLocation(point);
-
         menu.setVisible(true);
     }
 

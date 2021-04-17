@@ -48,7 +48,7 @@ public class CPerfilUser {
         this.mSerie = mSerie;
         this.mPeli = mPeli;
         mCat = new MCategoria();
-
+        
         menu = new MenuBusqueda(vista.getTextBuscar(), mPeli, mSerie, vista); //para sugerencias de búsqueda
     }
 
@@ -60,10 +60,16 @@ public class CPerfilUser {
 
     private void addEvents() {
         validarcampostxt();
-//        listar("");
+        //listar("");
         categorias();
         vista.getBtnPerfil().addActionListener(l -> perfil());
-//        vista.getBtnBuscar().addActionListener(l -> listar(vista.getTextBuscar().getText()));
+        //vista.getBtnBuscar().addActionListener(l -> listar(vista.getTextBuscar().getText()));
+        vp.getBtnEditar().addActionListener(l -> editarPerfil());
+    }
+
+    private void editarPerfil() {
+        CEditarPerfil cEditar = new CEditarPerfil(vp, mUser);
+        cEditar.initControl();
     }
 
     private void perfil() {
@@ -171,7 +177,4 @@ public class CPerfilUser {
         });
     }
 
-    private void buscar(String text) {
-
-    }
 }

@@ -15,6 +15,7 @@ import javax.swing.filechooser.FileNameExtensionFilter;
 import model.MAdmin;
 import model.MUsuario;
 import model.Usuario;
+import vista.vistaInicio;
 import vista.vistaPanelRegistro;
 
 /**
@@ -22,48 +23,52 @@ import vista.vistaPanelRegistro;
  * @author LUNA
  */
 public class CRegistro {
-    
+
     private MAdmin mAdmin;
     private MUsuario mUsuario;
     private vistaPanelRegistro vista;
-    
+
     private JPanel panelLayout;
-    
+    private vistaInicio vInicio;
+
     public CRegistro() {
     }
-    
-    public CRegistro(MAdmin mAdmin, MUsuario mUsuario, vistaPanelRegistro vista, JPanel panelLayout) {
+
+    public CRegistro(MAdmin mAdmin, MUsuario mUsuario, vistaPanelRegistro vista, vistaInicio vInicio) {
         this.mAdmin = mAdmin;
         this.mUsuario = mUsuario;
         this.vista = vista;
-        this.panelLayout = panelLayout;
+        this.vInicio = vInicio;
+        panelLayout = vInicio.getPanelContenido();
     }
-    
+
     public void initControl() {
         addEvents();
     }
-    
+
     private void addEvents() {
         vista.getBtnCancelar().addActionListener(l -> cancelar());
         vista.getBtnRegistrarse().addActionListener(l -> registrar());
         vista.getBtnExaminar().addActionListener(l -> cargarFoto());
     }
-    
+
     private void registrar() {
         Usuario usuario = obtenerDatos();
         if (usuario instanceof MAdmin) {
             ((MAdmin) usuario).crear();
+            System.out.println("admin");
             cancelar(); //cierra la ventana
         }
         if (usuario instanceof MUsuario) {
             ((MUsuario) usuario).crear();
+            System.out.println("user");
             cancelar();
         }
     }
-    
+
     private Usuario obtenerDatos() {
         Usuario usuario;
-        
+
         String nombre = vista.getTextNombre().getText();
         String correo = vista.getTextCorreo().getText();
         String password = String.copyValueOf(vista.getTextContrasena().getPassword());
@@ -71,10 +76,10 @@ public class CRegistro {
         Image image;
         ImageIcon icon = (ImageIcon) vista.getLblFoto().getIcon();
         image = (icon != null) ? icon.getImage() : null;
-        
+
         if (Validaciones.validarNombre(nombre)) {
             if (Validaciones.validarCorreo(correo)) {
-                if (Validaciones.validarContraseña(password)) {
+                if (true) {
                     if (fecha != null) {
                         if (vista.getRadbtnAdmin().isSelected()) {
                             usuario = new MAdmin();
@@ -101,12 +106,12 @@ public class CRegistro {
         }
         return null;
     }
-    
+
     private void cargarFoto() {
         JFileChooser jfc = new JFileChooser();
         jfc.setFileFilter(new FileNameExtensionFilter("JPG, PNG", "jpg", "png"));
         int opcion = jfc.showOpenDialog(vista);
-        
+
         if (opcion == JFileChooser.APPROVE_OPTION) {
             try {
                 vista.getLblFoto().setIcon(
@@ -118,9 +123,9 @@ public class CRegistro {
             }
         }
     }
-    
+
     private void cancelar() {
         ((CardLayout) panelLayout.getLayout()).show(panelLayout, "cardSesion");
     }
-    
+
 }
