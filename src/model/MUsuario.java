@@ -48,6 +48,7 @@ public class MUsuario extends UsuarioApp implements Listable<UsuarioApp>, Editab
                 + "'" + new java.sql.Date(getFechaNac().getTime()) + "', "
                 + "'" + Utils.toStream(getFoto()) + "', "
                 + "'')";
+        System.out.println(getId());
         return (con.noQuery(sql) == null);
     }
 

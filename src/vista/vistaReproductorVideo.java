@@ -37,6 +37,7 @@ public class vistaReproductorVideo extends javax.swing.JPanel {
         btnPausa = new javax.swing.JButton();
         btnStop = new javax.swing.JButton();
         lblTitulo = new javax.swing.JLabel();
+        btnRegresar = new javax.swing.JButton();
 
         panelVideo.setBackground(new java.awt.Color(38, 11, 32));
 
@@ -48,7 +49,7 @@ public class vistaReproductorVideo extends javax.swing.JPanel {
         );
         panelVideoLayout.setVerticalGroup(
             panelVideoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 400, Short.MAX_VALUE)
+            .addGap(0, 514, Short.MAX_VALUE)
         );
 
         jPanel1.setBackground(new java.awt.Color(0, 0, 0));
@@ -67,6 +68,9 @@ public class vistaReproductorVideo extends javax.swing.JPanel {
         lblTitulo.setIcon(new javax.swing.ImageIcon(getClass().getResource("/vista/iconos/titulo.png"))); // NOI18N
         lblTitulo.setText("TITULO");
 
+        btnRegresar.setText("✖");
+        btnRegresar.setIconTextGap(0);
+
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
         jPanel1Layout.setHorizontalGroup(
@@ -79,7 +83,9 @@ public class vistaReproductorVideo extends javax.swing.JPanel {
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(btnStop)
                 .addGap(335, 335, 335)
-                .addComponent(lblTitulo, javax.swing.GroupLayout.DEFAULT_SIZE, 310, Short.MAX_VALUE)
+                .addComponent(lblTitulo, javax.swing.GroupLayout.DEFAULT_SIZE, 264, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(btnRegresar)
                 .addContainerGap())
         );
         jPanel1Layout.setVerticalGroup(
@@ -93,7 +99,9 @@ public class vistaReproductorVideo extends javax.swing.JPanel {
                             .addComponent(btnPausa)
                             .addComponent(btnStop))
                         .addGap(0, 0, Short.MAX_VALUE))
-                    .addComponent(lblTitulo, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                    .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                        .addComponent(lblTitulo, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(btnRegresar)))
                 .addContainerGap())
         );
 
@@ -107,8 +115,8 @@ public class vistaReproductorVideo extends javax.swing.JPanel {
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addComponent(panelVideo, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(panelVideo, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap())
         );
@@ -154,9 +162,14 @@ public class vistaReproductorVideo extends javax.swing.JPanel {
         this.panelVideo = panelVideo;
     }
 
+    public JButton getBtnRegresar() {
+        return btnRegresar;
+    }
+
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnPausa;
     private javax.swing.JButton btnPlay;
+    private javax.swing.JButton btnRegresar;
     private javax.swing.JButton btnStop;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JLabel lblTitulo;
