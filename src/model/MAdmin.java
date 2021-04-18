@@ -47,7 +47,7 @@ public class MAdmin extends Admin implements Listable<Admin>, Editable {
                 + "'" + getPassword() + "', "
                 + "'" + new java.sql.Date(getFechaNac().getTime()) + "', "
                 + "'" + Utils.toStream(getFoto()) + "', "
-                + "'1')";
+                + "1)";
         return (con.noQuery(sql) == null);
     }
 
