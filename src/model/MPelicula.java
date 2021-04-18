@@ -22,6 +22,8 @@ public class MPelicula extends Pelicula implements CRUD {
 
     public MPelicula() {
     }
+    
+    
 
     @Override
     public boolean crear() {

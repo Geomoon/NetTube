@@ -17,6 +17,7 @@ import javax.swing.ImageIcon;
 import javax.swing.JButton;
 import javax.swing.JFileChooser;
 import javax.swing.JLabel;
+import javax.swing.JOptionPane;
 import javax.swing.filechooser.FileNameExtensionFilter;
 import model.Categoria;
 import model.MAdmin;
@@ -25,6 +26,7 @@ import model.MPelicula;
 import model.MSerie;
 import model.Pelicula;
 import model.Serie;
+import model.Video;
 import vista.vistaInformacion;
 import vista.vistaPanelPelicula;
 import vista.vistaPanelRegistro;
@@ -67,7 +69,7 @@ public class CPerfilAdmin {
 //        listar("");
         categorias();
         vista.getBtnPerfil().addActionListener(l->perfil());
-        vp.getBtnAgregar().addActionListener(l->vp.getjDialogAgregar().setVisible(true));
+        vp.getBtnAgregar().addActionListener(l->agregar());
         vp.getBtnAgregarPeliculas().addActionListener(l->agregarPeliculas());
         vp.getBtnAgregarSeries().addActionListener(l->agregarSeries());
         vp.getBtnAgregarFotoPelicula().addActionListener(l->cargarImagen(vp.getLblFotoPelicula()));
@@ -81,9 +83,16 @@ public class CPerfilAdmin {
         cEditar.initControl();
     }
     
+    private void agregar(){
+        vp.getjDialogAgregar().setLocationRelativeTo(vp);
+        vp.getjDialogAgregar().setVisible(true);
+        vp.getjDialogAgregar().setSize(438,160);
+    }
+    
     private void agregarPeliculas(){
         vp.getjDialogAgregarPeliculas().setLocationRelativeTo(vp);
         vp.getjDialogAgregarPeliculas().setVisible(true);
+        vp.getjDialogAgregarPeliculas().setSize(635, 359);
         vp.getjDialogAgregar().dispose();
         vp.getBtnCancelarPelicula().addActionListener(l->vp.getjDialogAgregarPeliculas().dispose());
         vp.getComboCategoriaPelicula().removeAllItems();
@@ -93,10 +102,13 @@ public class CPerfilAdmin {
            vp.getComboCategoriaPelicula().addItem(c.getNombre());
        });
         
+        vp.getBtnAgregarPelicula().addActionListener(l->nuevaPelicula());
+        
     }
     private void agregarSeries(){
         vp.getjDialogAgregarSeries().setLocationRelativeTo(vp);
         vp.getjDialogAgregarSeries().setVisible(true);
+        vp.getjDialogAgregarSeries().setSize(635,648);
         vp.getjDialogAgregar().dispose();
         vp.getBtnCancelarSerie().addActionListener(l->vp.getjDialogAgregarSeries().dispose());
         vp.getComboCategoriaSerie().removeAllItems();
@@ -110,8 +122,11 @@ public class CPerfilAdmin {
     private void agregarCategorias(){
         vp.getjDialogAgregarCategorias().setLocationRelativeTo(vp);
         vp.getjDialogAgregarCategorias().setVisible(true);
+        vp.getjDialogAgregarCategorias().setSize(449,307);
         vp.getjDialogAgregar().dispose();
         vp.getBtnCancelarCategoria().addActionListener(l->vp.getjDialogAgregarCategorias().dispose());
+        
+        vp.getBtnAgregarCategoría().addActionListener(l->nuevaCategoria());
     }
     
     private void perfil(){
@@ -242,6 +257,54 @@ public class CPerfilAdmin {
            vista.getBarCategorias().add(btn);
            btn.addActionListener(l->listar(c.getId()));
        });
+   }
+   
+   private void validaciones(){
+       Validaciones val=new Validaciones();
+       
+       val.ValidarLetras(vp.getTextNombre());
+       val.ValidarLetras(vp.getTextDescripcionCapitulo());
+       val.ValidarLetras(vp.getTextDescripcionCategoria());
+       val.ValidarLetras(vp.getTextDescripcionPelicula());
+       val.ValidarLetras(vp.getTextDescripcionSerie());
+   }
+   
+   private void nuevaCategoria(){
+       if(vp.getTextTituloCategoria().getText().isBlank()||vp.getTextDescripcionCategoria().getText().isBlank()){
+           JOptionPane.showMessageDialog(vista, "Existen campos vacíos");
+       }else{
+           MCategoria nc=new MCategoria("0",vp.getTextTituloCategoria().getText(),vp.getTextDescripcionCategoria().getText());
+           if(nc.crear()){
+               JOptionPane.showMessageDialog(vista, "Categoria creada correctamente");
+           }else{
+               JOptionPane.showMessageDialog(vista, "Error al crear la categoría");
+           }
+       }
+       
+   }
+   
+   private void nuevaPelicula(){
+       if(vp.getTextTituloPelicula().getText().isBlank()||vp.getTextDescripcionPelicula().getText().isBlank()){
+           JOptionPane.showMessageDialog(vista, "Existen campos vacíos");
+       }else{
+       List<Categoria> listaC=mCat.categoriaId(vp.getComboCategoriaPelicula().getSelectedItem().toString());
+       Categoria cat=listaC.get(0);
+       
+       Video vid=new Video();
+       
+       String titulo=vp.getTextTituloPelicula().getText();
+       String descripcion=vp.getTextDescripcionPelicula().getText();
+       ImageIcon ic=(ImageIcon)vp.getLblFotoPelicula().getIcon();
+       
+       MPelicula np=new MPelicula("1",titulo,descripcion,ic.getImage(),cat,vid);
+       if(np.crear()){
+           JOptionPane.showMessageDialog(vista, "Pelicula creada correctamente");
+       }else{
+           JOptionPane.showMessageDialog(vista, "Error al crear la pelicula");
+       }
+       
+       }
+       
    }
    
 }

@@ -68,5 +68,22 @@ public class MCategoria extends Categoria implements CRUD {
     public Object buscar(String id) {
         throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
+    
+    public List<Categoria> categoriaId(String aguja) {
+        String sql = "SELECT * FROM vista_categorias WHERE ";
+        sql+="LCASE(nombre) like LCASE('%" + aguja + "%')";
+        List<Categoria> list = new ArrayList<>();
+        try (ResultSet rs = con.query(sql)) {
+            while (rs.next()) {
+                list.add(new Categoria(
+                        rs.getString("id"),
+                        rs.getString("nombre"),
+                        rs.getString("descripcion")));
+            }
+        } catch (SQLException ex) {
+            Logger.getLogger(MCategoria.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        return list;
+    }
 
 }

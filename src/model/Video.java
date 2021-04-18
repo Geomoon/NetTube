@@ -21,6 +21,10 @@ public class Video {
         this.dir = dir;
     }
 
+    public Video() {
+    }
+    
+
     public String getId() {
         return id;
     }
