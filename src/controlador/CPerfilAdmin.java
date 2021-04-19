@@ -96,7 +96,7 @@ public class CPerfilAdmin {
         vp.getBtnAgregarSeries().addActionListener(l->agregarSeries());
         vp.getBtnAgregarFotoPelicula().addActionListener(l->cargarImagen(vp.getLblFotoPelicula()));
         vp.getBtnAgregarFotoSerie().addActionListener(l->cargarImagen(vp.getLblFotoSerie()));
-//        vista.getBtnBuscar().addActionListener(l->listar(vista.getTextBuscar().getText()));
+        vista.getBtnBuscar().addActionListener(l->listar(vista.getTextBuscar().getText()));
         vp.getBtnEditar().addActionListener(l -> editarPerfil());
     }
 
@@ -301,13 +301,24 @@ public class CPerfilAdmin {
        
    }
    
-   private void informacion(ImageIcon foto, String titulo,String id,String desc){
-        vistaInformacion vi=new vistaInformacion();
-        vi.setVisible(true);
-        vi.getLbFoto().setIcon(foto);
-        vi.getTextInformacion().setText(desc);
-        vi.getLblTitulo().setText(titulo);
-        
+     private void informacionSerie(Serie serie) {
+        vistaInformacion vi = new vistaInformacion();
+
+        CInformacion cInformacion = new CInformacion(vi, vista, serie);
+        cInformacion.setCRep(cRep);
+
+        cInformacion.initControl();
+        cRep.setSerie(serie);
+    }
+
+    private void informacionPelicula(Pelicula peli) {
+        vistaInformacion vi = new vistaInformacion();
+
+        CInformacion cInformacion = new CInformacion(vi, vista, peli);
+        cInformacion.setCRep(cRep);
+        cInformacion.initControl();
+
+        cRep.setPelicula(peli);
     }
    
    private void categorias(){
