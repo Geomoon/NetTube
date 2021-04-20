@@ -45,6 +45,7 @@ public class CEditarPerfil {
     }
 
     private void addEvents() {
+        ValidarDatos();
         vp.getBtnRegistrarse().addActionListener(l -> actualizar());
         vp.getBtnCancelar().addActionListener(l -> cerrar());
         vp.getBtnExaminar().addActionListener(l -> cargarFoto());
@@ -93,7 +94,9 @@ public class CEditarPerfil {
 
         if (Validaciones.validarNombre(nombre)) {
             if (Validaciones.validarCorreo(correo)) {
-                if (true) {
+                if (vp.getTextContrasena().getText().isBlank()) {
+                    vp.getLblpassseguro().setText("***Ingrese una contraseña segura***");
+                } else {
                     if (fecha != null) {
                         if (vp.getRadbtnAdmin().isSelected()) {
                             usuario = new MAdmin();
@@ -110,8 +113,7 @@ public class CEditarPerfil {
                     } else {
                         JOptionPane.showMessageDialog(vp, "Ingrese su fecha de nacimiento");
                     }
-                } else {
-                    vp.getLblpassseguro().setText("***Ingrese una contraseña segura***");
+
                 }
             } else {
                 JOptionPane.showMessageDialog(vp, "Ingrese un correo válido");
@@ -143,4 +145,11 @@ public class CEditarPerfil {
         dialog.dispose();
     }
 
+    private void ValidarDatos() {
+        Validaciones val = new Validaciones();
+        val.LimitarCaracteres(vp.getTextNombre(), 50);
+        val.LimitarCaracteres(vp.getTextCorreo(), 50);
+        val.LimitarCaracteres(vp.getTextContrasena(), 32);
+        val.ValidarLetras(vp.getTextNombre());
+    }
 }

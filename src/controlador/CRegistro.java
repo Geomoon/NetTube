@@ -47,6 +47,7 @@ public class CRegistro {
     }
 
     private void addEvents() {
+        ValidarDatos();
         vista.getBtnCancelar().addActionListener(l -> cancelar());
         vista.getBtnRegistrarse().addActionListener(l -> registrar());
         vista.getBtnExaminar().addActionListener(l -> cargarFoto());
@@ -64,6 +65,7 @@ public class CRegistro {
             System.out.println("user");
             cancelar();
         }
+
     }
 
     private Usuario obtenerDatos() {
@@ -79,7 +81,9 @@ public class CRegistro {
 
         if (Validaciones.validarNombre(nombre)) {
             if (Validaciones.validarCorreo(correo)) {
-                if (true) {
+                if (vista.getTextContrasena().getText().isBlank()) {
+                    vista.getLblpassseguro().setText("***Ingrese una contraseña segura***");
+                }else {
                     if (fecha != null) {
                         if (vista.getRadbtnAdmin().isSelected()) {
                             usuario = new MAdmin();
@@ -95,8 +99,8 @@ public class CRegistro {
                     } else {
                         JOptionPane.showMessageDialog(vista, "Ingrese su fecha de nacimiento");
                     }
-                } else {
-                    vista.getLblpassseguro().setText("***Ingrese una contraseña segura***");
+                
+
                 }
             } else {
                 JOptionPane.showMessageDialog(vista, "Ingrese un correo válido");
@@ -128,4 +132,11 @@ public class CRegistro {
         ((CardLayout) panelLayout.getLayout()).show(panelLayout, "cardSesion");
     }
 
+    public void ValidarDatos() {
+        Validaciones val = new Validaciones();
+        val.LimitarCaracteres(vista.getTextNombre(), 50);
+        val.LimitarCaracteres(vista.getTextCorreo(), 50);
+        val.LimitarCaracteres(vista.getTextContrasena(), 32);
+        val.ValidarLetras(vista.getTextNombre());
+    }
 }

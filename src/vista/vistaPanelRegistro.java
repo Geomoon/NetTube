@@ -151,7 +151,7 @@ public class vistaPanelRegistro extends javax.swing.JPanel {
         lblFoto.setPreferredSize(new java.awt.Dimension(100, 100));
         add(lblFoto, new org.netbeans.lib.awtextra.AbsoluteConstraints(410, 130, 125, 124));
 
-        lblpassseguro.setForeground(new java.awt.Color(102, 0, 0));
+        lblpassseguro.setForeground(new java.awt.Color(255, 51, 102));
         add(lblpassseguro, new org.netbeans.lib.awtextra.AbsoluteConstraints(140, 180, 190, 20));
 
         jLabel8.setIcon(new javax.swing.ImageIcon(getClass().getResource("/vista/img/fondo-login1.png"))); // NOI18N

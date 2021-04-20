@@ -209,15 +209,16 @@ public class CPerfilUser {
         return vistap;
     }
 
-    public void validarcampostxt() {
+    private void validarcampostxt() {
         Validaciones val = new Validaciones();
-        val.LimitarCaracteres(vista.getTextBuscar(), 30);
-        val.LimitarCaracteres(vp.getTextTituloPelicula(), 30);
-        val.LimitarCaracteres(vp.getTextTituloSerie(), 30);
-        val.LimitarCaracteres(vp.getTextTituloCapitulo(), 30);
-        val.LimitarCaracteres(vp.getTextDescripcionCapitulo(), 100);
-        val.LimitarCaracteres(vp.getTextDescripcionPelicula(), 100);
-        val.LimitarCaracteres(vp.getTextDescripcionSerie(), 100);
+        val.LimitarCaracteres(vista.getTextBuscar(), 100);
+        val.LimitarCaracteres(vp.getTextTituloPelicula(), 100);
+        val.LimitarCaracteres(vp.getTextTituloSerie(), 100);
+        val.LimitarCaracteres(vp.getTextTituloCapitulo(), 100);
+        val.LimitarCaracteres(vp.getTextDescripcionCapitulo(), 500);
+        val.LimitarCaracteres(vp.getTextDescripcionPelicula(), 500);
+        val.LimitarCaracteres(vp.getTextDescripcionSerie(), 500);
+        
     }
 
     private void informacionSerie(Serie serie) {
