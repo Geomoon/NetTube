@@ -96,14 +96,18 @@ public class CPerfilUser {
         Image newimg = CUtils.redimensionarImagen(img, vp.getLblFoto());
         ImageIcon icon = (newimg != null) ? new ImageIcon(newimg) : null;
 
-        vp.getBtnReportes().setEnabled(false);
-        vp.getBtnReportes().setVisible(false);
+        vp.getTgbtnCategorias().setEnabled(false);
+        vp.getTgbtnCategorias().setVisible(false);
         vp.getBtnAgregar().setEnabled(false);
         vp.getBtnAgregar().setVisible(false);
-        vp.getBtnAdmincontenido().setEnabled(false);
-        vp.getBtnAdmincontenido().setVisible(false);
+        vp.getTgbtnPeliculas().setEnabled(false);
+        vp.getTgbtnPeliculas().setVisible(false);
+        vp.getTgbtnSeries().setEnabled(false);
+        vp.getTgbtnSeries().setVisible(false);
+        vp.getTgbtnReportes().setEnabled(false);
+        vp.getTgbtnReportes().setVisible(false);
 
-        vp.getLblFavoritos().setVisible(false);
+        vp.getLblFavoritos().setVisible(true);
         vp.getLblFoto().setIcon(icon);
         vp.getLblCorreo().setText(mUser.getEmail());
         vp.getLblNombre().setText(mUser.getNombre());
@@ -209,15 +213,16 @@ public class CPerfilUser {
         return vistap;
     }
 
-    public void validarcampostxt() {
+    private void validarcampostxt() {
         Validaciones val = new Validaciones();
-        val.LimitarCaracteres(vista.getTextBuscar(), 30);
-        val.LimitarCaracteres(vp.getTextTituloPelicula(), 30);
-        val.LimitarCaracteres(vp.getTextTituloSerie(), 30);
-        val.LimitarCaracteres(vp.getTextTituloCapitulo(), 30);
-        val.LimitarCaracteres(vp.getTextDescripcionCapitulo(), 100);
-        val.LimitarCaracteres(vp.getTextDescripcionPelicula(), 100);
-        val.LimitarCaracteres(vp.getTextDescripcionSerie(), 100);
+        val.LimitarCaracteres(vista.getTextBuscar(), 100);
+        val.LimitarCaracteres(vp.getTextTituloPelicula(), 100);
+        val.LimitarCaracteres(vp.getTextTituloSerie(), 100);
+        val.LimitarCaracteres(vp.getTextTituloCapitulo(), 100);
+        val.LimitarCaracteres(vp.getTextDescripcionCapitulo(), 500);
+        val.LimitarCaracteres(vp.getTextDescripcionPelicula(), 500);
+        val.LimitarCaracteres(vp.getTextDescripcionSerie(), 500);
+        
     }
 
     private void informacionSerie(Serie serie) {
