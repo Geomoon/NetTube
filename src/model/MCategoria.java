@@ -37,7 +37,7 @@ public class MCategoria extends Categoria implements CRUD {
                 + "'" + getId() + "', "
                 + "'" + getNombre() + "', "
                 + "'" + getDescripcion() + "' "
-                + "')";
+                + ")";
         return (con.noQuery(sql) == null);
     }
 

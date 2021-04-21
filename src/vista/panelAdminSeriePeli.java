@@ -38,6 +38,7 @@ public class panelAdminSeriePeli extends javax.swing.JPanel {
         textId = new javax.swing.JLabel();
 
         setBackground(new java.awt.Color(38, 11, 32));
+        setMaximumSize(new java.awt.Dimension(620, 44));
 
         textTitulo.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
         textTitulo.setForeground(new java.awt.Color(255, 255, 255));

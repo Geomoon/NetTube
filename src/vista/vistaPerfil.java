@@ -140,12 +140,13 @@ public class vistaPerfil extends javax.swing.JFrame {
         btnEditar = new javax.swing.JButton();
         jSeparator1 = new javax.swing.JSeparator();
         lblFavoritos = new javax.swing.JLabel();
-        panelPerfil = new javax.swing.JPanel();
         tgbtnPeliculas = new javax.swing.JToggleButton();
         tgbtnSeries = new javax.swing.JToggleButton();
         tgbtnCategorias = new javax.swing.JToggleButton();
         tgbtnReportes = new javax.swing.JToggleButton();
         btnAgregar = new javax.swing.JButton();
+        jScrollPane1 = new javax.swing.JScrollPane();
+        panelPerfil = new javax.swing.JPanel();
 
         jPanel4.setBackground(new java.awt.Color(38, 11, 32));
 
@@ -1034,20 +1035,6 @@ public class vistaPerfil extends javax.swing.JFrame {
         lblFavoritos.setIcon(new javax.swing.ImageIcon(getClass().getResource("/vista/iconos/clasificacion.png"))); // NOI18N
         lblFavoritos.setText("FAVORITOS");
 
-        panelPerfil.setBackground(new java.awt.Color(38, 11, 32));
-        panelPerfil.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
-
-        javax.swing.GroupLayout panelPerfilLayout = new javax.swing.GroupLayout(panelPerfil);
-        panelPerfil.setLayout(panelPerfilLayout);
-        panelPerfilLayout.setHorizontalGroup(
-            panelPerfilLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 630, Short.MAX_VALUE)
-        );
-        panelPerfilLayout.setVerticalGroup(
-            panelPerfilLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 296, Short.MAX_VALUE)
-        );
-
         tgbtnPeliculas.setBackground(new java.awt.Color(0, 0, 0));
         tgbtnPeliculas.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
         tgbtnPeliculas.setForeground(new java.awt.Color(255, 255, 255));
@@ -1072,6 +1059,12 @@ public class vistaPerfil extends javax.swing.JFrame {
         btnAgregar.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
         btnAgregar.setForeground(new java.awt.Color(255, 255, 255));
         btnAgregar.setText("AGREGAR");
+
+        panelPerfil.setBackground(new java.awt.Color(38, 11, 32));
+        panelPerfil.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
+        panelPerfil.setPreferredSize(new java.awt.Dimension(630, 304));
+        panelPerfil.setLayout(new javax.swing.BoxLayout(panelPerfil, javax.swing.BoxLayout.Y_AXIS));
+        jScrollPane1.setViewportView(panelPerfil);
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
@@ -1102,20 +1095,19 @@ public class vistaPerfil extends javax.swing.JFrame {
                         .addGap(63, 63, 63)
                         .addComponent(jSeparator1, javax.swing.GroupLayout.PREFERRED_SIZE, 21, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                            .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                                .addGroup(jPanel1Layout.createSequentialGroup()
-                                    .addComponent(lblFavoritos)
-                                    .addGap(39, 39, 39)
-                                    .addComponent(tgbtnPeliculas)
-                                    .addGap(34, 34, 34)
-                                    .addComponent(tgbtnSeries, javax.swing.GroupLayout.PREFERRED_SIZE, 99, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addGap(32, 32, 32)
-                                    .addComponent(tgbtnCategorias)
-                                    .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                    .addComponent(tgbtnReportes, javax.swing.GroupLayout.PREFERRED_SIZE, 99, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                .addComponent(panelPerfil, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                            .addComponent(btnAgregar))))
+                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                            .addComponent(btnAgregar)
+                            .addGroup(jPanel1Layout.createSequentialGroup()
+                                .addComponent(lblFavoritos)
+                                .addGap(39, 39, 39)
+                                .addComponent(tgbtnPeliculas)
+                                .addGap(34, 34, 34)
+                                .addComponent(tgbtnSeries, javax.swing.GroupLayout.PREFERRED_SIZE, 99, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGap(32, 32, 32)
+                                .addComponent(tgbtnCategorias)
+                                .addGap(34, 34, 34)
+                                .addComponent(tgbtnReportes, javax.swing.GroupLayout.PREFERRED_SIZE, 99, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addComponent(jScrollPane1))))
                 .addContainerGap(64, Short.MAX_VALUE))
         );
         jPanel1Layout.setVerticalGroup(
@@ -1152,7 +1144,7 @@ public class vistaPerfil extends javax.swing.JFrame {
                                         .addComponent(tgbtnCategorias)
                                         .addComponent(tgbtnReportes)))
                                 .addGap(18, 18, 18)
-                                .addComponent(panelPerfil, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 307, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                                 .addComponent(btnAgregar)))))
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
@@ -1795,6 +1787,7 @@ public class vistaPerfil extends javax.swing.JFrame {
     private javax.swing.JPanel jPanel6;
     private javax.swing.JPanel jPanel7;
     private javax.swing.JPanel jPanel8;
+    private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JSeparator jSeparator1;
     private javax.swing.JSeparator jSeparator10;
     private javax.swing.JSeparator jSeparator3;
