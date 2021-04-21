@@ -137,6 +137,6 @@ public class CRegistro {
         val.LimitarCaracteres(vista.getTextNombre(), 50);
         val.LimitarCaracteres(vista.getTextCorreo(), 50);
         val.LimitarCaracteres(vista.getTextContrasena(), 32);
-        val.ValidarLetras(vista.getTextNombre());
+        val.ValidarLetrasTilde(vista.getTextNombre());
     }
 }

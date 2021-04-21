@@ -363,15 +363,14 @@ public class CPerfilAdmin {
     private void validacionesCamposLetras() {
         Validaciones val = new Validaciones();
 
-        val.ValidarLetras(vp.getTextTituloSerie());
-        val.ValidarLetras(vp.getTextTituloSerie());
-        val.ValidarLetras(vp.getTextTituloCapitulo());
-        val.ValidarLetras(vp.getTextTituloCategoria());
-        val.ValidarLetras(vp.getTextTituloPelicula());
-        val.ValidarLetras(vp.getTextDescripcionCapitulo());
-        val.ValidarLetras(vp.getTextDescripcionCategoria());
-        val.ValidarLetras(vp.getTextDescripcionPelicula());
-        val.ValidarLetras(vp.getTextDescripcionSerie());
+        val.ValidarLetrasNumerosTildes(vp.getTextTituloSerie());
+        val.ValidarLetrasNumerosTildes(vp.getTextTituloCapitulo());
+        val.ValidarLetrasNumerosTildes(vp.getTextTituloCategoria());
+        val.ValidarLetrasNumerosTildes(vp.getTextTituloPelicula());
+        val.ValidarLetrasNumerosTildes(vp.getTextDescripcionCapitulo());
+        val.ValidarLetrasNumerosTildes(vp.getTextDescripcionCategoria());
+        val.ValidarLetrasNumerosTildes(vp.getTextDescripcionPelicula());
+        val.ValidarLetrasNumerosTildes(vp.getTextDescripcionSerie());
     }
 
     private void limitacionCampostxt() {

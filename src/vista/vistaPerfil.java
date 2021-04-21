@@ -97,8 +97,8 @@ public class vistaPerfil extends javax.swing.JFrame {
         btnRegistrarse = new javax.swing.JButton();
         btnExaminar = new javax.swing.JButton();
         lblFoto1 = new javax.swing.JLabel();
-        jLabel23 = new javax.swing.JLabel();
         lblpassseguro = new javax.swing.JLabel();
+        jLabel23 = new javax.swing.JLabel();
         jDialogAgregarCapitulos = new javax.swing.JDialog();
         jPanel7 = new javax.swing.JPanel();
         btnCancelarCapitulo = new javax.swing.JButton();
@@ -664,12 +664,12 @@ public class vistaPerfil extends javax.swing.JFrame {
         lblFoto1.setPreferredSize(new java.awt.Dimension(100, 100));
         jPanel2.add(lblFoto1, new org.netbeans.lib.awtextra.AbsoluteConstraints(410, 130, 125, 124));
 
+        lblpassseguro.setForeground(new java.awt.Color(204, 0, 51));
+        jPanel2.add(lblpassseguro, new org.netbeans.lib.awtextra.AbsoluteConstraints(140, 180, 190, 20));
+
         jLabel23.setIcon(new javax.swing.ImageIcon(getClass().getResource("/vista/img/fondo-login1.png"))); // NOI18N
         jLabel23.setOpaque(true);
         jPanel2.add(jLabel23, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 612, 428));
-
-        lblpassseguro.setForeground(new java.awt.Color(102, 0, 0));
-        jPanel2.add(lblpassseguro, new org.netbeans.lib.awtextra.AbsoluteConstraints(140, 180, 190, 20));
 
         javax.swing.GroupLayout jDialogEditarPerfilLayout = new javax.swing.GroupLayout(jDialogEditarPerfil.getContentPane());
         jDialogEditarPerfil.getContentPane().setLayout(jDialogEditarPerfilLayout);

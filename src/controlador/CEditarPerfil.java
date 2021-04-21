@@ -150,6 +150,6 @@ public class CEditarPerfil {
         val.LimitarCaracteres(vp.getTextNombre(), 50);
         val.LimitarCaracteres(vp.getTextCorreo(), 50);
         val.LimitarCaracteres(vp.getTextContrasena(), 32);
-        val.ValidarLetras(vp.getTextNombre());
+        val.ValidarLetrasTilde(vp.getTextNombre());
     }
 }

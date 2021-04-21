@@ -40,11 +40,26 @@ public class Validaciones {
         return matcher.matches();
     }
 
-    public void ValidarLetras(JTextField campo) {
+    public void ValidarLetrasNumerosTildes(JTextField campo) {
+        campo.addKeyListener(new KeyAdapter() { 
+            public void keyTyped(KeyEvent e) {
+                char caracterT = e.getKeyChar();
+                if (((caracterT < 'a' | caracterT > 'z') & (caracterT < 'A' | caracterT > 'Z') & (caracterT < '0' | caracterT > '9') & (caracterT != 32)& (caracterT != 63)& (caracterT != 168)
+                        & (caracterT < 160) & (caracterT < 130) & (caracterT < 161) & (caracterT < 162) & (caracterT < 163) & (caracterT < 181) & (caracterT < 144)
+                        & (caracterT < 214) & (caracterT < 224) & (caracterT < 233))) {
+                    e.consume();
+                }
+            }
+        });
+    }
+
+    public void ValidarLetrasTilde(JTextField campo) {
         campo.addKeyListener(new KeyAdapter() {
             public void keyTyped(KeyEvent e) {
                 char caracterT = e.getKeyChar();
-                if (((caracterT < 'a' | caracterT > 'z') & (caracterT < 'A' | caracterT > 'Z') & (caracterT != 32))) {
+                if (((caracterT < 'a' | caracterT > 'z') & (caracterT < 'A' | caracterT > 'Z') & (caracterT != 32) & (caracterT < 130) & (caracterT < 144)
+                        & (caracterT < 160) & (caracterT < 161) & (caracterT < 162) & (caracterT < 163) & (caracterT < 181)
+                        & (caracterT < 214) & (caracterT < 224) & (caracterT < 233))) {
                     e.consume();
                 }
             }
