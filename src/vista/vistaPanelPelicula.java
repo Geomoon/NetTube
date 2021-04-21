@@ -5,6 +5,7 @@
  */
 package vista;
 
+import javax.swing.JButton;
 import javax.swing.JLabel;
 
 /**
@@ -31,41 +32,32 @@ public class vistaPanelPelicula extends javax.swing.JPanel {
 
         lbFoto = new javax.swing.JLabel();
         lbTitulo = new javax.swing.JLabel();
+        lblEstrella = new javax.swing.JLabel();
 
         setBackground(new java.awt.Color(38, 11, 32));
+        setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         lbFoto.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(255, 255, 255)));
+        add(lbFoto, new org.netbeans.lib.awtextra.AbsoluteConstraints(43, 18, 109, 129));
 
-        lbTitulo.setFont(new java.awt.Font("Segoe UI", 0, 11)); // NOI18N
+        lbTitulo.setFont(new java.awt.Font("Segoe UI", 0, 12)); // NOI18N
         lbTitulo.setForeground(new java.awt.Color(255, 255, 255));
         lbTitulo.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         lbTitulo.setIcon(new javax.swing.ImageIcon(getClass().getResource("/vista/iconos/titulo.png"))); // NOI18N
         lbTitulo.setText("titulo");
+        add(lbTitulo, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 165, 176, -1));
 
-        javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
-        this.setLayout(layout);
-        layout.setHorizontalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(43, 43, 43)
-                        .addComponent(lbFoto, javax.swing.GroupLayout.PREFERRED_SIZE, 109, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(layout.createSequentialGroup()
-                        .addContainerGap()
-                        .addComponent(lbTitulo, javax.swing.GroupLayout.PREFERRED_SIZE, 176, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-        );
-        layout.setVerticalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addGap(18, 18, 18)
-                .addComponent(lbFoto, javax.swing.GroupLayout.PREFERRED_SIZE, 129, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(18, 18, 18)
-                .addComponent(lbTitulo, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addContainerGap())
-        );
+        lblEstrella.setIcon(new javax.swing.ImageIcon(getClass().getResource("/vista/iconos/estrella desactivada.png"))); // NOI18N
+        add(lblEstrella, new org.netbeans.lib.awtextra.AbsoluteConstraints(140, 0, -1, 30));
     }// </editor-fold>//GEN-END:initComponents
+
+    public JLabel getLblEstrella() {
+        return lblEstrella;
+    }
+
+    public void setLblEstrella(JLabel lblEstrella) {
+        this.lblEstrella = lblEstrella;
+    }
 
     public JLabel getLbFoto() {
         return lbFoto;
@@ -86,5 +78,6 @@ public class vistaPanelPelicula extends javax.swing.JPanel {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JLabel lbFoto;
     private javax.swing.JLabel lbTitulo;
+    private javax.swing.JLabel lblEstrella;
     // End of variables declaration//GEN-END:variables
 }
