@@ -98,6 +98,7 @@ public class CPerfilAdmin {
         vp.getBtnAgregarFotoSerie().addActionListener(l->cargarImagen(vp.getLblFotoSerie()));
         vista.getBtnBuscar().addActionListener(l->listar(vista.getTextBuscar().getText()));
         vp.getBtnEditar().addActionListener(l -> editarPerfil());
+        vp.getBtnAgregarCategorias().addActionListener(l -> agregarCategorias());
     }
 
     private void editarPerfil() {

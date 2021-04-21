@@ -27,7 +27,7 @@ public class MCategoria extends Categoria implements CRUD {
         String sql = "CALL crear_categoria ("
                 + "'" + getNombre() + "', "
                 + "'" + getDescripcion() + "' "
-                + "')";
+                + ")";
         return (con.noQuery(sql) == null);
     }
 
