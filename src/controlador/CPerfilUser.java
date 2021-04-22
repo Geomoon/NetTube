@@ -96,16 +96,16 @@ public class CPerfilUser {
         Image newimg = CUtils.redimensionarImagen(img, vp.getLblFoto());
         ImageIcon icon = (newimg != null) ? new ImageIcon(newimg) : null;
 
-        vp.getTgbtnCategorias().setEnabled(false);
-        vp.getTgbtnCategorias().setVisible(false);
+        vp.getBtnCategorias().setEnabled(false);
+        vp.getBtnCategorias().setVisible(false);
         vp.getBtnAgregar().setEnabled(false);
         vp.getBtnAgregar().setVisible(false);
-        vp.getTgbtnPeliculas().setEnabled(false);
-        vp.getTgbtnPeliculas().setVisible(false);
-        vp.getTgbtnSeries().setEnabled(false);
-        vp.getTgbtnSeries().setVisible(false);
-        vp.getTgbtnReportes().setEnabled(false);
-        vp.getTgbtnReportes().setVisible(false);
+        vp.getBtnPelicula().setEnabled(false);
+        vp.getBtnPelicula().setVisible(false);
+        vp.getBtnSeries().setEnabled(false);
+        vp.getBtnSeries().setVisible(false);
+        vp.getBtnReportes().setEnabled(false);
+        vp.getBtnReportes().setVisible(false);
 
         vp.getLblFavoritos().setVisible(true);
         vp.getLblFoto().setIcon(icon);

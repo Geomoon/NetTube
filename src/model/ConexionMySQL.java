@@ -22,7 +22,8 @@ public class ConexionMySQL {
 //    private String password = "cliente357190";
     private String user = "root";
 //    private String password = "357190solrac";
-    private String password = "12032020";
+//    private String password = "12032020";
+    private String password = "christianelpatosal050500";
 
     private Connection con;
 
