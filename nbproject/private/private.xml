@@ -3,12 +3,10 @@
     <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
         <group>
-            <file>file:/D:/Files/NetbeansProjects/NetTube/src/controlador/CPerfilAdmin.java</file>
-            <file>file:/D:/Files/NetbeansProjects/NetTube/src/model/MPelicula.java</file>
-            <file>file:/D:/Files/NetbeansProjects/NetTube/src/controlador/App.java</file>
-            <file>file:/D:/Files/NetbeansProjects/NetTube/src/vista/vistaPerfil.java</file>
-            <file>file:/D:/Files/NetbeansProjects/NetTube/src/controlador/CPerfilUser.java</file>
-            <file>file:/D:/Files/NetbeansProjects/NetTube/src/model/MCategoria.java</file>
+            <file>file:/C:/Users/User/Documents/GitHub/NetTube/src/controlador/CPerfilAdmin.java</file>
+            <file>file:/C:/Users/User/Documents/GitHub/NetTube/src/vista/panelAdminSeriePeli.java</file>
+            <file>file:/C:/Users/User/Documents/GitHub/NetTube/src/model/ConexionMySQL.java</file>
+            <file>file:/C:/Users/User/Documents/GitHub/NetTube/src/vista/vistaPerfil.java</file>
         </group>
     </open-files>
 </project-private>
