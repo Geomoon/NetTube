@@ -80,15 +80,17 @@ public class CPerfilUser {
         categorias();
         vista.getBtnPerfil().addActionListener(l -> perfil());
         vista.getBtnBuscar().addActionListener(l -> listar(vista.getTextBuscar().getText()));
+        vp.getBtnPrincipal().addActionListener(l -> principal());
         vp.getBtnEditar().addActionListener(l -> editarPerfil());
     }
 
     private void editarPerfil() {
         CEditarPerfil cEditar = new CEditarPerfil(vp, mUser);
+        cEditar.setPerfilUser(this);
         cEditar.initControl();
     }
 
-    private void perfil() {
+    protected void perfil() {
         vp.setLocationRelativeTo(null);
         vp.setVisible(true);
 
@@ -222,7 +224,7 @@ public class CPerfilUser {
         val.LimitarCaracteres(vp.getTextDescripcionCapitulo(), 500);
         val.LimitarCaracteres(vp.getTextDescripcionPelicula(), 500);
         val.LimitarCaracteres(vp.getTextDescripcionSerie(), 500);
-        
+
     }
 
     private void informacionSerie(Serie serie) {
@@ -252,6 +254,20 @@ public class CPerfilUser {
             vista.getBarCategorias().add(btn);
             btn.addActionListener(l -> listar(c.getId()));
         });
+    }
+
+    private void principal() {
+        vista.setLocationRelativeTo(null);
+        vista.setVisible(true);
+        vp.dispose();
+    }
+
+    public MUsuario getmUser() {
+        return mUser;
+    }
+
+    public void setmUser(MUsuario mUser) {
+        this.mUser = mUser;
     }
 
 }

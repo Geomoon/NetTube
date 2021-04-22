@@ -6,6 +6,7 @@
 package controlador;
 
 import java.awt.Image;
+import java.io.File;
 import java.io.IOException;
 import java.util.Date;
 import javax.imageio.ImageIO;
@@ -30,6 +31,10 @@ public class CEditarPerfil {
     private JDialog dialog;
     private Usuario usuario;
 
+    private File file;
+    private CPerfilAdmin cPerfilAdmin;
+    private CPerfilUser cPerfilUser;
+
     public CEditarPerfil(vistaPerfil vp, Usuario usuario) {
         this.vp = vp;
         this.dialog = vp.getjDialogEditarPerfil();
@@ -47,7 +52,7 @@ public class CEditarPerfil {
     private void addEvents() {
         ValidarDatos();
         vp.getBtnRegistrarse().addActionListener(l -> actualizar());
-        vp.getBtnCancelar().addActionListener(l -> cerrar());
+        vp.getBtnCancelar().addActionListener(l -> cerrar(null));
         vp.getBtnExaminar().addActionListener(l -> cargarFoto());
     }
 
@@ -56,12 +61,14 @@ public class CEditarPerfil {
         if (usuario instanceof MAdmin) {
             ((MAdmin) usuario).editar();
             System.out.println("admin");
-            cerrar();
+            MAdmin m = MAdmin.obtenerPorEmail(usuario.getEmail());
+            cerrar(m);
         }
         if (usuario instanceof MUsuario) {
             ((MUsuario) usuario).editar();
             System.out.println("user");
-            cerrar();
+            MUsuario m = MUsuario.obtenerPorEmail(usuario.getEmail());
+            cerrar(m);
         }
     }
 
@@ -88,8 +95,9 @@ public class CEditarPerfil {
         String correo = vp.getTextCorreo().getText();
         String password = String.copyValueOf(vp.getTextContrasena().getPassword());
         Date fecha = vp.getjDateNacimiento().getDate();
+        File f = (file == null) ? null : file;
         Image image;
-        ImageIcon icon = (ImageIcon) vp.getLblFoto().getIcon();
+        ImageIcon icon = (ImageIcon) vp.getLblFoto1().getIcon();
         image = (icon != null) ? icon.getImage() : null;
 
         if (Validaciones.validarNombre(nombre)) {
@@ -109,11 +117,11 @@ public class CEditarPerfil {
                         usuario.setEmail(correo);
                         usuario.setFechaNac(fecha);
                         usuario.setFoto(image);
+                        usuario.setFile(file);
                         return usuario;
                     } else {
                         JOptionPane.showMessageDialog(vp, "Ingrese su fecha de nacimiento");
                     }
-
                 }
             } else {
                 JOptionPane.showMessageDialog(vp, "Ingrese un correo válido");
@@ -131,9 +139,10 @@ public class CEditarPerfil {
 
         if (opcion == JFileChooser.APPROVE_OPTION) {
             try {
-                vp.getLblFoto().setIcon(
+                file = jfc.getSelectedFile();
+                vp.getLblFoto1().setIcon(
                         new ImageIcon(
-                                CUtils.redimensionarImagen(ImageIO.read(jfc.getSelectedFile()), vp.getLblFoto())
+                                CUtils.redimensionarImagen(ImageIO.read(file), vp.getLblFoto1())
                         ));
             } catch (IOException ex) {
                 ex.printStackTrace();
@@ -141,8 +150,17 @@ public class CEditarPerfil {
         }
     }
 
-    private void cerrar() {
+    private void cerrar(Usuario usuario) {
         dialog.dispose();
+        if (usuario == null) {
+            return;
+        }
+        if (usuario instanceof MAdmin) {
+            notifyCPerfil((MAdmin) usuario);
+        }
+        if (usuario instanceof MUsuario) {
+            notifyCPerfilUser((MUsuario) usuario);
+        }
     }
 
     private void ValidarDatos() {
@@ -151,5 +169,23 @@ public class CEditarPerfil {
         val.LimitarCaracteres(vp.getTextCorreo(), 50);
         val.LimitarCaracteres(vp.getTextContrasena(), 32);
         val.ValidarLetrasTilde(vp.getTextNombre());
+    }
+
+    protected void setPerfilAdmin(CPerfilAdmin cPerfil) {
+        this.cPerfilAdmin = cPerfil;
+    }
+
+    private void notifyCPerfil(MAdmin usuario) {
+        cPerfilAdmin.setmAdmin(usuario);
+        cPerfilAdmin.perfil();
+    }
+
+    protected void setPerfilUser(CPerfilUser cPerfil) {
+        this.cPerfilUser = cPerfil;
+    }
+
+    private void notifyCPerfilUser(MUsuario usuario) {
+        cPerfilUser.setmUser((MUsuario) usuario);
+        cPerfilUser.perfil();
     }
 }

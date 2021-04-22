@@ -6,6 +6,7 @@
 package model;
 
 import java.awt.Image;
+import java.io.File;
 
 /**
  *
@@ -18,16 +19,25 @@ public abstract class Contenido {
     protected String descripcion;
     protected Image imagen;
     protected Categoria categoria;
+    protected File file;
 
     public Contenido() {
     }
-    
+
     public Contenido(String id, String titulo, String descripcion, Image imagen, Categoria categoria) {
         this.id = id;
         this.titulo = titulo;
         this.descripcion = descripcion;
         this.imagen = imagen;
         this.categoria = categoria;
+    }
+
+    public Contenido(String id, String titulo, String descripcion, Categoria categoria, File file) {
+        this.id = id;
+        this.titulo = titulo;
+        this.descripcion = descripcion;
+        this.categoria = categoria;
+        this.file = file;
     }
 
     public String getId() {
@@ -68,6 +78,14 @@ public abstract class Contenido {
 
     public void setCategoria(Categoria categoria) {
         this.categoria = categoria;
+    }
+
+    public File getFile() {
+        return file;
+    }
+
+    public void setFile(File file) {
+        this.file = file;
     }
 
 }

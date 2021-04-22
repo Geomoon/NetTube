@@ -2,6 +2,7 @@ package controlador;
 
 import java.awt.CardLayout;
 import java.awt.Image;
+import java.io.File;
 import java.io.IOException;
 import java.util.Date;
 import java.util.logging.Level;
@@ -30,6 +31,8 @@ public class CRegistro {
 
     private JPanel panelLayout;
     private vistaInicio vInicio;
+
+    private File file;
 
     public CRegistro() {
     }
@@ -75,32 +78,36 @@ public class CRegistro {
         String correo = vista.getTextCorreo().getText();
         String password = String.copyValueOf(vista.getTextContrasena().getPassword());
         Date fecha = vista.getjDateNacimiento().getDate();
+        File f = (this.file == null) ? null : this.file;
         Image image;
         ImageIcon icon = (ImageIcon) vista.getLblFoto().getIcon();
         image = (icon != null) ? icon.getImage() : null;
 
         if (Validaciones.validarNombre(nombre)) {
             if (Validaciones.validarCorreo(correo)) {
-                if (vista.getTextContrasena().getText().isBlank()) {
-                    vista.getLblpassseguro().setText("***Ingrese una contraseña segura***");
-                }else {
-                    if (fecha != null) {
-                        if (vista.getRadbtnAdmin().isSelected()) {
-                            usuario = new MAdmin();
-                        } else {
-                            usuario = new MUsuario();
-                        }
-                        usuario.setNombre(nombre);
-                        usuario.setPassword(password);
-                        usuario.setEmail(correo);
-                        usuario.setFechaNac(fecha);
-                        usuario.setFoto(image);
-                        return usuario;
+                if (MAdmin.obtenerPorEmail(correo) == null && MUsuario.obtenerPorEmail(correo) == null) {
+                    if (vista.getTextContrasena().getText().isBlank()) {
+                        vista.getLblpassseguro().setText("***Ingrese una contraseña segura***");
                     } else {
-                        JOptionPane.showMessageDialog(vista, "Ingrese su fecha de nacimiento");
+                        if (fecha != null) {
+                            if (vista.getRadbtnAdmin().isSelected()) {
+                                usuario = new MAdmin();
+                            } else {
+                                usuario = new MUsuario();
+                            }
+                            usuario.setNombre(nombre);
+                            usuario.setPassword(password);
+                            usuario.setEmail(correo);
+                            usuario.setFechaNac(fecha);
+                            usuario.setFoto(image);
+                            usuario.setFile(f);
+                            return usuario;
+                        } else {
+                            JOptionPane.showMessageDialog(vista, "Ingrese su fecha de nacimiento");
+                        }
                     }
-                
-
+                } else {
+                    JOptionPane.showMessageDialog(vista, "Este correo ya está registrado");
                 }
             } else {
                 JOptionPane.showMessageDialog(vista, "Ingrese un correo válido");
@@ -118,9 +125,10 @@ public class CRegistro {
 
         if (opcion == JFileChooser.APPROVE_OPTION) {
             try {
+                file = jfc.getSelectedFile();
                 vista.getLblFoto().setIcon(
                         new ImageIcon(
-                                CUtils.redimensionarImagen(ImageIO.read(jfc.getSelectedFile()), vista.getLblFoto())
+                                CUtils.redimensionarImagen(ImageIO.read(file), vista.getLblFoto())
                         ));
             } catch (IOException ex) {
                 Logger.getLogger(CRegistro.class.getName()).log(Level.SEVERE, null, ex);

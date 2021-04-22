@@ -1,6 +1,7 @@
 package model;
 
 import java.awt.Image;
+import java.sql.CallableStatement;
 import java.util.Date;
 import java.util.List;
 import java.sql.ResultSet;
@@ -24,32 +25,42 @@ public class MUsuario extends UsuarioApp implements Listable<UsuarioApp>, Editab
         super(id, nombre, apellido, email, password, fechaNac, foto);
     }
 
-    @Override
+ @Override
     public boolean crear() {
-        String sql = "CALL crear_usuario ("
-                + "'" + getNombre() + "', "
-                + "'" + getApellido() + "', "
-                + "'" + getEmail() + "', "
-                + "'" + getPassword() + "', "
-                + "'" + new java.sql.Date(getFechaNac().getTime()) + "', "
-                + "'" + Utils.toStream(getFoto()) + "', "
-                + "'')";
-        return (con.noQuery(sql) == null);
+        String sql = "{call crear_usuario(?, ?, ?, ?, ?, ?, ?)}";
+
+        try (CallableStatement cs = con.getCon().prepareCall(sql)) {
+            cs.setString(1, getNombre());
+            cs.setString(2, getApellido());
+            cs.setString(3, getEmail());
+            cs.setString(4, getPassword());
+            cs.setDate(5, new java.sql.Date(getFechaNac().getTime()));
+            cs.setBinaryStream(6, Utils.toStream(getFile()), getFile().length());
+            cs.setByte(7, (byte) 0);
+            return cs.execute();
+        } catch (SQLException ex) {
+            Logger.getLogger(MAdmin.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        return false;
     }
 
     @Override
     public boolean editar() {
-        String sql = "CALL editar_usuario ("
-                + "'" + getId() + "', "
-                + "'" + getNombre() + "', "
-                + "'" + getApellido() + "', "
-                + "'" + getEmail() + "', "
-                + "'" + getPassword() + "', "
-                + "'" + new java.sql.Date(getFechaNac().getTime()) + "', "
-                + "'" + Utils.toStream(getFoto()) + "', "
-                + "'')";
-        System.out.println(getId());
-        return (con.noQuery(sql) == null);
+        String sql = "{call editar_usuario(?, ?, ?, ?, ?, ?, ?, ?)}";
+        try (CallableStatement cs = con.getCon().prepareCall(sql)) {
+            cs.setInt(1, Integer.parseInt(getId()));
+            cs.setString(2, getNombre());
+            cs.setString(3, getApellido());
+            cs.setString(4, getEmail());
+            cs.setString(5, getPassword());
+            cs.setDate(6, new java.sql.Date(getFechaNac().getTime()));
+            cs.setBinaryStream(7, Utils.toStream(getFile()), getFile().length());
+            cs.setByte(8, (byte) 0);
+            return cs.execute();
+        } catch (SQLException ex) {
+            Logger.getLogger(MAdmin.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        return false;
     }
 
     @Override

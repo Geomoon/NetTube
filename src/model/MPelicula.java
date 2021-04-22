@@ -7,6 +7,7 @@ import java.sql.SQLException;
 import java.sql.ResultSet;
 import java.util.logging.Level;
 import java.util.logging.Logger;
+import java.sql.CallableStatement;
 
 /**
  *
@@ -22,32 +23,38 @@ public class MPelicula extends Pelicula implements CRUD {
 
     public MPelicula() {
     }
-    
-    
 
     @Override
     public boolean crear() {
-        String sql = "CALL crear_pelicula ("
-                + "'" + getTitulo() + "', "
-                + "'" + getImagen() + "', "
-                + "'" + getDescripcion() + "', "
-                + "'" + getCategoria().getId() + "', "
-                + "'" + getVideo().getId() + "' "
-                + ")";
-        return (con.noQuery(sql) == null);
+        String sql = "{CALL crear_pelicula(?, ?, ?, ?, ?)}";
+        try (CallableStatement cs = con.getCon().prepareCall(sql)) {
+            cs.setString(1, getTitulo());
+            cs.setBinaryStream(2, Utils.toStream(getFile()), getFile().length());
+            cs.setString(3, getDescripcion());
+            cs.setString(4, getCategoria().getId());
+            cs.setString(5, getVideo().getId());
+            return cs.execute();
+        } catch (SQLException ex) {
+            Logger.getLogger(MPelicula.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        return false;
     }
 
     @Override
     public boolean editar() {
-        String sql = "CALL editar_pelicula ("
-                + "'" + getId() + "', "
-                + "'" + getTitulo() + "', "
-                + "'" + getImagen() + "', "
-                + "'" + getDescripcion() + "', "
-                + "'" + getCategoria().getId() + "', "
-                + "'" + getVideo().getId() + "' "
-                + ")";
-        return (con.noQuery(sql) == null);
+        String sql = "{CALL editar_pelicula(?, ?, ?, ?, ?, ?)}";
+        try (CallableStatement cs = con.getCon().prepareCall(sql)) {
+            cs.setString(1, getId());
+            cs.setString(2, getTitulo());
+            cs.setBinaryStream(3, Utils.toStream(getFile()), getFile().length());
+            cs.setString(4, getDescripcion());
+            cs.setString(5, getCategoria().getId());
+            cs.setString(6, getVideo().getId());
+            return cs.execute();
+        } catch (SQLException ex) {
+            Logger.getLogger(MPelicula.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        return false;
     }
 
     @Override

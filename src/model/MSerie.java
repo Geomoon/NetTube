@@ -7,6 +7,7 @@ import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.logging.Level;
 import java.util.logging.Logger;
+import java.sql.CallableStatement;
 
 /**
  *
@@ -25,25 +26,35 @@ public class MSerie extends Serie implements CRUD {
 
     @Override
     public boolean crear() {
-        String sql = "CALL crear_serie ("
-                + "'" + getTitulo() + "', "
-                + "'" + getImagen() + "', "
-                + "'" + getDescripcion() + "', "
-                + "'" + getCategoria().getId() + "'"
-                + ")";
-        return (con.noQuery(sql) == null);
+        String sql = "{CALL crear_serie (?, ?, ?, ?)}";
+
+        try (CallableStatement cs = con.getCon().prepareCall(sql)) {
+            cs.setString(1, getTitulo());
+            cs.setBinaryStream(2, Utils.toStream(getFile()), getFile().length());
+            cs.setString(3, getDescripcion());
+            cs.setString(4, getCategoria().getId());
+            return cs.execute();
+        } catch (SQLException ex) {
+            Logger.getLogger(MSerie.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        return false;
     }
 
     @Override
     public boolean editar() {
-        String sql = "CALL editar_serie ("
-                + "'" + getId() + "', "
-                + "'" + getTitulo() + "', "
-                + "'" + getImagen() + "', "
-                + "'" + getDescripcion() + "', "
-                + "'" + getCategoria().getId() + "'"
-                + ")";
-        return (con.noQuery(sql) == null);
+        String sql = "{CALL crear_serie (?, ?, ?, ?, ?)}";
+
+        try (CallableStatement cs = con.getCon().prepareCall(sql)) {
+            cs.setString(1, getId());
+            cs.setString(2, getTitulo());
+            cs.setBinaryStream(3, Utils.toStream(getFile()), getFile().length());
+            cs.setString(4, getDescripcion());
+            cs.setString(5, getCategoria().getId());
+            return cs.execute();
+        } catch (SQLException ex) {
+            Logger.getLogger(MSerie.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        return false;
     }
 
     @Override
@@ -77,7 +88,7 @@ public class MSerie extends Serie implements CRUD {
     }
 
     public List<Serie> listar(String text, int limit) {
-        
+
         String sql = "SELECT * FROM vista_series ";
         sql += " WHERE LCASE(titulo) like LCASE('%" + text + "%') OR ";
         sql += "LCASE(categoria_id) like LCASE('%" + text + "%') ";
@@ -105,7 +116,7 @@ public class MSerie extends Serie implements CRUD {
         }
         return list;
     }
-    
+
     @Override
     public Object buscar(String id) {
         throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.

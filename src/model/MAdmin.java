@@ -8,6 +8,7 @@ import java.util.Date;
 import java.util.List;
 import java.util.logging.Level;
 import java.util.logging.Logger;
+import java.sql.CallableStatement;
 
 /**
  *
@@ -26,29 +27,40 @@ public class MAdmin extends Admin implements Listable<Admin>, Editable {
 
     @Override
     public boolean crear() {
-        String sql = "CALL crear_usuario ("
-                + "'" + getNombre() + "', "
-                + "'" + getApellido() + "', "
-                + "'" + getEmail() + "', "
-                + "'" + getPassword() + "', "
-                + "'" + new java.sql.Date(getFechaNac().getTime()) + "', "
-                + "'" + Utils.toStream(getFoto()) + "', "
-                + "1)";
-        return (con.noQuery(sql) == null);
+        String sql = "{call crear_usuario(?, ?, ?, ?, ?, ?, ?)}";
+
+        try (CallableStatement cs = con.getCon().prepareCall(sql)) {
+            cs.setString(1, getNombre());
+            cs.setString(2, getApellido());
+            cs.setString(3, getEmail());
+            cs.setString(4, getPassword());
+            cs.setDate(5, new java.sql.Date(getFechaNac().getTime()));
+            cs.setBinaryStream(6, Utils.toStream(getFile()), getFile().length());
+            cs.setByte(7, (byte) 1);
+            return cs.execute();
+        } catch (SQLException ex) {
+            Logger.getLogger(MAdmin.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        return false;
     }
 
     @Override
     public boolean editar() {
-        String sql = "CALL editar_usuario ("
-                + "'" + getId() + "', "
-                + "'" + getNombre() + "', "
-                + "'" + getApellido() + "', "
-                + "'" + getEmail() + "', "
-                + "'" + getPassword() + "', "
-                + "'" + new java.sql.Date(getFechaNac().getTime()) + "', "
-                + "'" + Utils.toStream(getFoto()) + "', "
-                + "1)";
-        return (con.noQuery(sql) == null);
+        String sql = "{call editar_usuario(?, ?, ?, ?, ?, ?, ?, ?)}";
+        try (CallableStatement cs = con.getCon().prepareCall(sql)) {
+            cs.setInt(1, Integer.parseInt(getId()));
+            cs.setString(2, getNombre());
+            cs.setString(3, getApellido());
+            cs.setString(4, getEmail());
+            cs.setString(5, getPassword());
+            cs.setDate(6, new java.sql.Date(getFechaNac().getTime()));
+            cs.setBinaryStream(7, Utils.toStream(getFile()), getFile().length());
+            cs.setByte(8, (byte) 1);
+            return cs.execute();
+        } catch (SQLException ex) {
+            Logger.getLogger(MAdmin.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        return false;
     }
 
     @Override
@@ -83,7 +95,7 @@ public class MAdmin extends Admin implements Listable<Admin>, Editable {
     public Admin buscar(String id) {
         throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
-    
+
     public static MAdmin obtenerPorEmail(String email) {
         String sql = "SELECT id, nombre, apellido, email, aes_decrypt(password, '357190'), fecha_nacimiento, foto"
                 + " from vista_admins"
@@ -101,9 +113,8 @@ public class MAdmin extends Admin implements Listable<Admin>, Editable {
                 usuario.setFoto(Utils.toImage(rs.getBytes("foto")));
             }
         } catch (SQLException ex) {
-            Logger.getLogger(MUsuario.class.getName()).log(Level.SEVERE, null, ex);
+            Logger.getLogger(MAdmin.class.getName()).log(Level.SEVERE, null, ex);
         }
         return usuario;
     }
-
 }

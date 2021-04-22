@@ -90,6 +90,9 @@ public class CInicioSesion {
 
         MAdmin adminBD = MAdmin.obtenerPorEmail(email);
         if (adminBD != null) {
+            if (adminBD.getFoto() != null) {
+                System.out.println("Di foto");
+            }
             System.out.println("admin_passwd");
             return adminBD;
         }

@@ -1,6 +1,7 @@
 package model;
 
 import java.awt.Image;
+import java.io.File;
 import java.util.Date;
 
 /**
@@ -16,6 +17,7 @@ public abstract class Usuario {
     protected String password;
     protected Date fechaNac;
     protected Image foto;
+    protected File file;
 
     public Usuario() {
     }
@@ -28,6 +30,16 @@ public abstract class Usuario {
         this.password = password;
         this.fechaNac = fechaNac;
         this.foto = foto;
+    }
+    
+    public Usuario(String id, String nombre, String apellido, String email, String password, Date fechaNac, File file) {
+        this.id = id;
+        this.nombre = nombre;
+        this.apellido = apellido;
+        this.email = email;
+        this.password = password;
+        this.fechaNac = fechaNac;
+        this.file = file;
     }
 
     public String getId() {
@@ -86,4 +98,12 @@ public abstract class Usuario {
         this.foto = foto;
     }
 
+    public File getFile() {
+        return file;
+    }
+
+    public void setFile(File file) {
+        this.file = file;
+    }
+    
 }

@@ -26,6 +26,7 @@ public class Utils {
         } catch (IOException ex) {
             Logger.getLogger(Utils.class.getName()).log(Level.SEVERE, null, ex);
         }
+        System.out.println("No foto");
         return null;
     }
 
@@ -61,6 +62,18 @@ public class Utils {
         g.drawImage(image, 0, 0, null);
         g.dispose();
         return newImage;
+    }
+
+    protected static byte[] toBytes(Image image) {
+        try {
+            BufferedImage bImage = toBufferedImage(image);
+            ByteArrayOutputStream bos = new ByteArrayOutputStream();
+            ImageIO.write(bImage, "jpg", bos);
+            return bos.toByteArray();
+        } catch (IOException ex) {
+            Logger.getLogger(Utils.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        return null;
     }
 
 }
