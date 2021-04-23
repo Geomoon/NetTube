@@ -15,8 +15,11 @@ import javax.swing.ImageIcon;
 import javax.swing.JButton;
 import model.Categoria;
 import model.Favoritos;
+import model.Favoritos_Peliculas;
+import model.Favoritos_Series;
 import model.MCategoria;
 import model.MFavoritos;
+import model.MFavoritos_peliculas;
 import model.MFavoritos_series;
 import model.MPelicula;
 import model.MSerie;
@@ -43,6 +46,7 @@ public class CPerfilUser {
     private MCategoria mCat;
     private MFavoritos mfav;
     private MFavoritos_series mfavSerie;
+    private MFavoritos_peliculas mfavPeli;
 
     private vistaReproductorVideo vRep;
     private CReproductor cRep;
@@ -62,6 +66,7 @@ public class CPerfilUser {
         vRep = new vistaReproductorVideo();
         mfav=new MFavoritos();
         mfavSerie= new MFavoritos_series();
+        mfavPeli=new MFavoritos_peliculas();
 
         menu = new MenuBusqueda(vista.getTextBuscar(), mPeli, mSerie, vista); //para sugerencias de búsqueda
     }
@@ -97,20 +102,35 @@ public class CPerfilUser {
         if(p.getLblEstrella().getIcon().toString().contains("desactivada")){
             p.getLblEstrella().setIcon(new ImageIcon(getClass().getResource("/vista/iconos/estrella.png")));
             if(mf.crear()){
-                System.out.println("Favorito creado");
+                System.out.println("serie favorita creado");
             }
         }else{if (!p.getLblEstrella().getIcon().toString().contains("desactivada")){
             p.getLblEstrella().setIcon(new ImageIcon(getClass().getResource("/vista/iconos/estrella desactivada.png")));
-           
+            Favoritos_Series mfe=mfavSerie.buscarIdSerieFav(getmUser().getId(), s.getId()).get(0);
+            MFavoritos modFav=new MFavoritos(mfe.getId());
+            mf.setId(mfe.getId());
+            if(mf.eliminar()&&modFav.eliminar()){
+                System.out.println("Serie favorita eliminada");
+            }
         }}
         
     }
     private void estadoEstrellaPelicula(vistaPanelPelicula p,Pelicula peli){
+        MFavoritos_peliculas fp=nuevaPeliculaFavorita(peli);
         if(p.getLblEstrella().getIcon().toString().contains("desactivada")){
             p.getLblEstrella().setIcon(new ImageIcon(getClass().getResource("/vista/iconos/estrella.png")));
-//            crearPeliculaFavorita(peli);
+            if(fp.crear()){
+                System.out.println("Peli favorita creada");
+            }
         }else{if (!p.getLblEstrella().getIcon().toString().contains("desactivada")){
             p.getLblEstrella().setIcon(new ImageIcon(getClass().getResource("/vista/iconos/estrella desactivada.png")));
+            Favoritos_Peliculas mfp=mfavPeli.buscarIdPeliculaFav(getmUser().getId(), peli.getId()).get(0);
+            MFavoritos modFav=new MFavoritos(mfp.getId());
+            fp.setId(mfp.getId());
+            if(fp.eliminar()&&modFav.eliminar()){
+                System.out.println("Pelicula favorita eliminada");
+            }
+            
         }}
         
     }
@@ -247,11 +267,17 @@ public class CPerfilUser {
             icon = new ImageIcon(newimg);
             vistap.getLbFoto().setIcon(icon);
         }
+        for(int i=0;i<mfavPeli.buscar(getmUser().getId()).size();i++){
+            System.out.println(getmUser().getId());
+            if(mfavPeli.buscar(getmUser().getId()).get(i).getPelicula().getId().equalsIgnoreCase(peli.getId())){
+                vistap.getLblEstrella().setIcon(new ImageIcon(getClass().getResource("/vista/iconos/estrella.png")));
+            }
+        }
         
         MouseListener ml2 = new MouseListener() {
             @Override
             public void mouseClicked(MouseEvent e) {
-//                estadoEstrellaPeli(vistap,peli);
+                estadoEstrellaPelicula(vistap,peli);
             }
 
             @Override
@@ -358,6 +384,11 @@ public class CPerfilUser {
     public MFavoritos_series nuevaSerieFavorita(Serie s){
             MFavoritos_series mfs=new MFavoritos_series("", new Favoritos("",getmUser()), s);        
         return mfs;
+    }
+    
+    public MFavoritos_peliculas nuevaPeliculaFavorita(Pelicula p){
+            MFavoritos_peliculas mfp=new MFavoritos_peliculas("", new Favoritos("",getmUser()), p);        
+        return mfp;
     }
 
 

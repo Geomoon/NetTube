@@ -5,7 +5,12 @@
  */
 package model;
 
+import java.sql.ResultSet;
+import java.sql.SQLException;
+import java.util.ArrayList;
 import java.util.List;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 
 /**
  *
@@ -48,8 +53,41 @@ public class MFavoritos_peliculas extends Favoritos_Peliculas implements CRUD{
     }
 
     @Override
-    public Object buscar(String id) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    public List<Favoritos_Peliculas> buscar(String id_usuario) {
+        String sql = "SELECT * FROM vista_peliculas_favoritas WHERE ";
+        sql+="id_usuario ='"+id_usuario+"'";
+        List<Favoritos_Peliculas> list = new ArrayList<>();
+        try (ResultSet rs = con.query(sql)) {
+            while (rs.next()) {
+                list.add(new Favoritos_Peliculas(rs.getString("id_peliculas_favoritas"),
+                                            new Favoritos(rs.getString("id_favoritos"),
+                                                          new UsuarioApp(rs.getString("id_usuario"))),
+                                            new Pelicula(rs.getString("id_pelicula"))
+                                              ));
+            }
+        } catch (SQLException ex) {
+            Logger.getLogger(MVideo.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        return list;
+    }
+    
+    public List<Favoritos_Peliculas> buscarIdPeliculaFav(String id_usuario,String id_Pelicula) {
+        String sql = "SELECT * FROM vista_peliculas_favoritas WHERE ";
+        sql+="id_usuario ='"+id_usuario+"' AND ";
+        sql+="id_pelicula ='"+id_Pelicula+"'";
+        List<Favoritos_Peliculas> list = new ArrayList<>();
+        try (ResultSet rs = con.query(sql)) {
+            while (rs.next()) {
+                list.add(new Favoritos_Peliculas(rs.getString("id_peliculas_favoritas"),
+                                            new Favoritos(rs.getString("id_favoritos"),
+                                                          new UsuarioApp(rs.getString("id_usuario"))),
+                                            new Pelicula(rs.getString("id_pelicula"))
+                                              ));
+            }
+        } catch (SQLException ex) {
+            Logger.getLogger(MVideo.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        return list;
     }
     
 }

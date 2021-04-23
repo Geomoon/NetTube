@@ -53,9 +53,28 @@ public class MFavoritos_series extends Favoritos_Series implements CRUD {
     }
 
     @Override
-    public List<Favoritos_Series> buscar(String id) {
+    public List<Favoritos_Series> buscar(String id_usuario) {
         String sql = "SELECT * FROM vista_series_favoritas WHERE ";
-        sql+="id_usuario ='"+id+"'";
+        sql+="id_usuario ='"+id_usuario+"'";
+        List<Favoritos_Series> list = new ArrayList<>();
+        try (ResultSet rs = con.query(sql)) {
+            while (rs.next()) {
+                list.add(new Favoritos_Series(rs.getString("id_series_favoritas"),
+                                            new Favoritos(rs.getString("id_favoritos"),
+                                                          new UsuarioApp(rs.getString("id_usuario"))),
+                                            new Serie(rs.getString("id_serie"))
+                                              ));
+            }
+        } catch (SQLException ex) {
+            Logger.getLogger(MVideo.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        return list;
+    }
+    
+    public List<Favoritos_Series> buscarIdSerieFav(String id_usuario,String id_serie) {
+        String sql = "SELECT * FROM vista_series_favoritas WHERE ";
+        sql+="id_usuario ='"+id_usuario+"' AND ";
+        sql+="id_serie ='"+id_serie+"'";
         List<Favoritos_Series> list = new ArrayList<>();
         try (ResultSet rs = con.query(sql)) {
             while (rs.next()) {

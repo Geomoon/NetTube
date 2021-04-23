@@ -18,6 +18,10 @@ public class Pelicula extends Contenido {
     public Pelicula() {
     }
 
+    public Pelicula(String id) {
+        super(id);
+    }
+
     public Pelicula(String id, String titulo, String descripcion, Image imagen, Categoria categoria, Video video) {
         super(id, titulo, descripcion, imagen, categoria);
         this.video = video;
