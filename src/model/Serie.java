@@ -14,6 +14,10 @@ public class Serie extends Contenido {
     public Serie() {
     }
 
+    public Serie(String id) {
+        super(id);
+    }
+
     public Serie(String id, String titulo, String descripcion, Image imagen, Categoria categoria, List<Capitulo> capitulos) {
         super(id, titulo, descripcion, imagen, categoria);
         this.capitulos = capitulos;

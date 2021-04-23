@@ -9,11 +9,15 @@ import java.awt.CardLayout;
 import java.awt.Image;
 import java.awt.event.MouseEvent;
 import java.awt.event.MouseListener;
+import java.net.MalformedURLException;
 import java.util.List;
 import javax.swing.ImageIcon;
 import javax.swing.JButton;
 import model.Categoria;
+import model.Favoritos;
 import model.MCategoria;
+import model.MFavoritos;
+import model.MFavoritos_series;
 import model.MPelicula;
 import model.MSerie;
 import model.MUsuario;
@@ -37,6 +41,8 @@ public class CPerfilUser {
     private MSerie mSerie;
     private MPelicula mPeli;
     private MCategoria mCat;
+    private MFavoritos mfav;
+    private MFavoritos_series mfavSerie;
 
     private vistaReproductorVideo vRep;
     private CReproductor cRep;
@@ -54,6 +60,8 @@ public class CPerfilUser {
         this.mPeli = mPeli;
         mCat = new MCategoria();
         vRep = new vistaReproductorVideo();
+        mfav=new MFavoritos();
+        mfavSerie= new MFavoritos_series();
 
         menu = new MenuBusqueda(vista.getTextBuscar(), mPeli, mSerie, vista); //para sugerencias de búsqueda
     }
@@ -83,7 +91,30 @@ public class CPerfilUser {
         vp.getBtnPrincipal().addActionListener(l -> principal());
         vp.getBtnEditar().addActionListener(l -> editarPerfil());
     }
-
+    
+    private void estadoEstrellaSerie(vistaPanelPelicula p,Serie s){
+        MFavoritos_series mf=nuevaSerieFavorita(s);
+        if(p.getLblEstrella().getIcon().toString().contains("desactivada")){
+            p.getLblEstrella().setIcon(new ImageIcon(getClass().getResource("/vista/iconos/estrella.png")));
+            if(mf.crear()){
+                System.out.println("Favorito creado");
+            }
+        }else{if (!p.getLblEstrella().getIcon().toString().contains("desactivada")){
+            p.getLblEstrella().setIcon(new ImageIcon(getClass().getResource("/vista/iconos/estrella desactivada.png")));
+           
+        }}
+        
+    }
+    private void estadoEstrellaPelicula(vistaPanelPelicula p,Pelicula peli){
+        if(p.getLblEstrella().getIcon().toString().contains("desactivada")){
+            p.getLblEstrella().setIcon(new ImageIcon(getClass().getResource("/vista/iconos/estrella.png")));
+//            crearPeliculaFavorita(peli);
+        }else{if (!p.getLblEstrella().getIcon().toString().contains("desactivada")){
+            p.getLblEstrella().setIcon(new ImageIcon(getClass().getResource("/vista/iconos/estrella desactivada.png")));
+        }}
+        
+    }
+    
     private void editarPerfil() {
         CEditarPerfil cEditar = new CEditarPerfil(vp, mUser);
         cEditar.setPerfilUser(this);
@@ -147,7 +178,37 @@ public class CPerfilUser {
             icon = new ImageIcon(newimg);
             vistap.getLbFoto().setIcon(icon);
         }
+        for(int i=0;i<mfavSerie.buscar(getmUser().getId()).size();i++){
+            System.out.println(getmUser().getId());
+            if(mfavSerie.buscar(getmUser().getId()).get(i).getSerie().getId().equalsIgnoreCase(serie.getId())){
+                vistap.getLblEstrella().setIcon(new ImageIcon(getClass().getResource("/vista/iconos/estrella.png")));
+            }
+        }
+        
+        MouseListener ml2 = new MouseListener() {
+            @Override
+            public void mouseClicked(MouseEvent e) {
+                estadoEstrellaSerie(vistap,serie);
+            }
 
+            @Override
+            public void mousePressed(MouseEvent e) {
+            }
+
+            @Override
+            public void mouseReleased(MouseEvent e) {
+            }
+
+            @Override
+            public void mouseEntered(MouseEvent e) {
+            }
+
+            @Override
+            public void mouseExited(MouseEvent e) {
+            }
+        };
+        vistap.getLblEstrella().addMouseListener(ml2);
+        
         vistap.getLbTitulo().setText(serie.getTitulo());
         MouseListener ml = new MouseListener() {
             @Override
@@ -186,7 +247,31 @@ public class CPerfilUser {
             icon = new ImageIcon(newimg);
             vistap.getLbFoto().setIcon(icon);
         }
+        
+        MouseListener ml2 = new MouseListener() {
+            @Override
+            public void mouseClicked(MouseEvent e) {
+//                estadoEstrellaPeli(vistap,peli);
+            }
 
+            @Override
+            public void mousePressed(MouseEvent e) {
+            }
+
+            @Override
+            public void mouseReleased(MouseEvent e) {
+            }
+
+            @Override
+            public void mouseEntered(MouseEvent e) {
+            }
+
+            @Override
+            public void mouseExited(MouseEvent e) {
+            }
+        };
+        vistap.getLblEstrella().addMouseListener(ml2);
+        
         vistap.getLbTitulo().setText(peli.getTitulo());
         MouseListener ml = new MouseListener() {
             @Override
@@ -269,5 +354,14 @@ public class CPerfilUser {
     public void setmUser(MUsuario mUser) {
         this.mUser = mUser;
     }
+    
+    public MFavoritos_series nuevaSerieFavorita(Serie s){
+            MFavoritos_series mfs=new MFavoritos_series("", new Favoritos("",getmUser()), s);        
+        return mfs;
+    }
+
+
+    
+    
 
 }

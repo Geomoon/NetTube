@@ -33,6 +33,7 @@ public class vistaPanelPelicula extends javax.swing.JPanel {
         lbFoto = new javax.swing.JLabel();
         lbTitulo = new javax.swing.JLabel();
         lblEstrella = new javax.swing.JLabel();
+        lblFav_id = new javax.swing.JLabel();
 
         setBackground(new java.awt.Color(38, 11, 32));
         setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
@@ -49,7 +50,19 @@ public class vistaPanelPelicula extends javax.swing.JPanel {
 
         lblEstrella.setIcon(new javax.swing.ImageIcon(getClass().getResource("/vista/iconos/estrella desactivada.png"))); // NOI18N
         add(lblEstrella, new org.netbeans.lib.awtextra.AbsoluteConstraints(140, 0, -1, 30));
+
+        lblFav_id.setForeground(new java.awt.Color(38, 11, 32));
+        lblFav_id.setText("jLabel1");
+        add(lblFav_id, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 60, -1));
     }// </editor-fold>//GEN-END:initComponents
+
+    public JLabel getLblFav_id() {
+        return lblFav_id;
+    }
+
+    public void setLblFav_id(JLabel lblFav_id) {
+        this.lblFav_id = lblFav_id;
+    }
 
     public JLabel getLblEstrella() {
         return lblEstrella;
@@ -79,5 +92,6 @@ public class vistaPanelPelicula extends javax.swing.JPanel {
     private javax.swing.JLabel lbFoto;
     private javax.swing.JLabel lbTitulo;
     private javax.swing.JLabel lblEstrella;
+    private javax.swing.JLabel lblFav_id;
     // End of variables declaration//GEN-END:variables
 }

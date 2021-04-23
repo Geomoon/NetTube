@@ -24,6 +24,10 @@ public abstract class Contenido {
     public Contenido() {
     }
 
+    public Contenido(String id) {
+        this.id = id;
+    }
+
     public Contenido(String id, String titulo, String descripcion, Image imagen, Categoria categoria) {
         this.id = id;
         this.titulo = titulo;

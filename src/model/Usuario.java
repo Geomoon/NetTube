@@ -22,6 +22,17 @@ public abstract class Usuario {
     public Usuario() {
     }
 
+    public Usuario(String id) {
+        this.id = id;
+    }
+
+    public Usuario(String id, String nombre, String apellido, String email) {
+        this.id = id;
+        this.nombre = nombre;
+        this.apellido = apellido;
+        this.email = email;
+    }
+    
     public Usuario(String id, String nombre, String apellido, String email, String password, Date fechaNac, Image foto) {
         this.id = id;
         this.nombre = nombre;
