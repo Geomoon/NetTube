@@ -90,7 +90,6 @@ public class CPerfilUser {
     }
 
     private void addEvents() {
-        validarcampostxt();
         listar("");
         categorias();
         vista.getBtnPerfil().addActionListener(l -> perfil());
@@ -316,18 +315,6 @@ public class CPerfilUser {
         vistap.getLbFoto().addMouseListener(ml);
 
         return vistap;
-    }
-
-    private void validarcampostxt() {
-        Validaciones val = new Validaciones();
-        val.LimitarCaracteres(vista.getTextBuscar(), 100);
-        val.LimitarCaracteres(vp.getTextTituloPelicula(), 100);
-        val.LimitarCaracteres(vp.getTextTituloSerie(), 100);
-        val.LimitarCaracteres(vp.getTextTituloCapitulo(), 100);
-        val.LimitarCaracteres(vp.getTextDescripcionCapitulo(), 500);
-        val.LimitarCaracteres(vp.getTextDescripcionPelicula(), 500);
-        val.LimitarCaracteres(vp.getTextDescripcionSerie(), 500);
-
     }
 
     private void informacionSerie(Serie serie) {

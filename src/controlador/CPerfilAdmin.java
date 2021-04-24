@@ -500,10 +500,10 @@ public class CPerfilAdmin {
         val.ValidarLetrasNumerosTildes(vp.getTextTituloCapitulo());
         val.ValidarLetrasNumerosTildes(vp.getTextTituloCategoria());
         val.ValidarLetrasNumerosTildes(vp.getTextTituloPelicula());
-        val.ValidarLetrasNumerosTildes(vp.getTextDescripcionCapitulo());
-        val.ValidarLetrasNumerosTildes(vp.getTextDescripcionCategoria());
-        val.ValidarLetrasNumerosTildes(vp.getTextDescripcionPelicula());
-        val.ValidarLetrasNumerosTildes(vp.getTextDescripcionSerie());
+        val.ValidarcamposDescripcionContenido(vp.getTextDescripcionCapitulo());
+        val.ValidarcamposDescripcionContenido(vp.getTextDescripcionCategoria());
+        val.ValidarcamposDescripcionContenido(vp.getTextDescripcionPelicula());
+        val.ValidarcamposDescripcionContenido(vp.getTextDescripcionSerie());
     }
 
     private void limitacionCampostxt() {
