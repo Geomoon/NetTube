@@ -22,7 +22,7 @@ import org.apache.hc.core5.http.io.entity.EntityUtils;
 public class EnvioPOST {
 
     private static final String URL = "http://192.168.0.115/recibir.php";
-
+    
     /**
      * Envía un archivo al servidor, con el uso del protocolo HTTP
      *
@@ -38,13 +38,14 @@ public class EnvioPOST {
 
         MultipartEntityBuilder builder = MultipartEntityBuilder.create();
         builder.addBinaryBody("video", file, ContentType.MULTIPART_FORM_DATA, v);
+        builder.addTextBody("ruta", dir, ContentType.DEFAULT_TEXT);
 
         HttpEntity multipart = builder.build();
         httpPost.setEntity(multipart);
-
+        
         int code = 0;
         try (CloseableHttpResponse response = client.execute(httpPost)) {
-
+            System.out.println("RESPONSE HTTP");
             String r = EntityUtils.toString(response.getEntity());
             System.out.println(r);
 

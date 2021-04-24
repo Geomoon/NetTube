@@ -11,12 +11,15 @@ import java.util.logging.Logger;
  *
  * @author LUNA
  */
-public class MVideo extends Video implements CRUD {
+public class MVideo extends Video implements Listable<Video>, Editable {
 
     private static ConexionMySQL con = ConexionMySQL.getInstance();
 
     public MVideo(String id, String duracion, String dir) {
         super(id, duracion, dir);
+    }
+
+    public MVideo() {
     }
 
     @Override
@@ -59,8 +62,20 @@ public class MVideo extends Video implements CRUD {
     }
 
     @Override
-    public Object buscar(String id) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    public Video buscar(String dir) {
+        Video v = null;
+        String sql = "SELECT id FROM vista_videos where dir LIKE '%" + getDir() + "'";
+        System.out.println(sql);
+        try (ResultSet rs = con.query(sql)) {
+            if (rs.next()) {
+                v = new Video();
+                v.setId(rs.getString("id"));
+                System.out.println("IDVIDEO: " + v.getId());
+            }
+        } catch (SQLException ex) {
+            Logger.getLogger(MVideo.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        return v;
     }
 
 }

@@ -13,7 +13,7 @@ import java.sql.CallableStatement;
  *
  * @author LUNA
  */
-public class MPelicula extends Pelicula implements CRUD {
+public class MPelicula extends Pelicula implements Listable<Pelicula>, Editable {
 
     private static ConexionMySQL con = ConexionMySQL.getInstance();
 
@@ -96,8 +96,17 @@ public class MPelicula extends Pelicula implements CRUD {
     }
 
     @Override
-    public Object buscar(String id) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    public Pelicula buscar(String titulo) {
+        Pelicula p = null;
+        String sql = "SELECT id from vista_peliculas where LCASE(titulo) = LCASE('" + getTitulo() + "')";
+        try (ResultSet rs = con.query(sql)) {
+            if (rs.next()) {
+                p = new Pelicula(rs.getString("is"));
+            }
+        } catch (SQLException ex) {
+            Logger.getLogger(MPelicula.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        return p;
     }
 
     @Override

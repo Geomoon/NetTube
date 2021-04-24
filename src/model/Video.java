@@ -14,7 +14,7 @@ public class Video {
     private String id;
     private String duracion;
     private String dir;
-
+    
     public Video(String id, String duracion, String dir) {
         this.id = id;
         this.duracion = duracion;

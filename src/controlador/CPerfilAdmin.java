@@ -66,6 +66,7 @@ public class CPerfilAdmin {
     private Capitulo ncap;
 
     private File file; //necesario para guardar en la base de datos
+    private File video;
 
     public CPerfilAdmin() {
     }
@@ -123,6 +124,7 @@ public class CPerfilAdmin {
         vp.getBtnAgregarSerie().addActionListener(l -> metodosSeries(vp.getLblTituloAgregarSeries().getText(), ns));
         vp.getBtnAgregarPelicula().addActionListener(l -> metodosPeliculas(vp.getLblTituloPeliculas().getText(), np));
         vp.getBtnAgregarCapitulo().addActionListener(l -> metodosCapitulos(vp.getLblTituloCapitulos().getText(), ns, ncap));
+        vp.getBtnAgregarVideoPeliculas().addActionListener(l -> elegirVideo());
     }
 
     private Categoria recibirCategoria(Categoria c) {
@@ -437,6 +439,7 @@ public class CPerfilAdmin {
         if (estado == JFileChooser.APPROVE_OPTION) {
             try {
                 file = jfc.getSelectedFile();
+                System.out.println(file.getName());
                 Image icono = ImageIO.read(file).getScaledInstance(
                         lb.getWidth(),
                         lb.getHeight(),
@@ -536,11 +539,11 @@ public class CPerfilAdmin {
             List<Categoria> listaC = mCat.categoriaId(vp.getComboCategoriaPelicula().getSelectedItem().toString());
             Categoria cat = listaC.get(0);
 
-            Video vid = new Video();
-
             String titulo = vp.getTextTituloPelicula().getText();
             String descripcion = vp.getTextDescripcionPelicula().getText();
             ImageIcon ic = (ImageIcon) vp.getLblFotoPelicula().getIcon();
+
+            Video vid = nuevoVideo(Pelicula.DIR + titulo);
 
             MPelicula np = new MPelicula("1", titulo, descripcion, ic.getImage(), cat, vid);
             np.setFile(file);
@@ -586,7 +589,7 @@ public class CPerfilAdmin {
             String titulo = vp.getTextTituloCapitulo().getText();
             String descripcion = vp.getTextDescripcionCapitulo().getText();
 
-            Video vid = new Video();
+            Video vid = nuevoVideo(Serie.DIR + titulo);
 
             MCapitulo nc = new MCapitulo("", titulo, descripcion, vid, s);
             if (nc.crear()) {
@@ -897,29 +900,39 @@ public class CPerfilAdmin {
         this.mAdmin = mAdmin;
     }
 
-    /**
-     * Envia el video
-     * @param file  archivo de video .mp4
-     * @param mvideo modelo de video
-     * @param dir ruta a guardar: nombreSerie/ ó nombrePelicula/
-     * @param contenido enviar objeto instancia de Video o Serie
-     */
-    private void enviarVideo(File file, MVideo mvideo, String dir, Contenido contenido) {
-        String preDir = "";
-        if (contenido instanceof Pelicula) {
-            preDir = Pelicula.DIR;
-        } else if (contenido instanceof Serie) {
-            preDir = Serie.DIR;
-        }
-        mvideo.setDir(preDir + dir);
-        System.out.println("DIR: " + preDir + dir);
+    private void elegirVideo() {
+        JFileChooser jfc = new JFileChooser();
+        jfc.setFileSelectionMode(JFileChooser.FILES_ONLY);
+        FileNameExtensionFilter filtroImg = new FileNameExtensionFilter("MP4", "mp4");
+        jfc.setFileFilter(filtroImg);
+        int estado = jfc.showOpenDialog(null);
 
-        if (EnvioPOST.sendVideo(file, dir)) {
-            if (mvideo.crear()) {
-                JOptionPane.showMessageDialog(vRep, "Video registrado", "Info", JOptionPane.INFORMATION_MESSAGE, null);
+        video = null;
+
+        if (estado == JFileChooser.APPROVE_OPTION) {
+            video = jfc.getSelectedFile();
+        }
+    }
+
+    private Video nuevoVideo(String dir) {
+        Video v = null;
+
+        File f = video;
+        String direccion = dir + "/";
+        System.out.println(direccion);
+
+        MVideo mVideo = new MVideo();
+        mVideo.setDir(direccion + f.getName());
+
+        if (EnvioPOST.sendVideo(f, direccion.substring(1))) {
+            JOptionPane.showMessageDialog(vRep, "El video se ha subido al servidor");
+            if (mVideo.crear()) {
+                JOptionPane.showMessageDialog(vRep, "Video registrado en la base de datos");
+                v = mVideo.buscar(dir);
             }
         }
 
+        return v;
     }
 
 }

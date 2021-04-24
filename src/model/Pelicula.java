@@ -29,6 +29,10 @@ public class Pelicula extends Contenido {
         this.video = video;
     }
 
+    public Pelicula(String id, String titulo, String descripcion, Image imagen, Categoria categoria) {
+        super(id, titulo, descripcion, imagen, categoria);
+    }
+    
     public Video getVideo() {
         return video;
     }

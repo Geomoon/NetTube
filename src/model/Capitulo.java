@@ -23,6 +23,13 @@ public class Capitulo {
         this.serie = serie;
     }
 
+    public Capitulo(String id, String titulo, String descripcion, Serie serie) {
+        this.id = id;
+        this.titulo = titulo;
+        this.descripcion = descripcion;
+        this.serie = serie;
+    }
+    
     public String getId() {
         return id;
     }
