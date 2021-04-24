@@ -14,6 +14,7 @@ import javafx.scene.Scene;
 import javafx.scene.media.Media;
 import javafx.scene.media.MediaPlayer;
 import javafx.scene.media.MediaView;
+import model.Capitulo;
 import model.Pelicula;
 import model.Serie;
 import model.Video;
@@ -26,7 +27,7 @@ import vista.vistaReproductorVideo;
 public class CReproductor {
 
     private Pelicula pelicula;
-    private Serie serie;
+    private Capitulo capitulo;
 
     private Video video;
     private String url;
@@ -99,12 +100,17 @@ public class CReproductor {
         initControl();
     }
 
-    public Serie getSerie() {
-        return serie;
+    public Capitulo getCapitulo() {
+        return capitulo;
     }
 
-    public void setSerie(Serie serie) {
-        this.serie = serie;
+    public void setCapitulo(Capitulo capitulo) {
+        this.capitulo = capitulo;
+        this.url= capitulo.getVideo().getDir();
+        vRep.getLblTitulo().setText(capitulo.getTitulo());
+        initControl();
     }
+
+
 
 }

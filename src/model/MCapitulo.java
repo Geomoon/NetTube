@@ -78,5 +78,27 @@ public class MCapitulo extends Capitulo implements CRUD {
     public Object buscar(String id) {
         throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
-
+    
+    public List<Capitulo> buscarCapitulosSerie(String id) {
+        String sql = "SELECT * FROM vista_capitulos WHERE ";
+        sql+="serie_id ='"+id+"'";
+        List<Capitulo> list = new ArrayList<>();
+        try (ResultSet rs = con.query(sql)) {
+            while (rs.next()) {
+                list.add(new Capitulo(
+                        rs.getString("id"),
+                        rs.getString("titulo"),
+                        rs.getString("descripcion"),
+                        new Video(
+                                rs.getString("video_id"),
+                                rs.getString("duracion"),
+                                rs.getString("dir")),
+                        null
+                ));
+            }
+        } catch (SQLException ex) {
+            Logger.getLogger(MCapitulo.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        return list;
+    }
 }

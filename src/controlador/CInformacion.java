@@ -6,10 +6,16 @@
 package controlador;
 
 import java.awt.CardLayout;
+import java.util.List;
 import javax.swing.ImageIcon;
+import model.Capitulo;
+import model.MCapitulo;
+import model.MSerie;
 import model.Pelicula;
 import model.Serie;
+import vista.panelCapitulos;
 import vista.vistaInformacion;
+import vista.vistaInformacionSeries;
 import vista.vistaPrincipal;
 
 /**
@@ -19,6 +25,7 @@ import vista.vistaPrincipal;
 public class CInformacion {
 
     private vistaInformacion vInfo;
+    private vistaInformacionSeries vInfoSeries;
     private vistaPrincipal vPrincipal;
 
     private Pelicula pelicula;
@@ -31,21 +38,26 @@ public class CInformacion {
         this.pelicula = pelicula;
     }
 
-    public CInformacion(vistaInformacion vInfo, vistaPrincipal vPrincipal, Serie serie) {
-        this.vInfo = vInfo;
+    public CInformacion(vistaInformacionSeries vInfoSeries, vistaPrincipal vPrincipal, Serie serie) {
+        this.vInfoSeries = vInfoSeries;
         this.vPrincipal = vPrincipal;
         this.serie = serie;
     }
 
     private void addEvents() {
-        vInfo.getBtnReproducir().addActionListener(l -> iniciarRepro());
+        if(pelicula != null){
+           vInfo.getBtnReproducir().addActionListener(l -> iniciarRepro()); 
+        }
+        
     }
 
     public void initControl() {
-        vInfo.setVisible(true);
+        
         if (pelicula != null) {
+            vInfo.setVisible(true);
             controlPelicula();
         } else {
+            vInfoSeries.setVisible(true);
             controlSerie();
         }
 
@@ -62,10 +74,13 @@ public class CInformacion {
 
     private void controlSerie() {
         if (serie.getImagen() != null) {
-            vInfo.getLbFoto().setIcon(new ImageIcon(serie.getImagen()));
+            vInfoSeries.getLbFoto().setIcon(new ImageIcon(serie.getImagen()));
         }
-        vInfo.getTextInformacion().setText(serie.getDescripcion());
-        vInfo.getLblTitulo().setText(serie.getTitulo());
+        vInfoSeries.getTextInformacion().setText(serie.getDescripcion());
+        vInfoSeries.getLblTitulo().setText(serie.getTitulo());
+        vInfoSeries.getBtnCancelar().addActionListener(l->vInfoSeries.dispose());
+        
+        PanelesCapitulos();
     }
 
     private void iniciarRepro() {
@@ -75,12 +90,37 @@ public class CInformacion {
         if (pelicula != null) {
             cRep.setPelicula(pelicula);
         } else {
-            cRep.setSerie(serie);
+            System.out.println("Es una serie");
         }
+    }
+    
+    private void iniciarReproCap(Capitulo c){
+        ((CardLayout) vPrincipal.getPanelCard().getLayout()).show(vPrincipal.getPanelCard(), "cardRep");
+        vInfo.dispose();
+        
+        cRep.setCapitulo(c);
     }
     
     public void setCRep(CReproductor cRep) {
         this.cRep = cRep;
+    }
+    
+    private void PanelesCapitulos(){
+        MCapitulo mc=new MCapitulo();
+        vInfoSeries.getPanelSeriesInfo().removeAll();
+        List<Capitulo> listc =mc.buscarCapitulosSerie(serie.getId());
+        listc.stream().forEach(p->{
+            panelCapitulos pc=new panelCapitulos();
+            pc.getTextTitulo().setText(p.getTitulo());
+            pc.getTextDescripcion().setText(p.getDescripcion());
+            pc.getBtnVerEliminar().setText("REPRODUCIR");
+            pc.getBtnVerEliminar().addActionListener(l->iniciarReproCap(p));
+            
+            vInfoSeries.getPanelSeriesInfo().add(pc);
+            vInfoSeries.getPanelSeriesInfo().updateUI();
+        });
+        
+        
     }
 
 }

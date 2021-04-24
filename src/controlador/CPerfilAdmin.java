@@ -36,6 +36,7 @@ import model.Serie;
 import model.Video;
 import vista.panelAdminSeriePeli;
 import vista.vistaInformacion;
+import vista.vistaInformacionSeries;
 import vista.vistaPanelPelicula;
 import vista.vistaPerfil;
 import vista.vistaPrincipal;
@@ -460,13 +461,13 @@ public class CPerfilAdmin {
     }
 
     private void informacionSerie(Serie serie) {
-        vistaInformacion vi = new vistaInformacion();
+        vistaInformacionSeries vi = new vistaInformacionSeries();
 
         CInformacion cInformacion = new CInformacion(vi, vista, serie);
         cInformacion.setCRep(cRep);
-
         cInformacion.initControl();
-        cRep.setSerie(serie);
+        
+
     }
 
     private void informacionPelicula(Pelicula peli) {

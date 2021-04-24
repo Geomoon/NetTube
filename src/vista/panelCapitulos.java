@@ -5,6 +5,9 @@
  */
 package vista;
 
+import javax.swing.JButton;
+import javax.swing.JLabel;
+
 /**
  *
  * @author User
@@ -84,6 +87,29 @@ public class panelCapitulos extends javax.swing.JPanel {
         );
     }// </editor-fold>//GEN-END:initComponents
 
+    public JButton getBtnVerEliminar() {
+        return btnVerEliminar;
+    }
+
+    public void setBtnVerEliminar(JButton btnVerEliminar) {
+        this.btnVerEliminar = btnVerEliminar;
+    }
+
+    public JLabel getTextDescripcion() {
+        return textDescripcion;
+    }
+
+    public void setTextDescripcion(JLabel textDescripcion) {
+        this.textDescripcion = textDescripcion;
+    }
+
+    public JLabel getTextTitulo() {
+        return textTitulo;
+    }
+
+    public void setTextTitulo(JLabel textTitulo) {
+        this.textTitulo = textTitulo;
+    }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnVerEliminar;
