@@ -26,6 +26,7 @@ import model.MSerie;
 import model.MUsuario;
 import model.Pelicula;
 import model.Serie;
+import vista.panelFavoritos;
 import vista.vistaInformacion;
 import vista.vistaPanelPelicula;
 import vista.vistaPerfil;
@@ -106,12 +107,7 @@ public class CPerfilUser {
             }
         }else{if (!p.getLblEstrella().getIcon().toString().contains("desactivada")){
             p.getLblEstrella().setIcon(new ImageIcon(getClass().getResource("/vista/iconos/estrella desactivada.png")));
-            Favoritos_Series mfe=mfavSerie.buscarIdSerieFav(getmUser().getId(), s.getId()).get(0);
-            MFavoritos modFav=new MFavoritos(mfe.getId());
-            mf.setId(mfe.getId());
-            if(mf.eliminar()&&modFav.eliminar()){
-                System.out.println("Serie favorita eliminada");
-            }
+            eliminarSerieFavorita(s,mf);
         }}
         
     }
@@ -124,13 +120,7 @@ public class CPerfilUser {
             }
         }else{if (!p.getLblEstrella().getIcon().toString().contains("desactivada")){
             p.getLblEstrella().setIcon(new ImageIcon(getClass().getResource("/vista/iconos/estrella desactivada.png")));
-            Favoritos_Peliculas mfp=mfavPeli.buscarIdPeliculaFav(getmUser().getId(), peli.getId()).get(0);
-            MFavoritos modFav=new MFavoritos(mfp.getId());
-            fp.setId(mfp.getId());
-            if(fp.eliminar()&&modFav.eliminar()){
-                System.out.println("Pelicula favorita eliminada");
-            }
-            
+            eliminarPeliculaFavorita(peli, fp);       
         }}
         
     }
@@ -165,6 +155,7 @@ public class CPerfilUser {
         vp.getLblCorreo().setText(mUser.getEmail());
         vp.getLblNombre().setText(mUser.getNombre());
         vp.getLblNacimiento().setText(mUser.getFechaNac().toString());
+        Favoritos();
         vista.dispose();
 
     }
@@ -359,6 +350,9 @@ public class CPerfilUser {
     }
 
     private void categorias() {
+        JButton btnp = new JButton("TODO");
+        btnp.addActionListener(l->listar(""));
+        vista.getBarCategorias().add(btnp);
         List<Categoria> listaC = mCat.listar();
         listaC.stream().forEach(c -> {
             JButton btn = new JButton(c.getNombre());
@@ -368,6 +362,8 @@ public class CPerfilUser {
     }
 
     private void principal() {
+        listar("");
+        Favoritos();
         vista.setLocationRelativeTo(null);
         vista.setVisible(true);
         vp.dispose();
@@ -381,17 +377,75 @@ public class CPerfilUser {
         this.mUser = mUser;
     }
     
-    public MFavoritos_series nuevaSerieFavorita(Serie s){
+    private MFavoritos_series nuevaSerieFavorita(Serie s){
             MFavoritos_series mfs=new MFavoritos_series("", new Favoritos("",getmUser()), s);        
         return mfs;
     }
     
-    public MFavoritos_peliculas nuevaPeliculaFavorita(Pelicula p){
+    private MFavoritos_peliculas nuevaPeliculaFavorita(Pelicula p){
             MFavoritos_peliculas mfp=new MFavoritos_peliculas("", new Favoritos("",getmUser()), p);        
         return mfp;
     }
 
+    private void Favoritos(){
+        vp.getPanelPerfil().removeAll();
+        List<Pelicula> listaP = mPeli.listar("", 0);
+        listaP.stream().forEach(p -> {
+            for(int i=0;i<mfavPeli.buscar(getmUser().getId()).size();i++){
+            System.out.println(getmUser().getId());
+            if(mfavPeli.buscar(getmUser().getId()).get(i).getPelicula().getId().equalsIgnoreCase(p.getId())){
+                panelFavoritos pf=new panelFavoritos();
+                pf.getTextId().setText(p.getId());
+                pf.getTextTitulo().setText(p.getTitulo());
+                pf.getBtnInfo().addActionListener(l->informacionPelicula(p));
+                pf.getBtnEliminar().addActionListener(l->eliminarPeliculaFavorita(p, nuevaPeliculaFavorita(p)));      
+                vp.getPanelPerfil().add(pf);
+                vp.getPanelPerfil().updateUI();
+            }
+        }
+        });
 
+        List<Serie> listaS = mSerie.listar("", 0);
+        listaS.stream().forEach(s -> {
+            for(int i=0;i<mfavSerie.buscar(getmUser().getId()).size();i++){
+            System.out.println(getmUser().getId());
+            if(mfavSerie.buscar(getmUser().getId()).get(i).getSerie().getId().equalsIgnoreCase(s.getId())){
+                panelFavoritos pf=new panelFavoritos();
+                pf.getTextId().setText(s.getId());
+                pf.getTextTitulo().setText(s.getTitulo());
+                pf.getBtnInfo().addActionListener(l->informacionSerie(s));
+                pf.getBtnEliminar().addActionListener(l->eliminarSerieFavorita(s, nuevaSerieFavorita(s)));
+                vp.getPanelPerfil().add(pf);
+                vp.getPanelPerfil().updateUI();
+            }
+        }
+        });
+    }
+    
+    private void eliminarPeliculaFavorita(Pelicula peli,MFavoritos_peliculas fp){
+        Favoritos_Peliculas mfp=mfavPeli.buscarIdPeliculaFav(getmUser().getId(), peli.getId()).get(0);
+            MFavoritos modFav=new MFavoritos(mfp.getId());
+            fp.setId(mfp.getId());
+            if(fp.eliminar()&&modFav.eliminar()){
+                System.out.println("Pelicula favorita eliminada");
+                Favoritos();
+            }
+        
+    }
+    
+    private void eliminarSerieFavorita(Serie s,MFavoritos_series mf){
+        Favoritos_Series mfe=mfavSerie.buscarIdSerieFav(getmUser().getId(), s.getId()).get(0);
+            MFavoritos modFav=new MFavoritos(mfe.getId());
+            mf.setId(mfe.getId());
+            if(mf.eliminar()&&modFav.eliminar()){
+                System.out.println("Serie favorita eliminada");
+                vp.getPanelPerfil().removeAll();
+                vp.getPanelPerfil().updateUI();
+                Favoritos();
+            }
+          
+    }
+    
     
     
 

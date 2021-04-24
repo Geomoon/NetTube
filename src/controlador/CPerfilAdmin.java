@@ -229,7 +229,7 @@ public class CPerfilAdmin {
         limpiarCapitulos();
         vp.getjDialogAgregarCapitulos().setLocationRelativeTo(vp);
         vp.getjDialogAgregarCapitulos().setVisible(true);
-        vp.getjDialogAgregarCapitulos().setSize(571, 305);
+        vp.getjDialogAgregarCapitulos().setSize(571, 355);
 
         vp.getBtnAgregarVideoCapitulos().setEnabled(true);
 
@@ -246,7 +246,7 @@ public class CPerfilAdmin {
         limpiarPeliculas();
         vp.getjDialogAgregarPeliculas().setLocationRelativeTo(vp);
         vp.getjDialogAgregarPeliculas().setVisible(true);
-        vp.getjDialogAgregarPeliculas().setSize(635, 359);
+        vp.getjDialogAgregarPeliculas().setSize(635, 398);
 
         vp.getLblTituloPeliculas().setText("AGREGAR PELICULAS");
 
@@ -266,7 +266,7 @@ public class CPerfilAdmin {
         limpiarSeries();
         vp.getjDialogAgregarSeries().setLocationRelativeTo(vp);
         vp.getjDialogAgregarSeries().setVisible(true);
-        vp.getjDialogAgregarSeries().setSize(635, 648);
+        vp.getjDialogAgregarSeries().setSize(635, 365);
         vp.getBtnCancelarSerie().addActionListener(l -> vp.getjDialogAgregarSeries().dispose());
         vp.getComboCategoriaSerie().removeAllItems();
 
@@ -295,6 +295,7 @@ public class CPerfilAdmin {
     }
 
     private void principal() {
+        categorias();
         vista.setLocationRelativeTo(null);
         vista.setVisible(true);
         vp.dispose();
@@ -474,6 +475,10 @@ public class CPerfilAdmin {
     }
 
     private void categorias() {
+        vista.getBarCategorias().removeAll();
+        JButton btnp = new JButton("TODO");
+        btnp.addActionListener(l->listar(""));
+        vista.getBarCategorias().add(btnp);
         List<Categoria> listaC = mCat.listar();
         listaC.stream().forEach(c -> {
             JButton btn = new JButton(c.getNombre());
@@ -671,14 +676,19 @@ public class CPerfilAdmin {
 
     private panelAdminSeriePeli panelAdminCategoria(Categoria c) {
         panelAdminSeriePeli np = new panelAdminSeriePeli();
-        MCategoria mc = new MCategoria(c.getId(), c.getNombre(), c.getDescripcion());
         np.getTextId().setText(c.getId());
         np.getTextTitulo().setText(c.getNombre());
-        np.getBtnEliminar().addActionListener(l -> mc.eliminar());
+        np.getBtnEliminar().addActionListener(l -> eliminarCategoria(c));
         np.getBtnInfo().addActionListener(l -> infoCateogoria(c));
         System.out.println(c.getId());
 
         return np;
+    }
+    
+    private void eliminarCategoria(Categoria c){
+        MCategoria mc = new MCategoria(c.getId(), c.getNombre(), c.getDescripcion());
+        mc.eliminar();
+        listaCategorias();
     }
 
     private panelAdminSeriePeli panelAdminCapitulos(Capitulo c) {
