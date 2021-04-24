@@ -13,8 +13,10 @@ import java.awt.Image;
  */
 public class Pelicula extends Contenido {
 
+    public static final String DIR = "/publico/peliculas/";
+
     private Video video;
-    
+
     public Pelicula() {
     }
 

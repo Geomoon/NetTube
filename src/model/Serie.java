@@ -8,6 +8,8 @@ import java.util.List;
  * @author LUNA
  */
 public class Serie extends Contenido {
+    
+    public static final String DIR = "/publico/series/";
 
     private List<Capitulo> capitulos;
 

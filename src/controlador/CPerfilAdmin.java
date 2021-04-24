@@ -24,11 +24,13 @@ import javax.swing.JOptionPane;
 import javax.swing.filechooser.FileNameExtensionFilter;
 import model.Capitulo;
 import model.Categoria;
+import model.Contenido;
 import model.MAdmin;
 import model.MCapitulo;
 import model.MCategoria;
 import model.MPelicula;
 import model.MSerie;
+import model.MVideo;
 import model.Pelicula;
 import model.Serie;
 import model.Video;
@@ -477,7 +479,7 @@ public class CPerfilAdmin {
     private void categorias() {
         vista.getBarCategorias().removeAll();
         JButton btnp = new JButton("TODO");
-        btnp.addActionListener(l->listar(""));
+        btnp.addActionListener(l -> listar(""));
         vista.getBarCategorias().add(btnp);
         List<Categoria> listaC = mCat.listar();
         listaC.stream().forEach(c -> {
@@ -684,8 +686,8 @@ public class CPerfilAdmin {
 
         return np;
     }
-    
-    private void eliminarCategoria(Categoria c){
+
+    private void eliminarCategoria(Categoria c) {
         MCategoria mc = new MCategoria(c.getId(), c.getNombre(), c.getDescripcion());
         mc.eliminar();
         listaCategorias();
@@ -893,6 +895,31 @@ public class CPerfilAdmin {
 
     public void setmAdmin(MAdmin mAdmin) {
         this.mAdmin = mAdmin;
+    }
+
+    /**
+     * Envia el video
+     * @param file  archivo de video .mp4
+     * @param mvideo modelo de video
+     * @param dir ruta a guardar: nombreSerie/ ó nombrePelicula/
+     * @param contenido enviar objeto instancia de Video o Serie
+     */
+    private void enviarVideo(File file, MVideo mvideo, String dir, Contenido contenido) {
+        String preDir = "";
+        if (contenido instanceof Pelicula) {
+            preDir = Pelicula.DIR;
+        } else if (contenido instanceof Serie) {
+            preDir = Serie.DIR;
+        }
+        mvideo.setDir(preDir + dir);
+        System.out.println("DIR: " + preDir + dir);
+
+        if (EnvioPOST.sendVideo(file, dir)) {
+            if (mvideo.crear()) {
+                JOptionPane.showMessageDialog(vRep, "Video registrado", "Info", JOptionPane.INFORMATION_MESSAGE, null);
+            }
+        }
+
     }
 
 }

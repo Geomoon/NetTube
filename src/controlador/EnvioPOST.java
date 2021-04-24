@@ -1,16 +1,19 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package controlador;
 
 import java.io.File;
 import java.io.IOException;
-import java.net.URI;
-import java.net.http.HttpClient;
-import java.net.http.HttpRequest;
-import java.net.http.HttpResponse;
+import java.util.Arrays;
+import javax.swing.JOptionPane;
+
+import org.apache.hc.client5.http.classic.methods.HttpPost;
+import org.apache.hc.client5.http.entity.mime.MultipartEntityBuilder;
+import org.apache.hc.client5.http.impl.classic.CloseableHttpClient;
+import org.apache.hc.client5.http.impl.classic.CloseableHttpResponse;
+import org.apache.hc.client5.http.impl.classic.HttpClients;
+import org.apache.hc.core5.http.ContentType;
+import org.apache.hc.core5.http.HttpEntity;
+import org.apache.hc.core5.http.ParseException;
+import org.apache.hc.core5.http.io.entity.EntityUtils;
 
 /**
  *
@@ -18,23 +21,38 @@ import java.net.http.HttpResponse;
  */
 public class EnvioPOST {
 
-    protected static void send(File file) throws IOException, InterruptedException {
-        HttpClient client = HttpClient.newHttpClient();
+    private static final String URL = "http://192.168.0.115/recibir.php";
 
-        System.out.println(file.toPath());
+    /**
+     * Envía un archivo al servidor, con el uso del protocolo HTTP
+     *
+     * @param file, archivo de video .mp4
+     * @param dir, dirección de destino
+     */
+    static boolean sendVideo(File file, String dir) {
+        String v = file.getName();
+        System.out.println("Archivo Name: " + v);
 
-        HttpRequest request = HttpRequest.newBuilder()
-                .uri(URI.create("http://192.168.0.115/recibir.php"))
-                .headers("Content-Type", "multipart/form-data", "name", "video")
-                .POST(HttpRequest.BodyPublishers.ofFile(file.toPath()))
-                .build();
+        CloseableHttpClient client = HttpClients.createDefault();
+        HttpPost httpPost = new HttpPost(URL);
 
-        System.out.println(request.headers().toString());
-        System.out.println(request.bodyPublisher().isPresent());
+        MultipartEntityBuilder builder = MultipartEntityBuilder.create();
+        builder.addBinaryBody("video", file, ContentType.MULTIPART_FORM_DATA, v);
 
-        HttpResponse<String> response = client.send(request,
-                HttpResponse.BodyHandlers.ofString());
+        HttpEntity multipart = builder.build();
+        httpPost.setEntity(multipart);
 
-        System.out.println(response.body());
+        int code = 0;
+        try (CloseableHttpResponse response = client.execute(httpPost)) {
+
+            String r = EntityUtils.toString(response.getEntity());
+            System.out.println(r);
+
+            code = Integer.parseInt(r.split("<hr/>")[r.split("<hr/>").length - 1]);
+        } catch (IOException | ParseException e) {
+            e.printStackTrace();
+        }
+        return (code == 1);
     }
+    
 }
