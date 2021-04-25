@@ -126,6 +126,7 @@ public class CPerfilAdmin {
         vp.getBtnAgregarPelicula().addActionListener(l -> metodosPeliculas(vp.getLblTituloPeliculas().getText(), np));
         vp.getBtnAgregarCapitulo().addActionListener(l -> metodosCapitulos(vp.getLblTituloCapitulos().getText(), ns, ncap));
         vp.getBtnAgregarVideoPeliculas().addActionListener(l -> elegirVideo());
+        vp.getBtnAgregarVideoCapitulos().addActionListener(l -> elegirVideo());
     }
 
     private Categoria recibirCategoria(Categoria c) {
@@ -188,6 +189,7 @@ public class CPerfilAdmin {
 
     private void metodosCapitulos(String titulo, Serie s, Capitulo c) {
         if (titulo.equalsIgnoreCase("agregar capitulos")) {
+
             nuevoCapitulo(s);
 
         }
@@ -330,7 +332,7 @@ public class CPerfilAdmin {
         vp.getLblCorreo().setText(mAdmin.getEmail());
         vp.getLblNombre().setText(mAdmin.getNombre());
         vp.getLblNacimiento().setText(mAdmin.getFechaNac().toString());
-        vista.dispose();
+        vista.setVisible(false);
 
     }
 
@@ -355,6 +357,8 @@ public class CPerfilAdmin {
 
     private vistaPanelPelicula panelSerie(Serie serie) {
         vistaPanelPelicula vistap = new vistaPanelPelicula();
+
+        vistap.getLbFoto().setSize(109, 129);
 
         Image img = serie.getImagen();
         Image newimg = CUtils.redimensionarImagen(img, vistap.getLbFoto());
@@ -395,12 +399,16 @@ public class CPerfilAdmin {
     private vistaPanelPelicula panelPelicula(Pelicula peli) {
         vistaPanelPelicula vistap = new vistaPanelPelicula();
 
+        vistap.getLbFoto().setSize(109, 129);
+
         Image img = peli.getImagen();
-        Image newimg = CUtils.redimensionarImagen(img, vistap.getLbFoto());
-        ImageIcon icon = null;
-        if (newimg != null) {
-            icon = new ImageIcon(newimg);
-            vistap.getLbFoto().setIcon(icon);
+        if (img != null) {
+            Image newimg = CUtils.redimensionarImagen(img, vistap.getLbFoto());
+            ImageIcon icon = null;
+            if (newimg != null) {
+                icon = new ImageIcon(newimg);
+                vistap.getLbFoto().setIcon(icon);
+            }
         }
 
         vistap.getLbTitulo().setText(peli.getTitulo());
@@ -466,7 +474,6 @@ public class CPerfilAdmin {
         CInformacion cInformacion = new CInformacion(vi, vista, serie);
         cInformacion.setCRep(cRep);
         cInformacion.initControl();
-        
 
     }
 
@@ -477,7 +484,6 @@ public class CPerfilAdmin {
         cInformacion.setCRep(cRep);
         cInformacion.initControl();
 
-        cRep.setPelicula(peli);
     }
 
     private void categorias() {
@@ -593,6 +599,7 @@ public class CPerfilAdmin {
             Video vid = nuevoVideo(Serie.DIR + titulo);
 
             MCapitulo nc = new MCapitulo("", titulo, descripcion, vid, s);
+            listaCapitulos(s);
             if (nc.crear()) {
                 JOptionPane.showMessageDialog(vista, "Capítulo creado correctamente");
             } else {
@@ -649,13 +656,13 @@ public class CPerfilAdmin {
         vp.getPanelPerfil().updateUI();
     }
 
-    private void listaCapitulos() {
-        vp.getPanelPerfil().removeAll();
-        List<Capitulo> listaC = mCap.listar();
+    private void listaCapitulos(Serie s) {
+        vp.getPanelCapitulos().removeAll();
+        List<Capitulo> listaC = mCap.buscarCapitulosSerie(s.getId());
         listaC.stream().forEach(c -> {
-            vp.getPanelPerfil().add(panelAdminCapitulos(c));
+            vp.getPanelCapitulos().add(panelAdminCapitulos(c));
         });
-        vp.getPanelPerfil().updateUI();
+        vp.getPanelCapitulos().updateUI();
     }
 
     private panelAdminSeriePeli panelAdminPeli(Pelicula p) {
@@ -699,7 +706,13 @@ public class CPerfilAdmin {
 
     private panelAdminSeriePeli panelAdminCapitulos(Capitulo c) {
         panelAdminSeriePeli np = new panelAdminSeriePeli();
-        MCapitulo mc = (MCapitulo) c;
+        MCapitulo mc = new MCapitulo();
+        mc.setId(c.getId());
+        mc.setTitulo(c.getTitulo());
+        mc.setDescripcion(c.getDescripcion());
+        mc.setVideo(c.getVideo());
+        mc.setSerie(c.getSerie());
+
         np.getTextId().setText(c.getId());
         np.getTextTitulo().setText(c.getTitulo());
         np.getBtnEliminar().addActionListener(l -> mc.eliminar());
@@ -709,6 +722,7 @@ public class CPerfilAdmin {
     }
 
     private void infoCapitulo(Capitulo c) {
+        ncap = c;
         vp.getjDialogAgregarCapitulos().setLocationRelativeTo(vp);
         vp.getjDialogAgregarCapitulos().setVisible(true);
         vp.getjDialogAgregarCapitulos().setSize(571, 305);
@@ -720,7 +734,6 @@ public class CPerfilAdmin {
         vp.getLblVideoCapitulos().setText("No se puede editar el video");
         vp.getLblTituloCapitulos().setText("EDITAR CAPITULOS");
         vp.getBtnAgregarCapitulo().setText("GUARDAR");
-        vp.getBtnAgregarCapitulo().removeActionListener(l -> nuevoCapitulo(mSerie));
 
         recibirCapitulo(c);
 
@@ -753,9 +766,11 @@ public class CPerfilAdmin {
             vp.getComboCategoriaSerieEdit().addItem(c.getNombre());
         });
 
+        listaCapitulos(s);
+
         vp.getTextTituloSerieEdit().setText(s.getTitulo());
         vp.getTextDescripcionSerieEdit().setText(s.getDescripcion());
-        vp.getLblFotoSerieEdit().setIcon((Icon) s.getImagen());
+        vp.getLblFotoSerieEdit().setIcon(new ImageIcon(s.getImagen()));
 
         for (int i = 0; i < vp.getComboCategoriaSerieEdit().getItemCount(); i++) {
             if (vp.getComboCategoriaSerieEdit().getItemAt(i).equalsIgnoreCase(s.getCategoria().getNombre())) {
@@ -825,7 +840,7 @@ public class CPerfilAdmin {
         agregarPeliculas();
         vp.getTextTituloPelicula().setText(p.getTitulo());
         vp.getTextDescripcionPelicula().setText(p.getDescripcion());
-        vp.getLblFotoPelicula().setIcon((Icon) p.getImagen());
+        vp.getLblFotoPelicula().setIcon(new ImageIcon(p.getImagen()));
 
         for (int i = 0; i < vp.getComboCategoriaPelicula().getItemCount(); i++) {
             if (vp.getComboCategoriaPelicula().getItemAt(i).equalsIgnoreCase(p.getCategoria().getNombre())) {
@@ -912,6 +927,13 @@ public class CPerfilAdmin {
 
         if (estado == JFileChooser.APPROVE_OPTION) {
             video = jfc.getSelectedFile();
+
+            if (vp.getLblTituloCapitulos().getText().equalsIgnoreCase("agregar capitulos")) {
+                vp.getLblVideoCapitulos().setText(video.getName());
+            } else {
+                vp.getLblVideoPeliculas().setText(video.getName());
+            }
+
         }
     }
 

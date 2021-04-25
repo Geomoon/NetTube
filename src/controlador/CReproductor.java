@@ -47,7 +47,7 @@ public class CReproductor {
 
     public void initControl() {
         vRep.getPanelVideo().removeAll();
-        
+        System.out.println("initcontrol");
         vRep.getPanelVideo().setLayout(new BorderLayout());
         vRep.getPanelVideo().add(jfxPanel, BorderLayout.CENTER);
 
@@ -55,6 +55,7 @@ public class CReproductor {
     }
 
     private void createScene() {
+        System.out.println("escene");
 
         Platform.runLater(() -> {
             player = null;
@@ -74,7 +75,8 @@ public class CReproductor {
             player.setVolume(0.7);
             player.setCycleCount(MediaPlayer.INDEFINITE);//repite el video
             addListeners();
-        });
+        });        System.out.println("fin");
+
     }
 
     private void addListeners() {
@@ -86,7 +88,9 @@ public class CReproductor {
 
     private void regresar() {
         ((CardLayout) vRep.getParent().getLayout()).show(vRep.getParent(), "cardPrincipal");
-        this.player.stop();
+        if (player.getMedia() != null) {
+            player.stop();
+        }
     }
 
     public Pelicula getPelicula() {
@@ -96,6 +100,7 @@ public class CReproductor {
     public void setPelicula(Pelicula pelicula) {
         this.pelicula = pelicula;
         this.url = pelicula.getVideo().getDir();
+        System.out.println(url);
         vRep.getLblTitulo().setText(pelicula.getTitulo());
         initControl();
     }
@@ -106,11 +111,9 @@ public class CReproductor {
 
     public void setCapitulo(Capitulo capitulo) {
         this.capitulo = capitulo;
-        this.url= capitulo.getVideo().getDir();
+        this.url = capitulo.getVideo().getDir();
         vRep.getLblTitulo().setText(capitulo.getTitulo());
         initControl();
     }
-
-
 
 }

@@ -78,7 +78,7 @@ public class CEditarPerfil {
         vp.getjDateNacimiento().setDate(usuario.getFechaNac());
 
         if (usuario.getFoto() != null) {
-            vp.getLblFoto().setIcon(new ImageIcon(usuario.getFoto()));
+            vp.getLblFoto().setIcon(new ImageIcon(CUtils.redimensionarImagen(usuario.getFoto(), vp.getLblFoto())));
         }
 
         if (usuario instanceof MAdmin) {

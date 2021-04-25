@@ -30,7 +30,7 @@ public class MFavoritos_peliculas extends Favoritos_Peliculas implements CRUD{
     @Override
     public boolean crear() {
         String sql = "CALL crear_pelicula_favoritas ("
-                + "'" + getFavoritos().getId() + "', "               
+                + "'" + getFavoritos().getUser().getId() + "', "               
                 + "'" + getPelicula().getId() + "' "
                 + ")";
         return (con.noQuery(sql) == null);

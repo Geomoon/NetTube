@@ -93,7 +93,7 @@ public class MCapitulo extends Capitulo implements CRUD {
                                 rs.getString("video_id"),
                                 rs.getString("duracion"),
                                 rs.getString("dir")),
-                        null
+                        new Serie(rs.getString("serie_id"))
                 ));
             }
         } catch (SQLException ex) {

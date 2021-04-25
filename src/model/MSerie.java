@@ -37,6 +37,7 @@ public class MSerie extends Serie implements CRUD {
         } catch (SQLException ex) {
             Logger.getLogger(MSerie.class.getName()).log(Level.SEVERE, null, ex);
         }
+        System.out.println("fuera");
         return false;
     }
 

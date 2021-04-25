@@ -36,6 +36,8 @@ public class panelCapitulos extends javax.swing.JPanel {
         textDescripcion = new javax.swing.JLabel();
 
         setBackground(new java.awt.Color(38, 11, 32));
+        setMaximumSize(new java.awt.Dimension(580, 76));
+        setMinimumSize(new java.awt.Dimension(580, 76));
 
         textTitulo.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
         textTitulo.setForeground(new java.awt.Color(255, 255, 255));

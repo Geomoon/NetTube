@@ -52,7 +52,7 @@ public class vistaPrincipal extends javax.swing.JFrame {
 
         panelPrincipal.setBackground(new java.awt.Color(38, 11, 32));
 
-        btnPerfil.setBackground(new java.awt.Color(0, 0, 0));
+        btnPerfil.setBackground(new java.awt.Color(34, 12, 51));
         btnPerfil.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
         btnPerfil.setForeground(new java.awt.Color(255, 255, 255));
         btnPerfil.setIcon(new javax.swing.ImageIcon(getClass().getResource("/vista/iconos/usuario (1).png"))); // NOI18N
@@ -64,7 +64,7 @@ public class vistaPrincipal extends javax.swing.JFrame {
         textBuscar.setAlignmentX(10.0F);
         textBuscar.setPreferredSize(new java.awt.Dimension(85, 24));
 
-        btnBuscar.setBackground(new java.awt.Color(15, 0, 12));
+        btnBuscar.setBackground(new java.awt.Color(34, 12, 51));
         btnBuscar.setFont(new java.awt.Font("Segoe UI", 1, 11)); // NOI18N
         btnBuscar.setForeground(new java.awt.Color(255, 255, 255));
         btnBuscar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/vista/iconos/buscar.png"))); // NOI18N

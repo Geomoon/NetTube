@@ -861,17 +861,8 @@ public class vistaPerfil extends javax.swing.JFrame {
 
         panelCapitulos.setBackground(new java.awt.Color(38, 11, 32));
         panelCapitulos.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
-
-        javax.swing.GroupLayout panelCapitulosLayout = new javax.swing.GroupLayout(panelCapitulos);
-        panelCapitulos.setLayout(panelCapitulosLayout);
-        panelCapitulosLayout.setHorizontalGroup(
-            panelCapitulosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 0, Short.MAX_VALUE)
-        );
-        panelCapitulosLayout.setVerticalGroup(
-            panelCapitulosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 212, Short.MAX_VALUE)
-        );
+        panelCapitulos.setRequestFocusEnabled(false);
+        panelCapitulos.setLayout(new javax.swing.BoxLayout(panelCapitulos, javax.swing.BoxLayout.Y_AXIS));
 
         jLabel11.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
         jLabel11.setForeground(new java.awt.Color(255, 255, 255));
@@ -928,7 +919,7 @@ public class vistaPerfil extends javax.swing.JFrame {
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 383, Short.MAX_VALUE)
                                 .addComponent(btnNuevoCapitulo))
                             .addComponent(jSeparator9)
-                            .addComponent(panelCapitulos, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                            .addComponent(panelCapitulos, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                         .addGap(0, 0, Short.MAX_VALUE))))
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel8Layout.createSequentialGroup()
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
@@ -962,12 +953,12 @@ public class vistaPerfil extends javax.swing.JFrame {
                             .addComponent(lblFotoSerieEdit, javax.swing.GroupLayout.PREFERRED_SIZE, 155, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addGap(18, 18, 18)
                             .addComponent(btnAgregarFotoSerieEdit))))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 16, Short.MAX_VALUE)
+                .addGap(18, 18, 18)
                 .addGroup(jPanel8Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel11)
                     .addComponent(btnNuevoCapitulo))
-                .addGap(18, 18, 18)
-                .addComponent(panelCapitulos, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(panelCapitulos, javax.swing.GroupLayout.DEFAULT_SIZE, 220, Short.MAX_VALUE)
                 .addGap(18, 18, 18)
                 .addGroup(jPanel8Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(btnEditarSerie)
@@ -1001,7 +992,7 @@ public class vistaPerfil extends javax.swing.JFrame {
         jLabel3.setIcon(new javax.swing.ImageIcon(getClass().getResource("/vista/iconos/nt-microsoft-windows.png"))); // NOI18N
         jLabel3.setText("NetTube");
 
-        btnPrincipal.setBackground(new java.awt.Color(0, 0, 0));
+        btnPrincipal.setBackground(new java.awt.Color(34, 12, 51));
         btnPrincipal.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
         btnPrincipal.setForeground(new java.awt.Color(255, 255, 255));
         btnPrincipal.setIcon(new javax.swing.ImageIcon(getClass().getResource("/vista/iconos/hogar (1).png"))); // NOI18N
@@ -1027,7 +1018,7 @@ public class vistaPerfil extends javax.swing.JFrame {
         lblNacimiento.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         lblNacimiento.setText("NACIMIENTO");
 
-        btnEditar.setBackground(new java.awt.Color(0, 0, 0));
+        btnEditar.setBackground(new java.awt.Color(34, 12, 51));
         btnEditar.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
         btnEditar.setForeground(new java.awt.Color(255, 255, 255));
         btnEditar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/vista/iconos/editar (1).png"))); // NOI18N
@@ -1040,7 +1031,7 @@ public class vistaPerfil extends javax.swing.JFrame {
         lblFavoritos.setIcon(new javax.swing.ImageIcon(getClass().getResource("/vista/iconos/clasificacion.png"))); // NOI18N
         lblFavoritos.setText("FAVORITOS");
 
-        btnAgregar.setBackground(new java.awt.Color(0, 0, 0));
+        btnAgregar.setBackground(new java.awt.Color(34, 12, 51));
         btnAgregar.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
         btnAgregar.setForeground(new java.awt.Color(255, 255, 255));
         btnAgregar.setText("AGREGAR");
@@ -1051,22 +1042,22 @@ public class vistaPerfil extends javax.swing.JFrame {
         panelPerfil.setLayout(new javax.swing.BoxLayout(panelPerfil, javax.swing.BoxLayout.Y_AXIS));
         jScrollPane1.setViewportView(panelPerfil);
 
-        btnPelicula.setBackground(new java.awt.Color(0, 0, 0));
+        btnPelicula.setBackground(new java.awt.Color(34, 12, 51));
         btnPelicula.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
         btnPelicula.setForeground(new java.awt.Color(255, 255, 255));
         btnPelicula.setText("PELICULAS");
 
-        btnSeries.setBackground(new java.awt.Color(0, 0, 0));
+        btnSeries.setBackground(new java.awt.Color(34, 12, 51));
         btnSeries.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
         btnSeries.setForeground(new java.awt.Color(255, 255, 255));
         btnSeries.setText("SERIES");
 
-        btnCategorias.setBackground(new java.awt.Color(0, 0, 0));
+        btnCategorias.setBackground(new java.awt.Color(34, 12, 51));
         btnCategorias.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
         btnCategorias.setForeground(new java.awt.Color(255, 255, 255));
         btnCategorias.setText("CATEGORÍAS");
 
-        btnReportes.setBackground(new java.awt.Color(0, 0, 0));
+        btnReportes.setBackground(new java.awt.Color(34, 12, 51));
         btnReportes.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
         btnReportes.setForeground(new java.awt.Color(255, 255, 255));
         btnReportes.setText("REPORTES");

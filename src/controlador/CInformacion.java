@@ -45,14 +45,13 @@ public class CInformacion {
     }
 
     private void addEvents() {
-        if(pelicula != null){
-           vInfo.getBtnReproducir().addActionListener(l -> iniciarRepro()); 
+        if (pelicula != null) {
+            vInfo.getBtnReproducir().addActionListener(l -> iniciarRepro());
         }
-        
     }
 
     public void initControl() {
-        
+
         if (pelicula != null) {
             vInfo.setVisible(true);
             controlPelicula();
@@ -66,7 +65,7 @@ public class CInformacion {
 
     private void controlPelicula() {
         if (pelicula.getImagen() != null) {
-            vInfo.getLbFoto().setIcon(new ImageIcon(pelicula.getImagen()));
+            vInfo.getLbFoto().setIcon(new ImageIcon(CUtils.redimensionarImagen(pelicula.getImagen(), vInfo.getLbFoto())));
         }
         vInfo.getTextInformacion().setText(pelicula.getDescripcion());
         vInfo.getLblTitulo().setText(pelicula.getTitulo());
@@ -74,12 +73,12 @@ public class CInformacion {
 
     private void controlSerie() {
         if (serie.getImagen() != null) {
-            vInfoSeries.getLbFoto().setIcon(new ImageIcon(serie.getImagen()));
+            vInfoSeries.getLbFoto().setIcon(new ImageIcon(CUtils.redimensionarImagen(serie.getImagen(), vInfoSeries.getLbFoto())));
         }
         vInfoSeries.getTextInformacion().setText(serie.getDescripcion());
         vInfoSeries.getLblTitulo().setText(serie.getTitulo());
-        vInfoSeries.getBtnCancelar().addActionListener(l->vInfoSeries.dispose());
-        
+        vInfoSeries.getBtnCancelar().addActionListener(l -> vInfoSeries.dispose());
+
         PanelesCapitulos();
     }
 
@@ -89,38 +88,38 @@ public class CInformacion {
 
         if (pelicula != null) {
             cRep.setPelicula(pelicula);
+            System.out.println(pelicula.getId());
         } else {
             System.out.println("Es una serie");
         }
     }
-    
-    private void iniciarReproCap(Capitulo c){
+
+    private void iniciarReproCap(Capitulo c) {
         ((CardLayout) vPrincipal.getPanelCard().getLayout()).show(vPrincipal.getPanelCard(), "cardRep");
-        vInfo.dispose();
-        
+        vInfoSeries.dispose();
+
         cRep.setCapitulo(c);
     }
-    
+
     public void setCRep(CReproductor cRep) {
         this.cRep = cRep;
     }
-    
-    private void PanelesCapitulos(){
-        MCapitulo mc=new MCapitulo();
+
+    private void PanelesCapitulos() {
+        MCapitulo mc = new MCapitulo();
         vInfoSeries.getPanelSeriesInfo().removeAll();
-        List<Capitulo> listc =mc.buscarCapitulosSerie(serie.getId());
-        listc.stream().forEach(p->{
-            panelCapitulos pc=new panelCapitulos();
+        List<Capitulo> listc = mc.buscarCapitulosSerie(serie.getId());
+        listc.stream().forEach(p -> {
+            panelCapitulos pc = new panelCapitulos();
             pc.getTextTitulo().setText(p.getTitulo());
             pc.getTextDescripcion().setText(p.getDescripcion());
             pc.getBtnVerEliminar().setText("REPRODUCIR");
-            pc.getBtnVerEliminar().addActionListener(l->iniciarReproCap(p));
-            
+            pc.getBtnVerEliminar().addActionListener(l -> iniciarReproCap(p));
+
             vInfoSeries.getPanelSeriesInfo().add(pc);
             vInfoSeries.getPanelSeriesInfo().updateUI();
         });
-        
-        
+
     }
 
 }

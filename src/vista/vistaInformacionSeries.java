@@ -67,18 +67,7 @@ public class vistaInformacionSeries extends javax.swing.JFrame {
         panelSeriesInfo.setBackground(new java.awt.Color(38, 11, 32));
         panelSeriesInfo.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
         panelSeriesInfo.setForeground(new java.awt.Color(38, 11, 32));
-
-        javax.swing.GroupLayout panelSeriesInfoLayout = new javax.swing.GroupLayout(panelSeriesInfo);
-        panelSeriesInfo.setLayout(panelSeriesInfoLayout);
-        panelSeriesInfoLayout.setHorizontalGroup(
-            panelSeriesInfoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 566, Short.MAX_VALUE)
-        );
-        panelSeriesInfoLayout.setVerticalGroup(
-            panelSeriesInfoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 231, Short.MAX_VALUE)
-        );
-
+        panelSeriesInfo.setLayout(new javax.swing.BoxLayout(panelSeriesInfo, javax.swing.BoxLayout.Y_AXIS));
         jScrollPane2.setViewportView(panelSeriesInfo);
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);

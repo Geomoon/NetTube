@@ -101,7 +101,7 @@ public class MPelicula extends Pelicula implements Listable<Pelicula>, Editable 
         String sql = "SELECT id from vista_peliculas where LCASE(titulo) = LCASE('" + getTitulo() + "')";
         try (ResultSet rs = con.query(sql)) {
             if (rs.next()) {
-                p = new Pelicula(rs.getString("is"));
+                p = new Pelicula(rs.getString("id"));
             }
         } catch (SQLException ex) {
             Logger.getLogger(MPelicula.class.getName()).log(Level.SEVERE, null, ex);

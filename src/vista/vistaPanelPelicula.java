@@ -39,6 +39,9 @@ public class vistaPanelPelicula extends javax.swing.JPanel {
         setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         lbFoto.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(255, 255, 255)));
+        lbFoto.setMaximumSize(new java.awt.Dimension(109, 129));
+        lbFoto.setMinimumSize(new java.awt.Dimension(109, 129));
+        lbFoto.setPreferredSize(new java.awt.Dimension(109, 129));
         add(lbFoto, new org.netbeans.lib.awtextra.AbsoluteConstraints(43, 18, 109, 129));
 
         lbTitulo.setFont(new java.awt.Font("Segoe UI", 0, 12)); // NOI18N
