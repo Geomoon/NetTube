@@ -159,6 +159,8 @@ public class vistaPerfil extends javax.swing.JFrame {
         btnCategorias = new javax.swing.JButton();
         btnReportes = new javax.swing.JButton();
         btnRegistroUsuarios = new javax.swing.JButton();
+        jLabel27 = new javax.swing.JLabel();
+        jLabel26 = new javax.swing.JLabel();
 
         jPanel4.setBackground(new java.awt.Color(38, 11, 32));
 
@@ -1166,6 +1168,13 @@ public class vistaPerfil extends javax.swing.JFrame {
         btnRegistroUsuarios.setIcon(new javax.swing.ImageIcon(getClass().getResource("/vista/iconos/iniciar-sesion.png"))); // NOI18N
         btnRegistroUsuarios.setText("REGISTRAR USUARIOS");
 
+        jLabel27.setFont(new java.awt.Font("DialogInput", 2, 12)); // NOI18N
+        jLabel27.setText("Comienza con Nosotros ");
+
+        jLabel26.setFont(new java.awt.Font("Franklin Gothic Demi", 1, 12)); // NOI18N
+        jLabel26.setIcon(new javax.swing.ImageIcon(getClass().getResource("/vista/iconos/pinguino.png"))); // NOI18N
+        jLabel26.setText("GO.PovDDI  ");
+
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
         jPanel1Layout.setHorizontalGroup(
@@ -1187,7 +1196,14 @@ public class vistaPerfil extends javax.swing.JFrame {
                                 .addComponent(lblNacimiento, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, 150, Short.MAX_VALUE))))
                     .addGroup(jPanel1Layout.createSequentialGroup()
                         .addGap(85, 85, 85)
-                        .addComponent(btnEditar)))
+                        .addComponent(btnEditar))
+                    .addGroup(jPanel1Layout.createSequentialGroup()
+                        .addContainerGap()
+                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
+                                .addComponent(jLabel26)
+                                .addGap(29, 29, 29))
+                            .addComponent(jLabel27))))
                 .addGap(63, 63, 63)
                 .addComponent(jSeparator1, javax.swing.GroupLayout.PREFERRED_SIZE, 21, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
@@ -1225,18 +1241,6 @@ public class vistaPerfil extends javax.swing.JFrame {
                     .addComponent(btnRegistroUsuarios))
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addGap(37, 37, 37)
-                        .addComponent(lblFoto, javax.swing.GroupLayout.PREFERRED_SIZE, 170, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(18, 18, 18)
-                        .addComponent(lblNombre)
-                        .addGap(18, 18, 18)
-                        .addComponent(lblCorreo)
-                        .addGap(18, 18, 18)
-                        .addComponent(lblNacimiento)
-                        .addGap(32, 32, 32)
-                        .addComponent(btnEditar)
-                        .addGap(0, 59, Short.MAX_VALUE))
-                    .addGroup(jPanel1Layout.createSequentialGroup()
                         .addGap(18, 18, 18)
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addGroup(jPanel1Layout.createSequentialGroup()
@@ -1250,9 +1254,26 @@ public class vistaPerfil extends javax.swing.JFrame {
                                     .addComponent(btnCategorias)
                                     .addComponent(btnReportes))
                                 .addGap(18, 18, 18)
-                                .addComponent(jScrollPane1)
+                                .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 359, Short.MAX_VALUE)
                                 .addGap(18, 18, 18)
-                                .addComponent(btnAgregar)))))
+                                .addComponent(btnAgregar))))
+                    .addGroup(jPanel1Layout.createSequentialGroup()
+                        .addGap(37, 37, 37)
+                        .addComponent(lblFoto, javax.swing.GroupLayout.PREFERRED_SIZE, 170, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(18, 18, 18)
+                        .addComponent(lblNombre)
+                        .addGap(18, 18, 18)
+                        .addComponent(lblCorreo)
+                        .addGap(18, 18, 18)
+                        .addComponent(lblNacimiento)
+                        .addGap(32, 32, 32)
+                        .addComponent(btnEditar)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
+                                .addComponent(jLabel26)
+                                .addGap(15, 15, 15))
+                            .addComponent(jLabel27, javax.swing.GroupLayout.Alignment.TRAILING))))
                 .addContainerGap())
         );
 
@@ -1961,6 +1982,8 @@ public class vistaPerfil extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel23;
     private javax.swing.JLabel jLabel24;
     private javax.swing.JLabel jLabel25;
+    private javax.swing.JLabel jLabel26;
+    private javax.swing.JLabel jLabel27;
     private javax.swing.JLabel jLabel29;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel30;

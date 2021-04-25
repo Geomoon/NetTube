@@ -38,6 +38,8 @@ public class vistaPanelInicioSesion extends javax.swing.JPanel {
         textContrasena = new javax.swing.JPasswordField();
         btnIniciosesion = new javax.swing.JButton();
         btnRegistrarse = new javax.swing.JButton();
+        jLabel4 = new javax.swing.JLabel();
+        jLabel6 = new javax.swing.JLabel();
         jLabel5 = new javax.swing.JLabel();
 
         setPreferredSize(new java.awt.Dimension(612, 428));
@@ -84,6 +86,15 @@ public class vistaPanelInicioSesion extends javax.swing.JPanel {
         btnRegistrarse.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         add(btnRegistrarse, new org.netbeans.lib.awtextra.AbsoluteConstraints(230, 340, 140, 42));
 
+        jLabel4.setFont(new java.awt.Font("Franklin Gothic Demi", 1, 12)); // NOI18N
+        jLabel4.setIcon(new javax.swing.ImageIcon(getClass().getResource("/vista/iconos/pinguino.png"))); // NOI18N
+        jLabel4.setText("GO.PovDDI  ");
+        add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 390, 110, -1));
+
+        jLabel6.setFont(new java.awt.Font("DialogInput", 2, 12)); // NOI18N
+        jLabel6.setText("Comienza con Nosotros ");
+        add(jLabel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 410, 170, -1));
+
         jLabel5.setIcon(new javax.swing.ImageIcon(getClass().getResource("/vista/img/fondo-login1.png"))); // NOI18N
         add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, -2, -1, 430));
     }// </editor-fold>//GEN-END:initComponents
@@ -127,7 +138,9 @@ public class vistaPanelInicioSesion extends javax.swing.JPanel {
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
+    private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel5;
+    private javax.swing.JLabel jLabel6;
     private javax.swing.JPasswordField textContrasena;
     private javax.swing.JTextField textUsuario;
     // End of variables declaration//GEN-END:variables
