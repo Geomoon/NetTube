@@ -130,6 +130,16 @@ public class vistaPerfil extends javax.swing.JFrame {
         jLabel11 = new javax.swing.JLabel();
         btnNuevoCapitulo = new javax.swing.JButton();
         buttonGroup1 = new javax.swing.ButtonGroup();
+        jDialogTipoReporte = new javax.swing.JDialog();
+        jPanel3 = new javax.swing.JPanel();
+        lblFavoritos1 = new javax.swing.JLabel();
+        jLabel2 = new javax.swing.JLabel();
+        jLabel4 = new javax.swing.JLabel();
+        jLabel8 = new javax.swing.JLabel();
+        jLabel15 = new javax.swing.JLabel();
+        jLabel24 = new javax.swing.JLabel();
+        btnImprimirSeries = new javax.swing.JButton();
+        btnImprimirPeliculas = new javax.swing.JButton();
         jPanel1 = new javax.swing.JPanel();
         jToolBar2 = new javax.swing.JToolBar();
         jLabel3 = new javax.swing.JLabel();
@@ -978,6 +988,93 @@ public class vistaPerfil extends javax.swing.JFrame {
             .addComponent(jPanel8, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
 
+        jPanel3.setBackground(new java.awt.Color(38, 11, 32));
+
+        lblFavoritos1.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
+        lblFavoritos1.setForeground(new java.awt.Color(255, 255, 255));
+        lblFavoritos1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/vista/iconos/escritura.png"))); // NOI18N
+        lblFavoritos1.setText("REPORTES - FAVORITOS");
+
+        jLabel2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/vista/iconos/estrella.png"))); // NOI18N
+
+        jLabel4.setIcon(new javax.swing.ImageIcon(getClass().getResource("/vista/iconos/estrella.png"))); // NOI18N
+
+        jLabel8.setIcon(new javax.swing.ImageIcon(getClass().getResource("/vista/iconos/estrella.png"))); // NOI18N
+
+        jLabel15.setIcon(new javax.swing.ImageIcon(getClass().getResource("/vista/iconos/estrella.png"))); // NOI18N
+
+        jLabel24.setIcon(new javax.swing.ImageIcon(getClass().getResource("/vista/iconos/estrella.png"))); // NOI18N
+
+        btnImprimirSeries.setBackground(new java.awt.Color(34, 12, 51));
+        btnImprimirSeries.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
+        btnImprimirSeries.setForeground(new java.awt.Color(255, 255, 255));
+        btnImprimirSeries.setText("IMPRIMIR SERIES");
+
+        btnImprimirPeliculas.setBackground(new java.awt.Color(34, 12, 51));
+        btnImprimirPeliculas.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
+        btnImprimirPeliculas.setForeground(new java.awt.Color(255, 255, 255));
+        btnImprimirPeliculas.setText("IMPRIMIR PELICULAS");
+
+        javax.swing.GroupLayout jPanel3Layout = new javax.swing.GroupLayout(jPanel3);
+        jPanel3.setLayout(jPanel3Layout);
+        jPanel3Layout.setHorizontalGroup(
+            jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel3Layout.createSequentialGroup()
+                .addGap(121, 121, 121)
+                .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(jPanel3Layout.createSequentialGroup()
+                        .addGap(6, 6, 6)
+                        .addComponent(lblFavoritos1))
+                    .addGroup(jPanel3Layout.createSequentialGroup()
+                        .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(jLabel4, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(jLabel24)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(jLabel8)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(jLabel15)))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel3Layout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(btnImprimirSeries, javax.swing.GroupLayout.PREFERRED_SIZE, 146, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 93, Short.MAX_VALUE)
+                .addComponent(btnImprimirPeliculas, javax.swing.GroupLayout.PREFERRED_SIZE, 177, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap())
+        );
+        jPanel3Layout.setVerticalGroup(
+            jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel3Layout.createSequentialGroup()
+                .addGap(44, 44, 44)
+                .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                        .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                            .addComponent(jLabel2)
+                            .addComponent(jLabel15))
+                        .addComponent(jLabel24, javax.swing.GroupLayout.Alignment.TRAILING))
+                    .addComponent(jLabel4)
+                    .addComponent(jLabel8))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(lblFavoritos1, javax.swing.GroupLayout.PREFERRED_SIZE, 32, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(btnImprimirPeliculas)
+                    .addComponent(btnImprimirSeries))
+                .addGap(31, 31, 31))
+        );
+
+        javax.swing.GroupLayout jDialogTipoReporteLayout = new javax.swing.GroupLayout(jDialogTipoReporte.getContentPane());
+        jDialogTipoReporte.getContentPane().setLayout(jDialogTipoReporteLayout);
+        jDialogTipoReporteLayout.setHorizontalGroup(
+            jDialogTipoReporteLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addComponent(jPanel3, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+        );
+        jDialogTipoReporteLayout.setVerticalGroup(
+            jDialogTipoReporteLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addComponent(jPanel3, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+        );
+
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setBackground(new java.awt.Color(38, 11, 32));
 
@@ -1172,6 +1269,30 @@ public class vistaPerfil extends javax.swing.JFrame {
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
+
+    public JButton getBtnImprimirPeliculas() {
+        return btnImprimirPeliculas;
+    }
+
+    public void setBtnImprimirPeliculas(JButton btnImprimirPeliculas) {
+        this.btnImprimirPeliculas = btnImprimirPeliculas;
+    }
+
+    public JButton getBtnImprimirSeries() {
+        return btnImprimirSeries;
+    }
+
+    public void setBtnImprimirSeries(JButton btnImprimirSeries) {
+        this.btnImprimirSeries = btnImprimirSeries;
+    }
+
+    public JDialog getjDialogTipoReporte() {
+        return jDialogTipoReporte;
+    }
+
+    public void setjDialogTipoReporte(JDialog jDialogTipoReporte) {
+        this.jDialogTipoReporte = jDialogTipoReporte;
+    }
 
     public JButton getBtnCategorias() {
         return btnCategorias;
@@ -1801,6 +1922,8 @@ public class vistaPerfil extends javax.swing.JFrame {
     private javax.swing.JButton btnEditar;
     private javax.swing.JButton btnEditarSerie;
     private javax.swing.JButton btnExaminar;
+    private javax.swing.JButton btnImprimirPeliculas;
+    private javax.swing.JButton btnImprimirSeries;
     private javax.swing.JButton btnNuevoCapitulo;
     private javax.swing.JButton btnPelicula;
     private javax.swing.JButton btnPrincipal;
@@ -1819,30 +1942,37 @@ public class vistaPerfil extends javax.swing.JFrame {
     private javax.swing.JDialog jDialogAgregarSeries;
     private javax.swing.JDialog jDialogEditarPerfil;
     private javax.swing.JDialog jDialogEditarSeries;
+    private javax.swing.JDialog jDialogTipoReporte;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel10;
     private javax.swing.JLabel jLabel11;
     private javax.swing.JLabel jLabel12;
     private javax.swing.JLabel jLabel13;
     private javax.swing.JLabel jLabel14;
+    private javax.swing.JLabel jLabel15;
     private javax.swing.JLabel jLabel16;
     private javax.swing.JLabel jLabel17;
     private javax.swing.JLabel jLabel18;
     private javax.swing.JLabel jLabel19;
+    private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel20;
     private javax.swing.JLabel jLabel21;
     private javax.swing.JLabel jLabel22;
     private javax.swing.JLabel jLabel23;
+    private javax.swing.JLabel jLabel24;
     private javax.swing.JLabel jLabel25;
     private javax.swing.JLabel jLabel29;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel30;
+    private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel5;
     private javax.swing.JLabel jLabel6;
     private javax.swing.JLabel jLabel7;
+    private javax.swing.JLabel jLabel8;
     private javax.swing.JLabel jLabel9;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;
+    private javax.swing.JPanel jPanel3;
     private javax.swing.JPanel jPanel4;
     private javax.swing.JPanel jPanel5;
     private javax.swing.JPanel jPanel6;
@@ -1861,6 +1991,7 @@ public class vistaPerfil extends javax.swing.JFrame {
     private javax.swing.JToolBar jToolBar2;
     private javax.swing.JLabel lblCorreo;
     private javax.swing.JLabel lblFavoritos;
+    private javax.swing.JLabel lblFavoritos1;
     private javax.swing.JLabel lblFoto;
     private javax.swing.JLabel lblFoto1;
     private javax.swing.JLabel lblFotoPelicula;
