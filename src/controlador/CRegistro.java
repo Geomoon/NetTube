@@ -48,11 +48,22 @@ public class CRegistro {
     public void initControl() {
         addEvents();
     }
+    
+    public void initControlAdmin() {
+        addEventsAdmin();
+    }
 
     private void addEvents() {
         ValidarDatos();
         vista.getBtnCancelar().addActionListener(l -> cancelar());
         vista.getBtnRegistrarse().addActionListener(l -> registrar());
+        vista.getBtnExaminar().addActionListener(l -> cargarFoto());
+    }
+    
+    private void addEventsAdmin() {
+        ValidarDatos();
+        vista.getBtnCancelar().addActionListener(l -> vInicio.dispose());
+        vista.getBtnRegistrarse().addActionListener(l -> registrarAdmin());
         vista.getBtnExaminar().addActionListener(l -> cargarFoto());
     }
 
@@ -67,6 +78,21 @@ public class CRegistro {
             ((MUsuario) usuario).crear();
             System.out.println("user");
             cancelar();
+        }
+
+    }
+    
+    private void registrarAdmin() {
+        Usuario usuario = obtenerDatos();
+        if (usuario instanceof MAdmin) {
+            ((MAdmin) usuario).crear();
+            System.out.println("admin");
+            vInicio.dispose();
+        }
+        if (usuario instanceof MUsuario) {
+            ((MUsuario) usuario).crear();
+            System.out.println("user");
+            vInicio.dispose();
         }
 
     }
@@ -117,6 +143,8 @@ public class CRegistro {
         }
         return null;
     }
+    
+    
 
     private void cargarFoto() {
         JFileChooser jfc = new JFileChooser();
@@ -146,5 +174,18 @@ public class CRegistro {
         val.LimitarCaracteres(vista.getTextCorreo(), 50);
         val.LimitarCaracteres(vista.getTextContrasena(), 32);
         val.ValidarLetrasTilde(vista.getTextNombre());
+    }
+    
+    public void registroUsuarios(){
+        vista.getRadbtnAdmin().setVisible(false);
+        vista.getRadbtnCliente().setSelected(true);
+        vista.getRadbtnCliente().setVisible(false);
+        vista.getLblTipoUsuario().setVisible(false);
+    }
+    
+    public void registroAdmin(){
+        vista.getRadbtnAdmin().setVisible(true);
+        vista.getRadbtnCliente().setVisible(true);
+        vista.getLblTipoUsuario().setVisible(true);
     }
 }

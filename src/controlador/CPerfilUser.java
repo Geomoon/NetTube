@@ -154,6 +154,8 @@ public class CPerfilUser {
         vp.getBtnSeries().setVisible(false);
         vp.getBtnReportes().setEnabled(false);
         vp.getBtnReportes().setVisible(false);
+        vp.getBtnRegistroUsuarios().setEnabled(false);
+        vp.getBtnRegistroUsuarios().setVisible(false);
 
         vp.getLblFavoritos().setVisible(true);
         vp.getLblFoto().setIcon(icon);

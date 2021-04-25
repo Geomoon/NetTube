@@ -57,9 +57,31 @@ public class CInicio {
         addEvents();
     }
     
+    public void initControlAdmin() {
+        panelLayout = vInicio.getPanelContenido();
+
+        vInicio.getPanelContenido().add(vRegistro, "cardRegistro");
+
+        CardLayout layout = (CardLayout) panelLayout.getLayout();
+
+        layout.show(panelLayout, "cardRegistro");
+
+        vInicio.setLocationRelativeTo(null);
+        vInicio.setVisible(true);
+        
+        initCRegistroAdmin();
+        
+        addEventsAdmin();
+    }
+    
     private void addEvents() {
         vInicio.getBtnMin().addActionListener(l -> vInicio.setExtendedState(JFrame.ICONIFIED));
         vInicio.getBtnCerrar().addActionListener(l -> System.exit(0));
+    }
+    
+    private void addEventsAdmin() {
+        vInicio.getBtnMin().addActionListener(l -> vInicio.setExtendedState(JFrame.ICONIFIED));
+        vInicio.getBtnCerrar().addActionListener(l -> vInicio.dispose());
     }
     
     private void initCInicioSesion() {
@@ -69,7 +91,14 @@ public class CInicio {
     
     private void initCRegistro() {
         CRegistro cRegistro = new CRegistro(mAdmin, mUsuario, vRegistro, vInicio);
+        cRegistro.registroUsuarios();
         cRegistro.initControl();
+    }
+    
+    private void initCRegistroAdmin() {
+        CRegistro cRegistro = new CRegistro(mAdmin, mUsuario, vRegistro, vInicio);
+        cRegistro.registroAdmin();
+        cRegistro.initControlAdmin();
     }
     
 }

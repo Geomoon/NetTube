@@ -44,7 +44,7 @@ public class vistaPanelRegistro extends javax.swing.JPanel {
         jLabel5 = new javax.swing.JLabel();
         jLabel6 = new javax.swing.JLabel();
         jDateNacimiento = new com.toedter.calendar.JDateChooser();
-        jLabel7 = new javax.swing.JLabel();
+        lblTipoUsuario = new javax.swing.JLabel();
         radbtnCliente = new javax.swing.JRadioButton();
         radbtnAdmin = new javax.swing.JRadioButton();
         btnCancelar = new javax.swing.JButton();
@@ -101,10 +101,10 @@ public class vistaPanelRegistro extends javax.swing.JPanel {
         jDateNacimiento.setMinSelectableDate(new java.util.Date(-1262281483000L));
         add(jDateNacimiento, new org.netbeans.lib.awtextra.AbsoluteConstraints(180, 250, 150, -1));
 
-        jLabel7.setFont(new java.awt.Font("Segoe UI", 1, 11)); // NOI18N
-        jLabel7.setForeground(new java.awt.Color(255, 255, 255));
-        jLabel7.setText("TIPO DE USUARIO");
-        add(jLabel7, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 300, -1, 30));
+        lblTipoUsuario.setFont(new java.awt.Font("Segoe UI", 1, 11)); // NOI18N
+        lblTipoUsuario.setForeground(new java.awt.Color(255, 255, 255));
+        lblTipoUsuario.setText("TIPO DE USUARIO");
+        add(lblTipoUsuario, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 300, -1, 30));
 
         radbtnCliente.setBackground(new java.awt.Color(38, 11, 32));
         buttonGroup1.add(radbtnCliente);
@@ -158,6 +158,14 @@ public class vistaPanelRegistro extends javax.swing.JPanel {
         jLabel8.setOpaque(true);
         add(jLabel8, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 612, 428));
     }// </editor-fold>//GEN-END:initComponents
+
+    public JLabel getLblTipoUsuario() {
+        return lblTipoUsuario;
+    }
+
+    public void setLblTipoUsuario(JLabel lblTipoUsuario) {
+        this.lblTipoUsuario = lblTipoUsuario;
+    }
 
     public JLabel getLblpassseguro() {
         return lblpassseguro;
@@ -259,9 +267,9 @@ public class vistaPanelRegistro extends javax.swing.JPanel {
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel5;
     private javax.swing.JLabel jLabel6;
-    private javax.swing.JLabel jLabel7;
     private javax.swing.JLabel jLabel8;
     private javax.swing.JLabel lblFoto;
+    private javax.swing.JLabel lblTipoUsuario;
     private javax.swing.JLabel lblpassseguro;
     private javax.swing.JRadioButton radbtnAdmin;
     private javax.swing.JRadioButton radbtnCliente;

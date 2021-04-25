@@ -148,6 +148,7 @@ public class vistaPerfil extends javax.swing.JFrame {
         btnSeries = new javax.swing.JButton();
         btnCategorias = new javax.swing.JButton();
         btnReportes = new javax.swing.JButton();
+        btnRegistroUsuarios = new javax.swing.JButton();
 
         jPanel4.setBackground(new java.awt.Color(38, 11, 32));
 
@@ -1062,6 +1063,12 @@ public class vistaPerfil extends javax.swing.JFrame {
         btnReportes.setForeground(new java.awt.Color(255, 255, 255));
         btnReportes.setText("REPORTES");
 
+        btnRegistroUsuarios.setBackground(new java.awt.Color(34, 12, 51));
+        btnRegistroUsuarios.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
+        btnRegistroUsuarios.setForeground(new java.awt.Color(255, 255, 255));
+        btnRegistroUsuarios.setIcon(new javax.swing.ImageIcon(getClass().getResource("/vista/iconos/iniciar-sesion.png"))); // NOI18N
+        btnRegistroUsuarios.setText("REGISTRAR USUARIOS");
+
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
         jPanel1Layout.setHorizontalGroup(
@@ -1074,38 +1081,39 @@ public class vistaPerfil extends javax.swing.JFrame {
             .addGroup(jPanel1Layout.createSequentialGroup()
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addGap(23, 23, 23)
-                        .addComponent(btnPrincipal))
-                    .addGroup(jPanel1Layout.createSequentialGroup()
+                        .addGap(58, 58, 58)
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(jPanel1Layout.createSequentialGroup()
-                                .addGap(58, 58, 58)
-                                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(lblFoto, javax.swing.GroupLayout.PREFERRED_SIZE, 150, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                                        .addComponent(lblNombre, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                        .addComponent(lblCorreo, javax.swing.GroupLayout.DEFAULT_SIZE, 150, Short.MAX_VALUE)
-                                        .addComponent(lblNacimiento, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, 150, Short.MAX_VALUE))))
-                            .addGroup(jPanel1Layout.createSequentialGroup()
-                                .addGap(85, 85, 85)
-                                .addComponent(btnEditar)))
-                        .addGap(63, 63, 63)
-                        .addComponent(jSeparator1, javax.swing.GroupLayout.PREFERRED_SIZE, 21, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                            .addComponent(btnAgregar)
-                            .addGroup(jPanel1Layout.createSequentialGroup()
-                                .addComponent(lblFavoritos)
-                                .addGap(53, 53, 53)
-                                .addComponent(btnPelicula, javax.swing.GroupLayout.PREFERRED_SIZE, 102, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addGap(18, 18, 18)
-                                .addComponent(btnSeries, javax.swing.GroupLayout.PREFERRED_SIZE, 103, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addGap(18, 18, 18)
-                                .addComponent(btnCategorias)
-                                .addGap(18, 18, 18)
-                                .addComponent(btnReportes, javax.swing.GroupLayout.PREFERRED_SIZE, 102, javax.swing.GroupLayout.PREFERRED_SIZE))
-                            .addComponent(jScrollPane1))))
+                            .addComponent(lblFoto, javax.swing.GroupLayout.PREFERRED_SIZE, 150, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                                .addComponent(lblNombre, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                .addComponent(lblCorreo, javax.swing.GroupLayout.DEFAULT_SIZE, 150, Short.MAX_VALUE)
+                                .addComponent(lblNacimiento, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, 150, Short.MAX_VALUE))))
+                    .addGroup(jPanel1Layout.createSequentialGroup()
+                        .addGap(85, 85, 85)
+                        .addComponent(btnEditar)))
+                .addGap(63, 63, 63)
+                .addComponent(jSeparator1, javax.swing.GroupLayout.PREFERRED_SIZE, 21, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addComponent(btnAgregar)
+                    .addComponent(jScrollPane1)
+                    .addGroup(jPanel1Layout.createSequentialGroup()
+                        .addComponent(lblFavoritos)
+                        .addGap(53, 53, 53)
+                        .addComponent(btnPelicula, javax.swing.GroupLayout.PREFERRED_SIZE, 102, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(18, 18, 18)
+                        .addComponent(btnSeries, javax.swing.GroupLayout.PREFERRED_SIZE, 103, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(18, 18, 18)
+                        .addComponent(btnCategorias)
+                        .addGap(18, 18, 18)
+                        .addComponent(btnReportes, javax.swing.GroupLayout.PREFERRED_SIZE, 102, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addGap(64, 64, 64))
+            .addGroup(jPanel1Layout.createSequentialGroup()
+                .addGap(23, 23, 23)
+                .addComponent(btnPrincipal)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(btnRegistroUsuarios)
+                .addContainerGap())
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -1115,7 +1123,9 @@ public class vistaPerfil extends javax.swing.JFrame {
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jToolBar2, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(btnPrincipal)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(btnPrincipal)
+                    .addComponent(btnRegistroUsuarios))
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jPanel1Layout.createSequentialGroup()
                         .addGap(37, 37, 37)
@@ -1128,7 +1138,7 @@ public class vistaPerfil extends javax.swing.JFrame {
                         .addComponent(lblNacimiento)
                         .addGap(32, 32, 32)
                         .addComponent(btnEditar)
-                        .addGap(0, 52, Short.MAX_VALUE))
+                        .addGap(0, 59, Short.MAX_VALUE))
                     .addGroup(jPanel1Layout.createSequentialGroup()
                         .addGap(18, 18, 18)
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -1143,8 +1153,8 @@ public class vistaPerfil extends javax.swing.JFrame {
                                     .addComponent(btnCategorias)
                                     .addComponent(btnReportes))
                                 .addGap(18, 18, 18)
-                                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 306, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                                .addComponent(jScrollPane1)
+                                .addGap(18, 18, 18)
                                 .addComponent(btnAgregar)))))
                 .addContainerGap())
         );
@@ -1195,10 +1205,15 @@ public class vistaPerfil extends javax.swing.JFrame {
         this.btnSeries = btnSeries;
     }
 
+    public JButton getBtnRegistroUsuarios() {
+        return btnRegistroUsuarios;
+    }
 
+    public void setBtnRegistroUsuarios(JButton btnRegistroUsuarios) {
+        this.btnRegistroUsuarios = btnRegistroUsuarios;
+    }
 
-
-
+    
     public JButton getBtnAgregarCategoría() {
         return btnAgregarCategoría;
     }
@@ -1790,6 +1805,7 @@ public class vistaPerfil extends javax.swing.JFrame {
     private javax.swing.JButton btnPelicula;
     private javax.swing.JButton btnPrincipal;
     private javax.swing.JButton btnRegistrarse;
+    private javax.swing.JButton btnRegistroUsuarios;
     private javax.swing.JButton btnReportes;
     private javax.swing.JButton btnSeries;
     private javax.swing.ButtonGroup buttonGroup1;

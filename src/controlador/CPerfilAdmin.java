@@ -30,6 +30,7 @@ import model.MCapitulo;
 import model.MCategoria;
 import model.MPelicula;
 import model.MSerie;
+import model.MUsuario;
 import model.MVideo;
 import model.Pelicula;
 import model.Serie;
@@ -37,7 +38,10 @@ import model.Video;
 import vista.panelAdminSeriePeli;
 import vista.vistaInformacion;
 import vista.vistaInformacionSeries;
+import vista.vistaInicio;
+import vista.vistaPanelInicioSesion;
 import vista.vistaPanelPelicula;
+import vista.vistaPanelRegistro;
 import vista.vistaPerfil;
 import vista.vistaPrincipal;
 import vista.vistaReproductorVideo;
@@ -123,10 +127,12 @@ public class CPerfilAdmin {
         vp.getBtnAgregar().addActionListener(l -> estadoBotones(vp.getLblFavoritos().getText()));
         vp.getBtnAgregarCategoría().addActionListener(l -> metodosCategorias(vp.getLblTituloCategorias().getText(), nc));
         vp.getBtnAgregarSerie().addActionListener(l -> metodosSeries(vp.getLblTituloAgregarSeries().getText(), ns));
+        vp.getBtnEditarSerie().addActionListener(l->metodosSeries(vp.getLblTituloEditarSeries().getText(), ns));
         vp.getBtnAgregarPelicula().addActionListener(l -> metodosPeliculas(vp.getLblTituloPeliculas().getText(), np));
         vp.getBtnAgregarCapitulo().addActionListener(l -> metodosCapitulos(vp.getLblTituloCapitulos().getText(), ns, ncap));
         vp.getBtnAgregarVideoPeliculas().addActionListener(l -> elegirVideo());
         vp.getBtnAgregarVideoCapitulos().addActionListener(l -> elegirVideo());
+        vp.getBtnRegistroUsuarios().addActionListener(l->registroUsuarios());
     }
 
     private Categoria recibirCategoria(Categoria c) {
@@ -225,6 +231,7 @@ public class CPerfilAdmin {
     private void metodosSeries(String titulo, Serie s) {
         if (titulo.equalsIgnoreCase("AGREGAR SERIES")) {
             nuevaSerie();
+            listaSeries();
         }
         if (titulo.equalsIgnoreCase("EDITAR SERIES")) {
             editarSerie(s);
@@ -326,6 +333,8 @@ public class CPerfilAdmin {
         vp.getBtnSeries().setVisible(true);
         vp.getBtnReportes().setEnabled(true);
         vp.getBtnReportes().setVisible(true);
+        vp.getBtnRegistroUsuarios().setEnabled(true);
+        vp.getBtnRegistroUsuarios().setVisible(true);
 
         vp.getLblFavoritos().setVisible(false);
         vp.getLblFoto().setIcon(icon);
@@ -761,6 +770,7 @@ public class CPerfilAdmin {
         vp.getjDialogEditarSeries().setVisible(true);
         vp.getjDialogEditarSeries().setSize(679, 613);
         vp.getBtnCancelarSerieEdit().addActionListener(l -> vp.getjDialogEditarSeries().dispose());
+        vp.getComboCategoriaSerieEdit().removeAllItems();
         List<Categoria> listaC = mCat.listar();
         listaC.stream().forEach(c -> {
             vp.getComboCategoriaSerieEdit().addItem(c.getNombre());
@@ -770,7 +780,10 @@ public class CPerfilAdmin {
 
         vp.getTextTituloSerieEdit().setText(s.getTitulo());
         vp.getTextDescripcionSerieEdit().setText(s.getDescripcion());
-        vp.getLblFotoSerieEdit().setIcon(new ImageIcon(s.getImagen()));
+        if(s.getImagen()!=null){
+            vp.getLblFotoSerieEdit().setIcon(new ImageIcon(s.getImagen()));
+        }
+        
 
         for (int i = 0; i < vp.getComboCategoriaSerieEdit().getItemCount(); i++) {
             if (vp.getComboCategoriaSerieEdit().getItemAt(i).equalsIgnoreCase(s.getCategoria().getNombre())) {
@@ -780,7 +793,7 @@ public class CPerfilAdmin {
 
         vp.getBtnNuevoCapitulo().addActionListener(l -> agregarCapitulos(s));
         vp.getLblTituloEditarSeries().setText("EDITAR SERIES");
-        vp.getBtnAgregarSerie().setText("GUARDAR");
+        vp.getBtnEditarSerie().setText("GUARDAR");
         recibirSerie(s);
     }
 
@@ -790,12 +803,16 @@ public class CPerfilAdmin {
         } else {
             List<Categoria> listaC = mCat.categoriaId(vp.getComboCategoriaSerieEdit().getSelectedItem().toString());
             Categoria cat = listaC.get(0);
+            System.out.println(cat.getNombre());
 
             String titulo = vp.getTextTituloSerieEdit().getText();
             String descripcion = vp.getTextDescripcionSerieEdit().getText();
             ImageIcon ic = (ImageIcon) vp.getLblFotoSerieEdit().getIcon();
-
-            MSerie ns = new MSerie(s.getId(), titulo, descripcion, ic.getImage(), cat, s.getCapitulos());
+            MSerie ns=new MSerie();
+ 
+                ns = new MSerie(s.getId(), titulo, descripcion, ic.getImage(), cat, s.getCapitulos());
+            
+            
             if (ns.editar()) {
                 JOptionPane.showMessageDialog(vista, "Serie editada correctamente");
             } else {
@@ -956,6 +973,18 @@ public class CPerfilAdmin {
         }
 
         return v;
+    }
+    
+    private void registroUsuarios(){
+        CInicio inicio = new CInicio(
+                new vistaInicio(), 
+                new MAdmin(), 
+                new MUsuario(), 
+                new vistaPanelRegistro(), 
+                new vistaPanelInicioSesion()
+        );
+        
+        inicio.initControlAdmin();
     }
 
 }
