@@ -21,7 +21,7 @@ public class MUsuario extends UsuarioApp implements Listable<UsuarioApp>, Editab
     public MUsuario() {
     }
 
-    public MUsuario(String id, String nombre, String apellido, String email, String password, Date fechaNac, Image foto) {
+    public MUsuario(int id, String nombre, String apellido, String email, String password, Date fechaNac, Image foto) {
         super(id, nombre, apellido, email, password, fechaNac, foto);
     }
 
@@ -48,7 +48,7 @@ public class MUsuario extends UsuarioApp implements Listable<UsuarioApp>, Editab
     public boolean editar() {
         String sql = "{call editar_usuario(?, ?, ?, ?, ?, ?, ?, ?)}";
         try (CallableStatement cs = con.getCon().prepareCall(sql)) {
-            cs.setInt(1, Integer.parseInt(getId()));
+            cs.setInt(1, getId());
             cs.setString(2, getNombre());
             cs.setString(3, getApellido());
             cs.setString(4, getEmail());
@@ -76,7 +76,7 @@ public class MUsuario extends UsuarioApp implements Listable<UsuarioApp>, Editab
         try (ResultSet rs = con.query(sql)) {
             while (rs.next()) {
                 list.add(new UsuarioApp(
-                        rs.getString("id"),
+                        rs.getInt("id"),
                         rs.getString("nombre"),
                         rs.getString("apellido"),
                         rs.getString("email"),
@@ -104,7 +104,7 @@ public class MUsuario extends UsuarioApp implements Listable<UsuarioApp>, Editab
         try (ResultSet rs = con.query(sql)) {
             if (rs.next()) {
                 usuario = new MUsuario();
-                usuario.setId(rs.getString("id"));
+                usuario.setId(rs.getInt("id"));
                 usuario.setNombre(rs.getString("nombre"));
                 usuario.setApellido(rs.getString("apellido"));
                 usuario.setEmail(rs.getString("email"));

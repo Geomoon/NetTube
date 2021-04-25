@@ -114,7 +114,7 @@ public class CInformacion {
     private void PanelesCapitulos() {
         MCapitulo mc = new MCapitulo();
         vInfoSeries.getPanelSeriesInfo().removeAll();
-        List<Capitulo> listc = mc.buscarCapitulosSerie(serie.getId());
+        List<Capitulo> listc = mc.buscarCapitulosSerie(serie.getId() + "");
         listc.stream().forEach(p -> {
             panelCapitulos pc = new panelCapitulos();
             pc.getTextTitulo().setText(p.getTitulo());

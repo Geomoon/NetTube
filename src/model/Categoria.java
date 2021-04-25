@@ -11,24 +11,24 @@ package model;
  */
 public class Categoria {
 
-    private String id;
+    private int id;
     private String nombre;
     private String descripcion;
 
     public Categoria() {
     }
 
-    public Categoria(String id, String nombre, String descripcion) {
+    public Categoria(int id, String nombre, String descripcion) {
         this.id = id;
         this.nombre = nombre;
         this.descripcion = descripcion;
     }
 
-    public String getId() {
+    public int getId() {
         return id;
     }
 
-    public void setId(String id) {
+    public void setId(int id) {
         this.id = id;
     }
 

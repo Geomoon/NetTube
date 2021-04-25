@@ -23,11 +23,11 @@ public class MFavoritos extends Favoritos implements CRUD{
     public MFavoritos() {
     }
 
-    public MFavoritos(String id) {
+    public MFavoritos(int id) {
         super(id);
     }
 
-    public MFavoritos(String id, UsuarioApp user) {
+    public MFavoritos(int id, UsuarioApp user) {
         super(id, user);
     }
     
@@ -57,9 +57,9 @@ public class MFavoritos extends Favoritos implements CRUD{
         try (ResultSet rs = con.query(sql)) {
             while (rs.next()) {
                 list.add(new Favoritos(
-                        rs.getString("id"),
+                        rs.getInt("id"),
                         new UsuarioApp(
-                                rs.getString("id_usuario"),
+                                rs.getInt("id_usuario"),
                                 rs.getString("nombre"),
                                 rs.getString("apellido"),
                                 rs.getString("email"))             

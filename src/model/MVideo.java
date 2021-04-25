@@ -15,7 +15,7 @@ public class MVideo extends Video implements Listable<Video>, Editable {
 
     private static ConexionMySQL con = ConexionMySQL.getInstance();
 
-    public MVideo(String id, String duracion, String dir) {
+    public MVideo(int id, String duracion, String dir) {
         super(id, duracion, dir);
     }
 
@@ -53,7 +53,7 @@ public class MVideo extends Video implements Listable<Video>, Editable {
         List<Video> list = new ArrayList<>();
         try (ResultSet rs = con.query(sql)) {
             while (rs.next()) {
-                list.add(new Video(rs.getString("id"), rs.getString("duracion"), rs.getString("dir")));
+                list.add(new Video(rs.getInt("id"), rs.getString("duracion"), rs.getString("dir")));
             }
         } catch (SQLException ex) {
             Logger.getLogger(MVideo.class.getName()).log(Level.SEVERE, null, ex);
@@ -69,7 +69,7 @@ public class MVideo extends Video implements Listable<Video>, Editable {
         try (ResultSet rs = con.query(sql)) {
             if (rs.next()) {
                 v = new Video();
-                v.setId(rs.getString("id"));
+                v.setId(rs.getInt("id"));
                 System.out.println("IDVIDEO: " + v.getId());
             }
         } catch (SQLException ex) {

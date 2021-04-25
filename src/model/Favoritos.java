@@ -11,15 +11,15 @@ package model;
  */
 public class Favoritos {
     
-    private String id;
+    private int id;
     private UsuarioApp user;
 
-    public Favoritos(String id, UsuarioApp user) {
+    public Favoritos(int id, UsuarioApp user) {
         this.id = id;
         this.user = user;
     }
 
-    public Favoritos(String id) {
+    public Favoritos(int id) {
         this.id = id;
     }
 
@@ -27,11 +27,11 @@ public class Favoritos {
     public Favoritos() {
     }
 
-    public String getId() {
+    public int getId() {
         return id;
     }
 
-    public void setId(String id) {
+    public void setId(int id) {
         this.id = id;
     }
 

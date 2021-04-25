@@ -16,21 +16,21 @@ import java.util.logging.Logger;
  *
  * @author User
  */
-public class MFavoritos_peliculas extends Favoritos_Peliculas implements CRUD{
-    
+public class MFavoritos_peliculas extends Favoritos_Peliculas implements CRUD {
+
     private static ConexionMySQL con = ConexionMySQL.getInstance();
 
     public MFavoritos_peliculas() {
     }
 
-    public MFavoritos_peliculas(String id, Favoritos favoritos, Pelicula pelicula) {
+    public MFavoritos_peliculas(int id, Favoritos favoritos, Pelicula pelicula) {
         super(id, favoritos, pelicula);
     }
-    
+
     @Override
     public boolean crear() {
         String sql = "CALL crear_pelicula_favoritas ("
-                + "'" + getFavoritos().getUser().getId() + "', "               
+                + "'" + getFavoritos().getUser().getId() + "', "
                 + "'" + getPelicula().getId() + "' "
                 + ")";
         return (con.noQuery(sql) == null);
@@ -55,39 +55,39 @@ public class MFavoritos_peliculas extends Favoritos_Peliculas implements CRUD{
     @Override
     public List<Favoritos_Peliculas> buscar(String id_usuario) {
         String sql = "SELECT * FROM vista_peliculas_favoritas WHERE ";
-        sql+="id_usuario ='"+id_usuario+"'";
+        sql += "id_usuario ='" + id_usuario + "'";
         List<Favoritos_Peliculas> list = new ArrayList<>();
         try (ResultSet rs = con.query(sql)) {
             while (rs.next()) {
-                list.add(new Favoritos_Peliculas(rs.getString("id_peliculas_favoritas"),
-                                            new Favoritos(rs.getString("id_favoritos"),
-                                                          new UsuarioApp(rs.getString("id_usuario"))),
-                                            new Pelicula(rs.getString("id_pelicula"))
-                                              ));
+                list.add(new Favoritos_Peliculas(rs.getInt("id_peliculas_favoritas"),
+                        new Favoritos(rs.getInt("id_favoritos"),
+                                new UsuarioApp(rs.getInt("id_usuario"))),
+                        new Pelicula(rs.getInt("id_pelicula"))
+                ));
             }
         } catch (SQLException ex) {
             Logger.getLogger(MVideo.class.getName()).log(Level.SEVERE, null, ex);
         }
         return list;
     }
-    
-    public List<Favoritos_Peliculas> buscarIdPeliculaFav(String id_usuario,String id_Pelicula) {
+
+    public List<Favoritos_Peliculas> buscarIdPeliculaFav(String id_usuario, String id_Pelicula) {
         String sql = "SELECT * FROM vista_peliculas_favoritas WHERE ";
-        sql+="id_usuario ='"+id_usuario+"' AND ";
-        sql+="id_pelicula ='"+id_Pelicula+"'";
+        sql += "id_usuario ='" + id_usuario + "' AND ";
+        sql += "id_pelicula ='" + id_Pelicula + "'";
         List<Favoritos_Peliculas> list = new ArrayList<>();
         try (ResultSet rs = con.query(sql)) {
             while (rs.next()) {
-                list.add(new Favoritos_Peliculas(rs.getString("id_peliculas_favoritas"),
-                                            new Favoritos(rs.getString("id_favoritos"),
-                                                          new UsuarioApp(rs.getString("id_usuario"))),
-                                            new Pelicula(rs.getString("id_pelicula"))
-                                              ));
+                list.add(new Favoritos_Peliculas(rs.getInt("id_peliculas_favoritas"),
+                        new Favoritos(rs.getInt("id_favoritos"),
+                                new UsuarioApp(rs.getInt("id_usuario"))),
+                        new Pelicula(rs.getInt("id_pelicula"))
+                ));
             }
         } catch (SQLException ex) {
             Logger.getLogger(MVideo.class.getName()).log(Level.SEVERE, null, ex);
         }
         return list;
     }
-    
+
 }

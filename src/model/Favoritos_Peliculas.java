@@ -11,11 +11,11 @@ package model;
  */
 public class Favoritos_Peliculas {
     
-    private String id;
+    private int id;
     private Favoritos favoritos;
     private Pelicula pelicula;
 
-    public Favoritos_Peliculas(String id, Favoritos favoritos, Pelicula pelicula) {
+    public Favoritos_Peliculas(int id, Favoritos favoritos, Pelicula pelicula) {
         this.id = id;
         this.favoritos = favoritos;
         this.pelicula = pelicula;
@@ -24,11 +24,11 @@ public class Favoritos_Peliculas {
     public Favoritos_Peliculas() {
     }
 
-    public String getId() {
+    public int getId() {
         return id;
     }
 
-    public void setId(String id) {
+    public void setId(int id) {
         this.id = id;
     }
 

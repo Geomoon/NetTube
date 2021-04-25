@@ -6,7 +6,7 @@ package model;
  */
 public class Capitulo {
 
-    private String id;
+    private int id;
     private String titulo;
     private String descripcion;
     private Video video;
@@ -15,7 +15,7 @@ public class Capitulo {
     public Capitulo() {
     }
 
-    public Capitulo(String id, String titulo, String descripcion, Video video, Serie serie) {
+    public Capitulo(int id, String titulo, String descripcion, Video video, Serie serie) {
         this.id = id;
         this.descripcion = descripcion;
         this.video = video;
@@ -23,18 +23,18 @@ public class Capitulo {
         this.serie = serie;
     }
 
-    public Capitulo(String id, String titulo, String descripcion, Serie serie) {
+    public Capitulo(int id, String titulo, String descripcion, Serie serie) {
         this.id = id;
         this.titulo = titulo;
         this.descripcion = descripcion;
         this.serie = serie;
     }
     
-    public String getId() {
+    public int getId() {
         return id;
     }
 
-    public void setId(String id) {
+    public void setId(int id) {
         this.id = id;
     }
 

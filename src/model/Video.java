@@ -11,11 +11,11 @@ package model;
  */
 public class Video {
 
-    private String id;
+    private int id;
     private String duracion;
     private String dir;
     
-    public Video(String id, String duracion, String dir) {
+    public Video(int id, String duracion, String dir) {
         this.id = id;
         this.duracion = duracion;
         this.dir = dir;
@@ -25,11 +25,11 @@ public class Video {
     }
     
 
-    public String getId() {
+    public int getId() {
         return id;
     }
 
-    public void setId(String id) {
+    public void setId(int id) {
         this.id = id;
     }
 

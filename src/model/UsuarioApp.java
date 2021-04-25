@@ -17,15 +17,15 @@ public class UsuarioApp extends Usuario {
     public UsuarioApp() {
     }
 
-    public UsuarioApp(String id) {
+    public UsuarioApp(int id) {
         super(id);
     }
     
-    public UsuarioApp(String id, String nombre, String apellido, String email, String password, Date fechaNac, Image foto) {
+    public UsuarioApp(int id, String nombre, String apellido, String email, String password, Date fechaNac, Image foto) {
         super(id, nombre, apellido, email, password, fechaNac, foto);
     }
 
-    public UsuarioApp(String id, String nombre, String apellido, String email) {
+    public UsuarioApp(int id, String nombre, String apellido, String email) {
         super(id, nombre, apellido, email);
     }
     

@@ -18,7 +18,7 @@ public class MCapitulo extends Capitulo implements CRUD {
     public MCapitulo() {
     }
 
-    public MCapitulo(String id, String titulo, String descripcion, Video video, Serie serie) {
+    public MCapitulo(int id, String titulo, String descripcion, Video video, Serie serie) {
         super(id, titulo, descripcion, video, serie);
     }
 
@@ -58,11 +58,11 @@ public class MCapitulo extends Capitulo implements CRUD {
         try (ResultSet rs = con.query(sql)) {
             while (rs.next()) {
                 list.add(new Capitulo(
-                        rs.getString("id"),
+                        rs.getInt("id"),
                         rs.getString("titulo"),
                         rs.getString("descripcion"),
                         new Video(
-                                rs.getString("video_id"),
+                                rs.getInt("video_id"),
                                 rs.getString("duracion"),
                                 rs.getString("dir")),
                         null
@@ -78,22 +78,22 @@ public class MCapitulo extends Capitulo implements CRUD {
     public Object buscar(String id) {
         throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
-    
+
     public List<Capitulo> buscarCapitulosSerie(String id) {
         String sql = "SELECT * FROM vista_capitulos WHERE ";
-        sql+="serie_id ='"+id+"'";
+        sql += "serie_id ='" + id + "'";
         List<Capitulo> list = new ArrayList<>();
         try (ResultSet rs = con.query(sql)) {
             while (rs.next()) {
                 list.add(new Capitulo(
-                        rs.getString("id"),
+                        rs.getInt("id"),
                         rs.getString("titulo"),
                         rs.getString("descripcion"),
                         new Video(
-                                rs.getString("video_id"),
+                                rs.getInt("video_id"),
                                 rs.getString("duracion"),
                                 rs.getString("dir")),
-                        new Serie(rs.getString("serie_id"))
+                        new Serie(rs.getInt("serie_id"))
                 ));
             }
         } catch (SQLException ex) {

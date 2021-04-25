@@ -20,16 +20,16 @@ public class Pelicula extends Contenido {
     public Pelicula() {
     }
 
-    public Pelicula(String id) {
+    public Pelicula(int id) {
         super(id);
     }
 
-    public Pelicula(String id, String titulo, String descripcion, Image imagen, Categoria categoria, Video video) {
+    public Pelicula(int id, String titulo, String descripcion, Image imagen, Categoria categoria, Video video) {
         super(id, titulo, descripcion, imagen, categoria);
         this.video = video;
     }
 
-    public Pelicula(String id, String titulo, String descripcion, Image imagen, Categoria categoria) {
+    public Pelicula(int id, String titulo, String descripcion, Image imagen, Categoria categoria) {
         super(id, titulo, descripcion, imagen, categoria);
     }
     

@@ -21,7 +21,7 @@ public class MAdmin extends Admin implements Listable<Admin>, Editable {
     public MAdmin() {
     }
 
-    public MAdmin(String id, String nombre, String apellido, String email, String password, Date fechaNac, Image foto) {
+    public MAdmin(int id, String nombre, String apellido, String email, String password, Date fechaNac, Image foto) {
         super(id, nombre, apellido, email, password, fechaNac, foto);
     }
 
@@ -48,7 +48,7 @@ public class MAdmin extends Admin implements Listable<Admin>, Editable {
     public boolean editar() {
         String sql = "{call editar_usuario(?, ?, ?, ?, ?, ?, ?, ?)}";
         try (CallableStatement cs = con.getCon().prepareCall(sql)) {
-            cs.setInt(1, Integer.parseInt(getId()));
+            cs.setInt(1, getId());
             cs.setString(2, getNombre());
             cs.setString(3, getApellido());
             cs.setString(4, getEmail());
@@ -76,7 +76,7 @@ public class MAdmin extends Admin implements Listable<Admin>, Editable {
         try (ResultSet rs = con.query(sql)) {
             while (rs.next()) {
                 list.add(new Admin(
-                        rs.getString("id"),
+                        rs.getInt("id"),
                         rs.getString("nombre"),
                         rs.getString("apellido"),
                         rs.getString("email"),
@@ -104,7 +104,7 @@ public class MAdmin extends Admin implements Listable<Admin>, Editable {
         try (ResultSet rs = con.query(sql)) {
             if (rs.next()) {
                 usuario = new MAdmin();
-                usuario.setId(rs.getString("id"));
+                usuario.setId(rs.getInt("id"));
                 usuario.setNombre(rs.getString("nombre"));
                 usuario.setApellido(rs.getString("apellido"));
                 usuario.setEmail(rs.getString("email"));

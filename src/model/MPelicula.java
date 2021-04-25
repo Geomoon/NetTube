@@ -17,7 +17,7 @@ public class MPelicula extends Pelicula implements Listable<Pelicula>, Editable 
 
     private static ConexionMySQL con = ConexionMySQL.getInstance();
 
-    public MPelicula(String id, String titulo, String descripcion, Image imagen, Categoria categoria, Video video) {
+    public MPelicula(int id, String titulo, String descripcion, Image imagen, Categoria categoria, Video video) {
         super(id, titulo, descripcion, imagen, categoria, video);
     }
 
@@ -31,8 +31,8 @@ public class MPelicula extends Pelicula implements Listable<Pelicula>, Editable 
             cs.setString(1, getTitulo());
             cs.setBinaryStream(2, Utils.toStream(getFile()), getFile().length());
             cs.setString(3, getDescripcion());
-            cs.setString(4, getCategoria().getId());
-            cs.setString(5, getVideo().getId());
+            cs.setInt(4, getCategoria().getId());
+            cs.setInt(5, getVideo().getId());
             return cs.execute();
         } catch (SQLException ex) {
             Logger.getLogger(MPelicula.class.getName()).log(Level.SEVERE, null, ex);
@@ -44,12 +44,12 @@ public class MPelicula extends Pelicula implements Listable<Pelicula>, Editable 
     public boolean editar() {
         String sql = "{CALL editar_pelicula(?, ?, ?, ?, ?, ?)}";
         try (CallableStatement cs = con.getCon().prepareCall(sql)) {
-            cs.setString(1, getId());
+            cs.setInt(1, getId());
             cs.setString(2, getTitulo());
             cs.setBinaryStream(3, Utils.toStream(getFile()), getFile().length());
             cs.setString(4, getDescripcion());
-            cs.setString(5, getCategoria().getId());
-            cs.setString(6, getVideo().getId());
+            cs.setInt(5, getCategoria().getId());
+            cs.setInt(6, getVideo().getId());
             return cs.execute();
         } catch (SQLException ex) {
             Logger.getLogger(MPelicula.class.getName()).log(Level.SEVERE, null, ex);
@@ -75,16 +75,16 @@ public class MPelicula extends Pelicula implements Listable<Pelicula>, Editable 
         try (ResultSet rs = con.query(sql)) {
             while (rs.next()) {
                 list.add(new Pelicula(
-                        rs.getString("id"),
+                        rs.getInt("id"),
                         rs.getString("titulo"),
                         rs.getString("descripcion"),
                         Utils.toImage(rs.getBytes("portada")),
                         new Categoria(
-                                rs.getString("categoria_id"),
+                                rs.getInt("categoria_id"),
                                 rs.getString("nombre"),
                                 null),
                         new Video(
-                                rs.getString("video_id"),
+                                rs.getInt("video_id"),
                                 rs.getString("duracion"),
                                 rs.getString("dir"))
                 ));
@@ -101,7 +101,7 @@ public class MPelicula extends Pelicula implements Listable<Pelicula>, Editable 
         String sql = "SELECT id from vista_peliculas where LCASE(titulo) = LCASE('" + getTitulo() + "')";
         try (ResultSet rs = con.query(sql)) {
             if (rs.next()) {
-                p = new Pelicula(rs.getString("id"));
+                p = new Pelicula(rs.getInt("id"));
             }
         } catch (SQLException ex) {
             Logger.getLogger(MPelicula.class.getName()).log(Level.SEVERE, null, ex);

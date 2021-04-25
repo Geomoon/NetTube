@@ -504,7 +504,7 @@ public class CPerfilAdmin {
         listaC.stream().forEach(c -> {
             JButton btn = new JButton(c.getNombre());
             vista.getBarCategorias().add(btn);
-            btn.addActionListener(l -> listar(c.getId()));
+            btn.addActionListener(l -> listar(c.getId() + ""));
         });
     }
 
@@ -538,7 +538,7 @@ public class CPerfilAdmin {
         if (vp.getTextTituloCategoria().getText().isBlank() || vp.getTextDescripcionCategoria().getText().isBlank()) {
             JOptionPane.showMessageDialog(vista, "Existen campos vacíos");
         } else {
-            MCategoria nc = new MCategoria("0", vp.getTextTituloCategoria().getText(), vp.getTextDescripcionCategoria().getText());
+            MCategoria nc = new MCategoria(0, vp.getTextTituloCategoria().getText(), vp.getTextDescripcionCategoria().getText());
             if (nc.crear()) {
                 JOptionPane.showMessageDialog(vista, "Categoria creada correctamente");
             } else {
@@ -561,7 +561,7 @@ public class CPerfilAdmin {
 
             Video vid = nuevoVideo(Pelicula.DIR + titulo);
 
-            MPelicula np = new MPelicula("1", titulo, descripcion, ic.getImage(), cat, vid);
+            MPelicula np = new MPelicula(1, titulo, descripcion, ic.getImage(), cat, vid);
             np.setFile(file);
             if (np.crear()) {
                 JOptionPane.showMessageDialog(vista, "Pelicula creada correctamente");
@@ -586,7 +586,7 @@ public class CPerfilAdmin {
             String descripcion = vp.getTextDescripcionSerie().getText();
             ImageIcon ic = (ImageIcon) vp.getLblFotoSerie().getIcon();
 
-            MSerie ns = new MSerie("1", titulo, descripcion, ic.getImage(), cat, listaCap);
+            MSerie ns = new MSerie(1, titulo, descripcion, ic.getImage(), cat, listaCap);
             ns.setFile(file);
             if (ns.crear()) {
                 JOptionPane.showMessageDialog(vista, "Serie creada correctamente");
@@ -607,7 +607,7 @@ public class CPerfilAdmin {
 
             Video vid = nuevoVideo(Serie.DIR + titulo);
 
-            MCapitulo nc = new MCapitulo("", titulo, descripcion, vid, s);
+            MCapitulo nc = new MCapitulo(1, titulo, descripcion, vid, s);
             listaCapitulos(s);
             if (nc.crear()) {
                 JOptionPane.showMessageDialog(vista, "Capítulo creado correctamente");
@@ -667,7 +667,7 @@ public class CPerfilAdmin {
 
     private void listaCapitulos(Serie s) {
         vp.getPanelCapitulos().removeAll();
-        List<Capitulo> listaC = mCap.buscarCapitulosSerie(s.getId());
+        List<Capitulo> listaC = mCap.buscarCapitulosSerie(s.getId() + "");
         listaC.stream().forEach(c -> {
             vp.getPanelCapitulos().add(panelAdminCapitulos(c));
         });
@@ -677,7 +677,7 @@ public class CPerfilAdmin {
     private panelAdminSeriePeli panelAdminPeli(Pelicula p) {
         panelAdminSeriePeli np = new panelAdminSeriePeli();
         MPelicula mp = new MPelicula(p.getId(), p.getTitulo(), p.getDescripcion(), p.getImagen(), p.getCategoria(), p.getVideo());
-        np.getTextId().setText(p.getId());
+        np.getTextId().setText(p.getId() + "");
         np.getTextTitulo().setText(p.getTitulo());
         np.getBtnEliminar().addActionListener(l -> mp.eliminar());
         np.getBtnInfo().addActionListener(l -> infoPelicula(p));
@@ -688,7 +688,7 @@ public class CPerfilAdmin {
     private panelAdminSeriePeli panelAdminSerie(Serie s) {
         panelAdminSeriePeli np = new panelAdminSeriePeli();
         MSerie ms = new MSerie(s.getId(), s.getTitulo(), s.getDescripcion(), s.getImagen(), s.getCategoria(), s.getCapitulos());
-        np.getTextId().setText(s.getId());
+        np.getTextId().setText(s.getId() + "");
         np.getTextTitulo().setText(s.getTitulo());
         np.getBtnEliminar().addActionListener(l -> ms.eliminar());
         np.getBtnInfo().addActionListener(l -> infoSerie(s));
@@ -698,7 +698,7 @@ public class CPerfilAdmin {
 
     private panelAdminSeriePeli panelAdminCategoria(Categoria c) {
         panelAdminSeriePeli np = new panelAdminSeriePeli();
-        np.getTextId().setText(c.getId());
+        np.getTextId().setText(c.getId() + "");
         np.getTextTitulo().setText(c.getNombre());
         np.getBtnEliminar().addActionListener(l -> eliminarCategoria(c));
         np.getBtnInfo().addActionListener(l -> infoCateogoria(c));
@@ -722,7 +722,7 @@ public class CPerfilAdmin {
         mc.setVideo(c.getVideo());
         mc.setSerie(c.getSerie());
 
-        np.getTextId().setText(c.getId());
+        np.getTextId().setText(c.getId() + "");
         np.getTextTitulo().setText(c.getTitulo());
         np.getBtnEliminar().addActionListener(l -> mc.eliminar());
         np.getBtnInfo().addActionListener(l -> infoCapitulo(c));
@@ -961,8 +961,9 @@ public class CPerfilAdmin {
 
         MVideo mVideo = new MVideo();
         mVideo.setDir(direccion + f.getName());
-        Mensaje m = new Mensaje();
-        m.run();
+
+        JOptionPane.showMessageDialog(vRep, "Por favor espere mientras el video se sube al servidor.\n Se le notificará cuando el proceso termine.\n Presione Aceptar para seguir");
+
         if (EnvioPOST.sendVideo(f, direccion.substring(1))) {
             JOptionPane.showMessageDialog(vRep, "El video se ha subido al servidor");
             if (mVideo.crear()) {
@@ -970,8 +971,6 @@ public class CPerfilAdmin {
                 v = mVideo.buscar(dir);
             }
         }
-        m.interrupt();
-
         return v;
     }
 
@@ -985,16 +984,6 @@ public class CPerfilAdmin {
         );
 
         inicio.initControlAdmin();
-    }
-
-    private class Mensaje extends Thread {
-
-        Mensaje() {
-        }
-
-        @Override
-        public void run() {
-        }
     }
 
 }

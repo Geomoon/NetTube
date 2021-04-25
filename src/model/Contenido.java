@@ -14,7 +14,7 @@ import java.io.File;
  */
 public abstract class Contenido {
 
-    protected String id;
+    protected int id;
     protected String titulo;
     protected String descripcion;
     protected Image imagen;
@@ -24,11 +24,11 @@ public abstract class Contenido {
     public Contenido() {
     }
 
-    public Contenido(String id) {
+    public Contenido(int id) {
         this.id = id;
     }
 
-    public Contenido(String id, String titulo, String descripcion, Image imagen, Categoria categoria) {
+    public Contenido(int id, String titulo, String descripcion, Image imagen, Categoria categoria) {
         this.id = id;
         this.titulo = titulo;
         this.descripcion = descripcion;
@@ -36,7 +36,7 @@ public abstract class Contenido {
         this.categoria = categoria;
     }
 
-    public Contenido(String id, String titulo, String descripcion, Categoria categoria, File file) {
+    public Contenido(int id, String titulo, String descripcion, Categoria categoria, File file) {
         this.id = id;
         this.titulo = titulo;
         this.descripcion = descripcion;
@@ -44,11 +44,11 @@ public abstract class Contenido {
         this.file = file;
     }
 
-    public String getId() {
+    public int getId() {
         return id;
     }
 
-    public void setId(String id) {
+    public void setId(int id) {
         this.id = id;
     }
 

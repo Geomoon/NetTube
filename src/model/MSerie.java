@@ -17,7 +17,7 @@ public class MSerie extends Serie implements CRUD {
 
     private static ConexionMySQL con = ConexionMySQL.getInstance();
 
-    public MSerie(String id, String titulo, String descripcion, Image imagen, Categoria categoria, List<Capitulo> capitulos) {
+    public MSerie(int id, String titulo, String descripcion, Image imagen, Categoria categoria, List<Capitulo> capitulos) {
         super(id, titulo, descripcion, imagen, categoria, capitulos);
     }
 
@@ -32,7 +32,7 @@ public class MSerie extends Serie implements CRUD {
             cs.setString(1, getTitulo());
             cs.setBinaryStream(2, Utils.toStream(getFile()), getFile().length());
             cs.setString(3, getDescripcion());
-            cs.setString(4, getCategoria().getId());
+            cs.setInt(4, getCategoria().getId());
             return cs.execute();
         } catch (SQLException ex) {
             Logger.getLogger(MSerie.class.getName()).log(Level.SEVERE, null, ex);
@@ -46,11 +46,11 @@ public class MSerie extends Serie implements CRUD {
         String sql = "{CALL crear_serie (?, ?, ?, ?, ?)}";
 
         try (CallableStatement cs = con.getCon().prepareCall(sql)) {
-            cs.setString(1, getId());
+            cs.setInt(1, getId());
             cs.setString(2, getTitulo());
             cs.setBinaryStream(3, Utils.toStream(getFile()), getFile().length());
             cs.setString(4, getDescripcion());
-            cs.setString(5, getCategoria().getId());
+            cs.setInt(5, getCategoria().getId());
             return cs.execute();
         } catch (SQLException ex) {
             Logger.getLogger(MSerie.class.getName()).log(Level.SEVERE, null, ex);
@@ -71,12 +71,12 @@ public class MSerie extends Serie implements CRUD {
         try (ResultSet rs = con.query(sql)) {
             while (rs.next()) {
                 list.add(new Serie(
-                        rs.getString("id"),
+                        rs.getInt("id"),
                         rs.getString("titulo"),
                         rs.getString("descripcion"),
                         Utils.toImage(rs.getBytes("portada")),
                         new Categoria(
-                                rs.getString("categoria_id"),
+                                rs.getInt("categoria_id"),
                                 rs.getString("nombre"),
                                 ""),
                         null
@@ -101,12 +101,12 @@ public class MSerie extends Serie implements CRUD {
         try (ResultSet rs = con.query(sql)) {
             while (rs.next()) {
                 list.add(new Serie(
-                        rs.getString("id"),
+                        rs.getInt("id"),
                         rs.getString("titulo"),
                         rs.getString("descripcion"),
                         Utils.toImage(rs.getBytes("portada")),
                         new Categoria(
-                                rs.getString("categoria_id"),
+                                rs.getInt("categoria_id"),
                                 rs.getString("nombre"),
                                 ""),
                         null

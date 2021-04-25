@@ -10,7 +10,7 @@ import java.util.Date;
  */
 public abstract class Usuario {
 
-    protected String id;
+    protected int id;
     protected String nombre;
     protected String apellido;
     protected String email;
@@ -22,18 +22,18 @@ public abstract class Usuario {
     public Usuario() {
     }
 
-    public Usuario(String id) {
+    public Usuario(int id) {
         this.id = id;
     }
 
-    public Usuario(String id, String nombre, String apellido, String email) {
+    public Usuario(int id, String nombre, String apellido, String email) {
         this.id = id;
         this.nombre = nombre;
         this.apellido = apellido;
         this.email = email;
     }
     
-    public Usuario(String id, String nombre, String apellido, String email, String password, Date fechaNac, Image foto) {
+    public Usuario(int id, String nombre, String apellido, String email, String password, Date fechaNac, Image foto) {
         this.id = id;
         this.nombre = nombre;
         this.apellido = apellido;
@@ -43,7 +43,7 @@ public abstract class Usuario {
         this.foto = foto;
     }
     
-    public Usuario(String id, String nombre, String apellido, String email, String password, Date fechaNac, File file) {
+    public Usuario(int id, String nombre, String apellido, String email, String password, Date fechaNac, File file) {
         this.id = id;
         this.nombre = nombre;
         this.apellido = apellido;
@@ -53,11 +53,11 @@ public abstract class Usuario {
         this.file = file;
     }
 
-    public String getId() {
+    public int getId() {
         return id;
     }
 
-    public void setId(String id) {
+    public void setId(int id) {
         this.id = id;
     }
 

@@ -18,7 +18,7 @@ public class MCategoria extends Categoria implements CRUD {
     public MCategoria() {
     }
 
-    public MCategoria(String id, String nombre, String descripcion) {
+    public MCategoria(int id, String nombre, String descripcion) {
         super(id, nombre, descripcion);
     }
 
@@ -54,7 +54,7 @@ public class MCategoria extends Categoria implements CRUD {
         try (ResultSet rs = con.query(sql)) {
             while (rs.next()) {
                 list.add(new Categoria(
-                        rs.getString("id"),
+                        rs.getInt("id"),
                         rs.getString("nombre"),
                         rs.getString("descripcion")));
             }
@@ -76,7 +76,7 @@ public class MCategoria extends Categoria implements CRUD {
         try (ResultSet rs = con.query(sql)) {
             while (rs.next()) {
                 list.add(new Categoria(
-                        rs.getString("id"),
+                        rs.getInt("id"),
                         rs.getString("nombre"),
                         rs.getString("descripcion")));
             }
