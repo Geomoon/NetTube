@@ -133,12 +133,12 @@ public class MenuBusqueda {
     }
 
     private void buscarPeliculas(String text) {
-        mPeli.listar(text, 3).stream()
+        mPeli.buscarTitulo(text).stream()
                 .forEach(p -> addValue(p.getTitulo()));
     }
 
     private void buscarSeries(String text) {
-        mSerie.listar(text, 3).stream()
+        mSerie.buscarTitulo(text).stream()
                 .forEach(s -> addValue(s.getTitulo()));
     }
 

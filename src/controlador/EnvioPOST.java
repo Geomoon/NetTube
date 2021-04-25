@@ -43,17 +43,17 @@ public class EnvioPOST {
         HttpEntity multipart = builder.build();
         httpPost.setEntity(multipart);
         
-        int code = 0;
+        String code = "0";
         try (CloseableHttpResponse response = client.execute(httpPost)) {
             System.out.println("RESPONSE HTTP");
             String r = EntityUtils.toString(response.getEntity());
             System.out.println(r);
 
-            code = Integer.parseInt(r.split("<hr/>")[r.split("<hr/>").length - 1]);
+            code = r.split("<hr/>")[r.split("<hr/>").length - 1];
         } catch (IOException | ParseException e) {
             e.printStackTrace();
         }
-        return (code == 1);
+        return (code.equals("1"));
     }
     
 }

@@ -342,7 +342,7 @@ public class CPerfilUser {
         CInformacion cInformacion = new CInformacion(vi, vista, peli);
         cInformacion.setCRep(cRep);
         cInformacion.initControl();
-
+        cInformacion.setVentana(true);
         cRep.setPelicula(peli);
     }
 
@@ -361,6 +361,9 @@ public class CPerfilUser {
     private void principal() {
         listar("");
         Favoritos();
+        CardLayout layout = (CardLayout) vista.getPanelCard().getLayout();
+        layout.show(vista.getPanelCard(), "cardPrincipal");
+
         vista.setLocationRelativeTo(null);
         vista.setVisible(true);
         vp.dispose();

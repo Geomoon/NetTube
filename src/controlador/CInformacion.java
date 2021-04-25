@@ -8,6 +8,7 @@ package controlador;
 import java.awt.CardLayout;
 import java.util.List;
 import javax.swing.ImageIcon;
+import javax.swing.JFrame;
 import model.Capitulo;
 import model.MCapitulo;
 import model.MSerie;
@@ -31,6 +32,8 @@ public class CInformacion {
     private Pelicula pelicula;
     private Serie serie;
     private CReproductor cRep;
+
+    private boolean ventana;
 
     public CInformacion(vistaInformacion vInfo, vistaPrincipal vPrincipal, Pelicula pelicula) {
         this.vInfo = vInfo;
@@ -85,6 +88,7 @@ public class CInformacion {
     private void iniciarRepro() {
         ((CardLayout) vPrincipal.getPanelCard().getLayout()).show(vPrincipal.getPanelCard(), "cardRep");
         vInfo.dispose();
+        vPrincipal.setVisible(true);
 
         if (pelicula != null) {
             cRep.setPelicula(pelicula);
@@ -95,6 +99,8 @@ public class CInformacion {
     }
 
     private void iniciarReproCap(Capitulo c) {
+        vPrincipal.setVisible(true);
+
         ((CardLayout) vPrincipal.getPanelCard().getLayout()).show(vPrincipal.getPanelCard(), "cardRep");
         vInfoSeries.dispose();
 
@@ -120,6 +126,14 @@ public class CInformacion {
             vInfoSeries.getPanelSeriesInfo().updateUI();
         });
 
+    }
+
+    public boolean isVentana() {
+        return ventana;
+    }
+
+    public void setVentana(boolean ventana) {
+        this.ventana = ventana;
     }
 
 }

@@ -109,6 +109,21 @@ public class MPelicula extends Pelicula implements Listable<Pelicula>, Editable 
         return p;
     }
 
+    public List<Pelicula> buscarTitulo(String titulo) {
+        List<Pelicula> list = new ArrayList<>();
+        String sql = "SELECT titulo from vista_peliculas where LCASE(titulo) LIKE LCASE('%" + titulo + "%') LIMIT 3";
+        try (ResultSet rs = con.query(sql)) {
+            while (rs.next()) {
+                Pelicula p = new Pelicula();
+                p.setTitulo(rs.getString("titulo"));
+                list.add(p);
+            }
+        } catch (SQLException ex) {
+            Logger.getLogger(MPelicula.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        return list;
+    }
+
     @Override
     public List listar() {
         throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.

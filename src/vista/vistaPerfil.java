@@ -983,7 +983,7 @@ public class vistaPerfil extends javax.swing.JFrame {
 
         jPanel1.setBackground(new java.awt.Color(38, 11, 32));
 
-        jToolBar2.setBackground(new java.awt.Color(15, 0, 12));
+        jToolBar2.setBackground(new java.awt.Color(17, 14, 27));
         jToolBar2.setFloatable(false);
         jToolBar2.setRollover(true);
         jToolBar2.setBorderPainted(false);

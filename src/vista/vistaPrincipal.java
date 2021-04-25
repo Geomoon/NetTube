@@ -73,7 +73,7 @@ public class vistaPrincipal extends javax.swing.JFrame {
         btnBuscar.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
         btnBuscar.setVerticalTextPosition(javax.swing.SwingConstants.BOTTOM);
 
-        barCategorias.setBackground(new java.awt.Color(15, 0, 12));
+        barCategorias.setBackground(new java.awt.Color(17, 14, 27));
         barCategorias.setFloatable(false);
         barCategorias.setRollover(true);
         barCategorias.setBorderPainted(false);

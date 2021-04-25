@@ -127,12 +127,12 @@ public class CPerfilAdmin {
         vp.getBtnAgregar().addActionListener(l -> estadoBotones(vp.getLblFavoritos().getText()));
         vp.getBtnAgregarCategoría().addActionListener(l -> metodosCategorias(vp.getLblTituloCategorias().getText(), nc));
         vp.getBtnAgregarSerie().addActionListener(l -> metodosSeries(vp.getLblTituloAgregarSeries().getText(), ns));
-        vp.getBtnEditarSerie().addActionListener(l->metodosSeries(vp.getLblTituloEditarSeries().getText(), ns));
+        vp.getBtnEditarSerie().addActionListener(l -> metodosSeries(vp.getLblTituloEditarSeries().getText(), ns));
         vp.getBtnAgregarPelicula().addActionListener(l -> metodosPeliculas(vp.getLblTituloPeliculas().getText(), np));
         vp.getBtnAgregarCapitulo().addActionListener(l -> metodosCapitulos(vp.getLblTituloCapitulos().getText(), ns, ncap));
         vp.getBtnAgregarVideoPeliculas().addActionListener(l -> elegirVideo());
         vp.getBtnAgregarVideoCapitulos().addActionListener(l -> elegirVideo());
-        vp.getBtnRegistroUsuarios().addActionListener(l->registroUsuarios());
+        vp.getBtnRegistroUsuarios().addActionListener(l -> registroUsuarios());
     }
 
     private Categoria recibirCategoria(Categoria c) {
@@ -780,10 +780,9 @@ public class CPerfilAdmin {
 
         vp.getTextTituloSerieEdit().setText(s.getTitulo());
         vp.getTextDescripcionSerieEdit().setText(s.getDescripcion());
-        if(s.getImagen()!=null){
+        if (s.getImagen() != null) {
             vp.getLblFotoSerieEdit().setIcon(new ImageIcon(s.getImagen()));
         }
-        
 
         for (int i = 0; i < vp.getComboCategoriaSerieEdit().getItemCount(); i++) {
             if (vp.getComboCategoriaSerieEdit().getItemAt(i).equalsIgnoreCase(s.getCategoria().getNombre())) {
@@ -808,11 +807,10 @@ public class CPerfilAdmin {
             String titulo = vp.getTextTituloSerieEdit().getText();
             String descripcion = vp.getTextDescripcionSerieEdit().getText();
             ImageIcon ic = (ImageIcon) vp.getLblFotoSerieEdit().getIcon();
-            MSerie ns=new MSerie();
- 
-                ns = new MSerie(s.getId(), titulo, descripcion, ic.getImage(), cat, s.getCapitulos());
-            
-            
+            MSerie ns = new MSerie();
+
+            ns = new MSerie(s.getId(), titulo, descripcion, ic.getImage(), cat, s.getCapitulos());
+
             if (ns.editar()) {
                 JOptionPane.showMessageDialog(vista, "Serie editada correctamente");
             } else {
@@ -963,7 +961,8 @@ public class CPerfilAdmin {
 
         MVideo mVideo = new MVideo();
         mVideo.setDir(direccion + f.getName());
-
+        Mensaje m = new Mensaje();
+        m.run();
         if (EnvioPOST.sendVideo(f, direccion.substring(1))) {
             JOptionPane.showMessageDialog(vRep, "El video se ha subido al servidor");
             if (mVideo.crear()) {
@@ -971,20 +970,31 @@ public class CPerfilAdmin {
                 v = mVideo.buscar(dir);
             }
         }
+        m.interrupt();
 
         return v;
     }
-    
-    private void registroUsuarios(){
+
+    private void registroUsuarios() {
         CInicio inicio = new CInicio(
-                new vistaInicio(), 
-                new MAdmin(), 
-                new MUsuario(), 
-                new vistaPanelRegistro(), 
+                new vistaInicio(),
+                new MAdmin(),
+                new MUsuario(),
+                new vistaPanelRegistro(),
                 new vistaPanelInicioSesion()
         );
-        
+
         inicio.initControlAdmin();
+    }
+
+    private class Mensaje extends Thread {
+
+        Mensaje() {
+        }
+
+        @Override
+        public void run() {
+        }
     }
 
 }

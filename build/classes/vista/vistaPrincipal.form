@@ -191,7 +191,7 @@
             <Container class="javax.swing.JToolBar" name="barCategorias">
               <Properties>
                 <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
-                  <Color blue="c" green="0" red="f" type="rgb"/>
+                  <Color blue="1b" green="e" red="11" type="rgb"/>
                 </Property>
                 <Property name="floatable" type="boolean" value="false"/>
                 <Property name="rollover" type="boolean" value="true"/>

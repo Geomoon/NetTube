@@ -7,6 +7,9 @@ package controlador;
 
 import java.awt.BorderLayout;
 import java.awt.CardLayout;
+import java.awt.Color;
+import java.awt.event.ComponentAdapter;
+import java.awt.event.ComponentEvent;
 import javafx.application.Platform;
 import javafx.embed.swing.JFXPanel;
 import javafx.scene.Group;
@@ -42,7 +45,7 @@ public class CReproductor {
         this.vRep = vRep;
 
         jfxPanel = new JFXPanel();
-        addListeners();
+       // addListeners();
     }
 
     public void initControl() {
@@ -50,7 +53,8 @@ public class CReproductor {
         System.out.println("initcontrol");
         vRep.getPanelVideo().setLayout(new BorderLayout());
         vRep.getPanelVideo().add(jfxPanel, BorderLayout.CENTER);
-
+        jfxPanel.setBackground(new Color(38,11,32));
+        jfxPanel.setLayout(new BorderLayout());
         createScene();
     }
 
@@ -64,8 +68,8 @@ public class CReproductor {
             );
 
             view = new MediaView(player);
-            view.setFitWidth(800);
-            view.setFitHeight(600);
+            view.setFitWidth(jfxPanel.getSize().getWidth());
+            view.setFitHeight(jfxPanel.getSize().getHeight());
 
             System.out.println("H: " + player.getMedia().getHeight());
             System.out.println("W: " + player.getMedia().getWidth());
@@ -75,7 +79,8 @@ public class CReproductor {
             player.setVolume(0.7);
             player.setCycleCount(MediaPlayer.INDEFINITE);//repite el video
             addListeners();
-        });        System.out.println("fin");
+        });
+        System.out.println("fin");
 
     }
 
@@ -84,6 +89,14 @@ public class CReproductor {
         vRep.getBtnPausa().addActionListener(l -> player.pause());
         vRep.getBtnStop().addActionListener(l -> player.stop());
         vRep.getBtnRegresar().addActionListener(l -> regresar());
+
+        vRep.addComponentListener(new ComponentAdapter() {
+            @Override
+            public void componentResized(ComponentEvent componentEvent) {
+                view.setFitHeight(jfxPanel.getSize().getHeight());
+                view.setFitWidth(jfxPanel.getSize().getWidth());
+            }
+        });
     }
 
     private void regresar() {
