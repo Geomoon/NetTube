@@ -119,7 +119,7 @@ public class CPerfilAdmin {
         vp.getBtnAgregarFotoSerie().addActionListener(l -> cargarImagen(vp.getLblFotoSerie()));
         vista.getBtnBuscar().addActionListener(l -> listar(vista.getTextBuscar().getText()));
         vp.getBtnEditar().addActionListener(l -> editarPerfil());
-
+//        vp.getBtnReportes().addActionListener( -> );
         vp.getBtnCategorias().addActionListener(l -> btnCategorias());
         vp.getBtnSeries().addActionListener(l -> btnSeries());
         vp.getBtnPelicula().addActionListener(l -> btnPeliculas());
