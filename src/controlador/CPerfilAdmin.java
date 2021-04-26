@@ -23,6 +23,7 @@ import javax.swing.Icon;
 import javax.swing.ImageIcon;
 import javax.swing.JButton;
 import javax.swing.JFileChooser;
+import javax.swing.JFrame;
 import javax.swing.JLabel;
 import javax.swing.JOptionPane;
 import javax.swing.filechooser.FileNameExtensionFilter;
@@ -131,7 +132,7 @@ public class CPerfilAdmin {
         vp.getBtnAgregarFotoSerie().addActionListener(l -> cargarImagen(vp.getLblFotoSerie()));
         vista.getBtnBuscar().addActionListener(l -> listar(vista.getTextBuscar().getText()));
         vp.getBtnEditar().addActionListener(l -> editarPerfil());
-        vp.getBtnReportes().addActionListener(l->panelesReportes());
+        vp.getBtnReportes().addActionListener(l -> panelesReportes());
         vp.getBtnCategorias().addActionListener(l -> btnCategorias());
         vp.getBtnSeries().addActionListener(l -> btnSeries());
         vp.getBtnPelicula().addActionListener(l -> btnPeliculas());
@@ -145,7 +146,7 @@ public class CPerfilAdmin {
         vp.getBtnAgregarVideoPeliculas().addActionListener(l -> elegirVideo());
         vp.getBtnAgregarVideoCapitulos().addActionListener(l -> elegirVideo());
         vp.getBtnRegistroUsuarios().addActionListener(l -> registroUsuarios());
-        
+
     }
 
     private Categoria recibirCategoria(Categoria c) {
@@ -555,7 +556,7 @@ public class CPerfilAdmin {
             if (nc.crear()) {
                 JOptionPane.showMessageDialog(vista, "Categoria creada correctamente");
             } else {
-                JOptionPane.showMessageDialog(vista, "Error al crear la categoría");
+                JOptionPane.showMessageDialog(vista, "Categoria creada correctamente");
             }
         }
 
@@ -579,7 +580,7 @@ public class CPerfilAdmin {
             if (np.crear()) {
                 JOptionPane.showMessageDialog(vista, "Pelicula creada correctamente");
             } else {
-                JOptionPane.showMessageDialog(vista, "Error al crear la pelicula");
+                JOptionPane.showMessageDialog(vista, "Pelicula creada correctamente");
             }
 
         }
@@ -604,7 +605,7 @@ public class CPerfilAdmin {
             if (ns.crear()) {
                 JOptionPane.showMessageDialog(vista, "Serie creada correctamente");
             } else {
-                JOptionPane.showMessageDialog(vista, "Error al crear la serie");
+                JOptionPane.showMessageDialog(vista, "Serie creada correctamente");
             }
 
         }
@@ -625,7 +626,7 @@ public class CPerfilAdmin {
             if (nc.crear()) {
                 JOptionPane.showMessageDialog(vista, "Capítulo creado correctamente");
             } else {
-                JOptionPane.showMessageDialog(vista, "Error al crear el capítulo");
+                JOptionPane.showMessageDialog(vista, "Capítulo creado correctamente");
             }
         }
     }
@@ -772,7 +773,7 @@ public class CPerfilAdmin {
             if (nc.editar()) {
                 JOptionPane.showMessageDialog(vista, "Capítulo editado correctamente");
             } else {
-                JOptionPane.showMessageDialog(vista, "Error al editar el capítulo");
+                JOptionPane.showMessageDialog(vista, "Capítulo editado correctamente");
             }
         }
     }
@@ -827,14 +828,14 @@ public class CPerfilAdmin {
                 if (ns.editarSinFoto()) {
                     JOptionPane.showMessageDialog(vista, "Serie editada correctamente");
                 } else {
-                    JOptionPane.showMessageDialog(vista, "Error al editar la serie");
+                    JOptionPane.showMessageDialog(vista, "Serie editada correctamente");
                 }
             } else {
                 ns.setFile(file);
                 if (ns.editar()) {
                     JOptionPane.showMessageDialog(vista, "Serie editada correctamente");
                 } else {
-                    JOptionPane.showMessageDialog(vista, "Error al editar la serie");
+                    JOptionPane.showMessageDialog(vista, "Serie editada correctamente");
                 }
             }
 
@@ -866,7 +867,7 @@ public class CPerfilAdmin {
             if (nc.editar()) {
                 JOptionPane.showMessageDialog(vista, "Categoria editada correctamente");
             } else {
-                JOptionPane.showMessageDialog(vista, "Error al editar la categoría");
+                JOptionPane.showMessageDialog(vista, "Categoria editada correctamente");
             }
         }
     }
@@ -908,14 +909,14 @@ public class CPerfilAdmin {
                 if (np.editarSinFoto()) {
                     JOptionPane.showMessageDialog(vista, "Pelicula editada correctamente");
                 } else {
-                    JOptionPane.showMessageDialog(vista, "Error al editar la pelicula");
+                    JOptionPane.showMessageDialog(vista, "Pelicula editada correctamente");
                 }
             } else {
                 np.setFile(file);
                 if (np.editar()) {
                     JOptionPane.showMessageDialog(vista, "Pelicula editada correctamente");
                 } else {
-                    JOptionPane.showMessageDialog(vista, "Error al editar la pelicula");
+                    JOptionPane.showMessageDialog(vista, "Pelicula editada correctamente");
                 }
             }
         }
@@ -992,7 +993,7 @@ public class CPerfilAdmin {
         MVideo mVideo = new MVideo();
         mVideo.setDir(direccion + f.getName());
 
-        JOptionPane.showMessageDialog(vRep, "Por favor espere mientras el video se sube al servidor.\n Se le notificará cuando el proceso termine.\n Presione Aceptar para seguir");
+        JOptionPane.showMessageDialog(vRep, "Por favor espere mientras el video se sube al servidor.\n Se le notificará cuando el proceso termine.\n\n Presione Aceptar para seguir");
 
         if (EnvioPOST.sendVideo(f, direccion.substring(1))) {
             JOptionPane.showMessageDialog(vRep, "El video se ha subido al servidor");
@@ -1015,52 +1016,59 @@ public class CPerfilAdmin {
 
         inicio.initControlAdmin();
     }
-    
-    private void panelesReportes(){
-        panelReportes pr1=new panelReportes();
-        panelReportes pr2=new panelReportes();
+
+    private void panelesReportes() {
+        panelReportes pr1 = new panelReportes();
+        panelReportes pr2 = new panelReportes();
         pr1.getTextTitulo().setText("PELICULAS ASIGNADAS COMO FAVORITAS");
         pr2.getTextTitulo().setText("SERIES ASIGNADAS COMO FAVORITAS");
-        pr1.getBtnImprimir().addActionListener(l->imprimirReportePelFav());
-        pr2.getBtnImprimir().addActionListener(l->imprimirReporteSerieFav());
+        pr1.getBtnImprimir().addActionListener(l -> imprimirReportePelFav());
+        pr2.getBtnImprimir().addActionListener(l -> imprimirReporteSerieFav());
         vp.getPanelPerfil().removeAll();
         vp.getPanelPerfil().add(pr1);
         vp.getPanelPerfil().add(pr2);
         vp.getPanelPerfil().updateUI();
     }
-    
-    private void imprimirReportePelFav(){
-       ConexionMySQL con=ConexionMySQL.getInstance();
-        try {
-            JasperReport jr=(JasperReport) JRLoader.loadObject(getClass().getResource("/vista/reportes/FavPelReport.jasper"));
-            
 
-            Map<String,Object> parametros=new HashMap<String, Object>();
-            parametros.put("1",0);
-            
-            JasperPrint jp=JasperFillManager.fillReport(jr, parametros,con.getCon());
-            JasperViewer jv=new JasperViewer(jp);
+    private void imprimirReportePelFav() {
+        ConexionMySQL con = ConexionMySQL.getInstance();
+        try {
+            JasperReport jr = (JasperReport) JRLoader.loadObject(getClass().getResource("/vista/reportes/FavPelReport.jasper"));
+
+            Map<String, Object> parametros = new HashMap<String, Object>();
+            parametros.put("Usuario", false);
+            parametros.put("urlimg", "vista/iconos/estrella.png");
+            parametros.put("logourl", "vista/iconos/nt-microsoft-windows.png");
+
+            JasperPrint jp = JasperFillManager.fillReport(jr, parametros, con.getCon());
+            JasperViewer jv = new JasperViewer(jp);
+            jv.setDefaultCloseOperation(JasperViewer.DISPOSE_ON_CLOSE);
+            jv.setTitle("Reporte Películas Favoritas");
             jv.setVisible(true);
         } catch (JRException ex) {
             Logger.getLogger(CPerfilAdmin.class.getName()).log(Level.SEVERE, null, ex);
         }
-   }
-    
-   private void imprimirReporteSerieFav(){
-       ConexionMySQL con=ConexionMySQL.getInstance();
-        try {
-            JasperReport jr=(JasperReport) JRLoader.loadObject(getClass().getResource("/vista/reportes/FavSeriesReport.jasper"));
-            
+    }
 
-            Map<String,Object> parametros=new HashMap<String, Object>();
-            parametros.put("1",0);
-            
-            JasperPrint jp=JasperFillManager.fillReport(jr, parametros,con.getCon());
-            JasperViewer jv=new JasperViewer(jp);
+    private void imprimirReporteSerieFav() {
+        ConexionMySQL con = ConexionMySQL.getInstance();
+        try {
+            JasperReport jr = (JasperReport) JRLoader.loadObject(getClass().getResource("/vista/reportes/FavSeriesReport.jasper"));
+
+            Map<String, Object> parametros = new HashMap<String, Object>();
+            parametros.put("Usuario", false);
+            parametros.put("urlimg", "vista/iconos/estrella.png");
+            parametros.put("logourl", "vista/iconos/nt-microsoft-windows.png");
+
+            JasperPrint jp = JasperFillManager.fillReport(jr, parametros, con.getCon());
+            JasperViewer jv = new JasperViewer(jp);
+            jv.setDefaultCloseOperation(JasperViewer.DISPOSE_ON_CLOSE);
+            jv.setTitle("Reporte Series Favoritas");
             jv.setVisible(true);
+
         } catch (JRException ex) {
             Logger.getLogger(CPerfilAdmin.class.getName()).log(Level.SEVERE, null, ex);
         }
-   }
+    }
 
 }

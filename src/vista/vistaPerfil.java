@@ -7,6 +7,7 @@ package vista;
 
 import com.toedter.calendar.JDateChooser;
 import java.awt.FlowLayout;
+import java.awt.Toolkit;
 import javax.swing.JButton;
 import javax.swing.JComboBox;
 import javax.swing.JDialog;
@@ -162,6 +163,8 @@ public class vistaPerfil extends javax.swing.JFrame {
         jLabel27 = new javax.swing.JLabel();
         jLabel26 = new javax.swing.JLabel();
 
+        jDialogAgregarSeries.setIconImage(Toolkit.getDefaultToolkit().getImage(getClass().getResource("iconos/nt-microsoft-windows.png")));
+
         jPanel4.setBackground(new java.awt.Color(38, 11, 32));
 
         btnCancelarSerie.setBackground(new java.awt.Color(0, 0, 0));
@@ -306,6 +309,8 @@ public class vistaPerfil extends javax.swing.JFrame {
             jDialogAgregarSeriesLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addComponent(jPanel4, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
+
+        jDialogAgregarPeliculas.setIconImage(Toolkit.getDefaultToolkit().getImage(getClass().getResource("iconos/nt-microsoft-windows.png")));
 
         jPanel5.setBackground(new java.awt.Color(38, 11, 32));
 
@@ -476,6 +481,8 @@ public class vistaPerfil extends javax.swing.JFrame {
             .addComponent(jPanel5, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
 
+        jDialogAgregarCategorias.setIconImage(Toolkit.getDefaultToolkit().getImage(getClass().getResource("iconos/nt-microsoft-windows.png")));
+
         jPanel6.setBackground(new java.awt.Color(38, 11, 32));
 
         btnCancelarCategoria.setBackground(new java.awt.Color(0, 0, 0));
@@ -575,6 +582,7 @@ public class vistaPerfil extends javax.swing.JFrame {
         );
 
         jDialogEditarPerfil.setTitle("Editar información");
+        jDialogEditarPerfil.setIconImage(Toolkit.getDefaultToolkit().getImage(getClass().getResource("iconos/nt-microsoft-windows.png")));
         jDialogEditarPerfil.setMaximumSize(new java.awt.Dimension(612, 445));
         jDialogEditarPerfil.setMinimumSize(new java.awt.Dimension(612, 445));
         jDialogEditarPerfil.setPreferredSize(new java.awt.Dimension(612, 445));
@@ -700,6 +708,8 @@ public class vistaPerfil extends javax.swing.JFrame {
 
         jDialogEditarPerfil.getAccessibleContext().setAccessibleDescription("");
 
+        jDialogAgregarCapitulos.setIconImage(Toolkit.getDefaultToolkit().getImage(getClass().getResource("iconos/nt-microsoft-windows.png")));
+
         jPanel7.setBackground(new java.awt.Color(38, 11, 32));
 
         btnCancelarCapitulo.setBackground(new java.awt.Color(0, 0, 0));
@@ -816,6 +826,8 @@ public class vistaPerfil extends javax.swing.JFrame {
             jDialogAgregarCapitulosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addComponent(jPanel7, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
+
+        jDialogEditarSeries.setIconImage(Toolkit.getDefaultToolkit().getImage(getClass().getResource("iconos/nt-microsoft-windows.png")));
 
         jPanel8.setBackground(new java.awt.Color(38, 11, 32));
 
@@ -990,6 +1002,8 @@ public class vistaPerfil extends javax.swing.JFrame {
             .addComponent(jPanel8, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
 
+        jDialogTipoReporte.setIconImage(Toolkit.getDefaultToolkit().getImage(getClass().getResource("iconos/nt-microsoft-windows.png")));
+
         jPanel3.setBackground(new java.awt.Color(38, 11, 32));
 
         lblFavoritos1.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
@@ -1078,7 +1092,9 @@ public class vistaPerfil extends javax.swing.JFrame {
         );
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setTitle("Mi Perfil");
         setBackground(new java.awt.Color(38, 11, 32));
+        setIconImage(Toolkit.getDefaultToolkit().getImage(getClass().getResource("iconos/nt-microsoft-windows.png")));
 
         jPanel1.setBackground(new java.awt.Color(38, 11, 32));
 

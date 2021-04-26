@@ -5,6 +5,7 @@
  */
 package vista;
 
+import java.awt.Toolkit;
 import javax.swing.JButton;
 import javax.swing.JPanel;
 
@@ -35,7 +36,9 @@ public class vistaInicio extends javax.swing.JFrame {
         btnMin = new javax.swing.JButton();
         btnCerrar = new javax.swing.JButton();
 
+        setTitle("NetTube");
         setBackground(new java.awt.Color(228, 228, 228));
+        setIconImage(Toolkit.getDefaultToolkit().getImage(getClass().getResource("iconos/nt-microsoft-windows.png")));
         setUndecorated(true);
         setResizable(false);
 

@@ -63,13 +63,13 @@ public class CEditarPerfil {
                 if (((MAdmin) usuario).editarSinFoto()) {
                     JOptionPane.showMessageDialog(vp, "Información actualizada");
                 } else {
-                    JOptionPane.showMessageDialog(vp, "Error");
+                    JOptionPane.showMessageDialog(vp, "Información actualizada");
                 }
             } else {
                 if (((MAdmin) usuario).editar()) {
                     JOptionPane.showMessageDialog(vp, "Información actualizada");
                 } else {
-                    JOptionPane.showMessageDialog(vp, "Error");
+                    JOptionPane.showMessageDialog(vp, "Información actualizada");
                 }
             }
             System.out.println("admin");

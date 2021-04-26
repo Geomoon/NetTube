@@ -5,6 +5,7 @@
  */
 package vista;
 
+import java.awt.Toolkit;
 import javax.swing.JButton;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
@@ -43,6 +44,8 @@ public class vistaInformacionSeries extends javax.swing.JFrame {
         panelSeriesInfo = new javax.swing.JPanel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
+        setTitle("Información de la Serie");
+        setIconImage(Toolkit.getDefaultToolkit().getImage(getClass().getResource("iconos/nt-microsoft-windows.png")));
 
         jPanel1.setBackground(new java.awt.Color(38, 11, 32));
 

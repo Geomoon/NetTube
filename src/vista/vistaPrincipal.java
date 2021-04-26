@@ -5,6 +5,7 @@
  */
 package vista;
 
+import java.awt.Toolkit;
 import javax.swing.JButton;
 import javax.swing.JFrame;
 import javax.swing.JInternalFrame;
@@ -48,7 +49,9 @@ public class vistaPrincipal extends javax.swing.JFrame {
         jLabel27 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setTitle("NetTube");
         setBackground(new java.awt.Color(38, 11, 32));
+        setIconImage(Toolkit.getDefaultToolkit().getImage(getClass().getResource("iconos/nt-microsoft-windows.png")));
 
         panelCard.setLayout(new java.awt.CardLayout());
 

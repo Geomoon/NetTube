@@ -4,7 +4,10 @@
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
         <group>
             <file>file:/D:/Files/NetbeansProjects/NetTube/src/controlador/CPerfilAdmin.java</file>
-            <file>file:/D:/Files/NetbeansProjects/NetTube/src/controlador/App.java</file>
+            <file>file:/D:/Files/NetbeansProjects/NetTube/src/model/ConexionMySQL.java</file>
+            <file>file:/D:/Files/NetbeansProjects/NetTube/src/vista/iconos/estrella.png</file>
+            <file>file:/D:/Files/NetbeansProjects/NetTube/src/vista/vistaPerfil.java</file>
+            <file>file:/D:/Files/NetbeansProjects/NetTube/src/controlador/CEditarPerfil.java</file>
         </group>
     </open-files>
 </project-private>
