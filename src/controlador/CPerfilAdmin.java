@@ -13,7 +13,11 @@ import java.awt.event.MouseListener;
 import java.io.File;
 import java.io.IOException;
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import javax.imageio.ImageIO;
 import javax.swing.Icon;
 import javax.swing.ImageIcon;
@@ -24,6 +28,7 @@ import javax.swing.JOptionPane;
 import javax.swing.filechooser.FileNameExtensionFilter;
 import model.Capitulo;
 import model.Categoria;
+import model.ConexionMySQL;
 import model.Contenido;
 import model.MAdmin;
 import model.MCapitulo;
@@ -35,7 +40,14 @@ import model.MVideo;
 import model.Pelicula;
 import model.Serie;
 import model.Video;
+import net.sf.jasperreports.engine.JRException;
+import net.sf.jasperreports.engine.JasperFillManager;
+import net.sf.jasperreports.engine.JasperPrint;
+import net.sf.jasperreports.engine.JasperReport;
+import net.sf.jasperreports.engine.util.JRLoader;
+import net.sf.jasperreports.view.JasperViewer;
 import vista.panelAdminSeriePeli;
+import vista.panelReportes;
 import vista.vistaInformacion;
 import vista.vistaInformacionSeries;
 import vista.vistaInicio;
@@ -119,7 +131,7 @@ public class CPerfilAdmin {
         vp.getBtnAgregarFotoSerie().addActionListener(l -> cargarImagen(vp.getLblFotoSerie()));
         vista.getBtnBuscar().addActionListener(l -> listar(vista.getTextBuscar().getText()));
         vp.getBtnEditar().addActionListener(l -> editarPerfil());
-//        vp.getBtnReportes().addActionListener( -> );
+        vp.getBtnReportes().addActionListener(l->panelesReportes());
         vp.getBtnCategorias().addActionListener(l -> btnCategorias());
         vp.getBtnSeries().addActionListener(l -> btnSeries());
         vp.getBtnPelicula().addActionListener(l -> btnPeliculas());
@@ -133,6 +145,7 @@ public class CPerfilAdmin {
         vp.getBtnAgregarVideoPeliculas().addActionListener(l -> elegirVideo());
         vp.getBtnAgregarVideoCapitulos().addActionListener(l -> elegirVideo());
         vp.getBtnRegistroUsuarios().addActionListener(l -> registroUsuarios());
+        
     }
 
     private Categoria recibirCategoria(Categoria c) {
@@ -1002,5 +1015,52 @@ public class CPerfilAdmin {
 
         inicio.initControlAdmin();
     }
+    
+    private void panelesReportes(){
+        panelReportes pr1=new panelReportes();
+        panelReportes pr2=new panelReportes();
+        pr1.getTextTitulo().setText("PELICULAS ASIGNADAS COMO FAVORITAS");
+        pr2.getTextTitulo().setText("SERIES ASIGNADAS COMO FAVORITAS");
+        pr1.getBtnImprimir().addActionListener(l->imprimirReportePelFav());
+        pr2.getBtnImprimir().addActionListener(l->imprimirReporteSerieFav());
+        vp.getPanelPerfil().removeAll();
+        vp.getPanelPerfil().add(pr1);
+        vp.getPanelPerfil().add(pr2);
+        vp.getPanelPerfil().updateUI();
+    }
+    
+    private void imprimirReportePelFav(){
+       ConexionMySQL con=ConexionMySQL.getInstance();
+        try {
+            JasperReport jr=(JasperReport) JRLoader.loadObject(getClass().getResource("/vista/reportes/FavPelReport.jasper"));
+            
+
+            Map<String,Object> parametros=new HashMap<String, Object>();
+            parametros.put("1",0);
+            
+            JasperPrint jp=JasperFillManager.fillReport(jr, parametros,con.getCon());
+            JasperViewer jv=new JasperViewer(jp);
+            jv.setVisible(true);
+        } catch (JRException ex) {
+            Logger.getLogger(CPerfilAdmin.class.getName()).log(Level.SEVERE, null, ex);
+        }
+   }
+    
+   private void imprimirReporteSerieFav(){
+       ConexionMySQL con=ConexionMySQL.getInstance();
+        try {
+            JasperReport jr=(JasperReport) JRLoader.loadObject(getClass().getResource("/vista/reportes/FavSeriesReport.jasper"));
+            
+
+            Map<String,Object> parametros=new HashMap<String, Object>();
+            parametros.put("1",0);
+            
+            JasperPrint jp=JasperFillManager.fillReport(jr, parametros,con.getCon());
+            JasperViewer jv=new JasperViewer(jp);
+            jv.setVisible(true);
+        } catch (JRException ex) {
+            Logger.getLogger(CPerfilAdmin.class.getName()).log(Level.SEVERE, null, ex);
+        }
+   }
 
 }
