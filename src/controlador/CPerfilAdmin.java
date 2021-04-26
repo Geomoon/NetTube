@@ -808,13 +808,21 @@ public class CPerfilAdmin {
             String descripcion = vp.getTextDescripcionSerieEdit().getText();
             ImageIcon ic = (ImageIcon) vp.getLblFotoSerieEdit().getIcon();
             MSerie ns = new MSerie();
-
             ns = new MSerie(s.getId(), titulo, descripcion, ic.getImage(), cat, s.getCapitulos());
 
-            if (ns.editar()) {
-                JOptionPane.showMessageDialog(vista, "Serie editada correctamente");
+            if (file == null) {
+                if (ns.editarSinFoto()) {
+                    JOptionPane.showMessageDialog(vista, "Serie editada correctamente");
+                } else {
+                    JOptionPane.showMessageDialog(vista, "Error al editar la serie");
+                }
             } else {
-                JOptionPane.showMessageDialog(vista, "Error al editar la serie");
+                ns.setFile(file);
+                if (ns.editar()) {
+                    JOptionPane.showMessageDialog(vista, "Serie editada correctamente");
+                } else {
+                    JOptionPane.showMessageDialog(vista, "Error al editar la serie");
+                }
             }
 
         }
@@ -882,12 +890,21 @@ public class CPerfilAdmin {
             ImageIcon ic = (ImageIcon) vp.getLblFotoPelicula().getIcon();
 
             MPelicula np = new MPelicula(p.getId(), titulo, descripcion, ic.getImage(), cat, vid);
-            if (np.editar()) {
-                JOptionPane.showMessageDialog(vista, "Pelicula editada correctamente");
-            } else {
-                JOptionPane.showMessageDialog(vista, "Error al editar la pelicula");
-            }
 
+            if (file == null) {
+                if (np.editarSinFoto()) {
+                    JOptionPane.showMessageDialog(vista, "Pelicula editada correctamente");
+                } else {
+                    JOptionPane.showMessageDialog(vista, "Error al editar la pelicula");
+                }
+            } else {
+                np.setFile(file);
+                if (np.editar()) {
+                    JOptionPane.showMessageDialog(vista, "Pelicula editada correctamente");
+                } else {
+                    JOptionPane.showMessageDialog(vista, "Error al editar la pelicula");
+                }
+            }
         }
     }
 

@@ -163,7 +163,7 @@ public class CPerfilUser {
         vp.getLblNombre().setText(mUser.getNombre());
         vp.getLblNacimiento().setText(mUser.getFechaNac().toString());
         Favoritos();
-        vista.dispose();
+        vista.setVisible(false);
 
     }
 

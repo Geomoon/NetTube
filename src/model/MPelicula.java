@@ -56,6 +56,21 @@ public class MPelicula extends Pelicula implements Listable<Pelicula>, Editable 
         }
         return false;
     }
+    
+    public boolean editarSinFoto() {
+        String sql = "{CALL editar_pelicula_sin_foto(?, ?, ?, ?, ?)}";
+        try (CallableStatement cs = con.getCon().prepareCall(sql)) {
+            cs.setInt(1, getId());
+            cs.setString(2, getTitulo());
+            cs.setString(3, getDescripcion());
+            cs.setInt(4, getCategoria().getId());
+            cs.setInt(5, getVideo().getId());
+            return cs.execute();
+        } catch (SQLException ex) {
+            Logger.getLogger(MPelicula.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        return false;
+    }
 
     @Override
     public boolean eliminar() {

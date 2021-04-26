@@ -43,7 +43,7 @@ public class MSerie extends Serie implements CRUD {
 
     @Override
     public boolean editar() {
-        String sql = "{CALL crear_serie (?, ?, ?, ?, ?)}";
+        String sql = "{CALL editar_serie (?, ?, ?, ?, ?)}";
 
         try (CallableStatement cs = con.getCon().prepareCall(sql)) {
             cs.setInt(1, getId());
@@ -51,6 +51,21 @@ public class MSerie extends Serie implements CRUD {
             cs.setBinaryStream(3, Utils.toStream(getFile()), getFile().length());
             cs.setString(4, getDescripcion());
             cs.setInt(5, getCategoria().getId());
+            return cs.execute();
+        } catch (SQLException ex) {
+            Logger.getLogger(MSerie.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        return false;
+    }
+
+    public boolean editarSinFoto() {
+        String sql = "{CALL editar_serie_sin_foto (?, ?, ?, ?)}";
+
+        try (CallableStatement cs = con.getCon().prepareCall(sql)) {
+            cs.setInt(1, getId());
+            cs.setString(2, getTitulo());
+            cs.setString(3, getDescripcion());
+            cs.setInt(4, getCategoria().getId());
             return cs.execute();
         } catch (SQLException ex) {
             Logger.getLogger(MSerie.class.getName()).log(Level.SEVERE, null, ex);

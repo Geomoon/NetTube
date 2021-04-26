@@ -63,6 +63,23 @@ public class MAdmin extends Admin implements Listable<Admin>, Editable {
         return false;
     }
 
+    public boolean editarSinFoto() {
+        String sql = "{call editar_usuario_sin_foto(?, ?, ?, ?, ?, ?, ?)}";
+        try (CallableStatement cs = con.getCon().prepareCall(sql)) {
+            cs.setInt(1, getId());
+            cs.setString(2, getNombre());
+            cs.setString(3, getApellido());
+            cs.setString(4, getEmail());
+            cs.setString(5, getPassword());
+            cs.setDate(6, new java.sql.Date(getFechaNac().getTime()));
+            cs.setByte(7, (byte) 0);
+            return cs.execute();
+        } catch (SQLException ex) {
+            Logger.getLogger(MAdmin.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        return false;
+    }
+
     @Override
     public boolean eliminar() {
         String sql = "DELETE FROM usuarios WHERE id='" + getId() + "'";

@@ -59,13 +59,37 @@ public class CEditarPerfil {
     private void actualizar() {
         Usuario usuario = obtenerDatos();
         if (usuario instanceof MAdmin) {
-            ((MAdmin) usuario).editar();
+            if (file == null) {
+                if (((MAdmin) usuario).editarSinFoto()) {
+                    JOptionPane.showMessageDialog(vp, "Información actualizada");
+                } else {
+                    JOptionPane.showMessageDialog(vp, "Error");
+                }
+            } else {
+                if (((MAdmin) usuario).editar()) {
+                    JOptionPane.showMessageDialog(vp, "Información actualizada");
+                } else {
+                    JOptionPane.showMessageDialog(vp, "Error");
+                }
+            }
             System.out.println("admin");
             MAdmin m = MAdmin.obtenerPorEmail(usuario.getEmail());
             cerrar(m);
         }
         if (usuario instanceof MUsuario) {
-            ((MUsuario) usuario).editar();
+            if (file == null) {
+                if (((MUsuario) usuario).editarSinFoto()) {
+                    JOptionPane.showMessageDialog(vp, "Información actualizada");
+                } else {
+                    JOptionPane.showMessageDialog(vp, "Error");
+                }
+            } else {
+                if (((MUsuario) usuario).editar()) {
+                    JOptionPane.showMessageDialog(vp, "Información actualizada");
+                } else {
+                    JOptionPane.showMessageDialog(vp, "Error");
+                }
+            }
             System.out.println("user");
             MUsuario m = MUsuario.obtenerPorEmail(usuario.getEmail());
             cerrar(m);
@@ -78,7 +102,7 @@ public class CEditarPerfil {
         vp.getjDateNacimiento().setDate(usuario.getFechaNac());
 
         if (usuario.getFoto() != null) {
-            vp.getLblFoto().setIcon(new ImageIcon(CUtils.redimensionarImagen(usuario.getFoto(), vp.getLblFoto())));
+            vp.getLblFoto1().setIcon(new ImageIcon(CUtils.redimensionarImagen(usuario.getFoto(), vp.getLblFoto())));
         }
 
         if (usuario instanceof MAdmin) {
