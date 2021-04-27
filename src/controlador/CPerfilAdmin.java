@@ -324,6 +324,7 @@ public class CPerfilAdmin {
 
     private void principal() {
         categorias();
+        listar("");
         vista.setLocationRelativeTo(null);
         vista.setVisible(true);
         vp.dispose();
@@ -391,6 +392,8 @@ public class CPerfilAdmin {
             vistap.getLbFoto().setIcon(icon);
         }
 
+        vistap.getLblEstrella().setVisible(false);
+
         vistap.getLbTitulo().setText(serie.getTitulo());
         MouseListener ml = new MouseListener() {
             @Override
@@ -432,6 +435,8 @@ public class CPerfilAdmin {
                 icon = new ImageIcon(newimg);
                 vistap.getLbFoto().setIcon(icon);
             }
+            vistap.getLblEstrella().setVisible(false);
+
         }
 
         vistap.getLbTitulo().setText(peli.getTitulo());
